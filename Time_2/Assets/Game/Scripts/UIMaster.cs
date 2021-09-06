@@ -9,7 +9,14 @@ public class UIMaster : MonoBehaviour
 {
     public GameObject PauseMenuUI;
     public GameObject SettingsUI;
+    public GameObject InteractButton;
+    private bool intActive = false;
     private bool _paused = false;
+
+    private void Start()
+    {
+        InteractButton.SetActive(false);
+    }
 
     public void Pause(){
         if (_paused)
@@ -50,5 +57,10 @@ public class UIMaster : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }
-
+    
+    public void InteractRender()
+    {
+        intActive = !intActive;
+        InteractButton.SetActive(intActive);
+    }
 }
