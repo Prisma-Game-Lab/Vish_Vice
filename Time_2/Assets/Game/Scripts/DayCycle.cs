@@ -22,12 +22,12 @@ public class DayCycle : MonoBehaviour
         //dando a impressão de anoitecer e amanhecer em um total de 2 minutos.
         if (timer < 61) {
             if (timer > ind) {
-                transform.Rotate(-1, 0, 0);
+                transform.Rotate(-12, 0, 0);
                 ind++;
             }
         } else if (timer < 121) {
             if (timer > ind) {
-                transform.Rotate(1, 0, 0);
+                transform.Rotate(12, 0, 0);
                 ind++;
             }
         } else
