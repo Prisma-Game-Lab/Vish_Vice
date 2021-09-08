@@ -10,6 +10,7 @@ public class UIMaster : MonoBehaviour
     public GameObject PauseMenuUI;
     public GameObject SettingsUI;
     public GameObject InteractButton;
+    public GameObject Player;
     private bool intActive = false;
     private bool _paused = false;
 
@@ -17,7 +18,6 @@ public class UIMaster : MonoBehaviour
     {
         InteractButton.SetActive(false);
     }
-
     public void Pause(){
         if (_paused)
         {
@@ -62,5 +62,10 @@ public class UIMaster : MonoBehaviour
     {
         intActive = !intActive;
         InteractButton.SetActive(intActive);
+    }
+
+    public void InteractButtonAction()
+    {
+        Player.GetComponent<MakeInteraction>().GreetNpc();
     }
 }
