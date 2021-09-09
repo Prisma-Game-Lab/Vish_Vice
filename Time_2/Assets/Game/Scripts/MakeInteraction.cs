@@ -10,23 +10,26 @@ public class MakeInteraction : MonoBehaviour
     [HideInInspector]public bool interacting;
     private GameObject _npc;
     private DialogueManager _dialogueManager;
+    private UIMaster _uiMaster;
+    private PlayerInput _playerInput;
 
     private void Start()
     {
         _dialogueManager = gameManager.GetComponent<DialogueManager>();
+        _uiMaster = gameManager.GetComponent<UIMaster>();
+        _playerInput = GetComponent<PlayerInput>();
     }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && interacting)
         {
-            if(interacting)
-                interacting = _dialogueManager.DisplayNextSentence();
+             interacting = _dialogueManager.DisplayNextSentence();
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("NPC")) {
-            gameManager.GetComponent<UIMaster>().InteractButton.SetActive(true);
+            _uiMaster.InteractButton.SetActive(true);
             _npc = other.gameObject;
         }
     }
@@ -35,7 +38,7 @@ public class MakeInteraction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC"))
         {
-            gameManager.GetComponent<UIMaster>().InteractButton.SetActive(false);
+            _uiMaster.InteractButton.SetActive(false);
             _npc = null;
         }
     }
@@ -43,10 +46,14 @@ public class MakeInteraction : MonoBehaviour
     public void GreetNpc()
     {
         interacting = true;
-        GetComponent<PlayerInput>().variableJoystick.gameObject.SetActive(false);
-        _dialogueManager.StartDialog(_npc.GetComponent<NPCInteraction>().Greet());
+        _playerInput.variableJoystick.gameObject.SetActive(false);
+
+        NPCInteraction npcInteraction = _npc.GetComponent<NPCInteraction>();
+        _dialogueManager.StartDialog(npcInteraction.Greet());
+        _dialogueManager._displayName.text = npcInteraction.npcName != "" ? npcInteraction.npcName : "sem nome";
+
         DialogPanel.SetActive(true);
-        gameManager.GetComponent<UIMaster>().InteractButton.SetActive(false);
+        _uiMaster.InteractButton.SetActive(false);
 
     }
 

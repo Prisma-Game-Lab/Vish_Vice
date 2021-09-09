@@ -10,9 +10,10 @@ public enum RelationshipStatus{
 }
 public class NPCInteraction : MonoBehaviour
 {
+    public string npcName;
     public RelationshipStatus npcStatus;
-    public List<GameObject> GreetingOptions;
-
+    public List<Dialogue> GreetingOptions;
+    
     private void Start()
     {
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
@@ -23,11 +24,11 @@ public class NPCInteraction : MonoBehaviour
         switch (npcStatus)
         {
             case RelationshipStatus.low:
-                return GreetingOptions[0].GetComponent<Dialogue>();
+                return GreetingOptions[0];
             case RelationshipStatus.neutral:
-                return GreetingOptions[1].GetComponent<Dialogue>();
+                return GreetingOptions[1];
             default:
-                return GreetingOptions[2].GetComponent<Dialogue>();
+                return GreetingOptions[2];
         }
     }
 }
