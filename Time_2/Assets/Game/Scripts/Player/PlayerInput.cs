@@ -6,7 +6,12 @@ public class PlayerInput : MonoBehaviour
 {
     public float speed;
     public VariableJoystick variableJoystick;
-    public CharacterController controller;
+    private CharacterController controller;
+
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
 
     private void Update()
     {

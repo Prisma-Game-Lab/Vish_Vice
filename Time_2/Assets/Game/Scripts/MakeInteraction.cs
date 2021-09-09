@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class MakeInteraction : MonoBehaviour
 {
     public GameObject gameManager;
-    public GameObject DialogueManagerObject;
     public GameObject DialogPanel;
     [HideInInspector]public bool interacting;
     private GameObject _npc;
@@ -14,7 +13,7 @@ public class MakeInteraction : MonoBehaviour
 
     private void Start()
     {
-        _dialogueManager = DialogueManagerObject.GetComponent<DialogueManager>();
+        _dialogueManager = gameManager.GetComponent<DialogueManager>();
     }
     private void Update()
     {
