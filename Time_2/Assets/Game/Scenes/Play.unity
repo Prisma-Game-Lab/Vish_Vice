@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 17:10
+  m_text: 00:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2131,8 +2131,8 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -6444,8 +6444,8 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -6913,16 +6913,16 @@ MonoBehaviour:
   sun: {fileID: 485102771}
   sunColor:
     serializedVersion: 2
-    key0: {r: 1, g: 0.9070964, b: 0.49411762, a: 1}
+    key0: {r: 0.990566, g: 0.93586177, b: 0.62144, a: 1}
     key1: {r: 0.9811321, g: 0.91735274, b: 0.68956923, a: 1}
-    key2: {r: 0.9811321, g: 0.7216784, b: 0.51370597, a: 0}
+    key2: {r: 0.98039216, g: 0.6624958, b: 0.5137255, a: 0}
     key3: {r: 0.9811321, g: 0.7216784, b: 0.51370597, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 36044
     ctime2: 65535
     ctime3: 65535
     ctime4: 0
@@ -6994,9 +6994,9 @@ MonoBehaviour:
   moon: {fileID: 1824895363}
   moonColor:
     serializedVersion: 2
-    key0: {r: 0.49803925, g: 0.62352943, b: 0.9921569, a: 1}
+    key0: {r: 0.31167677, g: 0.39544377, b: 0.6415094, a: 1}
     key1: {r: 0.80833924, g: 0.8574003, b: 0.990566, a: 1}
-    key2: {r: 0.49803922, g: 0.62324786, b: 0.99215686, a: 0}
+    key2: {r: 0.30980393, g: 0.39607847, b: 0.6431373, a: 0}
     key3: {r: 0.49803922, g: 0.62324786, b: 0.99215686, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
