@@ -8,6 +8,7 @@ TagManager:
   - BackgroundSlider
   - EffectsSlider
   - NPC
+  - Wood
   layers:
   - Default
   - TransparentFX
