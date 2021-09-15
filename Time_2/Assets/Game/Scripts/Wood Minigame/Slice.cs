@@ -15,13 +15,14 @@ public class Slice : MonoBehaviour
     private Vector3 _startPos;
     private Vector3 _endPos;
     private bool _isCutting = false;
-    // Start is called before the first frame update
+    private float _minDiagonal = 0.1f;
+    private float _maxDiagonal = 0.9f;
+
     void Start()
     {
         cam = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0)) {
@@ -40,7 +41,6 @@ public class Slice : MonoBehaviour
         {
             _isCutting = false;
         }
-
         woodCountText.GetComponent<Text>().text = "Madeira Obtida: " + woodCount.ToString();
     }
 
@@ -57,19 +57,23 @@ public class Slice : MonoBehaviour
             {
                 return true;
             }
-        } else if (desired.y == 1 && desired.x != 0)
+        } else
         {
-            float angle = Vector3.SignedAngle(desired, drawn, Vector3.up); //Returns the angle between -180 and 180.
-            if (angle < 0) {
-                angle = 360 - angle * -1;
+            if(desired.x == -1)
+            {
+                if (drawn.x < -_minDiagonal && drawn.x > -_maxDiagonal && drawn.y < -_minDiagonal && drawn.y > -_maxDiagonal)
+                    return true;
+                else if (drawn.x > _minDiagonal && drawn.x < _maxDiagonal && drawn.y > _minDiagonal && drawn.y < _maxDiagonal)
+                    return true;
             }
-
-            if (angle < 60 || angle > 300) {
-                return true;
+            else
+            {
+                if (drawn.x < -_minDiagonal && drawn.x > -_maxDiagonal && drawn.y > _minDiagonal && drawn.y < _maxDiagonal)
+                    return true;
+                else if (drawn.x > _minDiagonal && drawn.x < _maxDiagonal && drawn.y < -_minDiagonal && drawn.y > -_maxDiagonal)
+                    return true;
             }
         }
-        
-
         return false;
     }
 
