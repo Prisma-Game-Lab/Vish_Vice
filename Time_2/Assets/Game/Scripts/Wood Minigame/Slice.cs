@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Slice : MonoBehaviour
 {
     public Camera cam;
     public GameObject particles;
+    public GameObject woodCountText;
     public float particleTime;
     public float tolerance;
+    public int woodCount = 0;
 
     private Vector3 _startPos;
     private Vector3 _endPos;
@@ -37,17 +40,35 @@ public class Slice : MonoBehaviour
         {
             _isCutting = false;
         }
+
+        woodCountText.GetComponent<Text>().text = "Madeira Obtida: " + woodCount.ToString();
     }
 
     private bool CheckCut(Vector3 desired, Vector3 drawn)
     {
-        if (Mathf.Abs(desired.x - drawn.x) < tolerance)
+        if (desired.y == 1 && desired.x == 0) {
+            if (Mathf.Abs(desired.x - drawn.x) < tolerance)
+            {
+                return true;
+            }
+        } else if (desired.y == 0 && desired.x == 1)
         {
-            return true;
-        } else if (Mathf.Abs(desired.y - drawn.y) < tolerance)
+            if (Mathf.Abs(desired.y - drawn.y) < tolerance)
+            {
+                return true;
+            }
+        } else if (desired.y == 1 && desired.x != 0)
         {
-            return true;
+            float angle = Vector3.SignedAngle(desired, drawn, Vector3.up); //Returns the angle between -180 and 180.
+            if (angle < 0) {
+                angle = 360 - angle * -1;
+            }
+
+            if (angle < 60 || angle > 300) {
+                return true;
+            }
         }
+        
 
         return false;
     }
@@ -67,10 +88,12 @@ public class Slice : MonoBehaviour
             _endPos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = _endPos - _startPos;
             Wood woodObject = collision.gameObject.GetComponent<Wood>();
-            if (CheckCut(woodObject.desiredDir, direction))
+            if (CheckCut(woodObject.desiredDir, direction/Vector3.Magnitude(direction)))
             {
                 GameObject cutFX = Instantiate(particles, collision.gameObject.transform.position, Quaternion.identity);
+                //Destroy(woodObject.line.gameObject);
                 Destroy(collision.gameObject);
+                woodCount++;
                 StartCoroutine(DestroyParticle(cutFX));
             }
         }
