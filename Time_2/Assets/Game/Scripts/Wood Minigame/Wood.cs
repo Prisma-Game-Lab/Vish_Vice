@@ -21,7 +21,7 @@ public class Wood : MonoBehaviour
         }
 
         line = Instantiate(linePrefab, transform.position, Quaternion.identity, transform);
-        line.transform.Rotate(0f, 0f, lineAngle);
+        //line.transform.Rotate(0f, 0f, lineAngle);
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class Wood : MonoBehaviour
         }
 
         //line.transform.position = transform.position;
-        //line.transform.rotation = Quaternion.Euler(0f, 0f, lineAngle);
+        line.transform.rotation = Quaternion.Euler(0f, 0f, lineAngle);
     }
 
     Vector3 setDirection(ref float lineAngle)

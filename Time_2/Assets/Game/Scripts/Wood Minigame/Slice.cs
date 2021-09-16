@@ -17,10 +17,14 @@ public class Slice : MonoBehaviour
     private bool _isCutting = false;
     private float _minDiagonal = 0.1f;
     private float _maxDiagonal = 0.9f;
+    private Text _woodText;
+    private Collider2D _playerCollider;
 
     void Start()
     {
         cam = Camera.main;
+        _woodText = woodCountText.GetComponent<Text>();
+        _playerCollider = gameObject.GetComponent<Collider2D>();
     }
 
     void Update()
@@ -30,18 +34,18 @@ public class Slice : MonoBehaviour
         }
 
         if (_isCutting) {
-            gameObject.GetComponent<Collider2D>().enabled = true;
+            _playerCollider.enabled = true;
             transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                 Input.mousePosition.y, 10f));
         } else {
-            gameObject.GetComponent<Collider2D>().enabled = false;
+            _playerCollider.enabled = false;
         }
 
         if (Input.GetMouseButtonUp(0) && _isCutting)
         {
             _isCutting = false;
         }
-        woodCountText.GetComponent<Text>().text = "Madeira Obtida: " + woodCount.ToString();
+        _woodText.text = "Madeira Obtida: " + woodCount.ToString();
     }
 
     private bool CheckCut(Vector3 desired, Vector3 drawn)
