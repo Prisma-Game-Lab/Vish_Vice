@@ -50,7 +50,7 @@ public class MakeInteraction : MonoBehaviour
 
         NPCInteraction npcInteraction = _npc.GetComponent<NPCInteraction>();
         _dialogueManager.StartDialog(npcInteraction.Greet());
-        _dialogueManager._displayName.text = npcInteraction.npcName != "" ? npcInteraction.npcName : "sem nome";
+        _uiMaster._displayName.text = npcInteraction.npcName != "" ? npcInteraction.npcName : "sem nome";
 
         DialogPanel.SetActive(true);
         _uiMaster.InteractButton.SetActive(false);

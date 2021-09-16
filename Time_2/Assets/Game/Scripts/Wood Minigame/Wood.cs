@@ -34,8 +34,8 @@ public class Wood : MonoBehaviour
             Destroy(gameObject);
         }
 
-        line.transform.position = transform.position;
-        line.transform.rotation = Quaternion.Euler(0f, 0f, lineAngle);
+        //line.transform.position = transform.position;
+        //line.transform.rotation = Quaternion.Euler(0f, 0f, lineAngle);
     }
 
     Vector3 setDirection(ref float lineAngle)
