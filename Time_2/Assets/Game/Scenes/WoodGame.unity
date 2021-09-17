@@ -3002,6 +3002,7 @@ MonoBehaviour:
   pauseButton: {fileID: 442403463}
   pauseMenu: {fileID: 820250069}
   settingsMenu: {fileID: 399632432}
+  slice: {fileID: 1305689507}
 --- !u!1 &1729799656
 GameObject:
   m_ObjectHideFlags: 0

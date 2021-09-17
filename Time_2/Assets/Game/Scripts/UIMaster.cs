@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class UIMaster : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class UIMaster : MonoBehaviour
     public GameObject InteractButton;
     public GameObject Player;
     public GameObject DialogPanel;
+    public TextMeshProUGUI woodText;
     private bool intActive = false;
     private bool _paused = false;
 
@@ -23,6 +25,8 @@ public class UIMaster : MonoBehaviour
 
     private void Start()
     {
+        Persistent persistentData = GameObject.FindGameObjectWithTag("persistentData").GetComponent<Persistent>();
+        woodText.text = "Wood: " + persistentData.quantWood.ToString();
         _displayText = DialogPanel.transform.GetChild(0).GetComponent<Text>();
         _displayName = DialogPanel.transform.GetChild(1).GetComponent<Text>();
         _touchToContinue = DialogPanel.transform.GetChild(2).gameObject;
@@ -32,6 +36,7 @@ public class UIMaster : MonoBehaviour
     }
 
     public void Pause(){
+        AudioManager.instance.Play("ButtonClick");
         if (_paused)
         {
             PauseMenuUI.SetActive(false);
@@ -49,6 +54,7 @@ public class UIMaster : MonoBehaviour
 
     public void BackToGame()
     {
+        AudioManager.instance.Play("ButtonClick");
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         _paused = false;
@@ -56,29 +62,34 @@ public class UIMaster : MonoBehaviour
 
     public void GoToSettings()
     {
+        AudioManager.instance.Play("ButtonClick");
         PauseMenuUI.SetActive(false);
         SettingsUI.SetActive(true);
     }
 
     public void BackToPauseMenu()
     {
+        AudioManager.instance.Play("ButtonClick");
         PauseMenuUI.SetActive(true);
         SettingsUI.SetActive(false);
     }
     public void GoToMainMenu()
     {
+        AudioManager.instance.Play("ButtonClick");
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }
     
     public void InteractRender()
     {
+        AudioManager.instance.Play("ButtonClick");
         intActive = !intActive;
         InteractButton.SetActive(intActive);
     }
 
     public void InteractButtonAction()
     {
+        AudioManager.instance.Play("ButtonClick");
         Player.GetComponent<MakeInteraction>().GreetNpc();
     }
 }

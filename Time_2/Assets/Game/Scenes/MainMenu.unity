@@ -2873,7 +2873,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 117.1
+  m_fontSize: 129.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3537,6 +3537,42 @@ PrefabInstance:
     - target: {fileID: 6217723933304921644, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217723933304921645, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217723933304921645, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
+      propertyPath: soundEffects.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b4f240d3ed7a674c8d459861b9b9f84, type: 3}
+    - target: {fileID: 6217723933304921645, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
+      propertyPath: soundEffects.Array.data[0].name
+      value: Chop_Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217723933304921645, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
+      propertyPath: soundEffects.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e8859b5bd32c9346aad2f2fdfac12e1, type: 3}
+    - target: {fileID: 6217723933304921645, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
+      propertyPath: soundEffects.Array.data[1].name
+      value: ButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217723933304921645, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
+      propertyPath: soundEffects.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217723933304921645, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
+      propertyPath: soundEffects.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217723933304921645, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
+      propertyPath: soundEffects.Array.data[0].volume
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217723933304921645, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
+      propertyPath: soundEffects.Array.data[1].volume
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 6217723933304921646, guid: 1d0c56379f7d3cf41950f14beea5dcac, type: 3}
       propertyPath: m_RootOrder

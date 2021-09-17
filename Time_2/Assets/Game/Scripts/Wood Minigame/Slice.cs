@@ -102,6 +102,7 @@ public class Slice : MonoBehaviour
                 //Destroy(woodObject.line.gameObject);
                 Destroy(collision.gameObject);
                 woodCount++;
+                AudioManager.instance.Play("Chop_Wood");
                 StartCoroutine(DestroyParticle(cutFX));
             }
         }

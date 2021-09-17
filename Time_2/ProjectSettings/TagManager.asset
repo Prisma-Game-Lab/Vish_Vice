@@ -9,6 +9,7 @@ TagManager:
   - EffectsSlider
   - NPC
   - Wood
+  - persistentData
   layers:
   - Default
   - TransparentFX

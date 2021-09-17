@@ -9,6 +9,7 @@ public class MinigameMenu : MonoBehaviour
     public GameObject pauseButton;
     public GameObject pauseMenu;
     public GameObject settingsMenu;
+    public Slice slice;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class MinigameMenu : MonoBehaviour
 
     public void MinigamePause()
     {
+        AudioManager.instance.Play("ButtonClick");
         pauseButton.SetActive(false);
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -30,6 +32,7 @@ public class MinigameMenu : MonoBehaviour
 
     public void MinigameUnpause()
     {
+        AudioManager.instance.Play("ButtonClick");
         pauseButton.SetActive(true);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
@@ -37,19 +40,23 @@ public class MinigameMenu : MonoBehaviour
 
     public void MinigameSettings()
     {
+        AudioManager.instance.Play("ButtonClick");
         settingsMenu.SetActive(true);
         pauseMenu.SetActive(false);
     }
 
     public void MinigameCloseSettings()
     {
+        AudioManager.instance.Play("ButtonClick");
         settingsMenu.SetActive(false);
         pauseMenu.SetActive(true);
     }
 
     public void MinigameEnd()
     {
+        AudioManager.instance.Play("ButtonClick");
         Time.timeScale = 1f;
+        GameObject.FindGameObjectWithTag("persistentData").GetComponent<Persistent>().quantWood += slice.woodCount;
         SceneManager.LoadScene("Play");
     }
 }
