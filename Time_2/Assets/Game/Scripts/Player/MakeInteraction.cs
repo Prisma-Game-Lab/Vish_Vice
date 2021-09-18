@@ -12,9 +12,11 @@ public class MakeInteraction : MonoBehaviour
     private DialogueManager _dialogueManager;
     private UIMaster _uiMaster;
     private PlayerInput _playerInput;
+    private QuestManager questManager;
 
     private void Start()
     {
+        questManager = gameManager.GetComponent<QuestManager>();
         _dialogueManager = gameManager.GetComponent<DialogueManager>();
         _uiMaster = gameManager.GetComponent<UIMaster>();
         _playerInput = GetComponent<PlayerInput>();
@@ -48,13 +50,15 @@ public class MakeInteraction : MonoBehaviour
         interacting = true;
         _playerInput.variableJoystick.gameObject.SetActive(false);
 
-        NPCInteraction npcInteraction = _npc.GetComponent<NPCInteraction>();
-        _dialogueManager.StartDialog(npcInteraction.Greet());
-        _uiMaster._displayName.text = npcInteraction.npcName != "" ? npcInteraction.npcName : "sem nome";
-
         DialogPanel.SetActive(true);
         _uiMaster.InteractButton.SetActive(false);
 
+        NPCInteraction npcInteraction = _npc.GetComponent<NPCInteraction>();
+        questManager.newQuestNPC = npcInteraction;
+        _dialogueManager.StartDialog(npcInteraction.Greet());
+        _uiMaster._displayName.text = npcInteraction.npcName != "" ? npcInteraction.npcName : "sem nome";
+
+        
     }
 
 

@@ -10,18 +10,20 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> _sentences;
     private UIMaster uiMaster;
+    private QuestManager questManager;
     private bool hasQuest;
 
 
     void Start()
     {
         uiMaster = GetComponent<UIMaster>();
+        questManager = GetComponent<QuestManager>();
         _sentences = new Queue<string>();
-
     }
 
     public void StartDialog(Dialogue dialogue)
     {
+        print(dialogue);
         foreach (string sentence in dialogue.sentences)
         {
             _sentences.Enqueue(sentence);
@@ -33,14 +35,17 @@ public class DialogueManager : MonoBehaviour
 
     public bool DisplayNextSentence()
     {
-        if (_sentences.Count == 0)
+        if (_sentences.Count == 0 && !hasQuest)
         {
             EndDialogue();
             return false;
         }
 
-        string sentence = _sentences.Dequeue();
-        uiMaster._displayText.text = sentence;
+        if (_sentences.Count != 0)
+        {
+            string sentence = _sentences.Dequeue();
+            uiMaster._displayText.text = sentence;
+        }
 
         if (hasQuest && _sentences.Count == 0)
         {
@@ -68,15 +73,14 @@ public class DialogueManager : MonoBehaviour
 
     public void QuestAnswer(bool accept)
     {
+        print("QuestAnswer");
         if (accept)
         {
+            print("aceita");
             //comeca quest
-            //falta implementar um sistema de quests
+            questManager.addQuest();
         }
-        else
-        {
-            EndDialogue();
-        }
+        EndDialogue();
     }
 
 }
