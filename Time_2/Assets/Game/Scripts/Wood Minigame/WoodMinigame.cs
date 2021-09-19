@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wood : MonoBehaviour
+public class WoodMinigame : MonoBehaviour
 {
     public Vector3 desiredDir;
     private float rotationDir;

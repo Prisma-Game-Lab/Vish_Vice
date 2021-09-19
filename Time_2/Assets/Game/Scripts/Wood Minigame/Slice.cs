@@ -95,7 +95,7 @@ public class Slice : MonoBehaviour
         {
             _endPos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = _endPos - _startPos;
-            Wood woodObject = collision.gameObject.GetComponent<Wood>();
+            WoodMinigame woodObject = collision.gameObject.GetComponent<WoodMinigame>();
             if (CheckCut(woodObject.desiredDir, direction/Vector3.Magnitude(direction)))
             {
                 GameObject cutFX = Instantiate(particles, collision.gameObject.transform.position, Quaternion.identity);

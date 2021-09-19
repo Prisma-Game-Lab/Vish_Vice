@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class DayCycle : MonoBehaviour
 {
     [Range(0.0f, 1.0f)]
     public float time;
     public float fullDayLenght;
-    public float startTime = 0.4f;
     private float timeRate;
     public Vector3 noon;
 
@@ -26,21 +26,41 @@ public class DayCycle : MonoBehaviour
     public AnimationCurve lightingIntensityMultiplier;
     public AnimationCurve reflectionsIntensityMultiplier;
 
-    public TextMeshProUGUI Time_txt;
+    public TextMeshProUGUI time_txt;
+    public TextMeshProUGUI day_txt;
+
+    Persistent persistentData;
+    [SerializeField] UnityEvent OnChangeDay;
 
     private void Start()
     {
+        persistentData = Persistent.current;
+        time = (persistentData.currentTime != 2) ? persistentData.currentTime : time;
+        fullDayLenght = (persistentData.fullDayLength != 2) ? persistentData.fullDayLength : fullDayLenght;
         timeRate = 1.0f / fullDayLenght;
-        time = startTime;
+        day_txt.text = "Dia: " + persistentData.currentDay;
     }
 
     private void Update()
     {
-        setTime();
+        checkDay();
+        calculateTime();
         lightController();
     }
 
-    void setTime()
+    //Faz a passagem de dia
+    void checkDay()
+    {
+        if (time <= 0)
+        {
+            persistentData.currentDay += 1;
+            day_txt.text = "Dia: " + persistentData.currentDay;
+            if (TryGetComponent(out QuestManager questManager))
+                questManager.CheckDayQuests();
+        }
+    }
+
+    void calculateTime()
     {
         //incrementa tempo
         time += timeRate * Time.deltaTime;
@@ -48,7 +68,7 @@ public class DayCycle : MonoBehaviour
             time = 0f;
         int hour = Mathf.FloorToInt(time * 24);
         int minutes = ((int)(((time * 24) % 1) * 6))*10;
-        Time_txt.text = hour.ToString("00") + ":" + minutes.ToString("00");
+        time_txt.text = hour.ToString("00") + ":" + minutes.ToString("00");
     }
 
     void lightController()
@@ -81,5 +101,9 @@ public class DayCycle : MonoBehaviour
         RenderSettings.ambientIntensity = lightingIntensityMultiplier.Evaluate(time);
         RenderSettings.reflectionIntensity = reflectionsIntensityMultiplier.Evaluate(time);
     }
-
+    private void OnDestroy()
+    {
+        persistentData.currentTime = time;
+        persistentData.fullDayLength = fullDayLenght;
+    }
 }

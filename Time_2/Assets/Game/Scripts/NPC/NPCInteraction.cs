@@ -15,20 +15,32 @@ public class NPCInteraction : MonoBehaviour
     public GameObject greetingOptions;
     private List<Dialogue> GreetingOptionsDialogue = new List<Dialogue>();
     public List<Quest> quests = new List<Quest>();
-    
+
+    private Persistent persistenData;
     
     [HideInInspector] public Quest dayQuest;
     
     private void Start()
     {
+        
         //Adiciona dialogos na lista de dialogos
         foreach (Transform child in greetingOptions.transform)
         {
             GreetingOptionsDialogue.Add(child.GetComponent<Dialogue>());
         }
+
+        persistenData = Persistent.current;
+       
+        CheckDayQuest();
+
+        //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
+    }
+
+    //Acha a quest do dia atual se ja nao estiver iniciado, referencia os dialogos
+    public void CheckDayQuest()
+    {
+        int currentDay = persistenData.currentDay;
         dayQuest = null;
-        //Acha a quest do dia atual se ja nao estiver iniciado e referencia os dialogos
-        int currentDay = GameObject.FindGameObjectWithTag("persistentData").GetComponent<Persistent>().currentDay;
         if (quests.Count > 0)
         {
             foreach (Quest quest in quests)
@@ -43,11 +55,10 @@ public class NPCInteraction : MonoBehaviour
                 }
             }
         }
-        print(quests.Count);
-        print(dayQuest);
-        if (dayQuest != null)
-            print(dayQuest.inProgress);
-        //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
+        //print(quests.Count);
+        //print(dayQuest);
+        //if (dayQuest != null)
+            //print(dayQuest.inProgress);
     }
 
     public Dialogue Greet()

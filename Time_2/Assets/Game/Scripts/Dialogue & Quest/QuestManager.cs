@@ -12,12 +12,15 @@ public enum ItemType
 public class QuestManager : MonoBehaviour
 {
     private UIMaster uiMaster;
-    public NPCInteraction newQuestNPC;
+    [HideInInspector] public NPCInteraction newQuestNPC;
     public List<Quest> activeQuests;
+
+    private GameObject[] questsNpcs;
 
 
     private void Start()
     {
+        questsNpcs = GameObject.FindGameObjectsWithTag("NPC");
         uiMaster = GetComponent<UIMaster>();
     }
 
@@ -29,6 +32,14 @@ public class QuestManager : MonoBehaviour
             Quest quest = newQuestNPC.dayQuest;
             activeQuests.Add(quest);
             newQuestNPC.dayQuest.inProgress = true;
+        }
+    }
+
+    public void CheckDayQuests()
+    {
+        foreach  (GameObject npc in questsNpcs)
+        {
+            npc.GetComponent<NPCInteraction>().CheckDayQuest();
         }
     }
 
