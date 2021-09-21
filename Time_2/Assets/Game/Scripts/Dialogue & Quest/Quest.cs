@@ -12,6 +12,7 @@ public class Quest
         public ItemType type;
         public int quantity;
     }
+    [HideInInspector] public string npcName;
     public string questName;
     public int questDay;
     [HideInInspector] public bool inProgress;

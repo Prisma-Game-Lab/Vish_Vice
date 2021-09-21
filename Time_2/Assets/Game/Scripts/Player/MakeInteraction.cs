@@ -31,7 +31,7 @@ public class MakeInteraction : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("NPC")) {
-            _uiMaster.InteractButton.SetActive(true);
+            _uiMaster.interactButton.SetActive(true);
             _npc = other.gameObject;
         }
     }
@@ -40,7 +40,7 @@ public class MakeInteraction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC"))
         {
-            _uiMaster.InteractButton.SetActive(false);
+            _uiMaster.interactButton.SetActive(false);
             _npc = null;
         }
     }
@@ -51,7 +51,7 @@ public class MakeInteraction : MonoBehaviour
         _playerInput.variableJoystick.gameObject.SetActive(false);
 
         DialogPanel.SetActive(true);
-        _uiMaster.InteractButton.SetActive(false);
+        _uiMaster.interactButton.SetActive(false);
 
         NPCInteraction npcInteraction = _npc.GetComponent<NPCInteraction>();
         questManager.newQuestNPC = npcInteraction;

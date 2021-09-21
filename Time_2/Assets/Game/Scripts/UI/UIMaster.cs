@@ -8,12 +8,16 @@ using TMPro;
 
 public class UIMaster : MonoBehaviour
 {
-    public GameObject PauseMenuUI;
-    public GameObject SettingsUI;
-    public GameObject InteractButton;
-    public GameObject Player;
-    public GameObject DialogPanel;
+    public GameObject pauseMenuUI;
+    public GameObject settingsUI;
+    public GameObject interactButton;
+    public GameObject player;
+    public GameObject dialogPanel;
+    public GameObject allQuestsPanel;
+    public GameObject questUI;
+    public GameObject questItemUI;
     public TextMeshProUGUI woodText;
+    public Sprite woodQuestIcon;
     private bool intActive = false;
     private bool _paused = false;
 
@@ -27,26 +31,26 @@ public class UIMaster : MonoBehaviour
     {
         Persistent persistentData = GameObject.FindGameObjectWithTag("persistentData").GetComponent<Persistent>();
         woodText.text = "Wood: " + persistentData.quantWood.ToString();
-        _displayText = DialogPanel.transform.GetChild(0).GetComponent<Text>();
-        _displayName = DialogPanel.transform.GetChild(1).GetComponent<Text>();
-        _touchToContinue = DialogPanel.transform.GetChild(2).gameObject;
-        acceptQuestButton = DialogPanel.transform.GetChild(3).gameObject;
-        declineQuestButton = DialogPanel.transform.GetChild(4).gameObject;
-        InteractButton.SetActive(false);
+        _displayText = dialogPanel.transform.GetChild(0).GetComponent<Text>();
+        _displayName = dialogPanel.transform.GetChild(1).GetComponent<Text>();
+        _touchToContinue = dialogPanel.transform.GetChild(2).gameObject;
+        acceptQuestButton = dialogPanel.transform.GetChild(3).gameObject;
+        declineQuestButton = dialogPanel.transform.GetChild(4).gameObject;
+        interactButton.SetActive(false);
     }
 
     public void Pause(){
         AudioManager.instance.Play("ButtonClick");
         if (_paused)
         {
-            PauseMenuUI.SetActive(false);
+            pauseMenuUI.SetActive(false);
             _paused = false;
             Time.timeScale = 1f;
             return;
         }
         else
         {
-            PauseMenuUI.SetActive(true);
+            pauseMenuUI.SetActive(true);
             _paused = true;
             Time.timeScale = 0f;
         }
@@ -55,7 +59,7 @@ public class UIMaster : MonoBehaviour
     public void BackToGame()
     {
         AudioManager.instance.Play("ButtonClick");
-        PauseMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         _paused = false;
     }
@@ -63,15 +67,15 @@ public class UIMaster : MonoBehaviour
     public void GoToSettings()
     {
         AudioManager.instance.Play("ButtonClick");
-        PauseMenuUI.SetActive(false);
-        SettingsUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
+        settingsUI.SetActive(true);
     }
 
     public void BackToPauseMenu()
     {
         AudioManager.instance.Play("ButtonClick");
-        PauseMenuUI.SetActive(true);
-        SettingsUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        settingsUI.SetActive(false);
     }
     public void GoToMainMenu()
     {
@@ -84,12 +88,12 @@ public class UIMaster : MonoBehaviour
     {
         AudioManager.instance.Play("ButtonClick");
         intActive = !intActive;
-        InteractButton.SetActive(intActive);
+        interactButton.SetActive(intActive);
     }
 
     public void InteractButtonAction()
     {
         AudioManager.instance.Play("ButtonClick");
-        Player.GetComponent<MakeInteraction>().GreetNpc();
+        player.GetComponent<MakeInteraction>().GreetNpc();
     }
 }

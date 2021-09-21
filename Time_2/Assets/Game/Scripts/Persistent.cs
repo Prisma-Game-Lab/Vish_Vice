@@ -8,6 +8,7 @@ public class Persistent : MonoBehaviour
     public int quantMetal;
     public int quantConcrete;
     public int currentDay;
+    public List<Quest> activeQuests;
 
     [HideInInspector] public float currentTime = 2;
     [HideInInspector] public float fullDayLength = 2;
@@ -26,15 +27,5 @@ public class Persistent : MonoBehaviour
         if(current==null)
             current = this;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

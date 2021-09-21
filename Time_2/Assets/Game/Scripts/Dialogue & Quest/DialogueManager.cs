@@ -59,8 +59,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        uiMaster.InteractButton.SetActive(true);
-        uiMaster.DialogPanel.SetActive(false);
+        uiMaster.interactButton.SetActive(true);
+        uiMaster.dialogPanel.SetActive(false);
         Joystick.SetActive(true);
     }
 
@@ -73,7 +73,7 @@ public class DialogueManager : MonoBehaviour
 
     public void QuestAnswer(bool accept)
     {
-        print("QuestAnswer");
+        //print("QuestAnswer");
         if (accept)
         {
             print("aceita");
