@@ -9,6 +9,7 @@ public class Persistent : MonoBehaviour
     public int quantConcrete;
     public int currentDay;
     public List<Quest> activeQuests;
+    public List<Quest> completedQuests;
 
     [HideInInspector] public float currentTime = 2;
     [HideInInspector] public float fullDayLength = 2;

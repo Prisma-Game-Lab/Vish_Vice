@@ -26,6 +26,8 @@ public class UIMaster : MonoBehaviour
     [HideInInspector] public GameObject _touchToContinue;
     [HideInInspector] public GameObject acceptQuestButton;
     [HideInInspector] public GameObject declineQuestButton;
+    [HideInInspector] public GameObject completeQuestButton;
+    [HideInInspector] public GameObject outQuestButton;
 
     private void Start()
     {
@@ -36,6 +38,8 @@ public class UIMaster : MonoBehaviour
         _touchToContinue = dialogPanel.transform.GetChild(2).gameObject;
         acceptQuestButton = dialogPanel.transform.GetChild(3).gameObject;
         declineQuestButton = dialogPanel.transform.GetChild(4).gameObject;
+        completeQuestButton = dialogPanel.transform.GetChild(5).gameObject;
+        outQuestButton = dialogPanel.transform.GetChild(6).gameObject;
         interactButton.SetActive(false);
     }
 

@@ -7,15 +7,15 @@ using UnityEngine.UI;
 public enum ItemType
 {
     Wood,
-    Stone,
-    Metal,
-    Supplies
+    Concrete,
+    Metal
 }
 public class QuestManager : MonoBehaviour
 {
     private UIMaster uiMaster;
     [HideInInspector] public NPCInteraction newQuestNPC;
     public List<Quest> activeQuests;
+    public List<Quest> completedQuests;
 
     private GameObject[] questsNpcs;
     private Persistent persistenData;
@@ -25,7 +25,7 @@ public class QuestManager : MonoBehaviour
         questsNpcs = GameObject.FindGameObjectsWithTag("NPC");
         uiMaster = GetComponent<UIMaster>();
         persistenData = Persistent.current;
-        if(persistenData.activeQuests!=null && persistenData.activeQuests.Count > 0)
+        if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
         {
             activeQuests = persistenData.activeQuests;
         }
@@ -43,6 +43,7 @@ public class QuestManager : MonoBehaviour
         if (newQuestNPC.dayQuest != null)
         {
             print("Quest adicionada!");
+            newQuestNPC.dayQuest.npc = newQuestNPC;
             newQuestNPC.dayQuest.inProgress = true;
             Quest quest = newQuestNPC.dayQuest;
             activeQuests.Add(quest);
@@ -63,7 +64,9 @@ public class QuestManager : MonoBehaviour
     {
         GameObject questUI = Instantiate(uiMaster.questUI, uiMaster.allQuestsPanel.transform);
         questUI.GetComponentInChildren<TextMeshProUGUI>().text = quest.questName;
+
         Transform allQuestItens = questUI.gameObject.transform.GetChild(1).transform;
+
         foreach (Quest.Item item in quest.wantedItens)
         {
             GameObject questItem = Instantiate(uiMaster.questItemUI, allQuestItens.transform);
@@ -78,20 +81,80 @@ public class QuestManager : MonoBehaviour
         {
             case ItemType.Wood:
                 return uiMaster.woodQuestIcon;
-            case ItemType.Stone:
+            case ItemType.Concrete:
                 return uiMaster.woodQuestIcon;
             case ItemType.Metal:
-                return uiMaster.woodQuestIcon;
-            case ItemType.Supplies:
                 return uiMaster.woodQuestIcon;
             default:
                 return uiMaster.woodQuestIcon;
         }
     }
 
+    public bool CompleteQuest()
+    {
+        if (newQuestNPC.dayQuest == null)
+            return false;
+
+        bool hasResources;
+        foreach (Quest.Item item in newQuestNPC.dayQuest.wantedItens)
+        {
+            hasResources = CheckItemQuantity(item);
+            if (!hasResources)
+                return false;
+        }
+        ConsumeItems(newQuestNPC.dayQuest);
+        UpdateUI();
+        activeQuests.Remove(newQuestNPC.dayQuest);
+        newQuestNPC.dayQuest.completed = true;
+        completedQuests.Add(newQuestNPC.dayQuest);
+        newQuestNPC.dayQuest = null;
+        
+        return true;
+    }
+
+    private bool CheckItemQuantity(Quest.Item item)
+    {
+        switch (item.type)
+        {
+            case ItemType.Wood:
+                return item.quantity <= persistenData.quantWood;
+            case ItemType.Concrete:
+                return item.quantity <= persistenData.quantConcrete;
+            case ItemType.Metal:
+                return item.quantity <= persistenData.quantMetal;
+            default:
+                return false;
+        }
+    }
+    private void ConsumeItems(Quest quest)
+    {
+        foreach (Quest.Item item in quest.wantedItens)
+        {
+            switch (item.type)
+            {
+                case ItemType.Wood:
+                    persistenData.quantWood -= item.quantity;
+                    break;
+                case ItemType.Concrete:
+                    persistenData.quantConcrete -= item.quantity;
+                    break;
+                case ItemType.Metal:
+                    persistenData.quantMetal -= item.quantity;
+                    break;
+            }
+        }
+    }
+
+    private void UpdateUI()
+    {
+        uiMaster.woodText.text = "Wood: "+persistenData.quantWood.ToString();
+    }
+
     private void OnDestroy()
     {
         persistenData.activeQuests = activeQuests;
+        persistenData.completedQuests = completedQuests;
     }
+
 
 }

@@ -12,31 +12,32 @@ public class NPCInteraction : MonoBehaviour
 {
     public string npcName;
     public RelationshipStatus npcStatus;
+
     public GameObject greetingOptions;
     private List<Dialogue> GreetingOptionsDialogue = new List<Dialogue>();
     public List<Quest> quests = new List<Quest>();
 
     private Persistent persistenData;
-    
+
     [HideInInspector] public Quest dayQuest;
-    
+
     private void Start()
     {
-        
-        //Adiciona dialogos na lista de dialogos
+
+        //Adiciona dialogos na lista de dialogos desse npc
         foreach (Transform child in greetingOptions.transform)
         {
             GreetingOptionsDialogue.Add(child.GetComponent<Dialogue>());
         }
 
         persistenData = Persistent.current;
-       
+
         CheckDayQuest();
 
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
     }
 
-    //Acha a quest do dia atual se ja nao estiver iniciado, referencia os dialogos
+    //Acha a quest do dia atual e referencia os dialogos
     public void CheckDayQuest()
     {
         int currentDay = persistenData.currentDay;
@@ -48,22 +49,42 @@ public class NPCInteraction : MonoBehaviour
                 if (quest.questDay == currentDay)
                 {
                     dayQuest = quest;
-                    dayQuest.startDialogue = dayQuest.questDialogues.transform.GetChild(0).GetComponent<Dialogue>();
-                    dayQuest.inProgressDialogue = dayQuest.questDialogues.transform.GetChild(1).GetComponent<Dialogue>();
-                    dayQuest.completedDialogue = dayQuest.questDialogues.transform.GetChild(2).GetComponent<Dialogue>();
+                    foreach (Quest persistentQuest in persistenData.activeQuests)
+                    {
+                        if (quest.questName == persistentQuest.questName)
+                        {
+                            print("atribuiu");
+                            dayQuest.inProgress = persistentQuest.inProgress;
+                            dayQuest.completed = persistentQuest.completed;
+                            break;
+                        }
+                    }
+                    FillQuestDialogues(quest);
+
+                    print(dayQuest.completed);
+                    print(dayQuest.inProgress);
+                    if (dayQuest.completed)
+                    {
+                        print("Completa e nulifica");
+                        dayQuest = null;
+                    }
                     break;
                 }
             }
         }
-        //print(quests.Count);
-        //print(dayQuest);
-        //if (dayQuest != null)
-            //print(dayQuest.inProgress);
     }
 
+    private void FillQuestDialogues(Quest quest)
+    {
+        dayQuest.startDialogue = dayQuest.questDialogues.transform.GetChild(0).GetComponent<Dialogue>();
+        dayQuest.inProgressDialogue = dayQuest.questDialogues.transform.GetChild(1).GetComponent<Dialogue>();
+        dayQuest.completedDialogue = dayQuest.questDialogues.transform.GetChild(2).GetComponent<Dialogue>();
+    }
+
+    //Define qual diálogo o npc usará
     public Dialogue Greet()
     {
-        if (dayQuest!=null && dayQuest.questName == null)
+        if (dayQuest != null && dayQuest.questName == null)
         {
             dayQuest = null;
             Debug.LogWarning("Quest sem nome definido!");
@@ -71,25 +92,36 @@ public class NPCInteraction : MonoBehaviour
         if (dayQuest != null)
         {
             print("dialogo quest");
-            if (dayQuest.inProgress)
-                return dayQuest.inProgressDialogue;
-            else if (dayQuest.completed)
-                return dayQuest.completedDialogue;
-            else
-                return dayQuest.startDialogue;
+            return questDialogue();
         }
         else
         {
             print("dialogo normal");
-            switch (npcStatus)
-            {
-                case RelationshipStatus.low:
-                    return GreetingOptionsDialogue[0];
-                case RelationshipStatus.neutral:
-                    return GreetingOptionsDialogue[1];
-                default:
-                    return GreetingOptionsDialogue[2];
-            }
+            return normalDialogue();
         }
     }
+
+    private Dialogue questDialogue()
+    {
+        if (dayQuest.inProgress)
+            return dayQuest.inProgressDialogue;
+        else if (dayQuest.completed)
+            return dayQuest.completedDialogue;
+        else
+            return dayQuest.startDialogue;
+    }
+
+    private Dialogue normalDialogue()
+    {
+        switch (npcStatus)
+        {
+            case RelationshipStatus.low:
+                return GreetingOptionsDialogue[0];
+            case RelationshipStatus.neutral:
+                return GreetingOptionsDialogue[1];
+            default:
+                return GreetingOptionsDialogue[2];
+        }
+    }
+
 }
