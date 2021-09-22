@@ -2206,21 +2206,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Cleyson
   npcStatus: 2
+  questManager: {fileID: 1939141608}
   greetingOptions: {fileID: 322295013}
   quests:
   - npcName: 
     questName: testando
-    questDay: 1
+    questDay: 0
     inProgress: 0
     completed: 0
     startDialogue: {fileID: 0}
     inProgressDialogue: {fileID: 0}
     completedDialogue: {fileID: 0}
-    npc: {fileID: 0}
     questDialogues: {fileID: 693832792}
     wantedItens:
     - type: 0
-      quantity: 10
+      quantity: 3
   dayQuest:
     npcName: 
     questName: 
@@ -2230,7 +2230,6 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
     inProgressDialogue: {fileID: 0}
     completedDialogue: {fileID: 0}
-    npc: {fileID: 0}
     questDialogues: {fileID: 0}
     wantedItens: []
 --- !u!1 &341958208
@@ -2714,17 +2713,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Creuza
   npcStatus: 1
+  questManager: {fileID: 1939141608}
   greetingOptions: {fileID: 1727998953}
   quests:
   - npcName: 
     questName: Contrucao 10 cimentos
-    questDay: 0
+    questDay: 1
     inProgress: 0
     completed: 0
     startDialogue: {fileID: 0}
     inProgressDialogue: {fileID: 0}
     completedDialogue: {fileID: 0}
-    npc: {fileID: 0}
     questDialogues: {fileID: 289305929}
     wantedItens:
     - type: 0
@@ -2742,7 +2741,6 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
     inProgressDialogue: {fileID: 0}
     completedDialogue: {fileID: 0}
-    npc: {fileID: 0}
     questDialogues: {fileID: 0}
     wantedItens: []
 --- !u!136 &382949432
@@ -4148,7 +4146,7 @@ MonoBehaviour:
   sentences:
   - "\xC9 pra Hoje! cade as pedras!?"
   isQuest: 0
-  questInProgress: 0
+  questInProgress: 1
 --- !u!1 &549550200
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,7 +4193,7 @@ MonoBehaviour:
   sentences:
   - "\xC9 pra Hoje! cade as pedras!?"
   isQuest: 0
-  questInProgress: 0
+  questInProgress: 1
 --- !u!1 &550110964
 GameObject:
   m_ObjectHideFlags: 0
@@ -4857,6 +4855,7 @@ MonoBehaviour:
   quantConcrete: 0
   currentDay: 0
   activeQuests: []
+  completedQuests: []
   currentTime: 2
   fullDayLength: 2
 --- !u!114 &693764536
@@ -5466,7 +5465,7 @@ MonoBehaviour:
   sentences:
   - Passa o cimento!
   isQuest: 0
-  questInProgress: 0
+  questInProgress: 1
 --- !u!1 &764069388
 GameObject:
   m_ObjectHideFlags: 0
@@ -7811,21 +7810,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Epaminondas
   npcStatus: 0
+  questManager: {fileID: 1939141608}
   greetingOptions: {fileID: 1802740569}
   quests:
   - npcName: 
     questName: Brabo
-    questDay: 0
+    questDay: 1
     inProgress: 0
     completed: 0
     startDialogue: {fileID: 0}
     inProgressDialogue: {fileID: 0}
     completedDialogue: {fileID: 0}
-    npc: {fileID: 0}
     questDialogues: {fileID: 1699223936}
     wantedItens:
-    - type: 3
-      quantity: 10
+    - type: 0
+      quantity: 3
   dayQuest:
     npcName: 
     questName: 
@@ -7835,7 +7834,6 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
     inProgressDialogue: {fileID: 0}
     completedDialogue: {fileID: 0}
-    npc: {fileID: 0}
     questDialogues: {fileID: 0}
     wantedItens: []
 --- !u!136 &1150669806
@@ -13375,7 +13373,7 @@ MonoBehaviour:
   sentences:
   - To esperando pelas madeiras!
   isQuest: 0
-  questInProgress: 0
+  questInProgress: 1
 --- !u!1 &1939141602
 GameObject:
   m_ObjectHideFlags: 0
@@ -13745,6 +13743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newQuestNPC: {fileID: 0}
   activeQuests: []
+  completedQuests: []
 --- !u!1 &1945147235
 GameObject:
   m_ObjectHideFlags: 0

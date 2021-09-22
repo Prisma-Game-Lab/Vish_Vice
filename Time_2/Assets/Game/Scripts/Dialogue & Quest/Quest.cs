@@ -20,7 +20,6 @@ public class Quest
     [HideInInspector] public Dialogue startDialogue;
     [HideInInspector] public Dialogue inProgressDialogue;
     [HideInInspector] public Dialogue completedDialogue;
-    [HideInInspector] public NPCInteraction npc;
     public GameObject questDialogues;
     public List<Item> wantedItens;
 }

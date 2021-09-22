@@ -13,6 +13,7 @@ public class NPCInteraction : MonoBehaviour
     public string npcName;
     public RelationshipStatus npcStatus;
 
+    public QuestManager questManager;
     public GameObject greetingOptions;
     private List<Dialogue> GreetingOptionsDialogue = new List<Dialogue>();
     public List<Quest> quests = new List<Quest>();
@@ -32,8 +33,6 @@ public class NPCInteraction : MonoBehaviour
 
         persistenData = Persistent.current;
 
-        CheckDayQuest();
-
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
     }
 
@@ -46,10 +45,19 @@ public class NPCInteraction : MonoBehaviour
         {
             foreach (Quest quest in quests)
             {
-                if (quest.questDay == currentDay)
+                bool completed = false;
+                foreach (Quest completedQuest in questManager.completedQuests)
+                {
+                    if (quest.questName == completedQuest.questName)
+                    {
+                        completed = true;
+                        break;
+                    }
+                }
+                if (quest.questDay == currentDay && !completed)
                 {
                     dayQuest = quest;
-                    foreach (Quest persistentQuest in persistenData.activeQuests)
+                    foreach (Quest persistentQuest in questManager.activeQuests)
                     {
                         if (quest.questName == persistentQuest.questName)
                         {
@@ -59,15 +67,10 @@ public class NPCInteraction : MonoBehaviour
                             break;
                         }
                     }
-                    FillQuestDialogues(quest);
+                    FillQuestDialogues(dayQuest);
 
                     print(dayQuest.completed);
                     print(dayQuest.inProgress);
-                    if (dayQuest.completed)
-                    {
-                        print("Completa e nulifica");
-                        dayQuest = null;
-                    }
                     break;
                 }
             }
@@ -91,12 +94,10 @@ public class NPCInteraction : MonoBehaviour
         }
         if (dayQuest != null)
         {
-            print("dialogo quest");
             return questDialogue();
         }
         else
         {
-            print("dialogo normal");
             return normalDialogue();
         }
     }

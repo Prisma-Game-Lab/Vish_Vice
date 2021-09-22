@@ -28,6 +28,7 @@ public class QuestManager : MonoBehaviour
         if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
         {
             activeQuests = persistenData.activeQuests;
+            completedQuests = persistenData.completedQuests;
         }
         if (activeQuests != null && activeQuests.Count > 0)
         {
@@ -36,6 +37,7 @@ public class QuestManager : MonoBehaviour
                 CreateQuestUI(quest);
             }
         }
+        CheckDayQuests();
     }
 
     public void addQuest()
@@ -43,12 +45,9 @@ public class QuestManager : MonoBehaviour
         if (newQuestNPC.dayQuest != null)
         {
             print("Quest adicionada!");
-            newQuestNPC.dayQuest.npc = newQuestNPC;
             newQuestNPC.dayQuest.inProgress = true;
-            Quest quest = newQuestNPC.dayQuest;
-            activeQuests.Add(quest);
-            CreateQuestUI(quest);
-
+            activeQuests.Add(newQuestNPC.dayQuest);
+            CreateQuestUI(newQuestNPC.dayQuest);
         }
     }
 

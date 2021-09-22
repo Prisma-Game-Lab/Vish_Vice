@@ -59,7 +59,6 @@ public class DialogueManager : MonoBehaviour
 
         if (questInProgress && _sentences.Count == 0)
         {
-            print("progresso");
             uiMaster.completeQuestButton.SetActive(true);
             uiMaster.outQuestButton.SetActive(true);
             uiMaster._touchToContinue.SetActive(false);
@@ -86,7 +85,6 @@ public class DialogueManager : MonoBehaviour
 
     public void QuestAnswer(bool accept)
     {
-        //print("QuestAnswer");
         if (accept)
         {
             print("aceita");
