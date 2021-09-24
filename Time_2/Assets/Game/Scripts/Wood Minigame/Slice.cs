@@ -31,6 +31,7 @@ public class Slice : MonoBehaviour
         _woodText = woodCountText.GetComponent<Text>();
         lostText = lostWoodText.GetComponent<Text>();
         _playerCollider = gameObject.GetComponent<Collider2D>();
+        lostText.text = "Erros restantes: " + lostCount.ToString();
     }
 
     void Update()
