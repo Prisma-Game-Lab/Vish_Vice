@@ -147,3 +147,4 @@ MonoBehaviour:
   desiredDir: {x: 0, y: 0, z: 0}
   linePrefab: {fileID: 3035389697909284447, guid: 615d72c7ba92e454db8205fc90bfb4a0, type: 3}
   line: {fileID: 3035389697909284447, guid: 615d72c7ba92e454db8205fc90bfb4a0, type: 3}
+  slice: {fileID: 0}

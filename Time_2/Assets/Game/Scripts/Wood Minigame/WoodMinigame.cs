@@ -8,17 +8,17 @@ public class WoodMinigame : MonoBehaviour
     private float rotationDir;
     public GameObject linePrefab;
     public GameObject line;
+    public Slice slice;
 
     private float lineAngle = 0f;
     // Start is called before the first frame update
     void Start()
     {
         desiredDir = setDirection(ref lineAngle);
-        rotationDir = UnityEngine.Random.Range(0, 2);
-        if (rotationDir == 0)
-        {
+        if (transform.position.x < 0)
             rotationDir = -1;
-        }
+        else
+            rotationDir = 1;
 
         line = Instantiate(linePrefab, transform.position, Quaternion.identity, transform);
         //line.transform.Rotate(0f, 0f, lineAngle);
@@ -27,8 +27,8 @@ public class WoodMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.forward * 100*rotationDir * Time.deltaTime);
-        if (transform.position.y < -10)
+        transform.Rotate(Vector3.forward * 80*rotationDir * Time.deltaTime);
+        if (transform.position.y < -20)
         {
             //Destroy(line.gameObject);
             Destroy(gameObject);

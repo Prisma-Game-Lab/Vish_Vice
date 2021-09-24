@@ -8,9 +8,14 @@ public class Slice : MonoBehaviour
     public Camera cam;
     public GameObject particles;
     public GameObject woodCountText;
+    public GameObject lostWoodText;
+    public Text finalWoodText;
+    public GameObject GameOverUI;
     public float particleTime;
     public float tolerance;
     public int woodCount = 0;
+    public int lostCount;
+    [HideInInspector] public Text lostText;
 
     private Vector3 _startPos;
     private Vector3 _endPos;
@@ -24,6 +29,7 @@ public class Slice : MonoBehaviour
     {
         cam = Camera.main;
         _woodText = woodCountText.GetComponent<Text>();
+        lostText = lostWoodText.GetComponent<Text>();
         _playerCollider = gameObject.GetComponent<Collider2D>();
     }
 
@@ -96,7 +102,7 @@ public class Slice : MonoBehaviour
             _endPos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = _endPos - _startPos;
             WoodMinigame woodObject = collision.gameObject.GetComponent<WoodMinigame>();
-            if (CheckCut(woodObject.desiredDir, direction/Vector3.Magnitude(direction)))
+            if (CheckCut(woodObject.desiredDir, direction / Vector3.Magnitude(direction)))
             {
                 GameObject cutFX = Instantiate(particles, collision.gameObject.transform.position, Quaternion.identity);
                 //Destroy(woodObject.line.gameObject);
@@ -105,7 +111,25 @@ public class Slice : MonoBehaviour
                 AudioManager.instance.Play("Chop_Wood");
                 StartCoroutine(DestroyParticle(cutFX));
             }
+            else
+            {
+                Debug.Log("Corte errado");
+                lostCount--;
+                lostText.text = "Erros restantes: " + lostCount.ToString();
+                if (lostCount == 0)
+                    EndWoodMinigame();
+            }
+                
+
         }
+    }
+
+
+    public void EndWoodMinigame()
+    {
+        GameOverUI.SetActive(true);
+        finalWoodText.text = "Você ganhou " + woodCount + "madeiras";
+        Time.timeScale = 0f;
     }
 
     private IEnumerator DestroyParticle(GameObject cutFX)
@@ -113,4 +137,6 @@ public class Slice : MonoBehaviour
         yield return new WaitForSeconds(particleTime);
         Destroy(cutFX);
     }
+
+
 }
