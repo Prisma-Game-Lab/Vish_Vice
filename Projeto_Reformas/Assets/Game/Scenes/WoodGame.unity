@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1209142564}
-  m_IndirectSpecularColor: {r: 0.44129816, g: 0.49010175, b: 0.5701534, a: 1}
+  m_IndirectSpecularColor: {r: 0.44129854, g: 0.490102, b: 0.57015413, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -945,7 +945,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80.3
+  m_fontSize: 53.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2547,7 +2547,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.2
+  m_fontSize: 45.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4148,7 +4148,7 @@ MonoBehaviour:
   pauseButton: {fileID: 442403463}
   pauseMenu: {fileID: 820250069}
   settingsMenu: {fileID: 399632432}
-  slice: {fileID: 0}
+  slice: {fileID: 269540726}
 --- !u!114 &1641314583
 MonoBehaviour:
   m_ObjectHideFlags: 0
