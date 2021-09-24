@@ -757,7 +757,7 @@ MonoBehaviour:
   particleTime: 2
   tolerance: 0.5
   woodCount: 0
-  lostCount: 3
+  lostCount: 30
   lostText: {fileID: 0}
 --- !u!50 &269540727
 Rigidbody2D:
@@ -3675,7 +3675,7 @@ GameObject:
   - component: {fileID: 1565481314}
   - component: {fileID: 1565481313}
   m_Layer: 5
-  m_Name: ResumeGameButton
+  m_Name: PlayAgainButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3747,7 +3747,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1641314582}
         m_TargetAssemblyTypeName: MinigameMenu, Assembly-CSharp
-        m_MethodName: MinigameUnpause
+        m_MethodName: MinigameRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4117,7 +4117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f895e72bc8c29c545babf848d53364f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodTimer: 2
+  minWoodSpawnTime: 0.5
+  maxWoodSpawnTime: 2.5
+  decreaseTimeInterval: 20
+  maxQtdWood: 3
+  increaseWoodTimeInterval: 40
   woodPrefab: {fileID: 890364086428745307, guid: 3d2518e5106db1046b42a69641e1c55c, type: 3}
 --- !u!4 &1641314581
 Transform:
@@ -4148,7 +4152,7 @@ MonoBehaviour:
   pauseButton: {fileID: 442403463}
   pauseMenu: {fileID: 820250069}
   settingsMenu: {fileID: 399632432}
-  slice: {fileID: 0}
+  slice: {fileID: 269540726}
 --- !u!114 &1641314583
 MonoBehaviour:
   m_ObjectHideFlags: 0

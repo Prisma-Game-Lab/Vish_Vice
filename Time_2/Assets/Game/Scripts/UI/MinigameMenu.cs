@@ -51,4 +51,13 @@ public class MinigameMenu : MonoBehaviour
         //Persistent.current.startTime
         SceneManager.LoadScene("Play");
     }
+
+    public void MinigameRestart()
+    {
+        AudioManager.instance.Play("ButtonClick");
+        Time.timeScale = 1f;
+        Persistent.current.quantWood += slice.woodCount;
+        SceneManager.LoadScene("WoodGame");
+    }
+
 }
