@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.5
+  m_fontSize: 71.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3027,6 +3027,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429620871}
   m_CullTransparentMesh: 1
+--- !u!1001 &430755616
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436036038929157, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450675657051500991, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
+      propertyPath: m_Name
+      value: Pinheiro (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c32edb16a7de35c49b1b6ffe3caa4b85, type: 3}
 --- !u!1 &443358762
 GameObject:
   m_ObjectHideFlags: 0
@@ -13639,9 +13696,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   time_txt: {fileID: 308248515}
   day_txt: {fileID: 1895558513}
-  OnChangeDay:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1939141607
 MonoBehaviour:
   m_ObjectHideFlags: 0
