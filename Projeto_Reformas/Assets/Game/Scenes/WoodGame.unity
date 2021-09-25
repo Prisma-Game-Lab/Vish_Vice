@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1209142564}
-  m_IndirectSpecularColor: {r: 0.44129854, g: 0.490102, b: 0.57015413, a: 1}
+  m_IndirectSpecularColor: {r: 0.44129816, g: 0.49010175, b: 0.5701534, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -569,11 +569,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2035387942}
+  - {fileID: 2070881706}
   - {fileID: 820250070}
   - {fileID: 399632433}
   - {fileID: 1525633000}
   - {fileID: 442403464}
-  - {fileID: 2070881706}
   - {fileID: 41229259}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -750,15 +750,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1261764199}
   particles: {fileID: 8300762181953395075, guid: 2cb8f155ff984544d852fad268e8a12a, type: 3}
-  woodCountText: {fileID: 2035387941}
-  lostWoodText: {fileID: 2070881703}
+  woodCountText: {fileID: 2035387943}
+  lostWoodText: {fileID: 2070881704}
   finalWoodText: {fileID: 478284911}
   GameOverUI: {fileID: 41229258}
   particleTime: 2
   tolerance: 0.5
   woodCount: 0
   lostCount: 30
-  lostText: {fileID: 0}
 --- !u!50 &269540727
 Rigidbody2D:
   serializedVersion: 4
@@ -945,7 +944,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.15
+  m_fontSize: 54.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1298,7 +1297,7 @@ RectTransform:
   - {fileID: 1277795195}
   - {fileID: 45578281}
   m_Father: {fileID: 243408749}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1373,7 +1372,7 @@ RectTransform:
   m_Children:
   - {fileID: 212215915}
   m_Father: {fileID: 243408749}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.01878125, y: 0.8832222}
   m_AnchorMax: {x: 0.08934376, y: 0.975}
@@ -2077,7 +2076,7 @@ RectTransform:
   - {fileID: 1340303382}
   - {fileID: 1633775479}
   m_Father: {fileID: 243408749}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2547,7 +2546,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 59.65
+  m_fontSize: 46.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3422,7 +3421,7 @@ RectTransform:
   - {fileID: 1794528368}
   - {fileID: 1204297067}
   m_Father: {fileID: 243408749}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.40978125, y: 0.79300004}
   m_AnchorMax: {x: 0.59121877, y: 0.9874444}
@@ -4123,7 +4122,6 @@ MonoBehaviour:
   maxQtdWood: 3
   increaseWoodTimeInterval: 40
   woodPrefab: {fileID: 890364086428745307, guid: 3d2518e5106db1046b42a69641e1c55c, type: 3}
-  _elapsedTimeSpawnTime: 0
 --- !u!4 &1641314581
 Transform:
   m_ObjectHideFlags: 0
@@ -4417,9 +4415,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   time_txt: {fileID: 296776290}
   day_txt: {fileID: 1204297068}
-  OnChangeDay:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1729799656
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,7 +5183,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 243408749}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.027562499, y: 0.7757222}
   m_AnchorMax: {x: 0.628, y: 0.8474999}

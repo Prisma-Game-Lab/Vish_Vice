@@ -5,13 +5,11 @@ using UnityEngine;
 public class WoodDetection : MonoBehaviour
 {
     public Slice slice;
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -19,11 +17,10 @@ public class WoodDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Madeira fora de tela");
         if (collision.gameObject.CompareTag("Wood"))
         {  
             slice.lostCount--;
-            slice.lostText.text = "Erros restantes: " + slice.lostCount.ToString();
+            slice.lostWoodText.text = "Erros restantes: " + slice.lostCount.ToString();
             if (slice.lostCount == 0)
                 slice.EndWoodMinigame();
         }

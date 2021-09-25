@@ -15,8 +15,8 @@ public class WoodSpawner : MonoBehaviour
     [Header("A cada tempo decorrido, o tempo entre a quantidade de madeiras que surgem deve aumentar(segundos)")]
     public float increaseWoodTimeInterval;
     public GameObject woodPrefab;
-    private int _woodCounter = 0;
-    public float _elapsedTimeSpawnTime = 0f;
+
+    private float _elapsedTimeSpawnTime = 0f;
     private float _elapsedTimeWoodQtd = 0f;
     private float _woodTimer;
     private int _woodSpawnQtd = 1;
@@ -54,7 +54,6 @@ public class WoodSpawner : MonoBehaviour
             {
                 float woodX = UnityEngine.Random.Range(-9f, 9f);
                 GameObject tempWood = Instantiate(woodPrefab, new Vector3(woodX, -6, 0), Quaternion.identity);
-                _woodCounter++;
                 float forceX = 0f;
                 if (woodX > 0)
                 {

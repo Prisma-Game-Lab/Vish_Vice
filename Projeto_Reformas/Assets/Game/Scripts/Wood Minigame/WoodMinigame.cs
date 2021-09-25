@@ -5,13 +5,12 @@ using UnityEngine;
 public class WoodMinigame : MonoBehaviour
 {
     public Vector3 desiredDir;
-    private float rotationDir;
     public GameObject linePrefab;
     public GameObject line;
     public Slice slice;
 
     private float lineAngle = 0f;
-    // Start is called before the first frame update
+    private float rotationDir;
     void Start()
     {
         desiredDir = setDirection(ref lineAngle);
@@ -21,20 +20,14 @@ public class WoodMinigame : MonoBehaviour
             rotationDir = 1;
 
         line = Instantiate(linePrefab, transform.position, Quaternion.identity, transform);
-        //line.transform.Rotate(0f, 0f, lineAngle);
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Rotate(Vector3.forward * 80*rotationDir * Time.deltaTime);
-        if (transform.position.y < -20)
-        {
-            //Destroy(line.gameObject);
+        if (transform.position.y < -10)
             Destroy(gameObject);
-        }
 
-        //line.transform.position = transform.position;
         line.transform.rotation = Quaternion.Euler(0f, 0f, lineAngle);
     }
 
