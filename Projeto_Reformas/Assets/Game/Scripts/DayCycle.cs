@@ -30,7 +30,6 @@ public class DayCycle : MonoBehaviour
     public TextMeshProUGUI day_txt;
 
     Persistent persistentData;
-    [SerializeField] UnityEvent OnChangeDay;
 
     private void Start()
     {
