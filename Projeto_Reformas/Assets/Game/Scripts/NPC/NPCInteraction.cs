@@ -30,51 +30,58 @@ public class NPCInteraction : MonoBehaviour
         {
             GreetingOptionsDialogue.Add(child.GetComponent<Dialogue>());
         }
-
+       
         persistenData = Persistent.current;
-
+        CheckDayQuest();
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
     }
 
     //Acha a quest do dia atual e referencia os dialogos
     public void CheckDayQuest()
     {
+        if (quests.Count <= 0)
+            return;
         int currentDay = persistenData.currentDay;
         dayQuest = null;
-        if (quests.Count > 0)
+        foreach (Quest quest in quests)
         {
-            foreach (Quest quest in quests)
+            print("procura");
+            if (quest.questDay == currentDay)
             {
-                bool completed = false;
-                foreach (Quest completedQuest in questManager.completedQuests)
-                {
-                    if (quest.questName == completedQuest.questName)
-                    {
-                        completed = true;
-                        break;
-                    }
-                }
-                if (quest.questDay == currentDay && !completed)
-                {
-                    dayQuest = quest;
-                    foreach (Quest persistentQuest in questManager.activeQuests)
-                    {
-                        if (quest.questName == persistentQuest.questName)
-                        {
-                            print("atribuiu");
-                            dayQuest.inProgress = persistentQuest.inProgress;
-                            dayQuest.completed = persistentQuest.completed;
-                            break;
-                        }
-                    }
-                    FillQuestDialogues(dayQuest);
+                dayQuest = quest;
 
-                    print(dayQuest.completed);
-                    print(dayQuest.inProgress);
-                    break;
+                if (persistenData.completedQuests.Contains(quest.questName))
+                {
+                    print("completa");
+                    dayQuest.completed = true;
                 }
+                else if (persistenData.activeQuests.Contains(quest.questName))
+                {
+                    print("progresso");
+                    dayQuest.inProgress = true;
+                }
+                FillQuestDialogues(dayQuest);
+                break;
             }
         }
+        if (dayQuest != null)
+        {
+            print(dayQuest.completed);
+            print(dayQuest.inProgress);
+        }
+    }
+
+    private bool CheckQuestCompleted(Quest quest)
+    {
+        if (persistenData.completedQuests.Contains(quest.questName))
+        {
+            print("completa");
+            dayQuest = quest;
+            dayQuest.completed = true;
+            FillQuestDialogues(dayQuest);
+            return true;
+        }
+        return false;
     }
 
     private void FillQuestDialogues(Quest quest)
@@ -104,10 +111,10 @@ public class NPCInteraction : MonoBehaviour
 
     private Dialogue questDialogue()
     {
-        if (dayQuest.inProgress)
-            return dayQuest.inProgressDialogue;
-        else if (dayQuest.completed)
+        if (dayQuest.completed)
             return dayQuest.completedDialogue;
+        else if (dayQuest.inProgress)
+            return dayQuest.inProgressDialogue;
         else
             return dayQuest.startDialogue;
     }

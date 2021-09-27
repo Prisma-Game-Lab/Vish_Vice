@@ -14,8 +14,6 @@ public class QuestManager : MonoBehaviour
 {
     private UIMaster uiMaster;
     [HideInInspector] public NPCInteraction newQuestNPC;
-    public List<Quest> activeQuests;
-    public List<Quest> completedQuests;
 
     private GameObject[] questsNpcs;
     private Persistent persistenData;
@@ -25,19 +23,14 @@ public class QuestManager : MonoBehaviour
         questsNpcs = GameObject.FindGameObjectsWithTag("NPC");
         uiMaster = GetComponent<UIMaster>();
         persistenData = Persistent.current;
+
         if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
         {
-            activeQuests = persistenData.activeQuests;
-            completedQuests = persistenData.completedQuests;
-        }
-        if (activeQuests != null && activeQuests.Count > 0)
-        {
-            foreach (Quest quest in activeQuests)
+            foreach (Quest quest in persistenData.activeQuestsUI)
             {
                 CreateQuestUI(quest);
             }
         }
-        CheckDayQuests();
     }
 
     public void addQuest()
@@ -46,7 +39,8 @@ public class QuestManager : MonoBehaviour
         {
             print("Quest adicionada!");
             newQuestNPC.dayQuest.inProgress = true;
-            activeQuests.Add(newQuestNPC.dayQuest);
+            persistenData.activeQuests.Add(newQuestNPC.dayQuest.questName);
+            persistenData.activeQuestsUI.Add(newQuestNPC.dayQuest);
             CreateQuestUI(newQuestNPC.dayQuest);
         }
     }
@@ -103,10 +97,17 @@ public class QuestManager : MonoBehaviour
         }
         ConsumeItems(newQuestNPC.dayQuest);
         UpdateUI();
-        activeQuests.Remove(newQuestNPC.dayQuest);
+        persistenData.activeQuests.Remove(newQuestNPC.dayQuest.questName);
+        foreach (Quest quest in persistenData.activeQuestsUI)
+        {
+            if (quest.questName == newQuestNPC.dayQuest.questName)
+            {
+                persistenData.activeQuestsUI.Remove(quest);
+                break;
+            }
+        }
         newQuestNPC.dayQuest.completed = true;
-        completedQuests.Add(newQuestNPC.dayQuest);
-        newQuestNPC.dayQuest = null;
+        persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
         
         return true;
     }
@@ -146,14 +147,14 @@ public class QuestManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        uiMaster.woodText.text = "Wood: "+persistenData.quantWood.ToString();
+        uiMaster.woodText.text = "Wood: " + persistenData.quantWood.ToString();
+        foreach (Transform questUI in uiMaster.allQuestsPanel.transform)
+        {
+            if (questUI.GetComponentInChildren<TextMeshProUGUI>().text == newQuestNPC.dayQuest.questName)
+            {
+                Destroy(questUI.gameObject);
+            }
+        }
     }
-
-    private void OnDestroy()
-    {
-        persistenData.activeQuests = activeQuests;
-        persistenData.completedQuests = completedQuests;
-    }
-
 
 }

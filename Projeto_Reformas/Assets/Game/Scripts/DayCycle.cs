@@ -37,7 +37,7 @@ public class DayCycle : MonoBehaviour
         time = (persistentData.currentTime != 2) ? persistentData.currentTime : time;
         fullDayLenght = (persistentData.fullDayLength != 2) ? persistentData.fullDayLength : fullDayLenght;
         timeRate = 1.0f / fullDayLenght;
-        day_txt.text = "Dia: " + persistentData.currentDay;
+        day_txt.text = "Dia " + persistentData.currentDay;
     }
 
     private void Update()
@@ -50,10 +50,10 @@ public class DayCycle : MonoBehaviour
     //Faz a passagem de dia
     void checkDay()
     {
-        if (time <= 0)
+        if (time <= 0 && Time.timeScale!=0)
         {
             persistentData.currentDay += 1;
-            day_txt.text = "Dia: " + persistentData.currentDay;
+            day_txt.text = "Dia " + persistentData.currentDay;
             if (TryGetComponent(out QuestManager questManager))
                 questManager.CheckDayQuests();
         }

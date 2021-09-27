@@ -8,8 +8,9 @@ public class Persistent : MonoBehaviour
     public int quantMetal;
     public int quantConcrete;
     public int currentDay;
-    public List<Quest> activeQuests;
-    public List<Quest> completedQuests;
+    public List<Quest> activeQuestsUI;
+    public List<string> activeQuests;
+    public List<string> completedQuests;
 
     [HideInInspector] public float currentTime = 2;
     [HideInInspector] public float fullDayLength = 2;
