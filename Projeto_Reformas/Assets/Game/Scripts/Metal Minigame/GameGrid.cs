@@ -105,9 +105,9 @@ public class GameGrid{
         if (gridArray[x, y].cellType != GridElementType.empty || !CheckCell(x,y))
             return;
 
-        for (int i = x - 1; i < x + 1; i++)
+        for (int i = x - 1; i < x + 2; i++)
         {
-            for (int j = y - 1; j < y + 1; j++)
+            for (int j = y - 1; j < y + 2; j++)
             {
                 if (gridArray[i, j].cellType == GridElementType.bomb)
                     bombQtd++;

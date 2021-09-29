@@ -7,9 +7,12 @@ public class Test: MonoBehaviour
 
     public Camera cam;
     public GameGrid grid;
+
+    private Vector3 originPosition;
     void Start()
     {
-        grid = new GameGrid(18, 8, 1f, 15, 10, new Vector3(-9,-4));
+        originPosition = new Vector3(-9, -4);
+        grid = new GameGrid(18, 8, 1f, 15, 10, originPosition);
     }
 
     // Update is called once per frame
@@ -27,10 +30,7 @@ public class Test: MonoBehaviour
             {
                 grid.SetEmptyCellValue(x, y);
                 grid.UpdateCell(x, y);
-            }
-                
-                
-            
+            } 
         }
     }
 
