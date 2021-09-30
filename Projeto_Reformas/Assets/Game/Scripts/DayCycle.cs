@@ -14,8 +14,10 @@ public class DayCycle : MonoBehaviour
 
     [Header("Sun")]
     public Light sun;
+    public Light sun2D;
     public Gradient sunColor;
     public AnimationCurve sunIntensity;
+    public AnimationCurve sun2DIntensity;
 
     [Header("Moon")]
     public Light moon;
@@ -73,22 +75,31 @@ public class DayCycle : MonoBehaviour
     void lightController()
     {
         //rotação da luz
+        sun2D.transform.eulerAngles = (-time - 0.2f) * noon * 4.0f;
         sun.transform.eulerAngles = (time - 0.3f) * noon * 4.0f;
         moon.transform.eulerAngles = (time - 0.75f) * noon * 4.0f;
 
         //intensidade da luz
+        sun2D.intensity = sun2DIntensity.Evaluate(time);
         sun.intensity = sunIntensity.Evaluate(time);
         moon.intensity = moonIntensity.Evaluate(time);
 
         //mudança de cor
+        sun2D.color = sunColor.Evaluate(time);
         sun.color = sunColor.Evaluate(time);
         moon.color = moonColor.Evaluate(time);
 
         //ativa/desativa sol
         if (sun.intensity <= 0 && sun.gameObject.activeInHierarchy)
+        {
             sun.gameObject.SetActive(false);
+            sun2D.gameObject.SetActive(false);
+        }
         else if (sun.intensity > 0 && !sun.gameObject.activeInHierarchy)
+        {
             sun.gameObject.SetActive(true);
+            sun2D.gameObject.SetActive(true);
+        }
 
         //ativa/desativa lua
         if (moon.intensity <= 0 && moon.gameObject.activeInHierarchy)

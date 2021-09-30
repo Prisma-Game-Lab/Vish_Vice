@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1209142564}
-  m_IndirectSpecularColor: {r: 0.44129816, g: 0.49010175, b: 0.5701534, a: 1}
+  m_IndirectSpecularColor: {r: 0.44129854, g: 0.490102, b: 0.57015413, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.1
+  m_fontSize: 24.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.3
+  m_fontSize: 22.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -849,7 +849,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 65, y: -30, z: 0}
 --- !u!1 &1261764197
 GameObject:
@@ -1013,6 +1013,99 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525632999}
   m_CullTransparentMesh: 1
+--- !u!1 &1542365270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542365272}
+  - component: {fileID: 1542365271}
+  m_Layer: 0
+  m_Name: 2D Sun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1542365271
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542365270}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.95514613, b: 0.9103774, a: 1}
+  m_Intensity: 0
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: 0
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 8
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1542365272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542365270}
+  m_LocalRotation: {x: 0.51899153, y: -0.21828574, z: 0.13906334, w: 0.81465364}
+  m_LocalPosition: {x: -5.8042603, y: 14.12265, z: -23.018812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 65, y: -30, z: 0}
 --- !u!1 &1641314579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1189,7 @@ MonoBehaviour:
   fullDayLenght: 45
   noon: {x: 90, y: 0, z: 0}
   sun: {fileID: 1209142564}
+  sun2D: {fileID: 1542365271}
   sunColor:
     serializedVersion: 2
     key0: {r: 0.990566, g: 0.93586177, b: 0.62144, a: 1}
@@ -1163,6 +1257,57 @@ MonoBehaviour:
       tangentMode: 65
       weightedMode: 0
       inWeight: 0.024061194
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9999858
+      value: -0.000001007691
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13288336
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  sun2DIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.12162113
+    - serializedVersion: 3
+      time: 0.49999797
+      value: 0.000021202955
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.2646041
+    - serializedVersion: 3
+      time: 0.7
+      value: 0.5
+      inSlope: -0.2572626
+      outSlope: -0.052464895
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.7789913
+    - serializedVersion: 3
+      time: 0.78
+      value: 0
+      inSlope: -4.595121
+      outSlope: -0.0000045807087
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.16124468
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.9999858
@@ -1476,7 +1621,7 @@ Transform:
   m_LocalScale: {x: 100, y: 1.6076, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1852787845
 Rigidbody2D:
@@ -1654,7 +1799,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 65, y: -30, z: 0}
 --- !u!1 &2035387941
 GameObject:
@@ -2207,6 +2352,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1641314582}
+    - target: {fileID: 8816316389600828167, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.99999905
+      objectReference: {fileID: 0}
     - target: {fileID: 8816316389691352619, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
