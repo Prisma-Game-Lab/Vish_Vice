@@ -1,13 +1,44 @@
 {
-    "m_SelectedDeviceId": "",
+    "m_SelectedDeviceId": "0073575123",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "0073575123",
+        "name": "com.Prisma.Reformas",
+        "processId": 26062,
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [],
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "0073575123",
+            "name": "com.DefaultCompany.Time_2",
+            "processId": 2458,
+            "exited": false
+        },
+        {
+            "deviceId": "0073575123",
+            "name": "com.DefaultCompany.Time_2",
+            "processId": 3601,
+            "exited": false
+        },
+        {
+            "deviceId": "0073575123",
+            "name": "com.DefaultCompany.Time_2",
+            "processId": 23340,
+            "exited": false
+        },
+        {
+            "deviceId": "0073575123",
+            "name": "com.Prisma.Reformas",
+            "processId": 25179,
+            "exited": false
+        },
+        {
+            "deviceId": "0073575123",
+            "name": "com.Prisma.Reformas",
+            "processId": 26062,
+            "exited": false
+        }
+    ],
     "m_Tags": {
         "m_Entries": [
             {
@@ -41,9 +72,20 @@
         ]
     },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 0.0,
-        "MemoryWindowWidth": 0.0,
-        "MemoryTypeEnabled": [],
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
         "MemoryGroup": 2,
         "Behavior": 0
     },

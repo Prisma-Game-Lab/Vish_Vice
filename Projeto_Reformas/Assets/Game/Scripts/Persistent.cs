@@ -26,7 +26,7 @@ public class Persistent : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        if(current==null)
+        if (current == null)
             current = this;
     }
 
