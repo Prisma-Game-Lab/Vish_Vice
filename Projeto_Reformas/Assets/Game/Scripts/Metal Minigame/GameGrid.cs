@@ -2,89 +2,82 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class GameGrid{
-
+public class GameGrid
+{
     private int width;
     private int height;
     private float cellSize;
     private Vector3 originPosition;
-    private int bombQtd;
-    private int resourceQtd;
+    private int mineQtd;
+    private int metalQtd;
     private GridElement[,] gridArray;
-    private TextMeshPro[,] debugTextArray; 
 
-    public GameGrid(int width, int height, float cellSize, int maxOfBombs, int maxOfResources, Vector3 originPosition){
+    public GameGrid(int width, int height, float cellSize, int maxMines, int maxMetal, Vector3 originPosition)
+    {
         this.width = width;
         this.height = height;
         this.cellSize = cellSize;
         this.originPosition = originPosition;
-        bombQtd = 0;
-        resourceQtd = 0;
+        mineQtd = 0;
+        metalQtd = 0;
 
         gridArray = new GridElement[width, height];
-        debugTextArray = new TextMeshPro[width, height];
 
         for (int x = 0; x < gridArray.GetLength(0); x++)
         {
             for (int y = 0; y < gridArray.GetLength(1); y++)
             {
-                gridArray[x, y] = new GridElement();
+                gridArray[x, y] = new GridElement(this, x, y);
             }
         }
 
-        for (int x = 0; x < gridArray.GetLength(0); x++)
+        while ((metalQtd < maxMetal) || (mineQtd < maxMines))//loop para preencher o mapa com minas e metal
         {
-            for (int y = 0; y < gridArray.GetLength(1); y++)
+            int x = UnityEngine.Random.Range(0, width);
+            int y = UnityEngine.Random.Range(0, height);
+
+            GridElement mapGridObject = gridArray[x, y];
+            if (mineQtd < maxMines)
             {
-                if (x >= 0 && y >= 0 && x < width && y < height)
+                if (gridArray[x, y].GetElementType() != GridElementType.mine)
                 {
-                    GridElementType type = gridArray[x,y].SetValue(CheckBombQtd(bombQtd, maxOfBombs),CheckResourceQtd(resourceQtd, maxOfResources));
-                    if (type == GridElementType.bomb)
-                        bombQtd++;
-                    else if (type == GridElementType.resource)
-                        resourceQtd++;
+                    gridArray[x, y].SetElementType(GridElementType.mine);
 
+                    mineQtd++;
                 }
-                debugTextArray[x, y] = CreateGridText(gridArray[x, y].text, 10, GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * 0.5f);
+            }
+            else if (metalQtd < maxMetal)
+            {
+                if (gridArray[x, y].GetElementType() != GridElementType.metal)
+                {
+                    gridArray[x, y].SetElementType(GridElementType.metal);
 
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x+1, y), Color.white, 100f);
+                    metalQtd++;
+                }
             }
         }
-        Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
-        Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
-
     }
 
 
-    public static TextMeshPro CreateGridText(string text, int fontSize, Vector3 worldPosition)
-    {
-        GameObject TextObject = new GameObject("Cell Text", typeof(TextMeshPro));
-        TextObject.transform.position = worldPosition;
-        TextMeshPro textMeshPro = TextObject.GetComponent<TextMeshPro>();
-        textMeshPro.text = text;
-        textMeshPro.fontSize = fontSize;
-        textMeshPro.alignment = TextAlignmentOptions.Midline;
-
-        return textMeshPro;
-    }
-
-
-    private Vector3 GetWorldPosition(int x, int y)
+    public Vector3 GetWorldPosition(int x, int y)
     {
         return new Vector3(x, y) * cellSize + originPosition;
     }
 
+    public Vector3 GetWorldPosition(GridElement cell)
+    {
+        return new Vector3(cell.GetX(), cell.GetY()) * cellSize + originPosition;
+    }
+
     public int GetCellX(Vector3 worldPosition)
     {
-        return Mathf.FloorToInt((worldPosition - originPosition).x/cellSize);
+        return Mathf.FloorToInt((worldPosition - originPosition).x / cellSize);
     }
 
     public int GetCellY(Vector3 worldPosition)
     {
-        return Mathf.FloorToInt((worldPosition- originPosition).y / cellSize);
+        return Mathf.FloorToInt((worldPosition - originPosition).y / cellSize);
     }
 
     public bool CheckCell(int x, int y)
@@ -99,45 +92,50 @@ public class GameGrid{
 
     public void SetEmptyCellValue(int x, int y)
     {
-        int bombQtd = 0;
-        int resourceQtd = 0;
+        int mineQtd = 0;
+        int metalQtd = 0;
 
-        if (gridArray[x, y].cellType != GridElementType.empty || !CheckCell(x,y))
+        if (gridArray[x, y].GetElementType() != GridElementType.empty || !CheckCell(x, y))
             return;
 
         for (int i = x - 1; i < x + 2; i++)
         {
             for (int j = y - 1; j < y + 2; j++)
             {
-                if (gridArray[i, j].cellType == GridElementType.bomb)
-                    bombQtd++;
-                else if (gridArray[i, j].cellType == GridElementType.resource)
-                    resourceQtd++;
+                    if(i>=0 && i < width && j>=0 && j < height)
+                {
+                    if (gridArray[i, j].GetElementType() == GridElementType.mine)
+                        mineQtd++;
+                    else if (gridArray[i, j].GetElementType() == GridElementType.metal)
+                        metalQtd++;
+                }
+                    
             }
         }
 
-        gridArray[x,y].value =  bombQtd + resourceQtd;
+        gridArray[x, y].SetElementValue(mineQtd + metalQtd);
     }
 
-    public void UpdateCell(int x, int y)
+    public GridElement GetGridElement(int x, int y)
     {
-        if (gridArray[x, y].cellType != GridElementType.empty || !CheckCell(x, y))
-            return;
+        if (CheckCell(x, y))
+            return gridArray[x, y];
 
-        debugTextArray[x, y].text = gridArray[x, y].value.ToString();
+        return null;
     }
 
-    private bool CheckBombQtd(int bombQtd, int maxOfBombs)
+    public int GetWidth()
     {
-        if (bombQtd < maxOfBombs)
-            return true;
-        return false;
+        return width;
     }
 
-    private bool CheckResourceQtd(int resourceQtd, int maxOfResources)
+    public int GetHeight()
     {
-        if (resourceQtd < maxOfResources)
-            return true;
-        return false;
+        return height;
+    }
+
+    public float GetCellSize()
+    {
+        return cellSize;
     }
 }

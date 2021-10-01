@@ -4,67 +4,85 @@ using UnityEngine;
 
 public enum GridElementType
 {
-    bomb,
-    resource,
+    mine,
+    metal,
     empty
 }
 public class GridElement
 {
-
-    public GridElementType cellType;
-    public string text;
-    public int value;
-
-
-    public GridElement()
-    {
-        cellType = GridElementType.empty;
-        text = "E";
-        value = 0;
-
-    }
-    public GridElementType SetValue(bool bomb, bool resource)
-    {
-        cellType = SetElementType(bomb, resource);
-
-        switch (cellType)
-        {
-            case GridElementType.bomb:
-                text= "B";
-                break;      
-            case GridElementType.resource:
-                text = "M";
-                break;
-            default:
-                text = "0";
-                break;
-
-        }
-        return cellType;
-    }
-
-    private GridElementType SetElementType(bool bomb, bool resource)
-    {
-        int option = 1;//por padrao a celula sera vazia
-        if (bomb && resource)
-            option = UnityEngine.Random.Range(0, 10);
-        else if (bomb)//resource false
-            option = UnityEngine.Random.Range(0, 9);
-        else if (resource)//bomb false
-            option = UnityEngine.Random.Range(1, 10);
-
-        switch (option)
-        {
-            case 0:
-                return GridElementType.bomb;
-            case 9:
-                return GridElementType.resource;
-            default:
-                return GridElementType.empty;
-        }
-
-    }
-
-
     
+    private GameGrid grid;
+    private int x;
+    private int y;
+    private GridElementType type;
+    private string text;
+    private int value;
+    private bool isRevealed;
+
+
+    public GridElement(GameGrid grid, int x, int y)
+    {
+        type = GridElementType.empty;
+        this.grid = grid;
+        this.x = x;
+        this.y = y;
+        text = " ";
+        isRevealed = false;
+        
+
+    }
+    public void SetElementType(GridElementType type)
+    {
+        this.type = type;
+        if (type == GridElementType.metal)
+            text = "M";
+        else
+            text = "*";
+    }
+
+    public void SetElementText(string text)
+    {
+        this.text = text;
+    }
+
+    public string GetElementText()
+    {
+        return text;
+    }
+
+    public GridElementType GetElementType()
+    {
+        return type;
+    }
+
+    public int GetElementValue()
+    {
+        return value;
+    }
+
+    public void SetElementValue(int value)
+    {
+        this.value = value;
+    }
+
+    public void Reveal()
+    {
+        isRevealed = true;
+    }
+
+    public int GetX()
+    {
+        return x;
+    }
+
+    public int GetY()
+    {
+        return y;
+    }
+
+    public bool IsRevealed()
+    {
+        return isRevealed;
+    }
+
 }

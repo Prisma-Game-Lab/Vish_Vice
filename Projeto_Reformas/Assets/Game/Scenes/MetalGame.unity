@@ -304,6 +304,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 672464774}
     m_Modifications:
+    - target: {fileID: 8816316389600828167, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.9999924
+      objectReference: {fileID: 0}
     - target: {fileID: 8816316390071309988, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -918,6 +922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801227258}
   - component: {fileID: 1801227257}
+  - component: {fileID: 1801227259}
   m_Layer: 0
   m_Name: Testing
   m_TagString: Untagged
@@ -938,7 +943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1782757144}
-  canvas: {fileID: 0}
+  gameIsOn: 0
 --- !u!4 &1801227258
 Transform:
   m_ObjectHideFlags: 0
@@ -953,6 +958,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1801227259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801227256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902b2a418855f8a40813715648e0190f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test: {fileID: 1801227257}
+  emptyCell: {fileID: 4788399062158320804, guid: 0d8d46d5366fd8240bcdfef8e75373d6, type: 3}
 --- !u!1 &1807465098 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8284586541647150862, guid: 004280d887837604bb77f41ef91085e2, type: 3}
