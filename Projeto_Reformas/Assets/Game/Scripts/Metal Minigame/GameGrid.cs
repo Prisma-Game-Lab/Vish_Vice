@@ -12,6 +12,7 @@ public class GameGrid
     private int mineQtd;
     private int metalQtd;
     private GridElement[,] gridArray;
+    public List<GridElement> mineList;
 
     public GameGrid(int width, int height, float cellSize, int maxMines, int maxMetal, Vector3 originPosition)
     {
@@ -23,6 +24,7 @@ public class GameGrid
         metalQtd = 0;
 
         gridArray = new GridElement[width, height];
+        List<GridElement> mineList = new List<GridElement>();
 
         for (int x = 0; x < gridArray.GetLength(0); x++)
         {
@@ -43,6 +45,7 @@ public class GameGrid
                 if (gridArray[x, y].GetElementType() != GridElementType.mine)
                 {
                     gridArray[x, y].SetElementType(GridElementType.mine);
+                    mineList.Add(gridArray[x, y]);
 
                     mineQtd++;
                 }
@@ -138,4 +141,5 @@ public class GameGrid
     {
         return cellSize;
     }
+
 }

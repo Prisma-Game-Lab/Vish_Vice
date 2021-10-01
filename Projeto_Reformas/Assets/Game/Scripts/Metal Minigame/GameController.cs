@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test: MonoBehaviour
+public class GameController: MonoBehaviour
 {
 
     public Camera cam;
@@ -36,10 +36,22 @@ public class Test: MonoBehaviour
             int x = grid.GetCellX(transform.position);
             int y = grid.GetCellY(transform.position);
 
-            if (grid.CheckCell(x, y))
+            if (!grid.CheckCell(x, y))
+                return;
+
+            if(grid.GetGridElement(x,y).GetElementType() == GridElementType.mine)
             {
+                Debug.Log("Mina");
+                visualControl.RevealAllMines();
+                //terminar jogo
+            }
+            else if(grid.GetGridElement(x, y).GetElementType() == GridElementType.metal)
+            {
+                Debug.Log("Metal");
+                visualControl.UpdateCell(x, y);
+            }
+            else
                 RevealGridPosition(x,y);  
-            } 
         }
     }
     private List<GridElement> GetNeighbourList(GridElement cell)
@@ -55,25 +67,25 @@ public class Test: MonoBehaviour
 
         if (x - 1 >= 0)
         {
-            // Left
+            // esquerda
             neighbourList.Add(grid.GetGridElement(x - 1, y));
-            // Left Down
+            // esquerda-baixo
             if (y - 1 >= 0) neighbourList.Add(grid.GetGridElement(x - 1, y - 1));
-            // Left Up
+            // esquerda-cima
             if (y + 1 < height) neighbourList.Add(grid.GetGridElement(x - 1, y + 1));
         }
         if (x + 1 < width)
         {
-            // Right
+            // direita
             neighbourList.Add(grid.GetGridElement(x + 1, y));
-            // Right Down
+            // direita-baixo
             if (y - 1 >= 0) neighbourList.Add(grid.GetGridElement(x + 1, y - 1));
-            // Right Up
+            // direita-cima
             if (y + 1 < height) neighbourList.Add(grid.GetGridElement(x + 1, y + 1));
         }
-        // Up
+        // cima
         if (y - 1 >= 0) neighbourList.Add(grid.GetGridElement(x, y - 1));
-        // Down
+        // baixo
         if (y + 1 < height) neighbourList.Add(grid.GetGridElement(x, y + 1));
 
 
@@ -94,28 +106,28 @@ public class Test: MonoBehaviour
         cell.Reveal();
         visualControl.UpdateCell(cell);
 
-        // Is it an Empty grid object?
+        // verificar se o valor da celula e zero
         if (cell.GetElementType() == GridElementType.empty && cell.GetElementValue()==0)
         {
-            // Is Empty, reveal connected nodes
+            // se for zero, revelar vizinhos
             Debug.Log("vazio");
-            // Keep track of nodes already checked
+            // guardar vizinhos ja verificados
             List<GridElement> alreadyCheckedNeighbourList = new List<GridElement>();
-            // Nodes queued up for checking
+            // lista de vizinhos para verificar
             List<GridElement> checkNeighbourList = new List<GridElement>();
-            // Start checking this node
             checkNeighbourList.Add(cell);
 
-            // While we have nodes to check
+            // enquanto ainda existirem vizinhos para verificar
             while (checkNeighbourList.Count > 0)
             {
-                // Grab the first one
+                //pegar o primeiro
                 GridElement checkGridElement = checkNeighbourList[0];
-                // Remove from the queue
+                // remover da lista de vizinhos a verificar
                 checkNeighbourList.RemoveAt(0);
+                //colocar na lista de ja verificados
                 alreadyCheckedNeighbourList.Add(checkGridElement);
 
-                // Cycle through all its neighbours
+                // verificar todos os vizinhos
                 foreach (GridElement neighbour in GetNeighbourList(checkGridElement))
                 {
                     Debug.Log("comecou a ver vizinhos");
@@ -125,7 +137,7 @@ public class Test: MonoBehaviour
                         visualControl.UpdateCell(neighbour);
                         if (neighbour.GetElementValue() == 0)
                         {
-                            // If empty, check add it to queue
+                            // se valor for 0, adicionar a lista de vizinhos a verificar
                             if (!alreadyCheckedNeighbourList.Contains(neighbour))
                             {
                                 checkNeighbourList.Add(neighbour);

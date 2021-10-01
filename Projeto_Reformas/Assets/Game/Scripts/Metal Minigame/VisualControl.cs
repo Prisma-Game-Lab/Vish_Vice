@@ -5,22 +5,26 @@ using TMPro;
 
 public class VisualControl : MonoBehaviour
 {
-    public Test test;
     public GameObject emptyCell;
+
+    private GameController gameController;
     private TextMeshPro[,] debugTextArray;
     private GameObject[,] cellArray;
     private int height;
     private int width;
     private GameGrid gameGrid;
-    // Start is called before the first frame update
+    private List<GridElement> mineList;
+
     void Start()
     {
-        gameGrid = test.grid;
+        gameController = GetComponent<GameController>();
+        gameGrid = gameController.grid;
         height = gameGrid.GetHeight();
         width = gameGrid.GetWidth();
         debugTextArray = new TextMeshPro[width, height];
         cellArray = new GameObject[width, height];
-        if (test.gameIsOn)
+        mineList = new List<GridElement>();
+        if (gameController.gameIsOn)
         {
             ShowGridElement();
         }
@@ -48,9 +52,12 @@ public class VisualControl : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                debugTextArray[x, y] = CreateGridText(gameGrid.GetGridElement(x,y).GetElementText(), 10, gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f);
+                GridElement cell = gameGrid.GetGridElement(x, y);
+                debugTextArray[x, y] = CreateGridText(cell.GetElementText(), 10, gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f);
                 Vector3 position = gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f;
                 cellArray[x,y] = Instantiate(emptyCell, position, Quaternion.identity);
+                if (cell.GetElementType() == GridElementType.mine)
+                    mineList.Add(cell);
                 gameGrid.SetEmptyCellValue(x, y);
                 //Debug.DrawLine(gameGrid.GetWorldPosition(x, y), gameGrid.GetWorldPosition(x, y + 1), Color.white, 100f);
                 //Debug.DrawLine(gameGrid.GetWorldPosition(x, y), gameGrid.GetWorldPosition(x + 1, y), Color.white, 100f);
@@ -62,15 +69,12 @@ public class VisualControl : MonoBehaviour
 
     public void UpdateCell(int x, int y)
     {
-        if (gameGrid.GetGridElement(x, y).GetElementType() != GridElementType.empty || !gameGrid.CheckCell(x, y))
+        if(gameGrid.GetGridElement(x, y).GetElementType() == GridElementType.empty)
         {
-            cellArray[x, y].GetComponent<SpriteRenderer>().sortingOrder = 0;
-            return;
+            int value = gameGrid.GetGridElement(x, y).GetElementValue();
+            if (value != 0)
+                debugTextArray[x, y].text = value.ToString();
         }
-
-        int value = gameGrid.GetGridElement(x, y).GetElementValue();
-        if (value != 0)
-            debugTextArray[x, y].text = value.ToString();
         cellArray[x, y].transform.GetChild(0).gameObject.SetActive(false);
 
     }
@@ -79,6 +83,15 @@ public class VisualControl : MonoBehaviour
     {
         UpdateCell(cell.GetX(), cell.GetY());
     }
+
+    public void RevealAllMines()
+    {
+        foreach(GridElement mine in mineList)
+        {
+            UpdateCell(mine);
+        }
+    }
+    
 }
 
     
