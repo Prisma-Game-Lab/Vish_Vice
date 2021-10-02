@@ -10,6 +10,8 @@ public class WoodSpawner : MonoBehaviour
     public float maxWoodSpawnTime;
     [Header("A cada quantos segundos decorridos de minigame o tempo entre o surgimento de madeiras deve diminuir(segundos)")]
     public float decreaseTimeInterval;
+    [Header("Quantos segundos sao retirados do intervalo(segundos)")]
+    public float decreaseRate;
     [Header("Quantidade maxima de madeiras por vez")]
     public int maxQtdWood;
     [Header("A cada tempo decorrido, o tempo entre a quantidade de madeiras que surgem deve aumentar(segundos)")]
@@ -71,7 +73,7 @@ public class WoodSpawner : MonoBehaviour
     public void UpdateTimeInterval()
     {
         if (_woodTimer > minWoodSpawnTime)
-            _woodTimer -= 0.5f;
+            _woodTimer -= decreaseRate;
     }
     public void UpdateWoodQtd()
     {
