@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     private QuestManager questManager;
     private bool hasQuest;
     private bool questInProgress;
+    private bool firstContact = false;
 
 
     void Start()
@@ -24,6 +25,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialog(Dialogue dialogue)
     {
+        firstContact = true;
         //print(dialogue);
         foreach (string sentence in dialogue.sentences)
         {
@@ -46,7 +48,8 @@ public class DialogueManager : MonoBehaviour
         if (_sentences.Count != 0)
         {
             string sentence = _sentences.Dequeue();
-            uiMaster._displayText.text = sentence;
+            StartCoroutine(TextWritingEffect(sentence));
+            firstContact = false;
         }
 
         if (hasQuest && _sentences.Count == 0)
@@ -67,6 +70,20 @@ public class DialogueManager : MonoBehaviour
         return true;
     }
 
+
+    IEnumerator TextWritingEffect(string sentence)
+    {
+        float firstContactDelay = 0.3f;
+        float lettersRate = 0.01f;
+        if (firstContact)
+            yield return new WaitForSeconds(firstContactDelay);
+        for (int i = 0; i <= sentence.Length; i++)
+        {
+            uiMaster._displayText.text = sentence.Substring(0, i);
+            yield return new WaitForSeconds(lettersRate);
+        }
+    }
+
     public void EndDialogue()
     {
         uiMaster.interactButton.SetActive(true);
@@ -81,6 +98,7 @@ public class DialogueManager : MonoBehaviour
         uiMaster.completeQuestButton.SetActive(false);
         uiMaster.outQuestButton.SetActive(false);
         uiMaster._touchToContinue.SetActive(true);
+        uiMaster._displayText.text = "";
     }
 
     public void QuestAnswer(bool accept)
