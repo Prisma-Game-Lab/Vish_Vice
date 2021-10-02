@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1209142564}
-  m_IndirectSpecularColor: {r: 0.44129816, g: 0.49010175, b: 0.5701534, a: 1}
+  m_IndirectSpecularColor: {r: 0.44129854, g: 0.490102, b: 0.57015413, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -346,7 +346,7 @@ MonoBehaviour:
   particleTime: 2
   tolerance: 0.5
   woodCount: 0
-  lostCount: 30
+  lostCount: 3
 --- !u!50 &269540727
 Rigidbody2D:
   serializedVersion: 4
@@ -483,7 +483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2154893, y: 0.37311703}
   m_AnchorMax: {x: 0.77900004, y: 0.65529436}
-  m_AnchoredPosition: {x: -0.4259987, y: 0}
+  m_AnchoredPosition: {x: -0.42599487, y: 0}
   m_SizeDelta: {x: -1.1499996, y: -0.27600002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &296776290
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.5
+  m_fontSize: 75.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.9
+  m_fontSize: 57.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1137,12 +1137,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f895e72bc8c29c545babf848d53364f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWoodSpawnTime: 0.5
-  maxWoodSpawnTime: 2.5
-  decreaseTimeInterval: 20
-  decreaseRate: 0.5
+  minWoodSpawnTime: 2
+  maxWoodSpawnTime: 4
+  decreaseTimeInterval: 8
+  decreaseRate: 0.3
   maxQtdWood: 3
-  increaseWoodTimeInterval: 40
+  increaseWoodTimeInterval: 18
   woodPrefab: {fileID: 890364086428745307, guid: 3d2518e5106db1046b42a69641e1c55c, type: 3}
 --- !u!4 &1641314581
 Transform:
@@ -2359,7 +2359,7 @@ PrefabInstance:
       objectReference: {fileID: 1641314582}
     - target: {fileID: 8816316389600828167, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.99999905
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8816316389691352619, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
