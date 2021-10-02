@@ -346,7 +346,7 @@ MonoBehaviour:
   particleTime: 2
   tolerance: 0.5
   woodCount: 0
-  lostCount: 3
+  lostCount: 5
 --- !u!50 &269540727
 Rigidbody2D:
   serializedVersion: 4
