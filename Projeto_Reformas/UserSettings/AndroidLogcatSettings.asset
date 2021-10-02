@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "0073575123",
         "name": "com.Prisma.Reformas",
-        "processId": 26062,
+        "processId": 19697,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -36,6 +36,12 @@
             "deviceId": "0073575123",
             "name": "com.Prisma.Reformas",
             "processId": 26062,
+            "exited": false
+        },
+        {
+            "deviceId": "0073575123",
+            "name": "com.Prisma.Reformas",
+            "processId": 19697,
             "exited": false
         }
     ],

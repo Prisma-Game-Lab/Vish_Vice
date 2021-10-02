@@ -21,7 +21,7 @@ public class PlayerInput : MonoBehaviour
         anim.SetFloat("Horizontal", variableJoystick.Horizontal);
         anim.SetFloat("Vertical", variableJoystick.Vertical);
         anim.SetFloat("Moving", direction.magnitude);
-        controller.Move(direction * speed * Time.deltaTime);
+        controller.SimpleMove(direction.normalized * speed);
     }
 
 }

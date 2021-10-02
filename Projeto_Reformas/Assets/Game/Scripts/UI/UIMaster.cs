@@ -33,13 +33,14 @@ public class UIMaster : MonoBehaviour
     {
         Persistent persistentData = GameObject.FindGameObjectWithTag("persistentData").GetComponent<Persistent>();
         woodText.text = "Wood: " + persistentData.quantWood.ToString();
-        _displayText = dialogPanel.transform.GetChild(0).GetComponent<Text>();
-        _displayName = dialogPanel.transform.GetChild(1).GetComponent<Text>();
-        _touchToContinue = dialogPanel.transform.GetChild(2).gameObject;
-        acceptQuestButton = dialogPanel.transform.GetChild(3).gameObject;
-        declineQuestButton = dialogPanel.transform.GetChild(4).gameObject;
-        completeQuestButton = dialogPanel.transform.GetChild(5).gameObject;
-        outQuestButton = dialogPanel.transform.GetChild(6).gameObject;
+        Transform dialoguePanelChild = dialogPanel.transform.GetChild(0);
+        _displayText = dialoguePanelChild.transform.GetChild(0).GetComponent<Text>();
+        _displayName = dialoguePanelChild.transform.GetChild(1).GetComponent<Text>();
+        _touchToContinue = dialoguePanelChild.transform.GetChild(2).gameObject;
+        acceptQuestButton = dialoguePanelChild.transform.GetChild(3).gameObject;
+        declineQuestButton = dialoguePanelChild.transform.GetChild(4).gameObject;
+        completeQuestButton = dialoguePanelChild.transform.GetChild(5).gameObject;
+        outQuestButton = dialoguePanelChild.transform.GetChild(6).gameObject;
         interactButton.SetActive(false);
     }
 
