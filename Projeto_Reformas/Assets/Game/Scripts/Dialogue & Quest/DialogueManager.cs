@@ -47,6 +47,7 @@ public class DialogueManager : MonoBehaviour
 
         if (_sentences.Count != 0)
         {
+            StopAllCoroutines();
             string sentence = _sentences.Dequeue();
             StartCoroutine(TextWritingEffect(sentence));
             firstContact = false;

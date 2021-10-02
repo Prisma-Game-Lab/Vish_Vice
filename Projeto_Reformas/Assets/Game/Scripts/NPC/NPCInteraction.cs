@@ -39,10 +39,12 @@ public class NPCInteraction : MonoBehaviour
     //Acha a quest do dia atual e referencia os dialogos
     public void CheckDayQuest()
     {
-        if (quests.Count <= 0)
-            return;
         int currentDay = persistenData.currentDay;
         dayQuest = null;
+
+        if (quests.Count <= 0)
+            return;
+
         foreach (Quest quest in quests)
         {
             print("procura");
@@ -63,11 +65,6 @@ public class NPCInteraction : MonoBehaviour
                 FillQuestDialogues(dayQuest);
                 break;
             }
-        }
-        if (dayQuest != null)
-        {
-            print(dayQuest.completed);
-            print(dayQuest.inProgress);
         }
     }
 
@@ -94,6 +91,7 @@ public class NPCInteraction : MonoBehaviour
     //Define qual diálogo o npc usará
     public Dialogue Greet()
     {
+        print(dayQuest);
         if (dayQuest != null && dayQuest.questName == null)
         {
             dayQuest = null;
@@ -105,6 +103,7 @@ public class NPCInteraction : MonoBehaviour
         }
         else
         {
+            print("normal");
             return normalDialogue();
         }
     }
