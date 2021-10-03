@@ -10,6 +10,12 @@ public enum ItemType
     Concrete,
     Metal
 }
+public enum MinigameType
+{
+    Wood,
+    Concrete,
+    Metal
+}
 public class QuestManager : MonoBehaviour
 {
     private UIMaster uiMaster;
@@ -108,7 +114,7 @@ public class QuestManager : MonoBehaviour
         }
         newQuestNPC.dayQuest.completed = true;
         persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
-        
+
         return true;
     }
 
@@ -154,6 +160,14 @@ public class QuestManager : MonoBehaviour
             {
                 Destroy(questUI.gameObject);
             }
+        }
+    }
+
+    public void ClearQuestsPanel()
+    {
+        foreach (Transform questUI in uiMaster.allQuestsPanel.transform)
+        {
+            Destroy(questUI.gameObject);
         }
     }
 

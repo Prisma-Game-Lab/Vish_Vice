@@ -11,9 +11,11 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> _sentences;
     private UIMaster uiMaster;
     private QuestManager questManager;
+    private bool hasMinigame;
     private bool hasQuest;
     private bool questInProgress;
     private bool firstContact = false;
+    private MinigameType minigameType;
 
 
     void Start()
@@ -33,13 +35,15 @@ public class DialogueManager : MonoBehaviour
         }
         hasQuest = dialogue.isQuest;
         questInProgress = dialogue.questInProgress;
+        hasMinigame = dialogue.hasMinigame;
+        minigameType = dialogue.minigameType;
         ResetDialoguePanel();
         DisplayNextSentence();
     }
 
     public bool DisplayNextSentence()
     {
-        if (_sentences.Count == 0 && !hasQuest && !questInProgress)
+        if (_sentences.Count == 0 && !hasQuest && !questInProgress && !hasMinigame)
         {
             EndDialogue();
             return false;
@@ -52,20 +56,21 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(TextWritingEffect(sentence));
             firstContact = false;
         }
+        if(hasMinigame && _sentences.Count == 0)
+        {
+            TurnMinigameButtonOn();
+            return false;
+        }
 
         if (hasQuest && _sentences.Count == 0)
         {
-            uiMaster.acceptQuestButton.SetActive(true);
-            uiMaster.declineQuestButton.SetActive(true);
-            uiMaster._touchToContinue.SetActive(false);
+            TurnButtonsOn(uiMaster.acceptQuestButton, uiMaster.declineQuestButton, uiMaster._touchToContinue);
             return false;
         }
 
         if (questInProgress && _sentences.Count == 0)
         {
-            uiMaster.completeQuestButton.SetActive(true);
-            uiMaster.outQuestButton.SetActive(true);
-            uiMaster._touchToContinue.SetActive(false);
+            TurnButtonsOn(uiMaster.completeQuestButton, uiMaster.outQuestButton, uiMaster._touchToContinue);
             return false;
         }
         return true;
@@ -92,12 +97,41 @@ public class DialogueManager : MonoBehaviour
         Joystick.SetActive(true);
     }
 
+    private void TurnMinigameButtonOn()
+    {
+        switch (minigameType)
+        {
+            case MinigameType.Wood:
+                TurnButtonsOn(uiMaster.WoodMinigameButton, uiMaster.outQuestButton, uiMaster._touchToContinue);
+                break;
+            case MinigameType.Concrete:
+                TurnButtonsOn(uiMaster.ConcreteMinigameButton, uiMaster.outQuestButton, uiMaster._touchToContinue);
+                break;
+            case MinigameType.Metal:
+                TurnButtonsOn(uiMaster.MetalMinigameButton, uiMaster.outQuestButton, uiMaster._touchToContinue);
+                break;
+        }
+    }
+
+    private void TurnButtonsOn(GameObject buttonOn1=null, GameObject buttonOn2=null, GameObject buttonOff = null)
+    {
+        if (buttonOn1 != null)
+            buttonOn1.SetActive(true);
+        if (buttonOn2 != null)
+            buttonOn2.SetActive(true);
+        if (buttonOff != null)
+            buttonOff.SetActive(false);
+    }
+
     private void ResetDialoguePanel()
     {
         uiMaster.acceptQuestButton.SetActive(false);
         uiMaster.declineQuestButton.SetActive(false);
         uiMaster.completeQuestButton.SetActive(false);
         uiMaster.outQuestButton.SetActive(false);
+        uiMaster.WoodMinigameButton.SetActive(false);
+        uiMaster.ConcreteMinigameButton.SetActive(false);
+        uiMaster.MetalMinigameButton.SetActive(false);
         uiMaster._touchToContinue.SetActive(true);
         uiMaster._displayText.text = "";
     }
@@ -106,7 +140,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (accept)
         {
-            print("aceita");
+            //print("aceita");
             //comeca quest
             questManager.addQuest();
         }
@@ -116,7 +150,7 @@ public class DialogueManager : MonoBehaviour
     public void CompleteQuestAnswer ()
     {
         bool completed = questManager.CompleteQuest();
-        print("Quest completa? " + completed.ToString());
+        //print("Quest completa? " + completed.ToString());
         EndDialogue();
     }
 

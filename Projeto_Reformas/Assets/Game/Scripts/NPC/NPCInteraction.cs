@@ -20,6 +20,8 @@ public class NPCInteraction : MonoBehaviour
 
     private Persistent persistenData;
 
+    public bool isMinigameNPC;
+
     [HideInInspector] public Quest dayQuest;
 
     private void Start()
@@ -30,8 +32,12 @@ public class NPCInteraction : MonoBehaviour
         {
             GreetingOptionsDialogue.Add(child.GetComponent<Dialogue>());
         }
-       
+
         persistenData = Persistent.current;
+        if (persistenData.firstContactNPCs == null || !persistenData.firstContactNPCs.ContainsKey(npcName))
+        {
+            persistenData.firstContactNPCs.Add(npcName, true);
+        }
         CheckDayQuest();
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
     }
@@ -91,21 +97,41 @@ public class NPCInteraction : MonoBehaviour
     //Define qual diálogo o npc usará
     public Dialogue Greet()
     {
-        print(dayQuest);
-        if (dayQuest != null && dayQuest.questName == null)
+        //print(dayQuest);
+        if (dayQuest != null && (dayQuest.questName == null || dayQuest.questName == ""))
         {
             dayQuest = null;
             Debug.LogWarning("Quest sem nome definido!");
         }
-        if (dayQuest != null)
+        if (isMinigameNPC)
+        {
+            //print("MinigameDialogue");
+            return minigameDialogue();
+        }
+
+        else if (dayQuest != null)
         {
             return questDialogue();
         }
+
         else
         {
-            print("normal");
-            return normalDialogue();
+            //print("normal");
+            return moodDialogue();
         }
+    }
+    private Dialogue minigameDialogue()
+    {
+        bool firstContact;
+        persistenData.firstContactNPCs.TryGetValue(npcName, out firstContact);
+        if (firstContact)
+        {
+            persistenData.firstContactNPCs.Remove(npcName);
+            persistenData.firstContactNPCs.Add(npcName, false);
+            return GreetingOptionsDialogue[0];
+        }
+        else
+            return GreetingOptionsDialogue[1];
     }
 
     private Dialogue questDialogue()
@@ -118,7 +144,7 @@ public class NPCInteraction : MonoBehaviour
             return dayQuest.startDialogue;
     }
 
-    private Dialogue normalDialogue()
+    private Dialogue moodDialogue()
     {
         switch (npcStatus)
         {

@@ -57,7 +57,10 @@ public class DayCycle : MonoBehaviour
             persistentData.currentDay += 1;
             day_txt.text = "Dia " + persistentData.currentDay;
             if (TryGetComponent(out QuestManager questManager))
+            {
                 questManager.CheckDayQuests();
+                questManager.ClearQuestsPanel();
+            }
         }
     }
 

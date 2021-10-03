@@ -12,6 +12,8 @@ public class Persistent : MonoBehaviour
     public List<string> activeQuests;
     public List<string> completedQuests;
 
+    public Dictionary<string, bool> firstContactNPCs;
+
     [HideInInspector] public float currentTime = 2;
     [HideInInspector] public float fullDayLength = 2;
 
@@ -28,6 +30,7 @@ public class Persistent : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         if (current == null)
             current = this;
+        firstContactNPCs = new Dictionary<string, bool>();
     }
 
 }

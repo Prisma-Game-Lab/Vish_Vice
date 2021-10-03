@@ -28,6 +28,10 @@ public class UIMaster : MonoBehaviour
     [HideInInspector] public GameObject declineQuestButton;
     [HideInInspector] public GameObject completeQuestButton;
     [HideInInspector] public GameObject outQuestButton;
+    [HideInInspector] public GameObject WoodMinigameButton;
+    [HideInInspector] public GameObject ConcreteMinigameButton;
+    [HideInInspector] public GameObject MetalMinigameButton;
+
 
     private void Start()
     {
@@ -41,6 +45,9 @@ public class UIMaster : MonoBehaviour
         declineQuestButton = dialoguePanelChild.transform.GetChild(4).gameObject;
         completeQuestButton = dialoguePanelChild.transform.GetChild(5).gameObject;
         outQuestButton = dialoguePanelChild.transform.GetChild(6).gameObject;
+        WoodMinigameButton=dialoguePanelChild.transform.GetChild(7).gameObject;
+        ConcreteMinigameButton= dialoguePanelChild.transform.GetChild(8).gameObject;
+        MetalMinigameButton = dialoguePanelChild.transform.GetChild(9).gameObject;
         interactButton.SetActive(false);
     }
 
