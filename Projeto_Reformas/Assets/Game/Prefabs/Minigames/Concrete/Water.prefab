@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8903272557248073063}
   - component: {fileID: 8903272557248073062}
+  - component: {fileID: -739203020453517180}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -82,3 +83,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-739203020453517180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903272557248073061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a03682207f3af41a562e28f8164bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnCode: {fileID: 8612394416208763350, guid: e5271d3d46a40284ca2a8ce7fa5beeaf, type: 3}
+  speed: 0

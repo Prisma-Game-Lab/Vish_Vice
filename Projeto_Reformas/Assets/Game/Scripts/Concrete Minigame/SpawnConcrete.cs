@@ -8,14 +8,16 @@ public class SpawnConcrete : MonoBehaviour
     public GameObject[] materials;
 
     [Header("Direção da esteira (1 - direita; -1 - esquerda)")]
-    public int Direction;
+    public int direction;
+    public int movingSpeed;
 
-    private int _totalMaterials;
+    [HideInInspector]public int totalMaterials;
     private int[] repetitions;
+    private GameObject mat;
     // Start is called before the first frame update
     void Start()
     {
-        _totalMaterials = 0;
+        totalMaterials = 0;
         repetitions = new int[5];
         for (int i = 0; i < 5; i++)
         {
@@ -28,14 +30,14 @@ public class SpawnConcrete : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+ 
     }
 
     private IEnumerator SpawnMaterials()
     {
         while (true)
         {
-            if (_totalMaterials < 4)
+            if (totalMaterials < 4)
             {
                 int chosenMat = Random.Range(0, materials.Length);
                 while (repetitions[chosenMat] >= 2)
@@ -43,9 +45,11 @@ public class SpawnConcrete : MonoBehaviour
                     chosenMat = Random.Range(0, materials.Length);
                 }
 
-                Instantiate(materials[chosenMat], transform.position + new Vector3(-10f, 0f, 0f), Quaternion.identity);
-                _totalMaterials += 1;
+                mat = Instantiate(materials[chosenMat], transform.position + new Vector3(-10f * direction, 0f, 0f), Quaternion.identity);
+                mat.gameObject.GetComponent<MovingMaterial>().speed = movingSpeed * direction;
+                totalMaterials += 1;
                 repetitions[chosenMat] += 1;
+
             }
             yield return new WaitForSeconds(3);
         }
