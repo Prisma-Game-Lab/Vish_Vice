@@ -332,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 560634170}
   - component: {fileID: 560634169}
+  - component: {fileID: 560634171}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -368,6 +369,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &560634171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560634168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b41762defa43ce45a4c79ea7c7f8b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: Hulu
 --- !u!1 &677056627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1714,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: TesteMusica
+  - name: Hulu
+    clip: {fileID: 8300000, guid: c0d952e28160e4344aa2d4936d8d9178, type: 3}
+    volume: 0.461
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Searching
+    clip: {fileID: 8300000, guid: a4c7bac369102644bb3ade570cfc2487, type: 3}
+    volume: 0.461
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Teste
     clip: {fileID: 8300000, guid: 9f0e6e7da6f5ba44f9d2a7715035e485, type: 3}
     volume: 0.461
     pitch: 1

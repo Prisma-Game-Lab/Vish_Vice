@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("TesteMusica");//teste do sistema de configuracoes de som
+        //Play("TesteMusica");//teste do sistema de configuracoes de som
     }
     public void Play(string name)
     {
@@ -85,6 +85,13 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
+    public void StopAllMusicSounds()
+    {
+            foreach (Sound sound in sounds)
+            {
+                sound.source.Stop();
+            }
     }
     public void UpdateSoundVolumes()
     {
