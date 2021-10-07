@@ -14,6 +14,9 @@ public class SpawnConcrete : MonoBehaviour
     [HideInInspector]public int totalMaterials;
     private int[] repetitions;
     private GameObject mat;
+
+    public GameObject[] mats;
+    private int matsInd;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +27,30 @@ public class SpawnConcrete : MonoBehaviour
             repetitions[i] = 0;
         }
 
+        mats = new GameObject[4];
+        matsInd = 0;
         StartCoroutine(SpawnMaterials());
     }
 
     // Update is called once per frame
     void Update()
     {
- 
+        for (int i = 0; i < 4; i++)
+        {
+            if (mats[i])
+            {
+                if (mats[i].transform.position.x > 11 || mats[i].transform.position.x < -11)
+                {
+                    repetitions[mats[i].gameObject.GetComponent<MovingMaterial>().type] -= 1;
+                    Destroy(mats[i].gameObject);
+                    totalMaterials -= 1;
+                    if (matsInd >= 4)
+                    {
+                        matsInd = 0;
+                    }
+                }
+            }
+        }
     }
 
     private IEnumerator SpawnMaterials()
@@ -47,8 +67,12 @@ public class SpawnConcrete : MonoBehaviour
 
                 mat = Instantiate(materials[chosenMat], transform.position + new Vector3(-10f * direction, 0f, 0f), Quaternion.identity);
                 mat.gameObject.GetComponent<MovingMaterial>().speed = movingSpeed * direction;
+                mat.gameObject.GetComponent<MovingMaterial>().type = chosenMat;
                 totalMaterials += 1;
                 repetitions[chosenMat] += 1;
+
+                mats[matsInd] = mat;
+                matsInd += 1;
 
             }
             yield return new WaitForSeconds(3);
