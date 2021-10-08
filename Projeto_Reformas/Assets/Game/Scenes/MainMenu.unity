@@ -1757,6 +1757,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Step1
+    clip: {fileID: 8300000, guid: 9ef63492695765b4a89f940a46e8bfe8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Step2
+    clip: {fileID: 8300000, guid: b58f26a58ec5fe14eb4e1bbeb16010ac, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &1959994499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,6 +1792,7 @@ MonoBehaviour:
   currentTime: 2
   fullDayLength: 2
   playerPosition: {x: 0, y: 0, z: 0}
+  currentMetalGameLevel: 0
 --- !u!4 &1959994500
 Transform:
   m_ObjectHideFlags: 0

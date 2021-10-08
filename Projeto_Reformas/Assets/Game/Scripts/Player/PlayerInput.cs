@@ -40,6 +40,18 @@ public class PlayerInput : MonoBehaviour
         controller.SimpleMove(direction.normalized * speed);
     }
 
+    public void playSteps()
+    {
+        print("foi");
+        int index = Random.Range(0, 2);
+        if (index == 0)
+            AudioManager.instance.Play("Step1");
+        else
+        {
+            AudioManager.instance.Play("Step2");
+        }
+    }
+
     private void OnDestroy()
     {
         Persistent.current.playerPosition = transform.position;
