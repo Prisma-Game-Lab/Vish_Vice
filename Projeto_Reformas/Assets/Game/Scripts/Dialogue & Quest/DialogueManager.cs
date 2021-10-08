@@ -28,7 +28,6 @@ public class DialogueManager : MonoBehaviour
     public void StartDialog(Dialogue dialogue)
     {
         firstContact = true;
-        //print(dialogue);
         foreach (string sentence in dialogue.sentences)
         {
             _sentences.Enqueue(sentence);
@@ -147,7 +146,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (accept)
         {
-            //print("aceita");
             //comeca quest
             questManager.addQuest();
         }
@@ -157,7 +155,6 @@ public class DialogueManager : MonoBehaviour
     public void CompleteQuestAnswer ()
     {
         bool completed = questManager.CompleteQuest();
-        //print("Quest completa? " + completed.ToString());
         EndDialogue();
     }
 

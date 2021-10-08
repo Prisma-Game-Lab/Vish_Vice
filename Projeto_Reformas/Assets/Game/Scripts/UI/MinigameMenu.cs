@@ -52,7 +52,6 @@ public class MinigameMenu : MonoBehaviour
             Persistent.current.quantWood += slice.woodCount;
         else if (SceneManager.GetActiveScene().name == "MetalGame")
             Persistent.current.quantMetal += metalGameManager.metalQtd;
-        //Persistent.current.startTime
         SceneManager.LoadScene("Play");
     }
     public void MinigameRestart()
