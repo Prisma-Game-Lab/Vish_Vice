@@ -12,11 +12,13 @@ public class Persistent : MonoBehaviour
     public List<string> activeQuests;
     public List<string> completedQuests;
 
+    public List<bool> objectState;
+
     public Dictionary<string, bool> firstContactNPCs;
 
     [HideInInspector] public float currentTime = 2;
     [HideInInspector] public float fullDayLength = 2;
-
+    [HideInInspector] public Vector3 playerPosition;
     public static Persistent current;
 
     private void Awake()

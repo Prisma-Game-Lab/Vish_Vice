@@ -30,13 +30,13 @@ public class QuestManager : MonoBehaviour
         uiMaster = GetComponent<UIMaster>();
         persistenData = Persistent.current;
 
-        if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
-        {
-            foreach (Quest quest in persistenData.activeQuestsUI)
-            {
-                CreateQuestUI(quest);
-            }
-        }
+        //if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
+        //{
+        //    foreach (Quest quest in persistenData.activeQuestsUI)
+        //    {
+        //        CreateQuestUI(quest);
+        //    }
+        //}
     }
 
     public void addQuest()
@@ -108,6 +108,10 @@ public class QuestManager : MonoBehaviour
         {
             if (quest.questName == newQuestNPC.dayQuest.questName)
             {
+                quest.activate.SetActive(true);
+                Persistent.current.objectState[quest.activate.transform.GetSiblingIndex()] = true;
+                quest.desactivate.SetActive(false);
+                Persistent.current.objectState[quest.desactivate.transform.GetSiblingIndex()] = false;
                 persistenData.activeQuestsUI.Remove(quest);
                 break;
             }
@@ -153,7 +157,7 @@ public class QuestManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        uiMaster.woodText.text = "Wood: " + persistenData.quantWood.ToString();
+        uiMaster.woodText.text = "Madeira: " + persistenData.quantWood.ToString();
         foreach (Transform questUI in uiMaster.allQuestsPanel.transform)
         {
             if (questUI.GetComponentInChildren<TextMeshProUGUI>().text == newQuestNPC.dayQuest.questName)

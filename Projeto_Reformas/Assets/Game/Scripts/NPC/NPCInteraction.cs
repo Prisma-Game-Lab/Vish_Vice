@@ -39,6 +39,7 @@ public class NPCInteraction : MonoBehaviour
             persistenData.firstContactNPCs.Add(npcName, true);
         }
         CheckDayQuest();
+        RefreshActiveQuestList();
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
     }
 
@@ -70,6 +71,21 @@ public class NPCInteraction : MonoBehaviour
                 }
                 FillQuestDialogues(dayQuest);
                 break;
+            }
+        }
+    }
+    public void RefreshActiveQuestList()
+    {
+        if (dayQuest != null && persistenData.activeQuests.Contains(dayQuest.questName))
+        {
+            for (int i = 0; i < persistenData.activeQuestsUI.Count; i++)
+            {
+                Quest quest = persistenData.activeQuestsUI[i];
+                if (quest.questName == dayQuest.questName)
+                {
+                    int index = persistenData.activeQuestsUI.IndexOf(quest);
+                    persistenData.activeQuestsUI[index] = dayQuest;
+                }
             }
         }
     }

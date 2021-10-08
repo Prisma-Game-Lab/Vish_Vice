@@ -22,4 +22,6 @@ public class Quest
     [HideInInspector] public Dialogue completedDialogue;
     public GameObject questDialogues;
     public List<Item> wantedItens;
+    public GameObject activate;
+    public GameObject desactivate;
 }
