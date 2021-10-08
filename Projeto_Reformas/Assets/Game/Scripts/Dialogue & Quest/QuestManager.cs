@@ -30,13 +30,13 @@ public class QuestManager : MonoBehaviour
         uiMaster = GetComponent<UIMaster>();
         persistenData = Persistent.current;
 
-        //if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
-        //{
-        //    foreach (Quest quest in persistenData.activeQuestsUI)
-        //    {
-        //        CreateQuestUI(quest);
-        //    }
-        //}
+        if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
+        {
+            foreach (Quest quest in persistenData.activeQuestsUI)
+            {
+                CreateQuestUI(quest);
+            }
+        }
     }
 
     public void addQuest()
