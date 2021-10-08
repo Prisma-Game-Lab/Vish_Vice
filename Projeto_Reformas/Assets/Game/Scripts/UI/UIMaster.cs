@@ -36,7 +36,7 @@ public class UIMaster : MonoBehaviour
     private void Start()
     {
         Persistent persistentData = GameObject.FindGameObjectWithTag("persistentData").GetComponent<Persistent>();
-        woodText.text = "Wood: " + persistentData.quantWood.ToString();
+        woodText.text = "Madeira: " + persistentData.quantWood.ToString();
         Transform dialoguePanelChild = dialogPanel.transform.GetChild(0);
         _displayText = dialoguePanelChild.transform.GetChild(0).GetComponent<Text>();
         _displayName = dialoguePanelChild.transform.GetChild(1).GetComponent<Text>();
