@@ -93,6 +93,13 @@ public class AudioManager : MonoBehaviour
                 sound.source.Stop();
             }
     }
+    public void StopAllEffectsSounds()
+    {
+        foreach (Sound sound in soundEffects)
+        {
+            sound.source.Stop();
+        }
+    }
     public void UpdateSoundVolumes()
     {
         foreach (Sound s in sounds)

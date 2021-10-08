@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool DisplayNextSentence()
     {
+        AudioManager.instance.StopAllEffectsSounds();
         if (_sentences.Count == 0 && !hasQuest && !questInProgress && !hasMinigame)
         {
             EndDialogue();
@@ -51,6 +52,12 @@ public class DialogueManager : MonoBehaviour
 
         if (_sentences.Count != 0)
         {
+            int randomNumber = Random.Range(0, 2);
+            if (randomNumber == 1)
+                AudioManager.instance.Play("Voz1");
+            else
+                AudioManager.instance.Play("Voz2");
+
             StopAllCoroutines();
             string sentence = _sentences.Dequeue();
             StartCoroutine(TextWritingEffect(sentence));
