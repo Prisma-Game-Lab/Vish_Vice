@@ -17,6 +17,7 @@ public class UIMaster : MonoBehaviour
     public GameObject questUI;
     public GameObject questItemUI;
     public TextMeshProUGUI woodText;
+    public TextMeshProUGUI metalText;
     public Sprite woodQuestIcon;
     private bool intActive = false;
     private bool _paused = false;
@@ -37,6 +38,7 @@ public class UIMaster : MonoBehaviour
     {
         Persistent persistentData = GameObject.FindGameObjectWithTag("persistentData").GetComponent<Persistent>();
         woodText.text = "Madeira: " + persistentData.quantWood.ToString();
+        metalText.text = "Metal: " + persistentData.quantMetal.ToString();
         Transform dialoguePanelChild = dialogPanel.transform.GetChild(0);
         _displayText = dialoguePanelChild.transform.GetChild(0).GetComponent<Text>();
         _displayName = dialoguePanelChild.transform.GetChild(1).GetComponent<Text>();
