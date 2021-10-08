@@ -59,7 +59,6 @@ public class VisualControl : MonoBehaviour
                 if (cell.GetElementType() == GridElementType.mine)
                 {
                     mineList.Add(cell);
-                    Debug.Log("quantidade de minas "+mineList.Count);
                 }
                     
                 gameGrid.SetEmptyCellValue(x, y);

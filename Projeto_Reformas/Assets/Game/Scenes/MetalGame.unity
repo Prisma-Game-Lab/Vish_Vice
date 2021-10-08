@@ -572,11 +572,9 @@ MonoBehaviour:
   metalCountText: {fileID: 801505658}
   finalMetalText: {fileID: 1154314208}
   minQtdMetal: 4
-  maxQtdMetal: 11
   minWidth: 8
-  maxWidth: 16
   minHeight: 4
-  maxHeight: 8
+  maxLevels: 5
   metalQtd: 0
   gameIsOn: 0
 --- !u!1 &1142545174 stripped

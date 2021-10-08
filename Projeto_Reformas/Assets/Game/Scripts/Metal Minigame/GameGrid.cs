@@ -152,8 +152,4 @@ public class GameGrid
         return cellsTotal;
     }
 
-    public void CleanField()
-    {
-        gridArray = null;
-    }
 }

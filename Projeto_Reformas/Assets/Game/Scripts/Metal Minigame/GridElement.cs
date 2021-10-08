@@ -38,8 +38,6 @@ public class GridElement
         text = " ";
         isRevealed = false;
         textColor = TextColor.none;
-        
-
     }
     public void SetElementType(GridElementType type)
     {

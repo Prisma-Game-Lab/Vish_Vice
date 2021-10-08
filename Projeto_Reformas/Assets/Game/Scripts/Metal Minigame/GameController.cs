@@ -14,22 +14,16 @@ public class GameController: MonoBehaviour
     public Text finalMetalText;
     [Header("Quantidade inicial de metal")]
     public int minQtdMetal;
-    [Header("Quantidade maxima de metal")]
-    public int maxQtdMetal;
     [Header("Quantidade inicial de colunas")]
     public int minWidth;
-    [Header("Quantidade maxima de colunas")]
-    public int maxWidth;
     [Header("Quantidade inicial de linhas")]
     public int minHeight;
-    [Header("Quantidade maxima de linhas")]
-    public int maxHeight;
+    [Header("Quantidade maxima de rodadas")]
+    public int maxLevels;
     [HideInInspector]public int metalQtd;
     [HideInInspector]public bool gameIsOn = false;
 
     private VisualControl visualControl;
-
-    //private Vector3 originPosition;
     private int height;
     private int width;
     private int revealedCells;
@@ -38,9 +32,6 @@ public class GameController: MonoBehaviour
     private void Awake()
     {
         level = Persistent.current.currentMetalGameLevel;
-        Debug.Log(level);
-        //originPosition = new Vector3(-minWidth/2, -minHeight/2);
-        //grid = new GameGrid(minWidth, minHeight, 1f, minQtdMetal, minQtdMetal, originPosition);
         grid = SetGrid(level);
         gameIsOn = true;
         height = minHeight + level;
@@ -71,14 +62,12 @@ public class GameController: MonoBehaviour
 
             if(grid.GetGridElement(x,y).GetElementType() == GridElementType.mine)
             {
-                //Debug.Log("Mina");
                 visualControl.RevealAllMines();
                 Persistent.current.currentMetalGameLevel = 0;
                 GameOver();
             }
             else if(grid.GetGridElement(x, y).GetElementType() == GridElementType.metal)
             {
-                //Debug.Log("Metal");
                 visualControl.UpdateCell(x, y);
                 metalQtd++;
                 revealedCells++;
@@ -92,9 +81,8 @@ public class GameController: MonoBehaviour
 
             if (revealedCells == grid.GetCellsTotal())
             {
-                if (Persistent.current.currentMetalGameLevel <= 3)
+                if (Persistent.current.currentMetalGameLevel <= maxLevels)
                     Persistent.current.currentMetalGameLevel = level + 1;
-                //Debug.Log("Level "+level);
                 SceneManager.LoadScene("MetalGame");
             }
                   
