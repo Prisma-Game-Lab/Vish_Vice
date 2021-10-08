@@ -42,8 +42,8 @@ public class GameController: MonoBehaviour
         //grid = new GameGrid(minWidth, minHeight, 1f, minQtdMetal, minQtdMetal, originPosition);
         grid = SetGrid(level);
         gameIsOn = true;
-        height = minHeight;
-        width = minWidth;
+        height = minHeight + level;
+        width = minWidth + level;
     }
     void Start()
     {
@@ -71,8 +71,8 @@ public class GameController: MonoBehaviour
             {
                 //Debug.Log("Mina");
                 visualControl.RevealAllMines();
-                //Persistent.current.currentMetalGameLevel = 1;
-                //GameOver();
+                Persistent.current.currentMetalGameLevel = 1;
+                GameOver();
             }
             else if(grid.GetGridElement(x, y).GetElementType() == GridElementType.metal)
             {
@@ -90,7 +90,6 @@ public class GameController: MonoBehaviour
 
             if (revealedCells == grid.GetCellsTotal())
             {
-                Debug.Log("Abri tudo");
                 if (Persistent.current.currentMetalGameLevel <= 3)
                     Persistent.current.currentMetalGameLevel = level + 1;
                 //Debug.Log("Level "+level);

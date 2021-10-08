@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/WoodGame.unity
     guid: 44c339d4daa38c84dbd86a9312acc7fa
+  - enabled: 1
+    path: Assets/Game/Scenes/MetalGame.unity
+    guid: 63d749358fb113648815561b108a4429
   m_configObjects: {}
