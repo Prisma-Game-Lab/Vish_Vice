@@ -57,7 +57,11 @@ public class VisualControl : MonoBehaviour
                 Vector3 position = gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f;
                 cellArray[x,y] = Instantiate(emptyCell, position, Quaternion.identity);
                 if (cell.GetElementType() == GridElementType.mine)
+                {
                     mineList.Add(cell);
+                    Debug.Log("quantidade de minas "+mineList.Count);
+                }
+                    
                 gameGrid.SetEmptyCellValue(x, y);
                 //Debug.DrawLine(gameGrid.GetWorldPosition(x, y), gameGrid.GetWorldPosition(x, y + 1), Color.white, 100f);
                 //Debug.DrawLine(gameGrid.GetWorldPosition(x, y), gameGrid.GetWorldPosition(x + 1, y), Color.white, 100f);
@@ -71,9 +75,14 @@ public class VisualControl : MonoBehaviour
     {
         if(gameGrid.GetGridElement(x, y).GetElementType() == GridElementType.empty)
         {
-            int value = gameGrid.GetGridElement(x, y).GetElementValue();
+            GridElement cell = gameGrid.GetGridElement(x, y);
+            int value = cell.GetElementValue();
             if (value != 0)
+            {
                 debugTextArray[x, y].text = value.ToString();
+                debugTextArray[x, y].color = cell.GetTextColor();
+            }
+
         }
         cellArray[x, y].transform.GetChild(0).gameObject.SetActive(false);
 

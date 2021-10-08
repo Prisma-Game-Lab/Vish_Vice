@@ -1,35 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController: MonoBehaviour
 {
 
     public Camera cam;
     public GameGrid grid;
+    public GameObject GameOverUI;
+    public Text finalMetalText;
+    [Header("Quantidade inicial de metal")]
+    public int minQtdMetal;
+    [Header("Quantidade maxima de metal")]
+    public int maxQtdMetal;
+    [Header("Quantidade inicial de colunas")]
+    public int minWidth;
+    [Header("Quantidade maxima de colunas")]
+    public int maxWidth;
+    [Header("Quantidade inicial de linhas")]
+    public int minHeight;
+    [Header("Quantidade maxima de linhas")]
+    public int maxHeight;
+    [HideInInspector]public int metalQtd;
     [HideInInspector]public bool gameIsOn = false;
 
     private VisualControl visualControl;
 
-    private Vector3 originPosition;
-    private int height = 8;
-    private int width = 16;
+    //private Vector3 originPosition;
+    private int height;
+    private int width;
+    private int revealedCells;
+    private int level;
 
     private void Awake()
     {
-        originPosition = new Vector3(-9, -4);
-        grid = new GameGrid(width, height, 1f, 10, 10, originPosition);
+        level = Persistent.current.currentMetalGameLevel;
+        Debug.Log(level);
+        //originPosition = new Vector3(-minWidth/2, -minHeight/2);
+        //grid = new GameGrid(minWidth, minHeight, 1f, minQtdMetal, minQtdMetal, originPosition);
+        grid = SetGrid(level);
         gameIsOn = true;
+        height = minHeight;
+        width = minWidth;
     }
     void Start()
     {
         visualControl = GetComponent<VisualControl>();
+        metalQtd = 0;
+        revealedCells = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gameIsOn)
         {
             transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                 Input.mousePosition.y, 10f));
@@ -38,20 +64,39 @@ public class GameController: MonoBehaviour
 
             if (!grid.CheckCell(x, y))
                 return;
+            if (grid.GetGridElement(x, y).IsRevealed())
+                return;
 
             if(grid.GetGridElement(x,y).GetElementType() == GridElementType.mine)
             {
-                Debug.Log("Mina");
+                //Debug.Log("Mina");
                 visualControl.RevealAllMines();
-                //terminar jogo
+                //Persistent.current.currentMetalGameLevel = 1;
+                //GameOver();
             }
             else if(grid.GetGridElement(x, y).GetElementType() == GridElementType.metal)
             {
-                Debug.Log("Metal");
+                //Debug.Log("Metal");
                 visualControl.UpdateCell(x, y);
+                metalQtd++;
+                revealedCells++;
+                
             }
             else
-                RevealGridPosition(x,y);  
+            {
+                RevealGridPosition(x, y);
+                
+            }
+
+            if (revealedCells == grid.GetCellsTotal())
+            {
+                Debug.Log("Abri tudo");
+                if (Persistent.current.currentMetalGameLevel <= 3)
+                    Persistent.current.currentMetalGameLevel = level + 1;
+                //Debug.Log("Level "+level);
+                SceneManager.LoadScene("MetalGame");
+            }
+                  
         }
     }
     private List<GridElement> GetNeighbourList(GridElement cell)
@@ -92,25 +137,24 @@ public class GameController: MonoBehaviour
         return neighbourList;
     }
 
-    public GridElementType RevealGridPosition(int x, int y)
+    private GridElementType RevealGridPosition(int x, int y)
     {
         return RevealGridPosition(grid.GetGridElement(x, y));
     }
-    public GridElementType RevealGridPosition(GridElement cell)
+    private GridElementType RevealGridPosition(GridElement cell)
     {
         if (cell == null) return GridElementType.empty;
         // Reveal this object
-        Debug.Log("Aqui");
         if(cell.IsRevealed())
                 return GridElementType.empty;
         cell.Reveal();
         visualControl.UpdateCell(cell);
+        revealedCells++;
 
         // verificar se o valor da celula e zero
         if (cell.GetElementType() == GridElementType.empty && cell.GetElementValue()==0)
         {
             // se for zero, revelar vizinhos
-            Debug.Log("vazio");
             // guardar vizinhos ja verificados
             List<GridElement> alreadyCheckedNeighbourList = new List<GridElement>();
             // lista de vizinhos para verificar
@@ -130,11 +174,16 @@ public class GameController: MonoBehaviour
                 // verificar todos os vizinhos
                 foreach (GridElement neighbour in GetNeighbourList(checkGridElement))
                 {
-                    Debug.Log("comecou a ver vizinhos");
+                    //Debug.Log("comecou a ver vizinhos");
                     if (neighbour.GetElementType() == GridElementType.empty)
                     {
-                        neighbour.Reveal();
-                        visualControl.UpdateCell(neighbour);
+                        if (neighbour.IsRevealed() == false)
+                        {
+                            neighbour.Reveal();
+                            visualControl.UpdateCell(neighbour);
+                            revealedCells++;
+                        }
+                        
                         if (neighbour.GetElementValue() == 0)
                         {
                             // se valor for 0, adicionar a lista de vizinhos a verificar
@@ -151,4 +200,20 @@ public class GameController: MonoBehaviour
         return cell.GetElementType();
     }
 
+    private void GameOver()
+    {
+        Time.timeScale = 0f;
+        gameIsOn = false;
+        GameOverUI.SetActive(true);
+        finalMetalText.text = "Você ganhou " + metalQtd + "metais";
+    }
+    public GameGrid SetGrid(int level)
+    {
+        float x = -(minWidth + level) / 2;
+        float y = -(minHeight + level) / 2;
+        Vector3 originPosition = new Vector3(x, y);
+        Debug.Log("x:" + x);
+        Debug.Log("y:" + y);
+        return new GameGrid(minWidth+level, minHeight+level, 1f, minQtdMetal+level, minQtdMetal+level, originPosition);
+    }
 }

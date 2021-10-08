@@ -10,6 +10,7 @@ public class MinigameMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public Slice slice;
+    public GameController metalGameManager;
 
 
 
@@ -47,7 +48,10 @@ public class MinigameMenu : MonoBehaviour
     {
         AudioManager.instance.Play("ButtonClick");
         Time.timeScale = 1f;
-        Persistent.current.quantWood += slice.woodCount;
+        if (SceneManager.GetActiveScene().name == "WoodGame")
+            Persistent.current.quantWood += slice.woodCount;
+        else if (SceneManager.GetActiveScene().name == "MetalGame")
+            Persistent.current.quantMetal += metalGameManager.metalQtd;
         //Persistent.current.startTime
         SceneManager.LoadScene("Play");
     }
@@ -55,7 +59,17 @@ public class MinigameMenu : MonoBehaviour
     {
         AudioManager.instance.Play("ButtonClick");
         Time.timeScale = 1f;
-        Persistent.current.quantWood += slice.woodCount;
-        SceneManager.LoadScene("WoodGame");
+        if (SceneManager.GetActiveScene().name == "WoodGame")
+        {
+            Persistent.current.quantWood += slice.woodCount;
+            SceneManager.LoadScene("WoodGame");
+        }   
+        else if (SceneManager.GetActiveScene().name == "MetalGame")
+        {
+            Persistent.current.quantMetal += metalGameManager.metalQtd;
+            SceneManager.LoadScene("MetalGame");
+        }
+            
+        
     }
 }

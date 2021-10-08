@@ -21,6 +21,7 @@ public class Persistent : MonoBehaviour
     [HideInInspector] public Vector3 playerPosition;
     public static Persistent current;
 
+    public int currentMetalGameLevel;
     private void Awake()
     {
         

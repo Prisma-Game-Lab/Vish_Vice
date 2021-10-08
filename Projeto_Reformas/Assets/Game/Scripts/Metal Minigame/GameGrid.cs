@@ -9,8 +9,9 @@ public class GameGrid
     private int height;
     private float cellSize;
     private Vector3 originPosition;
-    private int mineQtd;
-    private int metalQtd;
+    private int mineQtd = 0;
+    private int metalQtd = 0;
+    private int cellsTotal;
     private GridElement[,] gridArray;
     public List<GridElement> mineList;
 
@@ -40,26 +41,24 @@ public class GameGrid
             int y = UnityEngine.Random.Range(0, height);
 
             GridElement mapGridObject = gridArray[x, y];
-            if (mineQtd < maxMines)
+            if(gridArray[x, y].GetElementType() == GridElementType.empty)
             {
-                if (gridArray[x, y].GetElementType() != GridElementType.mine)
+                if (mineQtd < maxMines)
                 {
                     gridArray[x, y].SetElementType(GridElementType.mine);
                     mineList.Add(gridArray[x, y]);
-
                     mineQtd++;
                 }
-            }
-            else if (metalQtd < maxMetal)
-            {
-                if (gridArray[x, y].GetElementType() != GridElementType.metal)
+                else if (metalQtd < maxMetal)
                 {
                     gridArray[x, y].SetElementType(GridElementType.metal);
-
                     metalQtd++;
                 }
             }
+            
         }
+
+        cellsTotal = width * height - mineQtd;
     }
 
 
@@ -117,6 +116,12 @@ public class GameGrid
         }
 
         gridArray[x, y].SetElementValue(mineQtd + metalQtd);
+        if (mineQtd != 0 && metalQtd != 0)
+            gridArray[x, y].SetTextColor(TextColor.yellow);
+        else if(mineQtd == 0)
+            gridArray[x, y].SetTextColor(TextColor.blue);
+        else
+            gridArray[x, y].SetTextColor(TextColor.red);
     }
 
     public GridElement GetGridElement(int x, int y)
@@ -142,4 +147,13 @@ public class GameGrid
         return cellSize;
     }
 
+    public float GetCellsTotal()
+    {
+        return cellsTotal;
+    }
+
+    public void CleanField()
+    {
+        gridArray = null;
+    }
 }

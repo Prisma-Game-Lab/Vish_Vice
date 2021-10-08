@@ -8,6 +8,14 @@ public enum GridElementType
     metal,
     empty
 }
+
+public enum TextColor
+{
+    none,
+    blue,
+    red,
+    yellow
+}
 public class GridElement
 {
     
@@ -18,6 +26,7 @@ public class GridElement
     private string text;
     private int value;
     private bool isRevealed;
+    private TextColor textColor;
 
 
     public GridElement(GameGrid grid, int x, int y)
@@ -28,6 +37,7 @@ public class GridElement
         this.y = y;
         text = " ";
         isRevealed = false;
+        textColor = TextColor.none;
         
 
     }
@@ -80,9 +90,28 @@ public class GridElement
         return y;
     }
 
+    public void SetTextColor(TextColor color)
+    {
+        textColor = color;
+    }
+
+    public Color GetTextColor()
+    {
+        switch (textColor)
+        {
+            case TextColor.red:
+                return Color.red;
+            case TextColor.blue:
+                return Color.blue;
+            default:
+                return Color.yellow;
+        }
+    }
+
     public bool IsRevealed()
     {
         return isRevealed;
     }
+
 
 }
