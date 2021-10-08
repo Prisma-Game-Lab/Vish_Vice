@@ -10,6 +10,7 @@ public class GameController: MonoBehaviour
     public Camera cam;
     public GameGrid grid;
     public GameObject GameOverUI;
+    public Text metalCountText;
     public Text finalMetalText;
     [Header("Quantidade inicial de metal")]
     public int minQtdMetal;
@@ -55,6 +56,7 @@ public class GameController: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        metalCountText.text = "Metal: " + metalQtd.ToString();
         if (Input.GetMouseButtonDown(0) && gameIsOn)
         {
             transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
@@ -71,7 +73,7 @@ public class GameController: MonoBehaviour
             {
                 //Debug.Log("Mina");
                 visualControl.RevealAllMines();
-                Persistent.current.currentMetalGameLevel = 1;
+                Persistent.current.currentMetalGameLevel = 0;
                 GameOver();
             }
             else if(grid.GetGridElement(x, y).GetElementType() == GridElementType.metal)
@@ -204,7 +206,7 @@ public class GameController: MonoBehaviour
         Time.timeScale = 0f;
         gameIsOn = false;
         GameOverUI.SetActive(true);
-        finalMetalText.text = "Você ganhou " + metalQtd + "metais";
+        finalMetalText.text = "Você ganhou " + metalQtd + " metais";
     }
     public GameGrid SetGrid(int level)
     {
