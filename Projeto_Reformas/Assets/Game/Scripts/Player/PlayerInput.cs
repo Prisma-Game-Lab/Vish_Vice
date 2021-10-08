@@ -42,7 +42,6 @@ public class PlayerInput : MonoBehaviour
 
     public void playSteps()
     {
-        print("foi");
         int index = Random.Range(0, 2);
         if (index == 0)
             AudioManager.instance.Play("Step1");
