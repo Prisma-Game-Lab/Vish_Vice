@@ -8,11 +8,12 @@ public class SceneLoad : MonoBehaviour
     public GameObject MainMenuUI;
     public GameObject SettingsUI;
     public GameObject CreditsUI;
-
+    public GameObject LoadingUI;
     public void LoadPlay()
     {
         AudioManager.instance.Play("ButtonClick");
-        SceneManager.LoadScene("Play");
+        GameObject.FindGameObjectWithTag("loadingScreen").GetComponent<LoadingScreen>().StartGame();
+
     }
 
     public void LoadSettings() {

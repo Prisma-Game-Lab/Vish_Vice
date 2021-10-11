@@ -10,6 +10,7 @@ TagManager:
   - NPC
   - Wood
   - persistentData
+  - loadingScreen
   layers:
   - Default
   - TransparentFX

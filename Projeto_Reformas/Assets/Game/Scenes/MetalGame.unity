@@ -305,9 +305,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 672464774}
     m_Modifications:
+    - target: {fileID: 8816316389240536074, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 880689597}
+    - target: {fileID: 8816316389240536074, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MinigameEnd
+      objectReference: {fileID: 0}
     - target: {fileID: 8816316389600828167, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.9999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816316389691352619, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 880689597}
+    - target: {fileID: 8816316389691352619, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MinigameUnpause
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816316390020545381, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 880689597}
+    - target: {fileID: 8816316390020545381, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MinigameSettings
       objectReference: {fileID: 0}
     - target: {fileID: 8816316390071309988, guid: 19fc77cfd4ec3af449665b0ed2d39601, type: 3}
       propertyPath: m_Pivot.x
@@ -887,6 +911,14 @@ PrefabInstance:
     - target: {fileID: 6066666714075024747, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066666714280137084, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 880689597}
+    - target: {fileID: 6066666714280137084, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MinigameCloseSettings
       objectReference: {fileID: 0}
     - target: {fileID: 6066666714478544092, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchorMax.y
