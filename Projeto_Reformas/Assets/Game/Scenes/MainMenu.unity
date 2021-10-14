@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 419968334}
   - component: {fileID: 419968333}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: LoadingCanvas
   m_TagString: loadingScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

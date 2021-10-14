@@ -46,7 +46,7 @@ public class LoadingScreen : MonoBehaviour
             yield return null;
         }
 
-        yield return StartCoroutine(FadeLoadingScreen(0, 1));
+        yield return StartCoroutine(FadeLoadingScreen(0, 0.4f));
         progressBar.value = 0;
         percentage_text.text = "0%";
         loading_text.text = "Loading";
