@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovingMaterial : MonoBehaviour
 {
     [HideInInspector]public int speed;
-    private bool isMoving = true;
+    [HideInInspector]public bool isMoving = true;
 
     [HideInInspector] public int type;
     // Start is called before the first frame update

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6428693935355086965}
   - component: {fileID: 6428693935355086966}
   - component: {fileID: -5102776301762941467}
+  - component: {fileID: -7107147297001661210}
   m_Layer: 0
   m_Name: Cement
-  m_TagString: Untagged
+  m_TagString: Material
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,5 +96,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a03682207f3af41a562e28f8164bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCode: {fileID: 8612394416208763350, guid: e5271d3d46a40284ca2a8ce7fa5beeaf, type: 3}
   speed: 0
+  type: 0
+--- !u!61 &-7107147297001661210
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6428693935355086967}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
