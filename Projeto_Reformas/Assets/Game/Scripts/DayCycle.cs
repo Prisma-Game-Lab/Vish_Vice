@@ -10,6 +10,8 @@ public class DayCycle : MonoBehaviour
     public float time;
     public float fullDayLenght;
     private float timeRate;
+    [HideInInspector] public int hour;
+    [HideInInspector] public int minutes;
     public Vector3 noon;
 
     [Header("Sun")]
@@ -70,8 +72,8 @@ public class DayCycle : MonoBehaviour
         time += timeRate * Time.deltaTime;
         if (time >= 1.0f)
             time = 0f;
-        int hour = Mathf.FloorToInt(time * 24);
-        int minutes = ((int)(((time * 24) % 1) * 6))*10;
+        hour = Mathf.FloorToInt(time * 24);
+        minutes = ((int)(((time * 24) % 1) * 6))*10;
         time_txt.text = hour.ToString("00") + ":" + minutes.ToString("00");
     }
 

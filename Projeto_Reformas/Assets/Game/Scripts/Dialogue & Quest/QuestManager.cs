@@ -108,10 +108,10 @@ public class QuestManager : MonoBehaviour
         {
             if (quest.questName == newQuestNPC.dayQuest.questName)
             {
-                quest.activate.SetActive(true);
-                Persistent.current.objectState[quest.activate.transform.GetSiblingIndex()] = true;
-                quest.desactivate.SetActive(false);
-                Persistent.current.objectState[quest.desactivate.transform.GetSiblingIndex()] = false;
+                quest.activateObject.SetActive(true);
+                Persistent.current.objectState[quest.activateObject.transform.GetSiblingIndex()] = true;
+                quest.desactivateObject.SetActive(false);
+                Persistent.current.objectState[quest.desactivateObject.transform.GetSiblingIndex()] = false;
                 persistenData.activeQuestsUI.Remove(quest);
                 break;
             }
