@@ -35,13 +35,15 @@ public class DayCycle : MonoBehaviour
 
     Persistent persistentData;
 
-    private void Start()
+    private void OnEnable()
     {
         persistentData = Persistent.current;
         time = (persistentData.currentTime != 2) ? persistentData.currentTime : time;
         fullDayLenght = (persistentData.fullDayLength != 2) ? persistentData.fullDayLength : fullDayLenght;
         timeRate = 1.0f / fullDayLenght;
         day_txt.text = "Dia " + persistentData.currentDay;
+        hour = Mathf.FloorToInt(time * 24);
+        minutes = ((int)(((time * 24) % 1) * 6)) * 10;
     }
 
     private void Update()

@@ -13,14 +13,17 @@ public class CityLightsController : MonoBehaviour
     bool lightsTurned;
 
     public List<Light> poles;
+    public List<MeshRenderer> polesMaterials;
+
+    public Material lightOnMaterial;
+    public Material lightOffMaterial;
 
     // Start is called before the first frame update
     void Start()
     {
         dayCycle = GetComponent<DayCycle>();
         lightsTurned = false;
-        if ((dayCycle.hour <= 23 && dayCycle.hour >= 18) || (dayCycle.hour >= 0 && dayCycle.hour <= 5))
-            StartLightsOn();
+        StartLightsOn();
     }
 
     // Update is called once per frame
@@ -34,9 +37,17 @@ public class CityLightsController : MonoBehaviour
 
     void StartLightsOn()
     {
-        foreach (Light light in poles)
+        if (dayCycle.hour >= lightsOnHour || dayCycle.hour <= lightsOffHour)
         {
-            light.gameObject.SetActive(true);
+            if (dayCycle.hour == lightsOnHour && dayCycle.minutes <= lightsOnMinutes)
+                return;
+            else if (dayCycle.hour == lightsOffHour && dayCycle.minutes >= lightsOffMinutes)
+                return;
+            for (int i = 0; i < poles.Count; i++)
+            {
+                poles[i].gameObject.SetActive(true);
+                polesMaterials[i].material = lightOnMaterial;
+            }
         }
     }
 
@@ -45,18 +56,21 @@ public class CityLightsController : MonoBehaviour
         if (dayCycle.hour == lightsOnHour || dayCycle.hour == lightsOffHour)
             return true;
         if (lightsTurned)
+        {
             lightsTurned = false;
+        }
         return false;
     }
 
     void CheckLightsMinutes()
     {
-        if (dayCycle.minutes == lightsOnMinutes)
+
+        if (dayCycle.hour == lightsOnHour && dayCycle.minutes == lightsOnMinutes)
         {
             StartCoroutine(LightsOn());
             lightsTurned = true;
         }
-        else if (dayCycle.hour == lightsOffMinutes)
+        else if (dayCycle.hour == lightsOffHour && dayCycle.minutes == lightsOffMinutes)
         {
             StartCoroutine(LightsOff());
             lightsTurned = true;
@@ -65,18 +79,20 @@ public class CityLightsController : MonoBehaviour
 
     IEnumerator LightsOn()
     {
-        foreach (Light light in poles)
+        for (int i = 0; i < poles.Count; i++)
         {
-            light.gameObject.SetActive(true);
+            poles[i].gameObject.SetActive(true);
+            polesMaterials[i].material = lightOnMaterial;
             yield return new WaitForSeconds(0.2f);
         }
     }
 
     IEnumerator LightsOff()
     {
-        foreach (Light light in poles)
+        for (int i = 0; i < poles.Count; i++)
         {
-            light.gameObject.SetActive(false);
+            poles[i].gameObject.SetActive(false);
+            polesMaterials[i].material = lightOffMaterial;
             yield return new WaitForSeconds(0.2f);
         }
     }
