@@ -54,10 +54,9 @@ public class Notebook : MonoBehaviour
     public void ExpandQuestInfo(string taskName)
     {
         taskExpansionPanel.SetActive(true);
-        Debug.Log("entrou");
         Quest quest = questManager.FindQuestInfo(taskName);
         //taskExpansionPanel.SetActive(true);
-        taskExpansionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quest.questName;
+        taskExpansionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Prazo: Até 00:00 do dia "+ quest.questDay.ToString();
         foreach(Quest.Item item in quest.wantedItens)
         {
             GameObject questResourceItem = Instantiate(questResource, taskExpansionPanel.transform.GetChild(1));
@@ -77,7 +76,7 @@ public class Notebook : MonoBehaviour
             Destroy(res);
         }
     }
-    
+
 
 
     

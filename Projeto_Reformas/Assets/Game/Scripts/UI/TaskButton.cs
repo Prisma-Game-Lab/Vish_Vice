@@ -23,6 +23,5 @@ public class TaskButton : MonoBehaviour
     public void CallNotebook()
     {
         notebook.ExpandQuestInfo(taskName.text);
-        Debug.Log("Apertei");
     }
 }
