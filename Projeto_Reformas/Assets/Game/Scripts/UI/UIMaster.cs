@@ -19,6 +19,8 @@ public class UIMaster : MonoBehaviour
     public TextMeshProUGUI woodText;
     public TextMeshProUGUI metalText;
     public Sprite woodQuestIcon;
+    public Sprite metalQuestIcon;
+    public Sprite concreteQuestIcon;
     private bool intActive = false;
     private bool _paused = false;
 

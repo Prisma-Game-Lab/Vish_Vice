@@ -11,10 +11,18 @@ public class Notebook : MonoBehaviour
     public TextMeshProUGUI concreteText;
     public TextMeshProUGUI mdoText;
     public GameObject notebookUI;
+    public GameObject questButton;
+    public GameObject tasks;
+    public ScrollRect scrollRectTasks;
+    public GameObject taskExpansionPanel;
+    public GameObject questResource;
+    public GameObject scrollBarButtons;
+    public List<GameObject> resources;
+    private QuestManager questManager;
     // Start is called before the first frame update
     void Start()
     {
-
+        questManager = GetComponent<QuestManager>();
     }   
 
     // Update is called once per frame
@@ -28,12 +36,49 @@ public class Notebook : MonoBehaviour
     public void CloseNotebook()
     {
         notebookUI.SetActive(false);
+        scrollBarButtons.SetActive(false);
+        taskExpansionPanel.SetActive(false);
         Time.timeScale = 1f;
     }
 
     public void OpenNotebook()
     {
         notebookUI.SetActive(true);
+        if (tasks.transform.childCount >= 6)
+            scrollRectTasks.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.Permanent;
+        else
+            scrollRectTasks.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHide;
         Time.timeScale = 0f;
     }
+
+    public void ExpandQuestInfo(string taskName)
+    {
+        taskExpansionPanel.SetActive(true);
+        Debug.Log("entrou");
+        Quest quest = questManager.FindQuestInfo(taskName);
+        //taskExpansionPanel.SetActive(true);
+        taskExpansionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quest.questName;
+        foreach(Quest.Item item in quest.wantedItens)
+        {
+            GameObject questResourceItem = Instantiate(questResource, taskExpansionPanel.transform.GetChild(1));
+            questResourceItem.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.quantity.ToString();
+            questResourceItem.GetComponent<Image>().sprite = questManager.GetItemSprite(item);
+            resources.Add(questResourceItem);
+        }
+        taskExpansionPanel.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = quest.questDescription;
+    }
+
+    public void ClearResources()
+    {
+        while (resources.Count != 0 )
+        {
+            GameObject res = resources[0];
+            resources.RemoveAt(0);
+            Destroy(res);
+        }
+    }
+    
+
+
+    
 }

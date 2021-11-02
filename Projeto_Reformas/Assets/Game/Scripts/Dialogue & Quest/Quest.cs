@@ -24,4 +24,5 @@ public class Quest
     public List<Item> wantedItens;
     public GameObject activateObject;
     public GameObject desactivateObject;
+    public string questDescription;
 }

@@ -11,6 +11,7 @@ public class Persistent : MonoBehaviour
     public List<Quest> activeQuestsUI;
     public List<string> activeQuests;
     public List<string> completedQuests;
+    public List<Quest> allQuests;
 
     public List<bool> objectState;
 

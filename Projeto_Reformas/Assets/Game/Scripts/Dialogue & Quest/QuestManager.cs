@@ -19,6 +19,7 @@ public enum MinigameType
 public class QuestManager : MonoBehaviour
 {
     private UIMaster uiMaster;
+    private Notebook notebook;
     [HideInInspector] public NPCInteraction newQuestNPC;
 
     private GameObject[] questsNpcs;
@@ -28,6 +29,7 @@ public class QuestManager : MonoBehaviour
     {
         questsNpcs = GameObject.FindGameObjectsWithTag("NPC");
         uiMaster = GetComponent<UIMaster>();
+        notebook = GetComponent<Notebook>();
         persistenData = Persistent.current;
 
         if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
@@ -47,7 +49,9 @@ public class QuestManager : MonoBehaviour
             newQuestNPC.dayQuest.inProgress = true;
             persistenData.activeQuests.Add(newQuestNPC.dayQuest.questName);
             persistenData.activeQuestsUI.Add(newQuestNPC.dayQuest);
+            persistenData.allQuests.Add(newQuestNPC.dayQuest);
             CreateQuestUI(newQuestNPC.dayQuest);
+
         }
     }
 
@@ -61,7 +65,7 @@ public class QuestManager : MonoBehaviour
 
     private void CreateQuestUI(Quest quest)
     {
-        GameObject questUI = Instantiate(uiMaster.questUI, uiMaster.allQuestsPanel.transform);
+        /*GameObject questUI = Instantiate(uiMaster.questUI, uiMaster.allQuestsPanel.transform);
         questUI.GetComponentInChildren<TextMeshProUGUI>().text = quest.questName;
 
         Transform allQuestItens = questUI.gameObject.transform.GetChild(1).transform;
@@ -71,19 +75,23 @@ public class QuestManager : MonoBehaviour
             GameObject questItem = Instantiate(uiMaster.questItemUI, allQuestItens.transform);
             questItem.GetComponentInChildren<Image>().sprite = GetItemSprite(item);
             questItem.GetComponentInChildren<TextMeshProUGUI>().text = item.quantity.ToString();
-        }
+        }*/
+
+        GameObject questButton = Instantiate(notebook.questButton, notebook.tasks.transform);
+        questButton.GetComponentInChildren<TextMeshProUGUI>().text = quest.questName;
+        questButton.SetActive(true);
     }
 
-    private Sprite GetItemSprite(Quest.Item item)
+    public Sprite GetItemSprite(Quest.Item item)
     {
         switch (item.type)
         {
             case ItemType.Wood:
                 return uiMaster.woodQuestIcon;
             case ItemType.Concrete:
-                return uiMaster.woodQuestIcon;
+                return uiMaster.concreteQuestIcon;
             case ItemType.Metal:
-                return uiMaster.woodQuestIcon;
+                return uiMaster.metalQuestIcon;
             default:
                 return uiMaster.woodQuestIcon;
         }
@@ -175,4 +183,16 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    public Quest FindQuestInfo(string questName)
+    {
+        foreach (Quest quest in persistenData.allQuests)
+        {
+            if (quest.questName == questName)
+            {
+                return quest;
+            }
+        }
+
+        return null;
+    }
 }
