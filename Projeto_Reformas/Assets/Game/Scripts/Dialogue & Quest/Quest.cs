@@ -17,6 +17,7 @@ public class Quest
     public int questDay;
     [HideInInspector] public bool inProgress;
     [HideInInspector] public bool completed;
+    [HideInInspector] public bool lost;
     [HideInInspector] public Dialogue startDialogue;
     [HideInInspector] public Dialogue inProgressDialogue;
     [HideInInspector] public Dialogue completedDialogue;

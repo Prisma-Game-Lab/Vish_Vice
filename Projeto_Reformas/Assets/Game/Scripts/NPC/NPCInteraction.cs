@@ -72,6 +72,14 @@ public class NPCInteraction : MonoBehaviour
                 FillQuestDialogues(dayQuest);
                 break;
             }
+            else if (quest.questDay < currentDay && persistenData.activeQuests.Contains(quest.questName))
+            {
+                quest.lost = true;
+                persistenData.lostQuests.Add(quest.questName);
+                quest.inProgress = false;
+                persistenData.activeQuests.Remove(quest.questName);
+
+            }
         }
     }
     public void RefreshActiveQuestList()

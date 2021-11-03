@@ -47,7 +47,8 @@ public class QuestManager : MonoBehaviour
         {
             print("Quest adicionada!");
             newQuestNPC.dayQuest.inProgress = true;
-            persistenData.activeQuests.Add(newQuestNPC.dayQuest.questName);
+            //persistenData.activeQuests.Add(newQuestNPC.dayQuest.questName);
+            persistenData.activeQuests.Insert(0, newQuestNPC.dayQuest.questName);//as ~quests novas sao sempre inseridas no comeco da lista, pois sao mais recentes
             persistenData.activeQuestsUI.Add(newQuestNPC.dayQuest);
             persistenData.allQuests.Add(newQuestNPC.dayQuest);
             CreateQuestUI(newQuestNPC.dayQuest);
@@ -110,9 +111,9 @@ public class QuestManager : MonoBehaviour
                 return false;
         }
         ConsumeItems(newQuestNPC.dayQuest);
-        UpdateUI();
+        //UpdateUI();
         persistenData.activeQuests.Remove(newQuestNPC.dayQuest.questName);
-        foreach (Quest quest in persistenData.activeQuestsUI)
+        /*foreach (Quest quest in persistenData.activeQuestsUI)
         {
             if (quest.questName == newQuestNPC.dayQuest.questName)
             {
@@ -123,7 +124,7 @@ public class QuestManager : MonoBehaviour
                 persistenData.activeQuestsUI.Remove(quest);
                 break;
             }
-        }
+        }*/
         newQuestNPC.dayQuest.completed = true;
         persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
 

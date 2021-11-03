@@ -44,6 +44,7 @@ public class Notebook : MonoBehaviour
     public void OpenNotebook()
     {
         notebookUI.SetActive(true);
+        OrderTaskList();
         if (tasks.transform.childCount >= 6)
             scrollRectTasks.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.Permanent;
         else
@@ -56,8 +57,13 @@ public class Notebook : MonoBehaviour
         taskExpansionPanel.SetActive(true);
         Quest quest = questManager.FindQuestInfo(taskName);
         //taskExpansionPanel.SetActive(true);
-        taskExpansionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Prazo: Até 00:00 do dia "+ quest.questDay.ToString();
-        foreach(Quest.Item item in quest.wantedItens)
+        if (quest.completed)
+            taskExpansionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Completa";
+        else if (quest.lost)
+            taskExpansionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Perdeu o prazo";
+        else if (quest.inProgress)
+            taskExpansionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Prazo: Até 00:00 do dia "+ quest.questDay.ToString();
+        foreach (Quest.Item item in quest.wantedItens)
         {
             GameObject questResourceItem = Instantiate(questResource, taskExpansionPanel.transform.GetChild(1));
             questResourceItem.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.quantity.ToString();
@@ -77,6 +83,33 @@ public class Notebook : MonoBehaviour
         }
     }
 
+    public void OrderTaskList()//coloca botoes de quests na ordem correta de preferencia
+    {
+        int i = 1;
+        int limit = tasks.transform.childCount;
+
+        while (i < limit)
+        {
+            foreach(string name in Persistent.current.activeQuests)
+            {
+                tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+                Debug.Log(name + i.ToString());
+                i++;
+            }
+            foreach (string name in Persistent.current.completedQuests)
+            {
+                tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+                Debug.Log(name + i.ToString());
+                i++;
+            }
+            foreach (string name in Persistent.current.lostQuests)
+            {
+                tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+                Debug.Log(name + i.ToString());
+                i++;
+            }
+        }
+    }
 
 
     
