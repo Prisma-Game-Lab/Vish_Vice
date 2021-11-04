@@ -79,8 +79,11 @@ public class QuestManager : MonoBehaviour
         }*/
 
         GameObject questButton = Instantiate(notebook.questButton, notebook.tasks.transform);
-        questButton.GetComponentInChildren<TextMeshProUGUI>().text = quest.questName;
+        GameObject questText = Instantiate(notebook.questLimit, notebook.tasks.transform);
+        //questButton.GetComponentInChildren<TextMeshProUGUI>().text = quest.questName;
         questButton.SetActive(true);
+        //questText.GetComponent<TextMeshProUGUI>().text = "Até 00h do dia " + quest.questDay.ToString();
+        questText.SetActive(true);
     }
 
     public Sprite GetItemSprite(Quest.Item item)
@@ -166,7 +169,6 @@ public class QuestManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        uiMaster.woodText.text = "Madeira: " + persistenData.quantWood.ToString();
         foreach (Transform questUI in uiMaster.allQuestsPanel.transform)
         {
             if (questUI.GetComponentInChildren<TextMeshProUGUI>().text == newQuestNPC.dayQuest.questName)
