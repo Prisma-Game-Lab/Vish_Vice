@@ -55,7 +55,7 @@ public class VisualControl : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 GridElement cell = gameGrid.GetGridElement(x, y);
-                textArray[x, y] = CreateGridText(cell.GetElementText(), 10, gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f);
+                textArray[x, y] = CreateGridText(cell.GetElementText(), 12, gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f);
                 Vector3 position = gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f;
                 cellArray[x,y] = Instantiate(emptyCell, position, Quaternion.identity);
                 if (cell.GetElementType() == GridElementType.mine)

@@ -32,10 +32,10 @@ public class GameController: MonoBehaviour
     private void Awake()
     {
         level = Persistent.current.currentMetalGameLevel;
-        grid = SetGrid(level);
+        grid = SetGrid();
         gameIsOn = true;
-        height = minHeight + level;
-        width = minWidth + level;
+        height = minHeight;
+        width = minWidth;
     }
     void Start()
     {
@@ -47,7 +47,7 @@ public class GameController: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        metalCountText.text = "Metal: " + metalQtd.ToString();
+        metalCountText.text = "Metal coletado: " + metalQtd.ToString() + " / " + grid.GetMetalTotal().ToString();
         //Tratamento do clique
         if (Input.GetMouseButtonDown(0) && gameIsOn)
         {
@@ -202,13 +202,13 @@ public class GameController: MonoBehaviour
     }
 
     //Cria tabuleiro
-    public GameGrid SetGrid(int level)
+    public GameGrid SetGrid()
     {
-        float x = -(minWidth + level) / 2;
-        float y = -(minHeight + level) / 2;
+        float x = -(minWidth*1.2f) / 2;
+        float y = -(minHeight*1.2f) / 2;
         Vector3 originPosition = new Vector3(x, y);
         Debug.Log("x:" + x);
         Debug.Log("y:" + y);
-        return new GameGrid(minWidth+level, minHeight+level, 1f, minQtdMetal+level, minQtdMetal+level, originPosition);
+        return new GameGrid(minWidth, minHeight, 1.2f, minQtdMetal + level, minQtdMetal + level, originPosition);
     }
 }
