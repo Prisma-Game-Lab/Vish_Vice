@@ -12,6 +12,7 @@ public class GameController: MonoBehaviour
     public GameObject GameOverUI;
     public Text metalCountText;
     public Text finalMetalText;
+    public Text lifeText;
     [Header("Quantidade inicial de metal")]
     public int minQtdMetal;
     [Header("Quantidade inicial de colunas")]
@@ -22,13 +23,17 @@ public class GameController: MonoBehaviour
     public int maxLevels;
     [HideInInspector]public int metalQtd;
     [HideInInspector]public bool gameIsOn = false;
+    [Header("Fator de multiplicacao do metal coletado")]
+    public int metalMultiplier;
+    [Header("Quantidade inicial de vidas")]
+    public int lifeQtd;
 
     private VisualControl visualControl;
     private int height;
     private int width;
     private int revealedCells;
     private int level;
-
+    private int bombsOpened = 0;
     private void Awake()
     {
         level = Persistent.current.currentMetalGameLevel;
@@ -48,6 +53,7 @@ public class GameController: MonoBehaviour
     void Update()
     {
         metalCountText.text = "Metal coletado: " + metalQtd.ToString() + " / " + grid.GetMetalTotal().ToString();
+        lifeText.text = "Vidas restantes " + (lifeQtd - bombsOpened).ToString();
         //Tratamento do clique
         if (Input.GetMouseButtonDown(0) && gameIsOn)
         {
@@ -63,9 +69,18 @@ public class GameController: MonoBehaviour
 
             if(grid.GetGridElement(x,y).GetElementType() == GridElementType.mine)
             {
-                visualControl.RevealAllMines();
-                Persistent.current.currentMetalGameLevel = 0;
-                GameOver();
+                bombsOpened += 1;               
+                if(lifeQtd == bombsOpened)
+                {
+                    visualControl.RevealAllMines();
+                    Persistent.current.currentMetalGameLevel = 0;
+                    GameOver();
+                }
+                else
+                {
+                    visualControl.UpdateCell(x, y);
+                }
+                
             }
             else if(grid.GetGridElement(x, y).GetElementType() == GridElementType.metal)
             {
@@ -83,8 +98,12 @@ public class GameController: MonoBehaviour
             if (revealedCells == grid.GetCellsTotal() || metalQtd == grid.GetMetalTotal())
             {
                 if (Persistent.current.currentMetalGameLevel <= maxLevels)
+                {
                     Persistent.current.currentMetalGameLevel = level + 1;
-                SceneManager.LoadScene("MetalGame");
+                    Persistent.current.earnedMetalQtd += metalQtd*metalMultiplier;
+                }
+                StartCoroutine(waitLevelChange());   
+                //SceneManager.LoadScene("MetalGame");
             }
                   
         }
@@ -198,7 +217,8 @@ public class GameController: MonoBehaviour
         Time.timeScale = 0f;
         gameIsOn = false;
         GameOverUI.SetActive(true);
-        finalMetalText.text = "Você ganhou " + metalQtd + " metais";
+        Persistent.current.earnedMetalQtd += metalQtd * metalMultiplier;
+        finalMetalText.text = "Você ganhou " + Persistent.current.earnedMetalQtd + " metais";
     }
 
     //Cria tabuleiro
@@ -210,5 +230,11 @@ public class GameController: MonoBehaviour
         Debug.Log("x:" + x);
         Debug.Log("y:" + y);
         return new GameGrid(minWidth, minHeight, 1.2f, minQtdMetal + level, minQtdMetal + level, originPosition);
+    }
+
+    private IEnumerator waitLevelChange()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("MetalGame");
     }
 }

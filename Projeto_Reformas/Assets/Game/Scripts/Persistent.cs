@@ -24,6 +24,7 @@ public class Persistent : MonoBehaviour
     public static Persistent current;
 
     public int currentMetalGameLevel;
+    public int earnedMetalQtd = 0;
     private void Awake()
     {
         

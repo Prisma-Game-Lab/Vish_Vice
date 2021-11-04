@@ -51,7 +51,11 @@ public class MinigameMenu : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "WoodGame")
             Persistent.current.quantWood += slice.woodCount;
         else if (SceneManager.GetActiveScene().name == "MetalGame")
-            Persistent.current.quantMetal += metalGameManager.metalQtd;
+        {
+            Persistent.current.quantMetal += Persistent.current.earnedMetalQtd;
+            Persistent.current.earnedMetalQtd = 0;
+        }
+            
         SceneManager.LoadScene("Play");
     }
     public void MinigameRestart()
@@ -65,7 +69,8 @@ public class MinigameMenu : MonoBehaviour
         }   
         else if (SceneManager.GetActiveScene().name == "MetalGame")
         {
-            Persistent.current.quantMetal += metalGameManager.metalQtd;
+            Persistent.current.quantMetal += Persistent.current.earnedMetalQtd;
+            Persistent.current.earnedMetalQtd = 0;
             SceneManager.LoadScene("MetalGame");
         }
             
