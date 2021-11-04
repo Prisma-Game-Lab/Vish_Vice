@@ -12,8 +12,8 @@ public class GameGrid
     private int mineQtd = 0;
     private int metalQtd = 0;
     private int cellsTotal;
-    private GridElement[,] gridArray;
-    public List<GridElement> mineList;
+    private GridElement[,] gridArray;//array de posicoes do tabuleiro
+    public List<GridElement> mineList;//lista de celulas onde existem bombas
 
     public GameGrid(int width, int height, float cellSize, int maxMines, int maxMetal, Vector3 originPosition)
     {
@@ -82,7 +82,7 @@ public class GameGrid
         return Mathf.FloorToInt((worldPosition - originPosition).y / cellSize);
     }
 
-    public bool CheckCell(int x, int y)
+    public bool CheckCell(int x, int y)//verifica se x e y sao validos para os limites do tabuleiro
     {
         if (x >= 0 && y >= 0 && x < width && y < height)
         {
@@ -92,6 +92,7 @@ public class GameGrid
         return false;
     }
 
+    //Fornece o valor de cada celula vazia, de acordo com a quantidade de bombas e metal ao redor dela
     public void SetEmptyCellValue(int x, int y)
     {
         int mineQtd = 0;
@@ -124,6 +125,7 @@ public class GameGrid
             gridArray[x, y].SetTextColor(TextColor.red);
     }
 
+    //Retorna GridElement correspondente ao par (x,y) fornecidos
     public GridElement GetGridElement(int x, int y)
     {
         if (CheckCell(x, y))
@@ -150,6 +152,11 @@ public class GameGrid
     public float GetCellsTotal()
     {
         return cellsTotal;
+    }
+
+    public float GetMetalTotal()
+    {
+        return metalQtd;
     }
 
 }

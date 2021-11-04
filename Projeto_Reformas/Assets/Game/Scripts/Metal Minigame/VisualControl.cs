@@ -8,7 +8,7 @@ public class VisualControl : MonoBehaviour
     public GameObject emptyCell;
 
     private GameController gameController;
-    private TextMeshPro[,] debugTextArray;
+    private TextMeshPro[,] textArray;
     private GameObject[,] cellArray;
     private int height;
     private int width;
@@ -21,12 +21,12 @@ public class VisualControl : MonoBehaviour
         gameGrid = gameController.grid;
         height = gameGrid.GetHeight();
         width = gameGrid.GetWidth();
-        debugTextArray = new TextMeshPro[width, height];
+        textArray = new TextMeshPro[width, height];
         cellArray = new GameObject[width, height];
         mineList = new List<GridElement>();
         if (gameController.gameIsOn)
         {
-            ShowGridElement();
+            ShowGrid();
         }
     }
 
@@ -46,14 +46,16 @@ public class VisualControl : MonoBehaviour
 
         return textMeshPro;
     }
-    private void ShowGridElement()
+
+    //Desenha tabuleiro
+    private void ShowGrid()
     {
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
                 GridElement cell = gameGrid.GetGridElement(x, y);
-                debugTextArray[x, y] = CreateGridText(cell.GetElementText(), 10, gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f);
+                textArray[x, y] = CreateGridText(cell.GetElementText(), 10, gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f);
                 Vector3 position = gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f;
                 cellArray[x,y] = Instantiate(emptyCell, position, Quaternion.identity);
                 if (cell.GetElementType() == GridElementType.mine)
@@ -62,14 +64,11 @@ public class VisualControl : MonoBehaviour
                 }
                     
                 gameGrid.SetEmptyCellValue(x, y);
-                //Debug.DrawLine(gameGrid.GetWorldPosition(x, y), gameGrid.GetWorldPosition(x, y + 1), Color.white, 100f);
-                //Debug.DrawLine(gameGrid.GetWorldPosition(x, y), gameGrid.GetWorldPosition(x + 1, y), Color.white, 100f);
             }
         }
-       // Debug.DrawLine(gameGrid.GetWorldPosition(0, height), gameGrid.GetWorldPosition(width, height), Color.white, 100f);
-        //Debug.DrawLine(gameGrid.GetWorldPosition(width, 0), gameGrid.GetWorldPosition(width, height), Color.white, 100f);
     }
 
+    //Atualiza valor que sera exibido pela celula quando for aberta
     public void UpdateCell(int x, int y)
     {
         if(gameGrid.GetGridElement(x, y).GetElementType() == GridElementType.empty)
@@ -78,8 +77,8 @@ public class VisualControl : MonoBehaviour
             int value = cell.GetElementValue();
             if (value != 0)
             {
-                debugTextArray[x, y].text = value.ToString();
-                debugTextArray[x, y].color = cell.GetTextColor();
+                textArray[x, y].text = value.ToString();
+                textArray[x, y].color = cell.GetTextColor();
             }
 
         }

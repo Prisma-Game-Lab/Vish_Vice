@@ -48,6 +48,7 @@ public class GameController: MonoBehaviour
     void Update()
     {
         metalCountText.text = "Metal: " + metalQtd.ToString();
+        //Tratamento do clique
         if (Input.GetMouseButtonDown(0) && gameIsOn)
         {
             transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
@@ -55,9 +56,9 @@ public class GameController: MonoBehaviour
             int x = grid.GetCellX(transform.position);
             int y = grid.GetCellY(transform.position);
 
-            if (!grid.CheckCell(x, y))
+            if (!grid.CheckCell(x, y))//se lugar do clique nao for celula, retorna
                 return;
-            if (grid.GetGridElement(x, y).IsRevealed())
+            if (grid.GetGridElement(x, y).IsRevealed())//se for celula ja aberta, retorna
                 return;
 
             if(grid.GetGridElement(x,y).GetElementType() == GridElementType.mine)
@@ -79,7 +80,7 @@ public class GameController: MonoBehaviour
                 
             }
 
-            if (revealedCells == grid.GetCellsTotal())
+            if (revealedCells == grid.GetCellsTotal() || metalQtd == grid.GetMetalTotal())
             {
                 if (Persistent.current.currentMetalGameLevel <= maxLevels)
                     Persistent.current.currentMetalGameLevel = level + 1;
@@ -88,6 +89,8 @@ public class GameController: MonoBehaviour
                   
         }
     }
+
+    //Gera lista de vizinhs de uma celula
     private List<GridElement> GetNeighbourList(GridElement cell)
     {
         int x = cell.GetX();
@@ -130,6 +133,7 @@ public class GameController: MonoBehaviour
     {
         return RevealGridPosition(grid.GetGridElement(x, y));
     }
+    //Revela conteudo de uma celula
     private GridElementType RevealGridPosition(GridElement cell)
     {
         if (cell == null) return GridElementType.empty;
@@ -196,6 +200,8 @@ public class GameController: MonoBehaviour
         GameOverUI.SetActive(true);
         finalMetalText.text = "Você ganhou " + metalQtd + " metais";
     }
+
+    //Cria tabuleiro
     public GameGrid SetGrid(int level)
     {
         float x = -(minWidth + level) / 2;
