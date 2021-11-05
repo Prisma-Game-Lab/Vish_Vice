@@ -26,6 +26,7 @@ public class Notebook : MonoBehaviour
     void Start()
     {
         questManager = GetComponent<QuestManager>();
+        RegenerateButtons();
     }   
 
     // Update is called once per frame
@@ -65,7 +66,7 @@ public class Notebook : MonoBehaviour
         else if (quest.lost)
             taskStatus.text = "Perdeu o prazo";
         else if (quest.inProgress)
-            taskStatus.text = "Prazo: Até 00:00 do dia "+ quest.questDay.ToString();
+            taskStatus.text = "Prazo: Até 00:00 do dia "+ (quest.questDay+1).ToString();
         foreach (Quest.Item item in quest.wantedItens)
         {
             GameObject questResourceItem = Instantiate(questResource, taskExpansionPanel.transform.GetChild(1));
@@ -102,7 +103,7 @@ public class Notebook : MonoBehaviour
             {
                 tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
                 i++;
-                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Até 00h do dia "+questManager.FindQuestInfo(name).questDay.ToString();
+                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Até 00h do dia "+ (questManager.FindQuestInfo(name).questDay + 1).ToString();
                 Debug.Log(name + i.ToString());
                 i++;
             }
@@ -110,7 +111,7 @@ public class Notebook : MonoBehaviour
             {
                 tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
                 i++;
-                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Até 00h do dia "+questManager.FindQuestInfo(name).questDay.ToString();
+                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Completa";
                 Debug.Log(name + i.ToString());
                 i++;
             }
@@ -118,13 +119,24 @@ public class Notebook : MonoBehaviour
             {
                 tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
                 i++;
-                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Até 00h do dia "+questManager.FindQuestInfo(name).questDay.ToString();
+                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Perdeu o prazo";
                 Debug.Log(name + i.ToString());
                 i++;
             }
         }
+
     }
 
+    public void RegenerateButtons()
+    {
+        while(tasks.transform.childCount < Persistent.current.allQuests.Count*2 + 2)
+        {
+            GameObject button = Instantiate(questButton, tasks.transform);
+            GameObject text = Instantiate(questLimit, tasks.transform);
+            button.SetActive(true);
+            text.SetActive(true);
+        }
+    }
 
     
 }
