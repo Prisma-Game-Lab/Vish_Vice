@@ -116,7 +116,7 @@ public class QuestManager : MonoBehaviour
         ConsumeItems(newQuestNPC.dayQuest);
         //UpdateUI();
         persistenData.activeQuests.Remove(newQuestNPC.dayQuest.questName);
-        /*foreach (Quest quest in persistenData.activeQuestsUI)
+        foreach (Quest quest in persistenData.activeQuestsUI)
         {
             if (quest.questName == newQuestNPC.dayQuest.questName)
             {
@@ -127,7 +127,7 @@ public class QuestManager : MonoBehaviour
                 persistenData.activeQuestsUI.Remove(quest);
                 break;
             }
-        }*/
+        }
         newQuestNPC.dayQuest.completed = true;
         persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
 
