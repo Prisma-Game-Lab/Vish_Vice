@@ -10120,7 +10120,7 @@ MonoBehaviour:
   - "NA MINHA \xC9POCA, todo mundo catava seu pr\xF3prio metal, com a picareta na
     m\xE3o e o suor na testa, qualquer um poderia ser rei!"
   - "Mas a\xED chegou esse tal de jovem e suas picaretagens"
-  - "esse tal de MP3 e outras geringon\xE7as esculhambando tudo\u2026"
+  - "Esse tal de MP3 e outras geringon\xE7as esculhambando tudo\u2026"
   - "A\xED j\xE1 viu, n\xE9, meu jovem, ningu\xE9m quer mais nada com nada!"
   - "Mas \xE9 isso, camarada, t\xE1 querendo metal, ent\xE3o vai trabalhar!"
   minigameType: 2
@@ -11538,170 +11538,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377112337}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!43 &381470841
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 30
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 20
-    localAABB:
-      m_Center: {x: 0, y: 0, z: -0.008}
-      m_Extent: {x: 0.5, y: 0.5, z: 0.008}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200010000000300040005000600050004000700080009000a00090008000b000c000d000e000d000c000f00100011001200110010001300
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 20
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 40
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 960
-    _typelessdata: 000000bf000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f00000000000000000000003f0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f0000803f0000803f0000003f000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f0000803f00000000000000bf0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f000000000000803f000000bf000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f00000000000000000000003f0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f0000803f0000003f000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f00000000000000bf0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f000000000000803f000000bf000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f00000000000000000000003f0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f0000803f0000003f000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f00000000000000bf0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f000000000000803f000000bf000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f00000000000000000000003f0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f0000803f0000003f000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f00000000000000bf0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f000000000000803f000000bf000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f00000000000000000000003f0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f0000803f0000003f000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f00000000000000bf0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f000000000000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: -0.008}
-    m_Extent: {x: 0.5, y: 0.5, z: 0.008}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &382170319
 GameObject:
   m_ObjectHideFlags: 0
@@ -28629,7 +28465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - "Hmm, at\xE9 que voc\xEA mandou bem"
-  - "n\xE3o achei que voc\xEA realmente fosse consertar esses \xF4nibus.."
+  - "N\xE3o achei que voc\xEA realmente fosse consertar esses \xF4nibus.."
   - "Espero que voc\xEA d\xEA tanta aten\xE7\xE3o para outros problemas como voc\xEA
     deu para esse.."
   - "Se continuar assim at\xE9 que posso mudar de opini\xE3o sobre voc\xEA..."
@@ -32986,7 +32822,7 @@ MonoBehaviour:
   - Oi, Vice, trouxe as 20 madeiras?
   - "\xC9 que isso \xE9 muito importante para a seguran\xE7a dos cidad\xE3os e para
     a sua reputa\xE7\xE3o"
-  - "a\xED eu fico muito preocup- Ah, n\xE3o?"
+  - "A\xED eu fico muito preocup- Ah, n\xE3o?"
   - "Venha falar comigo quando tiver tudo, por favor\u2026 "
   minigameType: 0
   hasMinigame: 0
@@ -38221,7 +38057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: "Seu An\xEDsio"
-  npcStatus: 0
+  npcStatus: 1
   questManager: {fileID: 1939141608}
   greetingOptions: {fileID: 286915656}
   quests: []
@@ -44508,13 +44344,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Priscila
-  npcStatus: 0
+  npcStatus: 1
   questManager: {fileID: 1939141608}
   greetingOptions: {fileID: 663280582}
   quests:
   - npcName: 
     questName: Ponte Quebrada
-    questDay: 0
+    questDay: 1
     inProgress: 0
     completed: 0
     lost: 0
@@ -44872,6 +44708,170 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291491067}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!43 &1294974620
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 30
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 20
+    localAABB:
+      m_Center: {x: 0, y: 0, z: -0.008}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.008}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200010000000300040005000600050004000700080009000a00090008000b000c000d000e000d000c000f00100011001200110010001300
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 20
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 40
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 960
+    _typelessdata: 000000bf000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f00000000000000000000003f0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f0000803f0000803f0000003f000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f0000803f00000000000000bf0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f000000000000803f000000bf000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f00000000000000000000003f0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f0000803f0000003f000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f00000000000000bf0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f000000000000803f000000bf000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f00000000000000000000003f0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f0000803f0000003f000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f00000000000000bf0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f000000000000803f000000bf000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f00000000000000000000003f0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f0000803f0000003f000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f00000000000000bf0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f000000000000803f000000bf000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f00000000000000000000003f0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f0000803f0000003f000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f00000000000000bf0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f000000000000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: -0.008}
+    m_Extent: {x: 0.5, y: 0.5, z: 0.008}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1297278376
 GameObject:
   m_ObjectHideFlags: 0
@@ -48766,10 +48766,10 @@ MonoBehaviour:
   sentences:
   - "Eu at\xE9 poderia catar esse metal pra voc\xEA, conhe\xE7o essa mina com a palma
     da minha m\xE3o"
-  - " e t\xF4 at\xE9 que inteir\xE3o pra algu\xE9m da minha idade, malho todo dia
+  - "E t\xF4 at\xE9 que inteir\xE3o pra algu\xE9m da minha idade, malho todo dia
     na pracinha!"
-  - " Mas aqui n\xE3o tem corpo mole n\xE3o, trabalho duro \xE9 a \xFAnica coisa
-    que eu reconhe\xE7o por aqui!"
+  - "Mas aqui n\xE3o tem corpo mole n\xE3o, trabalho duro \xE9 a \xFAnica coisa que
+    eu reconhe\xE7o por aqui!"
   minigameType: 2
   hasMinigame: 1
   isQuest: 0
@@ -55826,7 +55826,7 @@ MonoBehaviour:
   sentences:
   - Ah! Obrigada, Vice!
   - "Fico muito feliz de voc\xEA ter me ouvido"
-  - "diferente do ex-prefeito\u2026 "
+  - "Diferente do ex-prefeito\u2026 "
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -56689,7 +56689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - "Oi, Vice, ent\xE3o\u2026 Aparentemente as pessoas est\xE3o reclamando da ponte"
-  - " ela est\xE1 cheia de defeitos e est\xE3o com medo de se machucar."
+  - "Ela est\xE1 cheia de defeitos e est\xE3o com medo de se machucar."
   - "Eu dei uma pesquisada e vi que voc\xEA precisa de 20 madeiras para resolver
     isso."
   - Acha que consegue?
@@ -57678,7 +57678,7 @@ MonoBehaviour:
   quests:
   - npcName: 
     questName: "Balan\xE7o Quebrado"
-    questDay: 0
+    questDay: 2
     inProgress: 0
     completed: 0
     lost: 0
@@ -58748,7 +58748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Bia
-  npcStatus: 0
+  npcStatus: 1
   questManager: {fileID: 1939141608}
   greetingOptions: {fileID: 555874501}
   quests: []
@@ -59242,7 +59242,7 @@ MonoBehaviour:
   quests:
   - npcName: 
     questName: "Transporte Acess\xEDvel"
-    questDay: 0
+    questDay: 2
     inProgress: 0
     completed: 0
     lost: 0
@@ -61127,7 +61127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Michele
-  npcStatus: 0
+  npcStatus: 1
   questManager: {fileID: 1939141608}
   greetingOptions: {fileID: 1519513223}
   quests: []
@@ -96957,7 +96957,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5921591937040953178}
-  m_Mesh: {fileID: 381470841}
+  m_Mesh: {fileID: 1294974620}
 --- !u!33 &8184290167362728509
 MeshFilter:
   m_ObjectHideFlags: 0
