@@ -47,7 +47,7 @@ public class Slice : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && _isCutting)
             _isCutting = false;
 
-        woodCountText.text = "Madeira Obtida: " + woodCount.ToString();
+        woodCountText.text = woodCount.ToString();
     }
 
     private bool CheckCut(Vector3 desired, Vector3 drawn)
