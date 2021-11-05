@@ -47,6 +47,8 @@ public class GameController: MonoBehaviour
         visualControl = GetComponent<VisualControl>();
         metalQtd = 0;
         revealedCells = 0;
+        Debug.Log("earnedMetalQtd"+Persistent.current.earnedMetalQtd);
+        Debug.Log("metalQtd" + metalQtd);
     }
 
     // Update is called once per frame
@@ -86,6 +88,7 @@ public class GameController: MonoBehaviour
             {
                 visualControl.UpdateCell(x, y);
                 metalQtd++;
+                Persistent.current.earnedMetalQtd += metalMultiplier;
                 revealedCells++;
                 
             }
@@ -100,7 +103,7 @@ public class GameController: MonoBehaviour
                 if (Persistent.current.currentMetalGameLevel <= maxLevels)
                 {
                     Persistent.current.currentMetalGameLevel = level + 1;
-                    Persistent.current.earnedMetalQtd += metalQtd*metalMultiplier;
+                    //Persistent.current.earnedMetalQtd += metalQtd*metalMultiplier;
                 }
                 StartCoroutine(waitLevelChange());   
                 //SceneManager.LoadScene("MetalGame");
@@ -217,7 +220,7 @@ public class GameController: MonoBehaviour
         Time.timeScale = 0f;
         gameIsOn = false;
         GameOverUI.SetActive(true);
-        Persistent.current.earnedMetalQtd += metalQtd * metalMultiplier;
+        //Persistent.current.earnedMetalQtd += metalQtd * metalMultiplier;
         finalMetalText.text = "Você ganhou " + Persistent.current.earnedMetalQtd + " metais";
     }
 
