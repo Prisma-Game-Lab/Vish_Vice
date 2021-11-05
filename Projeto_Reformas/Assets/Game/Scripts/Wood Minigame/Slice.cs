@@ -20,8 +20,8 @@ public class Slice : MonoBehaviour
     private Vector3 _startPos;
     private Vector3 _endPos;
     private bool _isCutting = false;
-    private float _minDiagonal = 0.1f;
-    private float _maxDiagonal = 0.9f;
+    private float _minDiagonal = 0.02f;
+    private float _maxDiagonal = 0.98f;
     private Collider2D _playerCollider;
 
     void Start()
