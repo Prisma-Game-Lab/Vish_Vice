@@ -12,6 +12,7 @@ public class MinigameMenu : MonoBehaviour
     public Slice slice;
     public GameController metalGameManager;
 
+    [HideInInspector] public bool paused = false;
 
 
     public void MinigamePause()
@@ -20,6 +21,7 @@ public class MinigameMenu : MonoBehaviour
         pauseButton.SetActive(false);
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+        paused = true;
     }
 
     public void MinigameUnpause()
@@ -28,6 +30,7 @@ public class MinigameMenu : MonoBehaviour
         pauseButton.SetActive(true);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+        paused = false;
     }
 
     public void MinigameSettings()
@@ -75,7 +78,8 @@ public class MinigameMenu : MonoBehaviour
             Persistent.current.earnedMetalQtd = 0;
             SceneManager.LoadScene("MetalGame");
         }
-            
-        
+        paused = false;
+
+
     }
 }

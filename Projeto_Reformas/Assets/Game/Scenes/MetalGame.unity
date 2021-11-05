@@ -909,6 +909,7 @@ MonoBehaviour:
   settingsMenu: {fileID: 722925479}
   slice: {fileID: 0}
   metalGameManager: {fileID: 880689599}
+  paused: 0
 --- !u!4 &880689598
 Transform:
   m_ObjectHideFlags: 0
@@ -1511,11 +1512,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284586541647150849, guid: 004280d887837604bb77f41ef91085e2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 82.546814
+      value: 137.306
       objectReference: {fileID: 0}
     - target: {fileID: 8284586541647150849, guid: 004280d887837604bb77f41ef91085e2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 54.449493
+      value: 101.3859
       objectReference: {fileID: 0}
     - target: {fileID: 8284586541647150849, guid: 004280d887837604bb77f41ef91085e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1547,11 +1548,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284586541647150849, guid: 004280d887837604bb77f41ef91085e2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 24.926514
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 8284586541647150849, guid: 004280d887837604bb77f41ef91085e2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.375244
+      value: -16.417
       objectReference: {fileID: 0}
     - target: {fileID: 8284586541647150849, guid: 004280d887837604bb77f41ef91085e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1564,6 +1565,18 @@ PrefabInstance:
     - target: {fileID: 8284586541647150849, guid: 004280d887837604bb77f41ef91085e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284586541647150851, guid: 004280d887837604bb77f41ef91085e2, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284586541647150851, guid: 004280d887837604bb77f41ef91085e2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d980662299e6c87448a134b65987bbba, type: 3}
+    - target: {fileID: 8284586541647150851, guid: 004280d887837604bb77f41ef91085e2, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8284586541647150862, guid: 004280d887837604bb77f41ef91085e2, type: 3}
       propertyPath: m_Name

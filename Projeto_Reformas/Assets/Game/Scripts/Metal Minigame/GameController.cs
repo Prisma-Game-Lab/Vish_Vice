@@ -29,6 +29,7 @@ public class GameController: MonoBehaviour
     public int lifeQtd;
 
     private VisualControl visualControl;
+    private MinigameMenu minigameMenu;
     private int height;
     private int width;
     private int revealedCells;
@@ -45,6 +46,7 @@ public class GameController: MonoBehaviour
     void Start()
     {
         visualControl = GetComponent<VisualControl>();
+        minigameMenu = GetComponent<MinigameMenu>();
         metalQtd = 0;
         revealedCells = 0;
         Debug.Log("earnedMetalQtd"+Persistent.current.earnedMetalQtd);
@@ -57,7 +59,7 @@ public class GameController: MonoBehaviour
         metalCountText.text = "Metal coletado: " + metalQtd.ToString() + " / " + grid.GetMetalTotal().ToString();
         lifeText.text = "Vidas restantes " + (lifeQtd - bombsOpened).ToString();
         //Tratamento do clique
-        if (Input.GetMouseButtonDown(0) && gameIsOn)
+        if (Input.GetMouseButtonDown(0) && gameIsOn && !minigameMenu.paused)
         {
             transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                 Input.mousePosition.y, 10f));
