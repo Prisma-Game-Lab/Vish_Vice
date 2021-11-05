@@ -729,7 +729,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "Opa vice, e a\xED?"
+  - "N\xE3o dirija a palavra a mim, fazendo favor!"
+  - "Essa politicagem tua de fechar os olhos para o povo n\xE3o d\xE1 para mim n\xE3o,
+    \xE9 pura pilantragem\u2026\r"
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -1329,39 +1331,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62841763}
   m_Mesh: {fileID: 5065503977446733706, guid: 423ff5baef7af4e42a39af3fc9ddcb8c, type: 3}
---- !u!1 &65535885
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 65535886}
-  m_Layer: 0
-  m_Name: Quest 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &65535886
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65535885}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1795370697}
-  - {fileID: 2082594414}
-  - {fileID: 1601894475}
-  m_Father: {fileID: 1066855520}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &65707568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,7 +1499,7 @@ GameObject:
   - component: {fileID: 66454873}
   - component: {fileID: 66454872}
   m_Layer: 0
-  m_Name: MadeiraDialog 2
+  m_Name: ConcretoDialog 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1568,9 +1537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "Eai do chap\xE9u, veio pegar mais madeira hoje?"
-  - "Quero s\xF3 ver, bota esses bracinhos magrelos pra trabalhar! "
-  minigameType: 0
+  - ...
+  minigameType: 1
   hasMinigame: 1
   isQuest: 0
   questInProgress: 0
@@ -5098,8 +5066,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Isso vai ser de grande ajuda vice!
-  - "N\xE3o me deixe na m\xE3o!"
+  - "Quero s\xF3 ver se voc\xEA vai resolver esse problema a\xED mesmo, 20 metais
+    n\xE3o \xE9 nada."
+  - "Mas j\xE1 to acostumado com voc\xEAs, pol\xEDticos, falando muito e fazendo
+    pouco...\r\n"
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -5572,69 +5542,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186577633}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &188418174
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 188418175}
-  - component: {fileID: 188418177}
-  - component: {fileID: 188418176}
-  m_Layer: 3
-  m_Name: High
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &188418175
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188418174}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 819328939}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &188418176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188418174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b102c5f5c872445956759696436694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sentences:
-  - Meu deus, oi vice! Estou adorando seu trabalho na cidade!
-  minigameType: 0
-  hasMinigame: 0
-  isQuest: 0
-  questInProgress: 0
---- !u!222 &188418177
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188418174}
-  m_CullTransparentMesh: 1
 --- !u!1 &192459303
 GameObject:
   m_ObjectHideFlags: 0
@@ -8564,8 +8471,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Obrigade vice!
-  - "As crian\xE7as v\xE3o adorar poder brincar com o balan\xE7o de novo!"
+  - "Hmm, voc\xEA demorou, mas finalmente consertou o parquinho para meu querido
+    Miguel e para as outras crian\xE7as."
+  - "Agora ele tem onde se divertir em seguran\xE7a, como era esperado.\r\n"
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -9091,6 +8999,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286339163}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &286915656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286915657}
+  m_Layer: 0
+  m_Name: GreetingOptions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &286915657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286915656}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 89.75, y: 248.86623, z: 19.431293}
+  m_LocalScale: {x: 3.585, y: 3.5850008, z: 0.28680006}
+  m_Children:
+  - {fileID: 324246229}
+  - {fileID: 1481877198}
+  m_Father: {fileID: 1066855520}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &287672176
 GameObject:
   m_ObjectHideFlags: 0
@@ -10126,6 +10066,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323774138}
   m_Mesh: {fileID: -6686609054127237669, guid: 423ff5baef7af4e42a39af3fc9ddcb8c, type: 3}
+--- !u!1 &324246228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 324246229}
+  - component: {fileID: 324246231}
+  - component: {fileID: 324246230}
+  m_Layer: 0
+  m_Name: MetalDialog 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!224 &324246229
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324246228}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 286915657}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &324246230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324246228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b102c5f5c872445956759696436694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentences:
+  - "\xD4, seu Vice, t\xE1 precisando de metal, \xE9?"
+  - "NA MINHA \xC9POCA, todo mundo catava seu pr\xF3prio metal, com a picareta na
+    m\xE3o e o suor na testa, qualquer um poderia ser rei!"
+  - "Mas a\xED chegou esse tal de jovem e suas picaretagens"
+  - "esse tal de MP3 e outras geringon\xE7as esculhambando tudo\u2026"
+  - "A\xED j\xE1 viu, n\xE9, meu jovem, ningu\xE9m quer mais nada com nada!"
+  - "Mas \xE9 isso, camarada, t\xE1 querendo metal, ent\xE3o vai trabalhar!"
+  minigameType: 2
+  hasMinigame: 1
+  isQuest: 0
+  questInProgress: 0
+--- !u!222 &324246231
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324246228}
+  m_CullTransparentMesh: 1
 --- !u!1 &326842347
 GameObject:
   m_ObjectHideFlags: 0
@@ -14450,7 +14459,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "Ol\xE1 vice, como vai?"
+  - "Ol\xE1, Vice, como vai?"
+  - "Meu Miguel est\xE1 \xF3timo, mas essa cidade est\xE1 cheia de perigos."
+  - "Conserte os problemas o quanto antes, at\xE9 porque, se meu querido se machucar,
+    voc\xEA vai se ver comigo, estamos claros?!"
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -28006,170 +28018,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777132781}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!43 &777219418
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 30
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 20
-    localAABB:
-      m_Center: {x: 0, y: 0, z: -0.008}
-      m_Extent: {x: 0.5, y: 0.5, z: 0.008}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200010000000300040005000600050004000700080009000a00090008000b000c000d000e000d000c000f00100011001200110010001300
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 20
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 40
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 960
-    _typelessdata: 000000bf000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f00000000000000000000003f0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f0000803f0000803f0000003f000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f0000803f00000000000000bf0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f000000000000803f000000bf000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f00000000000000000000003f0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f0000803f0000003f000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f00000000000000bf0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f000000000000803f000000bf000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f00000000000000000000003f0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f0000803f0000003f000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f00000000000000bf0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f000000000000803f000000bf000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f00000000000000000000003f0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f0000803f0000003f000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f00000000000000bf0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f000000000000803f000000bf000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f00000000000000000000003f0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f0000803f0000003f000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f00000000000000bf0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f000000000000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: -0.008}
-    m_Extent: {x: 0.5, y: 0.5, z: 0.008}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &781866764
 GameObject:
   m_ObjectHideFlags: 0
@@ -28616,8 +28464,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Nossa muito obrigado!
-  - Isso com certeza vai me ajudar e muito!
+  - "Hmm, at\xE9 que voc\xEA mandou bem"
+  - "n\xE3o achei que voc\xEA realmente fosse consertar esses \xF4nibus.."
+  - "Espero que voc\xEA d\xEA tanta aten\xE7\xE3o para outros problemas como voc\xEA
+    deu para esse.."
+  - "Se continuar assim at\xE9 que posso mudar de opini\xE3o sobre voc\xEA..."
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -29160,102 +29011,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810419403}
   m_Mesh: {fileID: -2934717439318261032, guid: 423ff5baef7af4e42a39af3fc9ddcb8c, type: 3}
---- !u!1 &819210478
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 819210479}
-  - component: {fileID: 819210481}
-  - component: {fileID: 819210480}
-  m_Layer: 3
-  m_Name: Low
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &819210479
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819210478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 819328939}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &819210480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819210478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b102c5f5c872445956759696436694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sentences:
-  - "N\xE3o falarei com pol\xEDtico que ignora o povo!"
-  minigameType: 0
-  hasMinigame: 0
-  isQuest: 0
-  questInProgress: 0
---- !u!222 &819210481
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819210478}
-  m_CullTransparentMesh: 1
---- !u!1 &819328938
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 819328939}
-  m_Layer: 3
-  m_Name: GreetingOptions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &819328939
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819328938}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 819210479}
-  - {fileID: 2059207884}
-  - {fileID: 188418175}
-  m_Father: {fileID: 1066855520}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &820187437
 GameObject:
   m_ObjectHideFlags: 0
@@ -33064,9 +32819,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - 'Por favor, fale com a Michele e colete as 20 madeiras, para consertar a ponte!
-
-'
+  - Oi, Vice, trouxe as 20 madeiras?
+  - "\xC9 que isso \xE9 muito importante para a seguran\xE7a dos cidad\xE3os e para
+    a sua reputa\xE7\xE3o"
+  - "a\xED eu fico muito preocup- Ah, n\xE3o?"
+  - "Venha falar comigo quando tiver tudo, por favor\u2026 "
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -34977,7 +34734,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Meu deus, oi vice! Estou adorando seu trabalho na cidade!
+  - "Ol\xE1, Vice, como vai?"
+  - "Meu Miguel est\xE1 \xF3timo, mas essa cidade est\xE1 cheia de perigos."
+  - "Conserte os problemas o quanto antes, at\xE9 porque, se meu querido se machucar,
+    voc\xEA vai se ver comigo, estamos claros?!"
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -35586,8 +35346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "N\xE3o falo com gente da sua laia..."
-  - Sai daqui!
+  - "N\xE3o fale comigo!"
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -38254,8 +38013,7 @@ Transform:
   m_LocalPosition: {x: 6.36, y: 0.392, z: -2.598}
   m_LocalScale: {x: 0.08, y: 0.08, z: 1}
   m_Children:
-  - {fileID: 819328939}
-  - {fileID: 65535886}
+  - {fileID: 286915657}
   m_Father: {fileID: 4833210072202622579}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
@@ -38299,9 +38057,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: "Seu An\xEDsio"
-  npcStatus: 1
+  npcStatus: 0
   questManager: {fileID: 1939141608}
-  greetingOptions: {fileID: 819328938}
+  greetingOptions: {fileID: 286915656}
   quests: []
   isMinigameNPC: 1
   dayQuest:
@@ -38926,8 +38684,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "Vamos, vice, pense nas crian\xE7as!"
-  - "J\xE1 trouxe os materiais?"
+  - "Ainda n\xE3o conseguiu o material??"
+  - Esse conserto precisa ser feito PRA ONTEM!
+  - "Meu pobre Miguel n\xE3o tem onde brincar e se divertir, enquanto voc\xEA fica
+    por a\xED de queixo pro ar! "
+  - "Traga j\xE1 as 4 madeiras e 8 metais para consertar esse balan\xE7o! "
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -39588,10 +39349,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Opa vice! Acha que consegue me ajudar com esse problema aqui?
-  - "Estou com dificuldade de usar o transporte p\xFAblico, queria que fosse mais
-    acess\xEDvel."
-  - "Acho que precisaria de uns 20 metais, me da essa for\xE7a?"
+  - "Ah, \xE9? Voc\xEA quer ajudar o povo?"
+  - "Que tal fazer um transporte acess\xEDvel pra todos?"
+  - "V\xEA se diversifica suas propostas a\xED, mano, s\xF3 trazer 20 metais e consertar
+    essa baga\xE7a\u2026\r\n"
   minigameType: 0
   hasMinigame: 0
   isQuest: 1
@@ -39727,7 +39488,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Oi, prefeito.
+  - "Vice! Como voc\xEA est\xE1?"
+  - 'Tem interagido com as pessoas da cidade? '
+  - 'Ah, bem, eu estava preocupada, sabe? '
+  - "Com toda essa confus\xE3o eu fico me perguntando at\xE9 quando eu vou conseguir
+    manter meu empreg-AH! "
+  - "Desculpa, desculpa! N\xE3o deveria te atrapalhar assim, vou voltar a trabalhar\u2026"
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -43012,9 +42778,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "Oi vice! Ser\xE1 que voc\xEA poderia dar uma olhada nesse balan\xE7o aqui?"
-  - "As crian\xE7as podem se machucar feio se isso n\xE3o for consertado rapidamente."
-  - Vai precisar de 4 madeiras e 8 metais pra isso, vice, consegue me ajudar?
+  - "Vice, voc\xEA est\xE1 doido?"
+  - "Onde j\xE1 se viu deixar um ambiente que deveria ser seguro e divertido para
+    as crian\xE7as desse jeito???"
+  - "Imagina se meu pequeno Miguel se machucasse em um desses pregos soltos, n\xE3o
+    quero nem pensar!!"
+  - "Traga 4 madeiras e 8 metais para consertar esse parquinho o mais r\xE1pido poss\xEDvel.\r\n"
   minigameType: 0
   hasMinigame: 0
   isQuest: 1
@@ -48781,6 +48550,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471580417}
   m_Mesh: {fileID: 1934444970998904435, guid: 423ff5baef7af4e42a39af3fc9ddcb8c, type: 3}
+--- !u!1 &1481877197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481877198}
+  - component: {fileID: 1481877200}
+  - component: {fileID: 1481877199}
+  m_Layer: 0
+  m_Name: MetalDialog 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!224 &1481877198
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481877197}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 286915657}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1481877199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481877197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b102c5f5c872445956759696436694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentences:
+  - "Eu at\xE9 poderia catar esse metal pra voc\xEA, conhe\xE7o essa mina com a palma
+    da minha m\xE3o"
+  - " e t\xF4 at\xE9 que inteir\xE3o pra algu\xE9m da minha idade, malho todo dia
+    na pracinha!"
+  - " Mas aqui n\xE3o tem corpo mole n\xE3o, trabalho duro \xE9 a \xFAnica coisa
+    que eu reconhe\xE7o por aqui!"
+  minigameType: 2
+  hasMinigame: 1
+  isQuest: 0
+  questInProgress: 0
+--- !u!222 &1481877200
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481877197}
+  m_CullTransparentMesh: 1
 --- !u!1 &1482622709
 GameObject:
   m_ObjectHideFlags: 0
@@ -50121,7 +49958,7 @@ GameObject:
   - component: {fileID: 1516385019}
   - component: {fileID: 1516385018}
   m_Layer: 0
-  m_Name: MadeiraDialog 1
+  m_Name: ConcretoDialog 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50159,10 +49996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "Opa do chap\xE9u, madeira \xE9 comigo mesmo!"
-  - "Mas se quiser, vai ter que ralar, n\xE3o sou paga pra cortar pra voc\xEA! "
-  - Vai tentar?
-  minigameType: 0
+  - ...
+  minigameType: 1
   hasMinigame: 1
   isQuest: 0
   questInProgress: 0
@@ -54408,56 +54243,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601892184}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1601894474
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1601894475}
-  - component: {fileID: 1601894476}
-  m_Layer: 0
-  m_Name: CompleteDialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1601894475
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1601894474}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 65535886}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1601894476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1601894474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b102c5f5c872445956759696436694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sentences:
-  - Obrigade vice!
-  - "As crian\xE7as v\xE3o adorar poder brincar com o balan\xE7o de novo!"
-  minigameType: 0
-  hasMinigame: 0
-  isQuest: 0
-  questInProgress: 0
 --- !u!1 &1603857708
 GameObject:
   m_ObjectHideFlags: 0
@@ -55180,7 +54965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "N\xE3o falarei com pol\xEDtico que ignora o povo!"
+  - "N\xE3o falarei com pol\xEDtico que ignora meu querido Miguel!"
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -55875,8 +55660,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "Finalmente conseguimos consertar algo nessa cidade! \n"
-  - "Se poss\xEDvel, continue ajudando a cidade."
+  - Ah! Obrigada, Vice!
+  - "Fico muito feliz de voc\xEA ter me ouvido"
+  - "diferente do ex-prefeito\u2026 "
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -56738,10 +56524,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Precisamos consertar a ponte o quanto antes, para as pessoas poderem atravessar!
-  - "Vou te dar uma m\xE3ozinha, ent\xE3o traga 20 madeiras para colocarmos a m\xE3o
-    na massa!"
-  - "Pegue elas com a Michele, voc\xEA sabe onde fica, certo?!"
+  - "Oi, Vice, ent\xE3o\u2026 Aparentemente as pessoas est\xE3o reclamando da ponte"
+  - " ela est\xE1 cheia de defeitos e est\xE3o com medo de se machucar."
+  - "Eu dei uma pesquisada e vi que voc\xEA precisa de 20 madeiras para resolver
+    isso."
+  - Acha que consegue?
   minigameType: 0
   hasMinigame: 0
   isQuest: 1
@@ -57466,7 +57253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6437d3a73cd5e0143b67688020c3e4ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.75
+      value: -22.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6437d3a73cd5e0143b67688020c3e4ce, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57474,7 +57261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6437d3a73cd5e0143b67688020c3e4ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.31
+      value: -3.88
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6437d3a73cd5e0143b67688020c3e4ce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -57659,7 +57446,7 @@ GameObject:
   - component: {fileID: 1689683585}
   - component: {fileID: 1689683584}
   m_Layer: 3
-  m_Name: NPC1
+  m_Name: "M\xE3e e Filho"
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58276,8 +58063,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "Ol\xE1, Vice. Voc\xEA vai dar aten\xE7\xE3o para a cidade hoje? Por favor, me
-    diz que sim?!"
+  - "Vice! Como voc\xEA est\xE1?"
+  - 'Tem interagido com as pessoas da cidade? '
+  - 'Ah, bem, eu estava preocupada, sabe? '
+  - "Com toda essa confus\xE3o eu fico me perguntando at\xE9 quando eu vou conseguir
+    manter meu empreg-AH! "
+  - "Desculpa, desculpa! N\xE3o deveria te atrapalhar assim, vou voltar a trabalhar\u2026"
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -58759,7 +58550,7 @@ GameObject:
   - component: {fileID: 1722378272}
   - component: {fileID: 1722378271}
   m_Layer: 3
-  m_Name: Bia
+  m_Name: Raquel
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59219,7 +59010,7 @@ GameObject:
   - component: {fileID: 1731912431}
   - component: {fileID: 1731912430}
   m_Layer: 3
-  m_Name: Punkzinho
+  m_Name: Junin Jr.
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62011,57 +61802,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793213898}
   m_Mesh: {fileID: -5076798556035486163, guid: 423ff5baef7af4e42a39af3fc9ddcb8c, type: 3}
---- !u!1 &1795370696
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1795370697}
-  - component: {fileID: 1795370698}
-  m_Layer: 0
-  m_Name: StartDialogue
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1795370697
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795370696}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 65535886}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1795370698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795370696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b102c5f5c872445956759696436694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sentences:
-  - "Oi vice! Ser\xE1 que voc\xEA poderia dar uma olhada nesse balan\xE7o aqui?"
-  - "As crian\xE7as podem se machucar feio se isso n\xE3o for consertado rapidamente."
-  - Vai precisar de 4 madeiras e 8 metais pra isso, vice, consegue me ajudar?
-  minigameType: 0
-  hasMinigame: 0
-  isQuest: 1
-  questInProgress: 0
 --- !u!1 &1797373083
 GameObject:
   m_ObjectHideFlags: 0
@@ -69746,7 +69486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Vice! Parabens pelo seu trabalho, estou gostando de ver!
+  - "At\xE9 que n\xE3o mandou mal..."
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -71332,69 +71072,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057231033}
   m_Mesh: {fileID: -6686609054127237669, guid: 423ff5baef7af4e42a39af3fc9ddcb8c, type: 3}
---- !u!1 &2059207883
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2059207884}
-  - component: {fileID: 2059207886}
-  - component: {fileID: 2059207885}
-  m_Layer: 3
-  m_Name: Neutral
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2059207884
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059207883}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 819328939}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2059207885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059207883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b102c5f5c872445956759696436694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sentences:
-  - "Ol\xE1 vice, como vai?"
-  minigameType: 0
-  hasMinigame: 0
-  isQuest: 0
-  questInProgress: 0
---- !u!222 &2059207886
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059207883}
-  m_CullTransparentMesh: 1
 --- !u!1 &2060708722
 GameObject:
   m_ObjectHideFlags: 0
@@ -71913,56 +71590,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078624076}
   m_CullTransparentMesh: 1
---- !u!1 &2082594413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2082594414}
-  - component: {fileID: 2082594415}
-  m_Layer: 0
-  m_Name: InProgressDialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2082594414
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082594413}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 65535886}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2082594415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082594413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b102c5f5c872445956759696436694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sentences:
-  - "Vamos, vice, pense nas crian\xE7as!"
-  - "J\xE1 trouxe os materiais?"
-  minigameType: 0
-  hasMinigame: 0
-  isQuest: 0
-  questInProgress: 1
 --- !u!1 &2086913662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9001879912915312652, guid: 6437d3a73cd5e0143b67688020c3e4ce, type: 3}
@@ -73185,6 +72812,170 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115460801}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!43 &2118978942
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 30
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 20
+    localAABB:
+      m_Center: {x: 0, y: 0, z: -0.008}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.008}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200010000000300040005000600050004000700080009000a00090008000b000c000d000e000d000c000f00100011001200110010001300
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 20
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 40
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 960
+    _typelessdata: 000000bf000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f00000000000000000000003f0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f0000803f0000803f0000003f000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f0000803f00000000000000bf0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f000000000000803f000000bf000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f00000000000000000000003f0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f0000803f0000003f000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f00000000000000bf0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f000000000000803f000000bf000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f00000000000000000000003f0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f0000803f0000003f000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f00000000000000bf0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f000000000000803f000000bf000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f00000000000000000000003f0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f0000803f0000003f000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f00000000000000bf0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f000000000000803f000000bf000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f00000000000000000000003f0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f0000803f0000003f000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f00000000000000bf0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f000000000000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: -0.008}
+    m_Extent: {x: 0.5, y: 0.5, z: 0.008}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &2119586012
 GameObject:
   m_ObjectHideFlags: 0
@@ -82735,8 +82526,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "Aleluia, gata, n\xE3o aguentava mais ficar em p\xE9 por aqui"
-  - "O mesmo vale para v\xE1rios velhinhos que passam pela pra\xE7a"
+  - "Aleluia, gata, n\xE3o aguentava mais n\xE3o ter onde sentar por aqui!"
+  - "O mesmo vale para v\xE1rios velhinhos, jovens e respons\xE1veis que passam pela
+    pra\xE7a."
   - "At\xE9 que mandou bem, Vice!\r\n"
   minigameType: 0
   hasMinigame: 0
@@ -83065,9 +82857,9 @@ MonoBehaviour:
   sentences:
   - "Ei, Vice, voc\xEA bem que poderia consertar esse banquinho aqui da pra\xE7a,
     n\xE9?"
-  - "To doida para sentar e descansar, minhas pernas j\xE1 est\xE3o cansadas de ficar
-    em p\xE9!"
-  - "\xC9 s\xF3 voc\xEA trazer 8 madeiras e 4 metais e botar a m\xE3o na massa, linda!\r\n"
+  - "O pessoal t\xE1 doido pra sentar e curtir o local, mas sem onde sentar n\xE3o
+    d\xE1, n\xE9, jururu!"
+  - "\xC9 s\xF3 voc\xEA trazer 8 madeiras e 4 metais e botar a m\xE3o na massa, mona! "
   minigameType: 0
   hasMinigame: 0
   isQuest: 1
@@ -83122,7 +82914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "N\xE3o falo com gente da sua laia..."
+  - "N\xE3o quero falar com voc\xEA agora.."
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
@@ -83274,7 +83066,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - "E a\xED, Mona, j\xE1 conseguiu as 12 madeiras para resolver esse bafaf\xE1?"
+  - "E a\xED, mona, j\xE1 conseguiu as 8 madeiras e os 4 metais para resolver esse
+    bafaf\xE1?"
   - "Te agiliza, pregui\xE7a!"
   minigameType: 0
   hasMinigame: 0
@@ -97260,7 +97053,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5921591937040953178}
-  m_Mesh: {fileID: 777219418}
+  m_Mesh: {fileID: 2118978942}
 --- !u!33 &8184290167362728509
 MeshFilter:
   m_ObjectHideFlags: 0
