@@ -7,6 +7,7 @@ public class Persistent : MonoBehaviour
     public int quantWood;
     public int quantMetal;
     public int quantConcrete;
+    public int quantManpower;
     public int currentDay;
     public List<Quest> activeQuestsUI;
     public List<string> activeQuests;

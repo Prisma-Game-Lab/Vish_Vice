@@ -35,6 +35,7 @@ public class Notebook : MonoBehaviour
         woodText.text = Persistent.current.quantWood.ToString();
         metalText.text = Persistent.current.quantMetal.ToString();
         concreteText.text = Persistent.current.quantConcrete.ToString();
+        mdoText.text = Persistent.current.quantManpower.ToString();
     }
 
     public void CloseNotebook()

@@ -130,6 +130,7 @@ public class QuestManager : MonoBehaviour
         }
         newQuestNPC.dayQuest.completed = true;
         persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
+        persistenData.quantManpower += 1;
 
         return true;
     }
