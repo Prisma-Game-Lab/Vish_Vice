@@ -130,6 +130,8 @@ public class QuestManager : MonoBehaviour
         }
         newQuestNPC.dayQuest.completed = true;
         persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
+
+        if(persistenData.quantManpower < 4)
         persistenData.quantManpower += 1;
 
         return true;
