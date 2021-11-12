@@ -26,7 +26,7 @@ public class Notebook : MonoBehaviour
     void Start()
     {
         questManager = GetComponent<QuestManager>();
-        RegenerateButtons();
+        //RegenerateButtons();
     }   
 
     // Update is called once per frame

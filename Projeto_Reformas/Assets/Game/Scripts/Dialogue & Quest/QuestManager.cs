@@ -78,7 +78,7 @@ public class QuestManager : MonoBehaviour
             questItem.GetComponentInChildren<Image>().sprite = GetItemSprite(item);
             questItem.GetComponentInChildren<TextMeshProUGUI>().text = item.quantity.ToString();
         }*/
-
+        Debug.Log("Cria botao");
         GameObject questButton = Instantiate(notebook.questButton, notebook.tasks.transform);
         GameObject questText = Instantiate(notebook.questLimit, notebook.tasks.transform);
         //questButton.GetComponentInChildren<TextMeshProUGUI>().text = quest.questName;

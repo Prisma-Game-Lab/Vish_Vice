@@ -10,7 +10,6 @@ public class MinigameMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public Slice slice;
-    public GameController metalGameManager;
 
     [HideInInspector] public bool paused = false;
 
