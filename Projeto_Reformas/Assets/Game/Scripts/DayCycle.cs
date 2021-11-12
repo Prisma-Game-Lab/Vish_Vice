@@ -35,6 +35,8 @@ public class DayCycle : MonoBehaviour
 
     Persistent persistentData;
 
+    private int ManpowerDayCount = 0;
+
     private void OnEnable()
     {
         persistentData = Persistent.current;
@@ -59,11 +61,26 @@ public class DayCycle : MonoBehaviour
         if (time <= 0 && Time.timeScale!=0)
         {
             persistentData.currentDay += 1;
+            ManpowerDayCount += 1;
             day_txt.text = "Dia " + persistentData.currentDay;
             if (TryGetComponent(out QuestManager questManager))
             {
                 questManager.CheckDayQuests();
                 questManager.ClearQuestsPanel();
+            }
+
+            if (ManpowerDayCount == 1)
+            {
+                for (int i = 0; i < persistentData.usedManpower; i++)
+                {
+                    if (persistentData.quantManpower < 4)
+                    {
+                        persistentData.quantManpower++;
+                    }
+                }
+
+                persistentData.usedManpower = 0;
+                ManpowerDayCount = 0;
             }
         }
     }

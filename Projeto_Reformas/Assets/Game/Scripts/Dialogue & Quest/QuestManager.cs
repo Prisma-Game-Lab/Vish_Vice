@@ -8,7 +8,8 @@ public enum ItemType
 {
     Wood,
     Concrete,
-    Metal
+    Metal,
+    Manpower
 }
 public enum MinigameType
 {
@@ -147,6 +148,8 @@ public class QuestManager : MonoBehaviour
                 return item.quantity <= persistenData.quantConcrete;
             case ItemType.Metal:
                 return item.quantity <= persistenData.quantMetal;
+            case ItemType.Manpower:
+                return item.quantity <= persistenData.quantManpower;
             default:
                 return false;
         }
@@ -165,6 +168,10 @@ public class QuestManager : MonoBehaviour
                     break;
                 case ItemType.Metal:
                     persistenData.quantMetal -= item.quantity;
+                    break;
+                case ItemType.Manpower:
+                    persistenData.quantManpower -= item.quantity;
+                    persistenData.usedManpower += item.quantity;
                     break;
             }
         }
