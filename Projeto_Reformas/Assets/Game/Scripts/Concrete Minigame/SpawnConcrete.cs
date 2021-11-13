@@ -12,7 +12,7 @@ public class SpawnConcrete : MonoBehaviour
     public int movingSpeed;
 
     [HideInInspector]public int totalMaterials;
-    private int[] repetitions;
+    [HideInInspector]public int[] repetitions;
     private GameObject mat;
 
     public GameObject[] mats;
@@ -63,6 +63,7 @@ public class SpawnConcrete : MonoBehaviour
                 mat = Instantiate(materials[chosenMat], transform.position + new Vector3(-10f * direction, 0f, 0f), Quaternion.identity);
                 mat.gameObject.GetComponent<MovingMaterial>().speed = movingSpeed * direction;
                 mat.gameObject.GetComponent<MovingMaterial>().type = chosenMat;
+                mat.gameObject.GetComponent<MovingMaterial>().treadmill = direction;
                 totalMaterials += 1;
                 repetitions[chosenMat] += 1;
 

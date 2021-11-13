@@ -9,6 +9,7 @@ public class MovingMaterial : MonoBehaviour
     [HideInInspector]public bool isMovingSide = true;
     [HideInInspector] public bool isMovingDown = false;
     [HideInInspector]public int type;
+    [HideInInspector] public int treadmill;
     private BoxCollider2D bc;
 
     private void OnMouseDrag()
