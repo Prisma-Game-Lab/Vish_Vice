@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3008399214653570218}
   - component: {fileID: -5502748798495223283}
   - component: {fileID: -5907453482713245938}
+  - component: {fileID: -3361629411993288}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Material
@@ -97,7 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  isMovingSide: 1
+  isMovingDown: 0
   type: 0
+  treadmill: 0
 --- !u!61 &-5907453482713245938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +128,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &-3361629411993288
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008399214653570217}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

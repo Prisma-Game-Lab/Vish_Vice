@@ -55,6 +55,7 @@ public class MixConcrete : MonoBehaviour
             {
                 mat = Instantiate(materials[matNum], transform.position + new Vector3(-15f + 2*totalMaterials, 0f, 0f),
                     Quaternion.identity);
+                mat.gameObject.GetComponent<MovingMaterial>().type = matNum;
                 mat.gameObject.GetComponent<MovingMaterial>().isMovingDown = false;
                 mat.gameObject.GetComponent<MovingMaterial>().isMovingSide = false;
                 mat.gameObject.GetComponent<BoxCollider2D>().enabled = false;
