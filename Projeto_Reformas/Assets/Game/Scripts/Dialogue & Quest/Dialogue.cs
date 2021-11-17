@@ -7,8 +7,10 @@ public class Dialogue : MonoBehaviour
 {
     [TextArea(3, 10)]
     public string[] sentences;
+    public string[] sentencesEN;
     public MinigameType minigameType;
     public bool hasMinigame;
     public bool isQuest;
     public bool questInProgress;
+    public Language language;
 }

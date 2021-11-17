@@ -688,10 +688,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - hmm..
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &29220889
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1491,10 +1493,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - ...
+  sentencesEN: []
   minigameType: 1
   hasMinigame: 1
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &66454873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1636,10 +1640,12 @@ MonoBehaviour:
   sentences:
   - "Eai do chap\xE9u, veio pegar mais madeira hoje?"
   - "Quero s\xF3 ver, bota esses bracinhos magrelos pra trabalhar! "
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 1
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &70058494
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5058,10 +5064,12 @@ MonoBehaviour:
     n\xE3o \xE9 nada."
   - "Mas j\xE1 to acostumado com voc\xEAs, pol\xEDticos, falando muito e fazendo
     pouco...\r\n"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 1
+  language: 0
 --- !u!1 &180520083
 GameObject:
   m_ObjectHideFlags: 0
@@ -6084,6 +6092,7 @@ GameObject:
   - component: {fileID: 213804402}
   - component: {fileID: 213804404}
   - component: {fileID: 213804403}
+  - component: {fileID: 213804405}
   m_Layer: 5
   m_Name: Geral_txt
   m_TagString: Untagged
@@ -6152,6 +6161,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213804401}
   m_CullTransparentMesh: 1
+--- !u!114 &213804405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213804401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: "\xC1UDIO GERAL"
+  textEN: GENERAL
 --- !u!1 &213871496
 GameObject:
   m_ObjectHideFlags: 0
@@ -8361,10 +8384,12 @@ MonoBehaviour:
   - "Hmm, voc\xEA demorou, mas finalmente consertou o parquinho para meu querido
     Miguel e para as outras crian\xE7as."
   - "Agora ele tem onde se divertir em seguran\xE7a, como era esperado.\r\n"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!1 &277420323
 GameObject:
   m_ObjectHideFlags: 0
@@ -8457,6 +8482,7 @@ GameObject:
   - component: {fileID: 279131519}
   - component: {fileID: 279131521}
   - component: {fileID: 279131520}
+  - component: {fileID: 279131522}
   m_Layer: 5
   m_Name: Music_txt
   m_TagString: Untagged
@@ -8525,6 +8551,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279131518}
   m_CullTransparentMesh: 1
+--- !u!114 &279131522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279131518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: "M\xDASICA"
+  textEN: MUSIC
 --- !u!1 &280314323
 GameObject:
   m_ObjectHideFlags: 0
@@ -8617,6 +8657,7 @@ GameObject:
   - component: {fileID: 283961402}
   - component: {fileID: 283961404}
   - component: {fileID: 283961403}
+  - component: {fileID: 283961405}
   m_Layer: 5
   m_Name: Continuar_txt
   m_TagString: Untagged
@@ -8685,6 +8726,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283961401}
   m_CullTransparentMesh: 1
+--- !u!114 &283961405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283961401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Toque para continuar
+  textEN: Touch to continue
 --- !u!1 &284985800
 GameObject:
   m_ObjectHideFlags: 0
@@ -9943,10 +9998,12 @@ MonoBehaviour:
   - "Esse tal de MP3 e outras geringon\xE7as esculhambando tudo\u2026"
   - "A\xED j\xE1 viu, n\xE9, meu jovem, ningu\xE9m quer mais nada com nada!"
   - "Mas \xE9 isso, camarada, t\xE1 querendo metal, ent\xE3o vai trabalhar!"
+  sentencesEN: []
   minigameType: 2
   hasMinigame: 1
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &324246231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14298,10 +14355,12 @@ MonoBehaviour:
   - "Meu Miguel est\xE1 \xF3timo, mas essa cidade est\xE1 cheia de perigos."
   - "Conserte os problemas o quanto antes, at\xE9 porque, se meu querido se machucar,
     voc\xEA vai se ver comigo, estamos claros?!"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &469706078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14742,6 +14801,7 @@ GameObject:
   - component: {fileID: 490446847}
   - component: {fileID: 490446849}
   - component: {fileID: 490446848}
+  - component: {fileID: 490446850}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -14810,6 +14870,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490446846}
   m_CullTransparentMesh: 1
+--- !u!114 &490446850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490446846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Voltar ao Jogo
+  textEN: Resume Game
 --- !u!1 &494450716
 GameObject:
   m_ObjectHideFlags: 0
@@ -20461,6 +20535,7 @@ GameObject:
   - component: {fileID: 518862470}
   - component: {fileID: 518862472}
   - component: {fileID: 518862471}
+  - component: {fileID: 518862473}
   m_Layer: 5
   m_Name: Efeitos_txt
   m_TagString: Untagged
@@ -20529,6 +20604,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518862469}
   m_CullTransparentMesh: 1
+--- !u!114 &518862473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518862469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: EFEITOS SONOROS
+  textEN: SOUND EFFECTS
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -21742,6 +21831,7 @@ GameObject:
   - component: {fileID: 579611188}
   - component: {fileID: 579611190}
   - component: {fileID: 579611189}
+  - component: {fileID: 579611191}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -21810,6 +21900,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579611187}
   m_CullTransparentMesh: 1
+--- !u!114 &579611191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579611187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Minerar Metal
+  textEN: Get Metal
 --- !u!1 &579857999
 GameObject:
   m_ObjectHideFlags: 0
@@ -22142,6 +22246,7 @@ GameObject:
   - component: {fileID: 594476431}
   - component: {fileID: 594476433}
   - component: {fileID: 594476432}
+  - component: {fileID: 594476434}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -22210,6 +22315,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594476430}
   m_CullTransparentMesh: 1
+--- !u!114 &594476434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594476430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Aceitar
+  textEN: Accept
 --- !u!1 &601456068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3881087803549984437, guid: ec536a7718376554185e4a856d5ae230, type: 3}
@@ -22682,6 +22801,170 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!43 &623298109
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 30
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 20
+    localAABB:
+      m_Center: {x: 0, y: 0, z: -0.008}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.008}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200010000000300040005000600050004000700080009000a00090008000b000c000d000e000d000c000f00100011001200110010001300
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 20
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 40
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 960
+    _typelessdata: 000000bf000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f00000000000000000000003f0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f0000803f0000803f0000003f000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f0000803f00000000000000bf0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f000000000000803f000000bf000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f00000000000000000000003f0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f0000803f0000003f000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f00000000000000bf0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f000000000000803f000000bf000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f00000000000000000000003f0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f0000803f0000003f000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f00000000000000bf0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f000000000000803f000000bf000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f00000000000000000000003f0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f0000803f0000003f000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f00000000000000bf0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f000000000000803f000000bf000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f00000000000000000000003f0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f0000803f0000003f000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f00000000000000bf0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f000000000000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: -0.008}
+    m_Extent: {x: 0.5, y: 0.5, z: 0.008}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!108 &623504817 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 7443708930429745629, guid: dfc92d3701dd6604eaeff4eabbf166cf, type: 3}
@@ -27921,10 +28204,12 @@ MonoBehaviour:
   - "Espero que voc\xEA d\xEA tanta aten\xE7\xE3o para outros problemas como voc\xEA
     deu para esse.."
   - "Se continuar assim at\xE9 que posso mudar de opini\xE3o sobre voc\xEA..."
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!1 &799895766
 GameObject:
   m_ObjectHideFlags: 0
@@ -28934,6 +29219,7 @@ GameObject:
   - component: {fileID: 834042620}
   - component: {fileID: 834042622}
   - component: {fileID: 834042621}
+  - component: {fileID: 834042623}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -29002,6 +29288,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834042619}
   m_CullTransparentMesh: 1
+--- !u!114 &834042623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834042619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Rejeitar
+  textEN: Decline
 --- !u!1 &835405609
 GameObject:
   m_ObjectHideFlags: 0
@@ -29372,6 +29672,7 @@ GameObject:
   - component: {fileID: 847026334}
   - component: {fileID: 847026336}
   - component: {fileID: 847026335}
+  - component: {fileID: 847026337}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -29440,6 +29741,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847026333}
   m_CullTransparentMesh: 1
+--- !u!114 &847026337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847026333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Fazer Concreto
+  textEN: Make Concrete
 --- !u!1 &847260518
 GameObject:
   m_ObjectHideFlags: 0
@@ -30983,10 +31298,12 @@ MonoBehaviour:
   - "Opa do chap\xE9u, madeira \xE9 comigo mesmo!"
   - "Mas se quiser, vai ter que ralar, n\xE3o sou paga pra cortar pra voc\xEA! "
   - Vai tentar?
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 1
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &896947777
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32045,10 +32362,12 @@ MonoBehaviour:
     a sua reputa\xE7\xE3o"
   - "A\xED eu fico muito preocup- Ah, n\xE3o?"
   - "Venha falar comigo quando tiver tudo, por favor\u2026 "
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 1
+  language: 0
 --- !u!4 &929347207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 264647922678899464, guid: ccba4852bc1b37e49b595278076985a1, type: 3}
@@ -33915,10 +34234,12 @@ MonoBehaviour:
   - "Meu Miguel est\xE1 \xF3timo, mas essa cidade est\xE1 cheia de perigos."
   - "Conserte os problemas o quanto antes, at\xE9 porque, se meu querido se machucar,
     voc\xEA vai se ver comigo, estamos claros?!"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &974635876
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34496,10 +34817,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - "N\xE3o fale comigo!"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &986500695
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35814,6 +36137,7 @@ GameObject:
   - component: {fileID: 1039127285}
   - component: {fileID: 1039127287}
   - component: {fileID: 1039127286}
+  - component: {fileID: 1039127288}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -35882,6 +36206,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039127284}
   m_CullTransparentMesh: 1
+--- !u!114 &1039127288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039127284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: "CONFIGURA\xC7\xD5ES"
+  textEN: SETTINGS
 --- !u!1 &1039866626
 GameObject:
   m_ObjectHideFlags: 0
@@ -37731,10 +38069,12 @@ MonoBehaviour:
   - "Meu pobre Miguel n\xE3o tem onde brincar e se divertir, enquanto voc\xEA fica
     por a\xED de queixo pro ar! "
   - "Traga j\xE1 as 4 madeiras e 8 metais para consertar esse balan\xE7o! "
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 1
+  language: 0
 --- !u!1 &1087370077
 GameObject:
   m_ObjectHideFlags: 0
@@ -38363,10 +38703,12 @@ MonoBehaviour:
   - "Que tal fazer um transporte acess\xEDvel pra todos?"
   - "V\xEA se diversifica suas propostas a\xED, mano, s\xF3 trazer 20 metais e consertar
     essa baga\xE7a\u2026\r\n"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 1
   questInProgress: 0
+  language: 0
 --- !u!1 &1115762901
 GameObject:
   m_ObjectHideFlags: 0
@@ -38504,10 +38846,12 @@ MonoBehaviour:
   - "Com toda essa confus\xE3o eu fico me perguntando at\xE9 quando eu vou conseguir
     manter meu empreg-AH! "
   - "Desculpa, desculpa! N\xE3o deveria te atrapalhar assim, vou voltar a trabalhar\u2026"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &1115897307
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41716,10 +42060,12 @@ MonoBehaviour:
   - "Imagina se meu pequeno Miguel se machucasse em um desses pregos soltos, n\xE3o
     quero nem pensar!!"
   - "Traga 4 madeiras e 8 metais para consertar esse parquinho o mais r\xE1pido poss\xEDvel.\r\n"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 1
   questInProgress: 0
+  language: 0
 --- !u!1001 &1244753195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41936,6 +42282,7 @@ GameObject:
   - component: {fileID: 1248483180}
   - component: {fileID: 1248483182}
   - component: {fileID: 1248483181}
+  - component: {fileID: 1248483183}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -42004,6 +42351,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248483179}
   m_CullTransparentMesh: 1
+--- !u!114 &1248483183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248483179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Ir para o Menu
+  textEN: Back to Menu
 --- !u!1 &1250222833
 GameObject:
   m_ObjectHideFlags: 0
@@ -43608,170 +43969,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291491067}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!43 &1295268321
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 30
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 20
-    localAABB:
-      m_Center: {x: 0, y: 0, z: -0.008}
-      m_Extent: {x: 0.5, y: 0.5, z: 0.008}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200010000000300040005000600050004000700080009000a00090008000b000c000d000e000d000c000f00100011001200110010001300
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 20
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 40
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 960
-    _typelessdata: 000000bf000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f00000000000000000000003f0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f0000803f0000803f0000003f000000bf31310da40000000031318d24000080bf0000000000000000000000000000803f0000803f00000000000000bf0000003f31310d240000000031318d24000080bf0000000000000000000000000000803f000000000000803f000000bf000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f00000000000000000000003f0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f0000803f0000003f000000bf6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f0000803f00000000000000bf0000003f6f1283bb0000000000000000000080bf0000803e0000803e0000803e0000803f000000000000803f000000bf000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f00000000000000000000003f0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f0000803f0000003f000000bf6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f0000803f00000000000000bf0000003f6f1203bc0000000000000000000080bf0000003f0000003f0000003f0000803f000000000000803f000000bf000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f00000000000000000000003f0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f0000803f0000003f000000bfa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f0000803f00000000000000bf0000003fa69b44bc0000000000000000000080bf0000403f0000403f0000403f0000803f000000000000803f000000bf000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f00000000000000000000003f0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f0000803f0000003f000000bf6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f0000803f00000000000000bf0000003f6f1283bc0000000000000000000080bf0000803f0000803f0000803f0000803f000000000000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: -0.008}
-    m_Extent: {x: 0.5, y: 0.5, z: 0.008}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1297278376
 GameObject:
   m_ObjectHideFlags: 0
@@ -45040,6 +45237,7 @@ GameObject:
   - component: {fileID: 1337170412}
   - component: {fileID: 1337170414}
   - component: {fileID: 1337170413}
+  - component: {fileID: 1337170415}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -45108,6 +45306,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337170411}
   m_CullTransparentMesh: 1
+--- !u!114 &1337170415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337170411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Sair
+  textEN: Quit
 --- !u!1001 &1346023743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45745,6 +45957,7 @@ GameObject:
   - component: {fileID: 1362879604}
   - component: {fileID: 1362879606}
   - component: {fileID: 1362879605}
+  - component: {fileID: 1362879607}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -45813,6 +46026,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362879603}
   m_CullTransparentMesh: 1
+--- !u!114 &1362879607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362879603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: "Configura\xE7\xF5es"
+  textEN: Settings
 --- !u!1 &1366795059
 GameObject:
   m_ObjectHideFlags: 0
@@ -46588,6 +46815,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3762137001861670162, guid: 1dea21462c61f8a45b882a0c17d9cec3, type: 3}
   m_PrefabInstance: {fileID: 1336138130}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1401078011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401078013}
+  - component: {fileID: 1401078012}
+  m_Layer: 0
+  m_Name: LanguageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1401078012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401078011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d4d4014c4c35143a32cb3678dfcae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeLanguage: 0
+--- !u!4 &1401078013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401078011}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 431.98947, y: 191.66585, z: -164.35822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1403084380
 GameObject:
   m_ObjectHideFlags: 0
@@ -47557,10 +47828,12 @@ MonoBehaviour:
     na pracinha!"
   - "Mas aqui n\xE3o tem corpo mole n\xE3o, trabalho duro \xE9 a \xFAnica coisa que
     eu reconhe\xE7o por aqui!"
+  sentencesEN: []
   minigameType: 2
   hasMinigame: 1
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &1481877200
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -48987,10 +49260,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - ...
+  sentencesEN: []
   minigameType: 1
   hasMinigame: 1
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &1516385019
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -49873,7 +50148,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18319638, y: 0.019000001}
   m_AnchorMax: {x: 0.8195209, y: 0.178}
-  m_AnchoredPosition: {x: -14, y: -4.9764404}
+  m_AnchoredPosition: {x: -14, y: -4.9764557}
   m_SizeDelta: {x: 442.6683, y: 261.6115}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1533114242
@@ -53877,10 +54152,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - "N\xE3o falarei com pol\xEDtico que ignora meu querido Miguel!"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &1619913844
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -54535,10 +54812,12 @@ MonoBehaviour:
   - Ah! Obrigada, Vice!
   - "Fico muito feliz de voc\xEA ter me ouvido"
   - "Diferente do ex-prefeito\u2026 "
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!1 &1636950372
 GameObject:
   m_ObjectHideFlags: 0
@@ -55401,10 +55680,12 @@ MonoBehaviour:
   - "Eu dei uma pesquisada e vi que voc\xEA precisa de 20 madeiras para resolver
     isso."
   - Acha que consegue?
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 1
   questInProgress: 0
+  language: 0
 --- !u!1 &1661299630
 GameObject:
   m_ObjectHideFlags: 0
@@ -56908,10 +57189,12 @@ MonoBehaviour:
   - "Com toda essa confus\xE3o eu fico me perguntando at\xE9 quando eu vou conseguir
     manter meu empreg-AH! "
   - "Desculpa, desculpa! N\xE3o deveria te atrapalhar assim, vou voltar a trabalhar\u2026"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &1710267931
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -63458,6 +63741,7 @@ GameObject:
   - component: {fileID: 1888681806}
   - component: {fileID: 1888681808}
   - component: {fileID: 1888681807}
+  - component: {fileID: 1888681809}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -63526,6 +63810,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888681805}
   m_CullTransparentMesh: 1
+--- !u!114 &1888681809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888681805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Entregar
+  textEN: Deliver
 --- !u!1 &1888915550
 GameObject:
   m_ObjectHideFlags: 0
@@ -67346,10 +67644,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - "At\xE9 que n\xE3o mandou mal..."
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &1988788661
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -70450,6 +70750,7 @@ GameObject:
   - component: {fileID: 2104619990}
   - component: {fileID: 2104619992}
   - component: {fileID: 2104619991}
+  - component: {fileID: 2104619993}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -70518,6 +70819,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104619989}
   m_CullTransparentMesh: 1
+--- !u!114 &2104619993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104619989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Cortar Madeira
+  textEN: Chop Wood
 --- !u!1 &2105465866
 GameObject:
   m_ObjectHideFlags: 0
@@ -71086,10 +71401,12 @@ MonoBehaviour:
   - "N\xE3o dirija a palavra a mim, fazendo favor!"
   - "Essa politicagem tua de fechar os olhos para o povo n\xE3o d\xE1 para mim n\xE3o,
     \xE9 pura pilantragem\u2026\r"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &2123313004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75202,10 +75519,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - "\xC9 pra Hoje! cade as pedras!?"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 1
+  language: 0
 --- !u!4 &4833210072417697824
 Transform:
   m_ObjectHideFlags: 0
@@ -75387,10 +75706,12 @@ MonoBehaviour:
   - "Ai mona, teu chapeuzinho \xE9 tudo! "
   - "Mas v\xEA se presta aten\xE7\xE3o na cidade o tanto quanto voc\xEA presta aten\xE7\xE3o
     no seu look, tendeu, gata?"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &4833210072476840895
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80428,10 +80749,12 @@ MonoBehaviour:
   - "O mesmo vale para v\xE1rios velhinhos, jovens e respons\xE1veis que passam pela
     pra\xE7a."
   - "At\xE9 que mandou bem, Vice!\r\n"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!1 &4833210072700626183
 GameObject:
   m_ObjectHideFlags: 0
@@ -80758,10 +81081,12 @@ MonoBehaviour:
   - "O pessoal t\xE1 doido pra sentar e curtir o local, mas sem onde sentar n\xE3o
     d\xE1, n\xE9, jururu!"
   - "\xC9 s\xF3 voc\xEA trazer 8 madeiras e 4 metais e botar a m\xE3o na massa, mona! "
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 1
   questInProgress: 0
+  language: 0
 --- !u!1 &4833210072951692467
 GameObject:
   m_ObjectHideFlags: 0
@@ -80813,10 +81138,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - "N\xE3o quero falar com voc\xEA agora.."
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &4833210072951692478
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80967,10 +81294,12 @@ MonoBehaviour:
   - "E a\xED, mona, j\xE1 conseguiu as 8 madeiras e os 4 metais para resolver esse
     bafaf\xE1?"
   - "Te agiliza, pregui\xE7a!"
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 1
+  language: 0
 --- !u!4 &4833210073253241640
 Transform:
   m_ObjectHideFlags: 0
@@ -81204,10 +81533,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - Antes tarde do que nunca sr. prefeito!
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!1 &4833210073459217285
 GameObject:
   m_ObjectHideFlags: 0
@@ -81253,10 +81584,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - Quero 5 pedraaaas!
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 1
   questInProgress: 0
+  language: 0
 --- !u!1 &4833210073504835784
 GameObject:
   m_ObjectHideFlags: 0
@@ -91137,10 +91470,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - Oi, Vice.
+  sentencesEN: []
   minigameType: 0
   hasMinigame: 0
   isQuest: 0
   questInProgress: 0
+  language: 0
 --- !u!222 &4833210073750669985
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -94916,7 +95251,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5921591937040953178}
-  m_Mesh: {fileID: 1295268321}
+  m_Mesh: {fileID: 623298109}
 --- !u!1001 &8037567661758742490
 PrefabInstance:
   m_ObjectHideFlags: 0

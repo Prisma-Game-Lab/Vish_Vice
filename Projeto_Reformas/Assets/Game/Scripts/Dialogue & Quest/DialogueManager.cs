@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialog(Dialogue dialogue)
     {
         firstContact = true;
-        foreach (string sentence in dialogue.sentences)
+        foreach (string sentence in ChooseSentences(dialogue))
         {
             _sentences.Enqueue(sentence);
         }
@@ -158,4 +158,14 @@ public class DialogueManager : MonoBehaviour
         EndDialogue();
     }
 
+    public string[] ChooseSentences(Dialogue dialogue)
+    {
+        switch (LanguageManager.instance.activeLanguage)
+        {
+            case Language.Portuguese:
+                return dialogue.sentences;
+            default:
+                return dialogue.sentencesEN;
+        }
+    }
 }
