@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MixConcrete : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class MixConcrete : MonoBehaviour
 
     public SpawnConcrete spawnLeft;
     public SpawnConcrete spawnRight;
+
+    [HideInInspector]public int totalConcrete;
+    public int maxVida;
+
+    [Header("Texto de Concreto")]
+    public TextMeshProUGUI concText;
 
     private GameObject[] draftedMaterials;
     private int[] quantDrafted;
@@ -36,6 +43,7 @@ public class MixConcrete : MonoBehaviour
     {
         if (totalMaterials <= 0)
         {
+            totalConcrete++;
             DraftMaterials();
         }
 
@@ -43,6 +51,8 @@ public class MixConcrete : MonoBehaviour
         {
             ind = 0;
         }
+
+        concText.text = "Concreto: " + totalConcrete.ToString();
     }
 
     private void DraftMaterials()
@@ -74,33 +84,36 @@ public class MixConcrete : MonoBehaviour
         {
             int type = collision.gameObject.GetComponent<MovingMaterial>().type;
             int treadmill = collision.gameObject.GetComponent<MovingMaterial>().treadmill;
-            if ( type == draftedMaterials[ind].GetComponent<MovingMaterial>().type)
+
+            //Atualiza contadores no SpawnConcrete, dependendo da esteira original do material
+            if (treadmill > 0)
             {
-                if (treadmill > 0)
-                {
-                    spawnLeft.repetitions[type]--;
-                    spawnLeft.totalMaterials--;
-                    Destroy(collision.gameObject);
-                    Destroy(draftedMaterials[ind].gameObject);
-                    totalMaterials--;
-                    ind++;
+                spawnLeft.repetitions[type]--;
+                spawnLeft.totalMaterials--;
 
-                } else if (treadmill < 0)
-                {
-                    spawnRight.repetitions[type]--;
-                    spawnRight.totalMaterials--;
-                    Destroy(collision.gameObject);
-                    Destroy(draftedMaterials[ind].gameObject);
-                    totalMaterials--;
-                    ind++;
+            } else if (treadmill < 0) {
 
-                }
+                spawnRight.repetitions[type]--;
+                spawnRight.totalMaterials--;
+
             }
+
+            //Atualiza ordem pedida pela betoneira
+            if (type == draftedMaterials[ind].GetComponent<MovingMaterial>().type)
+            {
+                Destroy(draftedMaterials[ind].gameObject);
+                totalMaterials--;
+                ind++;
+
+            //Reseta ao errar e diminui a vida em 1
+            } else {
+                maxVida--;
+                totalMaterials = 0;
+                ind = 0;
+            }
+
+            Destroy(collision.gameObject);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("colisao");
-    }
 }
