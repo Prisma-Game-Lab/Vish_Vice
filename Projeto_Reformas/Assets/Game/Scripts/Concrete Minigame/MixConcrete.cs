@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class MixConcrete : MonoBehaviour
 {
@@ -19,10 +20,10 @@ public class MixConcrete : MonoBehaviour
     public int maxVida;
 
     [Header("Texto de Concreto")]
-    public TextMeshProUGUI concText;
+    public Text concText;
 
-    private GameObject[] draftedMaterials;
-    private int[] quantDrafted;
+    public GameObject[] draftedMaterials;
+    public int[] quantDrafted;
     private GameObject mat;
     private int ind = 0;
     // Start is called before the first frame update
@@ -108,6 +109,7 @@ public class MixConcrete : MonoBehaviour
             //Reseta ao errar e diminui a vida em 1
             } else {
                 maxVida--;
+                ResetQuantDrafted();
                 totalMaterials = 0;
                 ind = 0;
             }
@@ -116,4 +118,11 @@ public class MixConcrete : MonoBehaviour
         }
     }
 
+    private void ResetQuantDrafted()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            quantDrafted[i] = 0;
+        }
+    }
 }
