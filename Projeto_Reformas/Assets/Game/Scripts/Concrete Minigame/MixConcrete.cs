@@ -22,10 +22,15 @@ public class MixConcrete : MonoBehaviour
     [Header("Texto de Concreto")]
     public Text concText;
 
+    [Header("Texto de Vida")]
+    public Text lifeText;
+
     public GameObject[] draftedMaterials;
     public int[] quantDrafted;
     private GameObject mat;
     private int ind = 0;
+
+    public GameObject gameOverUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,16 +49,19 @@ public class MixConcrete : MonoBehaviour
     {
         if (totalMaterials <= 0)
         {
-            totalConcrete++;
+            ResetQuantDrafted();
             DraftMaterials();
         }
 
         if (ind >= maxMaterials)
         {
+            totalConcrete++;
             ind = 0;
         }
 
+
         concText.text = "Concreto: " + totalConcrete.ToString();
+        lifeText.text = "Vida: " + maxVida.ToString();
     }
 
     private void DraftMaterials()
@@ -109,7 +117,15 @@ public class MixConcrete : MonoBehaviour
             //Reseta ao errar e diminui a vida em 1
             } else {
                 maxVida--;
+                if (maxVida == 0)
+                {
+                    EndConcrete();
+                }
                 ResetQuantDrafted();
+                for (int i = 0; i < maxMaterials; i++)
+                {
+                    Destroy(draftedMaterials[i].gameObject);
+                }
                 totalMaterials = 0;
                 ind = 0;
             }
@@ -124,5 +140,11 @@ public class MixConcrete : MonoBehaviour
         {
             quantDrafted[i] = 0;
         }
+    }
+
+    private void EndConcrete()
+    {
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

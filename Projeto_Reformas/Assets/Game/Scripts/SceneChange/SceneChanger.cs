@@ -17,4 +17,10 @@ public class SceneChanger : MonoBehaviour
         AudioManager.instance.Play("ButtonClick");
         SceneManager.LoadScene("MetalGame");
     }
+
+    public void ConcreteMinigame()
+    {
+        AudioManager.instance.Play("ButtonClick");
+        SceneManager.LoadScene("ConcreteGame");
+    }
 }
