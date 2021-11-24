@@ -10,6 +10,7 @@ public class MinigameMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public Slice slice;
+    public MixConcrete mix;
 
     [HideInInspector] public bool paused = false;
 
@@ -59,6 +60,10 @@ public class MinigameMenu : MonoBehaviour
             Persistent.current.quantMetal += Persistent.current.earnedMetalQtd;
             Persistent.current.earnedMetalQtd = 0;
         }
+        else if (SceneManager.GetActiveScene().name == "ConcreteGame")
+        {
+            Persistent.current.quantConcrete += mix.totalConcrete;
+        }
             
         SceneManager.LoadScene("Play");
     }
@@ -76,6 +81,11 @@ public class MinigameMenu : MonoBehaviour
             Persistent.current.quantMetal += Persistent.current.earnedMetalQtd;
             Persistent.current.earnedMetalQtd = 0;
             SceneManager.LoadScene("MetalGame");
+        }
+        else if (SceneManager.GetActiveScene().name == "ConcreteGame")
+        {
+            Persistent.current.quantConcrete += mix.totalConcrete;
+            SceneManager.LoadScene("ConcreteGame");
         }
         paused = false;
 
