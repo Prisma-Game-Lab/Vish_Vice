@@ -31,7 +31,8 @@ public class MakeInteraction : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("NPC")) {
-            _uiMaster.interactButton.SetActive(true);
+            other.gameObject.GetComponent<NPCInteraction>().SetInteractionButtonOn();
+            //_uiMaster.interactButton.SetActive(true);
             _npc = other.gameObject;
         }
     }
@@ -40,7 +41,8 @@ public class MakeInteraction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC"))
         {
-            _uiMaster.interactButton.SetActive(false);
+            other.gameObject.GetComponent<NPCInteraction>().SetInteractionButtonOn();
+            //_uiMaster.interactButton.SetActive(false);
             _npc = null;
         }
     }

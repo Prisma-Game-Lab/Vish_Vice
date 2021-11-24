@@ -48,7 +48,7 @@ public class UIMaster : MonoBehaviour
         WoodMinigameButton=dialoguePanelChild.transform.GetChild(7).gameObject;
         ConcreteMinigameButton= dialoguePanelChild.transform.GetChild(8).gameObject;
         MetalMinigameButton = dialoguePanelChild.transform.GetChild(9).gameObject;
-        interactButton.SetActive(false);
+        //interactButton.SetActive(false);
     }
 
     public void Pause(){
@@ -100,7 +100,7 @@ public class UIMaster : MonoBehaviour
     {
         AudioManager.instance.Play("ButtonClick");
         intActive = !intActive;
-        interactButton.SetActive(intActive);
+        //interactButton.SetActive(intActive);
     }
 
     public void InteractButtonAction()

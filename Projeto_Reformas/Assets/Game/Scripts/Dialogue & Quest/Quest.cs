@@ -15,6 +15,7 @@ public class Quest
     [HideInInspector] public string npcName;
     public string questName;
     public int questDay;
+    public QuestType questType;
     [HideInInspector] public bool inProgress;
     [HideInInspector] public bool completed;
     [HideInInspector] public bool lost;

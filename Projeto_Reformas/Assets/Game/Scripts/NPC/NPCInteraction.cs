@@ -12,6 +12,8 @@ public class NPCInteraction : MonoBehaviour
 {
     public string npcName;
     public RelationshipStatus npcStatus;
+    public Button questPopUpPrefab;
+    public Canvas WorldCanvas;
 
     public QuestManager questManager;
     public GameObject greetingOptions;
@@ -19,10 +21,17 @@ public class NPCInteraction : MonoBehaviour
     public List<Quest> quests = new List<Quest>();
 
     private Persistent persistenData;
+    private Button questPopUp = null;
 
     public bool isMinigameNPC;
 
     [HideInInspector] public Quest dayQuest;
+
+    public Sprite exclamationSprite;
+    public Sprite interrogationSprite;
+    public Sprite asteriskSprite;
+    public Sprite interactionSprite;
+
 
     private void Start()
     {
@@ -40,8 +49,14 @@ public class NPCInteraction : MonoBehaviour
         }
         CheckDayQuest();
         RefreshActiveQuestList();
+        if(questPopUp == null)
+            questPopUp = Instantiate(questPopUpPrefab, WorldCanvas.transform);
+        questPopUp.gameObject.SetActive(true);
+        UpdateQuestPopUp();
+        SetQuestPopUpPosition();
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
     }
+
 
     //Acha a quest do dia atual e referencia os dialogos
     public void CheckDayQuest()
@@ -180,5 +195,42 @@ public class NPCInteraction : MonoBehaviour
                 return GreetingOptionsDialogue[2];
         }
     }
+    private void SetQuestPopUpPosition()
+    {
+        questPopUp.transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z + 1f);
+        questPopUp.transform.rotation = transform.rotation;
+    }
+    public void SetInteractionButtonOn()
+    {
+        questPopUp.interactable = true;
+    }
 
+    public void SetInteractionButtonOff()
+    {
+        questPopUp.interactable = false;
+    }
+
+    public Sprite GetQuestPopUpSprite(QuestType questType)
+    {
+        switch (questType)
+        {
+            case QuestType.Exclamatory:
+                return exclamationSprite;
+            case QuestType.Pondering:
+                return interrogationSprite;
+            default:
+                return asteriskSprite;
+        }
+    }
+
+    public void UpdateQuestPopUp()
+    {
+        if (dayQuest == null)
+            questPopUp.GetComponent<Image>().sprite = interactionSprite;
+        else
+        {
+            questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(dayQuest.questType);
+            Debug.Log("MudouSprite");
+        }
+    }
 }

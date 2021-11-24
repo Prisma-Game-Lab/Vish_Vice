@@ -17,6 +17,12 @@ public enum MinigameType
     Concrete,
     Metal
 }
+public enum QuestType
+{
+    Exclamatory,
+    Pondering,
+    Complaint   
+}
 public class QuestManager : MonoBehaviour
 {
     private UIMaster uiMaster;
@@ -62,6 +68,7 @@ public class QuestManager : MonoBehaviour
         foreach (GameObject npc in questsNpcs)
         {
             npc.GetComponent<NPCInteraction>().CheckDayQuest();
+            npc.GetComponent<NPCInteraction>().UpdateQuestPopUp();
         }
     }
 
@@ -208,4 +215,5 @@ public class QuestManager : MonoBehaviour
 
         return null;
     }
+
 }
