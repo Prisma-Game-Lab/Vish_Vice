@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        uiMaster.interactButton.SetActive(true);
+        //uiMaster.interactButton.SetActive(true);
         uiMaster.dialogPanel.SetActive(false);
         Joystick.SetActive(true);
     }
