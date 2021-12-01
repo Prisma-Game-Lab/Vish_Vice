@@ -93,6 +93,7 @@ public class NPCInteraction : MonoBehaviour
                 persistenData.lostQuests.Add(quest.questName);
                 quest.inProgress = false;
                 persistenData.activeQuests.Remove(quest.questName);
+                persistenData.quantCharisma -= 1;
 
             }
         }

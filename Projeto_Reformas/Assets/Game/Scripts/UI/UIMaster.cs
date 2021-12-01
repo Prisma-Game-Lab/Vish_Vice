@@ -16,11 +16,13 @@ public class UIMaster : MonoBehaviour
     public GameObject allQuestsPanel;
     public GameObject questUI;
     public GameObject questItemUI;
+    public Text charismaText;
     public Sprite woodQuestIcon;
     public Sprite metalQuestIcon;
     public Sprite concreteQuestIcon;
     private bool intActive = false;
     private bool _paused = false;
+    private Persistent persistenData;
 
     [HideInInspector] public Text _displayName;
     [HideInInspector] public Text _displayText;
@@ -37,6 +39,7 @@ public class UIMaster : MonoBehaviour
     private void Start()
     {
         Persistent persistentData = GameObject.FindGameObjectWithTag("persistentData").GetComponent<Persistent>();
+        persistenData = Persistent.current;
         Transform dialoguePanelChild = dialogPanel.transform.GetChild(0);
         _displayText = dialoguePanelChild.transform.GetChild(0).GetComponent<Text>();
         _displayName = dialoguePanelChild.transform.GetChild(1).GetComponent<Text>();
@@ -49,6 +52,11 @@ public class UIMaster : MonoBehaviour
         ConcreteMinigameButton= dialoguePanelChild.transform.GetChild(8).gameObject;
         MetalMinigameButton = dialoguePanelChild.transform.GetChild(9).gameObject;
         //interactButton.SetActive(false);
+    }
+
+    private void Update()
+    {
+        charismaText.text = "Carisma: " + persistenData.quantCharisma.ToString();
     }
 
     public void Pause(){

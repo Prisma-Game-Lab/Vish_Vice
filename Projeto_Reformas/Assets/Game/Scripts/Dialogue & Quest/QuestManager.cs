@@ -139,6 +139,8 @@ public class QuestManager : MonoBehaviour
         newQuestNPC.dayQuest.completed = true;
         persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
 
+        persistenData.quantCharisma += 1;
+
         if(persistenData.quantManpower < 4)
         persistenData.quantManpower += 1;
 

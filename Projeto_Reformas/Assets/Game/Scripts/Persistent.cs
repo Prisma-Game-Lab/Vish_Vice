@@ -8,6 +8,7 @@ public class Persistent : MonoBehaviour
     public int quantMetal;
     public int quantConcrete;
     public int quantManpower;
+    public int quantCharisma;
     [HideInInspector]public int usedManpower;
     public int currentDay;
     public List<Quest> activeQuestsUI;
