@@ -41,7 +41,7 @@ public class MakeInteraction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC"))
         {
-            other.gameObject.GetComponent<NPCInteraction>().SetInteractionButtonOn();
+            other.gameObject.GetComponent<NPCInteraction>().SetInteractionButtonOff();
             //_uiMaster.interactButton.SetActive(false);
             _npc = null;
         }
