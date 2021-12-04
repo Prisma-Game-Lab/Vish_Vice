@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6506960620757833259, guid: 4b126714f7ab5aa4b91142ae210f8305, type: 3}
       propertyPath: m_Name
-      value: Fim de Rua (2)
+      value: Fim de Rua (2) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7440936962998785076, guid: 4b126714f7ab5aa4b91142ae210f8305, type: 3}
       propertyPath: m_RootOrder
