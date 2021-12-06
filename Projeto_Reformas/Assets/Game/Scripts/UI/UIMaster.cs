@@ -56,7 +56,10 @@ public class UIMaster : MonoBehaviour
 
     private void Update()
     {
-        charismaText.text = "Carisma: " + persistenData.quantCharisma.ToString();
+        if (SceneManager.GetActiveScene().name == "Play")
+        {
+            charismaText.text = "Carisma: " + persistenData.quantCharisma.ToString();
+        }
     }
 
     public void Pause(){

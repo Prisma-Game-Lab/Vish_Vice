@@ -91,10 +91,16 @@ public class NPCInteraction : MonoBehaviour
             {
                 quest.lost = true;
                 persistenData.lostQuests.Add(quest.questName);
+                persistenData.neglectedQuests.Add(quest.questName);
                 quest.inProgress = false;
                 persistenData.activeQuests.Remove(quest.questName);
                 persistenData.quantCharisma -= 1;
-
+            } else if (quest.questDay < currentDay && !persistenData.neglectedQuests.Contains(quest.questName))
+            {
+                persistenData.neglectedQuests.Add(quest.questName);
+                persistenData.quantCharisma -= 1;
+                quest.inProgress = false;
+                quest.lost = false;
             }
         }
     }
