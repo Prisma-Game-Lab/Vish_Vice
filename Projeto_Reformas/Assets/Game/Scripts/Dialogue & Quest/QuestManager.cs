@@ -133,13 +133,12 @@ public class QuestManager : MonoBehaviour
                 quest.desactivateObject.SetActive(false);
                 Persistent.current.objectState[quest.desactivateObject.transform.GetSiblingIndex()] = false;
                 persistenData.activeQuestsUI.Remove(quest);
+                persistenData.quantCharisma += quest.charismaGain;
                 break;
             }
         }
         newQuestNPC.dayQuest.completed = true;
         persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
-
-        persistenData.quantCharisma += 1;
 
         if(persistenData.quantManpower < 4)
         persistenData.quantManpower += 1;
