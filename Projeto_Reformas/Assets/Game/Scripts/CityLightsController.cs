@@ -45,8 +45,11 @@ public class CityLightsController : MonoBehaviour
                 return;
             for (int i = 0; i < poles.Count; i++)
             {
-                poles[i].gameObject.SetActive(true);
-                polesMaterials[i].material = lightOnMaterial;
+                if (poles[i] != null && polesMaterials[i]!= null)
+                {
+                    poles[i].gameObject.SetActive(true);
+                    polesMaterials[i].material = lightOnMaterial;
+                }
             }
         }
     }
