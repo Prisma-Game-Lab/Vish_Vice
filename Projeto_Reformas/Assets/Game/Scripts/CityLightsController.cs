@@ -84,9 +84,12 @@ public class CityLightsController : MonoBehaviour
     {
         for (int i = 0; i < poles.Count; i++)
         {
-            poles[i].gameObject.SetActive(true);
-            polesMaterials[i].material = lightOnMaterial;
-            yield return new WaitForSeconds(0.2f);
+            if (poles[i] != null && polesMaterials[i] != null)
+            {
+                poles[i].gameObject.SetActive(true);
+                polesMaterials[i].material = lightOnMaterial;
+                yield return new WaitForSeconds(0.15f);
+            }
         }
     }
 
@@ -94,9 +97,12 @@ public class CityLightsController : MonoBehaviour
     {
         for (int i = 0; i < poles.Count; i++)
         {
-            poles[i].gameObject.SetActive(false);
-            polesMaterials[i].material = lightOffMaterial;
-            yield return new WaitForSeconds(0.2f);
+            if (poles[i] != null && polesMaterials[i] != null)
+            {
+                poles[i].gameObject.SetActive(false);
+                polesMaterials[i].material = lightOffMaterial;
+                yield return new WaitForSeconds(0.15f);
+            }
         }
     }
 }
