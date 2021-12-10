@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMaterials: 3
+  increaseFactor: 1
+  maxSpeed: 5
   materials:
   - {fileID: 6428693935355086967, guid: 8d4755d8796e8c44886063ce2ed3ea4c, type: 3}
   - {fileID: 1709938868317119177, guid: 87f7fd1154255404bbe028b1a1290cf3, type: 3}
@@ -824,6 +826,7 @@ MonoBehaviour:
   movingSpeed: 2
   totalMaterials: -2
   repetitions: 
+  timeToSpawn: 0
   mats: []
 --- !u!212 &762627366
 SpriteRenderer:
@@ -930,6 +933,7 @@ MonoBehaviour:
   movingSpeed: 2
   totalMaterials: -2
   repetitions: 
+  timeToSpawn: 0
   mats: []
 --- !u!212 &789713036
 SpriteRenderer:
@@ -1921,6 +1925,7 @@ MonoBehaviour:
   allQuestsPanel: {fileID: 0}
   questUI: {fileID: 0}
   questItemUI: {fileID: 0}
+  charismaText: {fileID: 0}
   woodQuestIcon: {fileID: 21300000, guid: 268160dfa1ad1464d8903810cf9341c9, type: 3}
   metalQuestIcon: {fileID: 21300000, guid: 293b35ac82cc5bd49a5fa11b85c48e07, type: 3}
   concreteQuestIcon: {fileID: 21300000, guid: 4cf165f3adf3c334da3d20548cb02670, type: 3}
