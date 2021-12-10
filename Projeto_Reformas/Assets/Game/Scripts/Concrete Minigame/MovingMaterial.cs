@@ -6,10 +6,11 @@ using UnityEngine.EventSystems;
 public class MovingMaterial : MonoBehaviour
 {
     [HideInInspector]public int speed;
+    [HideInInspector]public int direction;
     [HideInInspector]public bool isMovingSide = true;
-    [HideInInspector] public bool isMovingDown = false;
+    [HideInInspector]public bool isMovingDown = false;
     [HideInInspector]public int type;
-    [HideInInspector] public int treadmill;
+    [HideInInspector]public int treadmill;
     private BoxCollider2D bc;
 
     private void OnMouseDrag()
@@ -36,7 +37,7 @@ public class MovingMaterial : MonoBehaviour
     void Update()
     {
         if (isMovingSide) {
-            transform.Translate(speed * Time.deltaTime, 0, 0);
+            transform.Translate(speed * direction * Time.deltaTime, 0, 0);
         } else if (isMovingDown) {
             transform.Translate(0, -20 * Time.deltaTime, 0);
         }

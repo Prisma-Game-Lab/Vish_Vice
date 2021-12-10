@@ -10,6 +10,10 @@ public class MixConcrete : MonoBehaviour
     [Header("Quantidade maxima de materiais a por na betoneira")]
     public int maxMaterials;
 
+    [Header("Aumento de velocidade")]
+    public int increaseFactor;
+    public int maxSpeed;
+
     [Header("Materiais a serem usados")]
     public GameObject[] materials;
 
@@ -29,34 +33,46 @@ public class MixConcrete : MonoBehaviour
     public int[] quantDrafted;
     private GameObject mat;
     private int ind = 0;
+    private int quantComb;
 
     public GameObject gameOverUI;
     // Start is called before the first frame update
     void Start()
     {
+        quantComb = 0;
         quantDrafted = new int[5];
         for (int i = 0; i < 5; i++)
         {
             quantDrafted[i] = 0;
         }
 
-        draftedMaterials = new GameObject[maxMaterials];
         DraftMaterials();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (totalMaterials <= 0)
-        {
-            ResetQuantDrafted();
-            DraftMaterials();
-        }
 
         if (ind >= maxMaterials)
         {
             totalConcrete++;
+            quantComb++;
+            updateSpeed();
             ind = 0;
+        }
+
+        if (quantComb >= 5)
+        {
+            maxMaterials++;
+            maxMaterials = Mathf.Min(maxMaterials, 6);
+            RandomizeDirection();
+            quantComb = 0;
+        }
+
+        if (totalMaterials <= 0)
+        {
+            ResetQuantDrafted();
+            DraftMaterials();
         }
 
 
@@ -66,6 +82,7 @@ public class MixConcrete : MonoBehaviour
 
     private void DraftMaterials()
     {
+        draftedMaterials = new GameObject[maxMaterials];
         int ind2 = 0;
         while (totalMaterials < maxMaterials)
         {
@@ -146,5 +163,59 @@ public class MixConcrete : MonoBehaviour
     {
         gameOverUI.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    private void RandomizeDirection()
+    {
+        int r1 = Random.Range(0, 2);
+        int r2 = Random.Range(0, 2);
+
+        if (r1 == 0) { r1 = -1; }
+        if (r2 == 0) { r2 = -1; }
+
+        spawnLeft.direction = r1;
+        spawnRight.direction = r2;
+
+        Debug.Log(r1);
+        Debug.Log(r2);
+
+        for (int i = 0; i < spawnLeft.mats.Length; i++)
+        {
+            if (spawnLeft.mats[i])
+            {
+                spawnLeft.mats[i].GetComponent<MovingMaterial>().direction = r1;
+            }
+            
+            if (spawnRight.mats[i])
+            {
+                spawnRight.mats[i].GetComponent<MovingMaterial>().direction = r2;
+            }
+        }
+    }
+
+    private void updateSpeed()
+    {
+        spawnLeft.movingSpeed += increaseFactor;
+        spawnRight.movingSpeed += increaseFactor;
+        spawnLeft.timeToSpawn -= 0.75f;
+        spawnRight.timeToSpawn -= 0.75f;
+
+        spawnLeft.movingSpeed = Mathf.Min(spawnLeft.movingSpeed, maxSpeed);
+        spawnRight.movingSpeed = Mathf.Min(spawnRight.movingSpeed, maxSpeed);
+        spawnLeft.timeToSpawn = Mathf.Max(spawnLeft.timeToSpawn, 1.5f);
+        spawnRight.timeToSpawn = Mathf.Max(spawnRight.timeToSpawn, 1.5f);
+
+        for (int i = 0; i < spawnLeft.mats.Length; i++)
+        {
+            if (spawnLeft.mats[i])
+            {
+                spawnLeft.mats[i].GetComponent<MovingMaterial>().speed = spawnLeft.movingSpeed;
+            }
+
+            if (spawnRight.mats[i])
+            {
+                spawnRight.mats[i].GetComponent<MovingMaterial>().speed = spawnRight.movingSpeed;
+            }
+        }
     }
 }
