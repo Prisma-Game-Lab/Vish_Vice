@@ -12,7 +12,7 @@ public class NPCInteraction : MonoBehaviour
 {
     public string npcName;
     public RelationshipStatus npcStatus;
-    public Button questPopUpPrefab;
+    public GameObject questPopUpPrefab;
     public Canvas WorldCanvas;
 
     public QuestManager questManager;
@@ -21,7 +21,7 @@ public class NPCInteraction : MonoBehaviour
     public List<Quest> quests = new List<Quest>();
 
     private Persistent persistenData;
-    private Button questPopUp = null;
+    private GameObject questPopUp = null;
 
     public bool isMinigameNPC;
 
@@ -209,12 +209,14 @@ public class NPCInteraction : MonoBehaviour
     }
     public void SetInteractionButtonOn()
     {
-        questPopUp.interactable = true;
+        questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = true;
+        questPopUp.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
     }
 
     public void SetInteractionButtonOff()
     {
-        questPopUp.interactable = false;
+        questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = false;
+        questPopUp.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
     public Sprite GetQuestPopUpSprite(QuestType questType)
