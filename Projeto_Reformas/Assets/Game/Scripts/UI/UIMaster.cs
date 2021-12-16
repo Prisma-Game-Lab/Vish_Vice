@@ -16,7 +16,6 @@ public class UIMaster : MonoBehaviour
     public GameObject allQuestsPanel;
     public GameObject questUI;
     public GameObject questItemUI;
-    public Text charismaText;
     public Sprite woodQuestIcon;
     public Sprite metalQuestIcon;
     public Sprite concreteQuestIcon;
@@ -52,14 +51,6 @@ public class UIMaster : MonoBehaviour
         ConcreteMinigameButton= dialoguePanelChild.transform.GetChild(8).gameObject;
         MetalMinigameButton = dialoguePanelChild.transform.GetChild(9).gameObject;
         //interactButton.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "Play")
-        {
-            charismaText.text = "Carisma: " + persistenData.quantCharisma.ToString();
-        }
     }
 
     public void Pause(){
