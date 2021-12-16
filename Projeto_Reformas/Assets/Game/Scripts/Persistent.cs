@@ -29,6 +29,10 @@ public class Persistent : MonoBehaviour
 
     public int currentMetalGameLevel;
     public int earnedMetalQtd = 0;
+
+    [HideInInspector] public float playerStartX = 0.77f;
+    [HideInInspector] public float playerStartY = 0.589f;
+    [HideInInspector] public float playerStartZ = 11.11f;
     private void Awake()
     {
         

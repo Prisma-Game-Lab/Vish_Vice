@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class DayCycle : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class DayCycle : MonoBehaviour
 
     private int ManpowerDayCount = 0;
 
+    public GameObject player;
+
     private void OnEnable()
     {
         persistentData = Persistent.current;
@@ -52,6 +55,7 @@ public class DayCycle : MonoBehaviour
     {
         checkDay();
         calculateTime();
+        dayReset();
         lightController();
     }
 
@@ -94,6 +98,17 @@ public class DayCycle : MonoBehaviour
         hour = Mathf.FloorToInt(time * 24);
         minutes = ((int)(((time * 24) % 1) * 6))*10;
         time_txt.text = hour.ToString("00") + ":" + minutes.ToString("00");
+    }
+
+
+    void dayReset()
+    {
+        if (time == 0f) {
+            player.transform.position = new Vector3 (persistentData.playerStartX,
+                persistentData.playerStartY, persistentData.playerStartZ);
+            time = 0.334f;
+            SceneManager.LoadScene("Play");
+        }
     }
 
     void lightController()
