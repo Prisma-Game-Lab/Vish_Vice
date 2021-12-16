@@ -18,6 +18,7 @@ public class Quest
     public int charismaGain;
     public int charismaLost;
     public QuestType questType;
+    public int duration = 1;
     [HideInInspector] public bool inProgress;
     [HideInInspector] public bool completed;
     [HideInInspector] public bool lost;

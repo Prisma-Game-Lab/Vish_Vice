@@ -21,9 +21,11 @@ public class NPCInteraction : MonoBehaviour
     public List<Quest> quests = new List<Quest>();
 
     private Persistent persistenData;
-    private GameObject questPopUp = null;
+    [HideInInspector]public GameObject questPopUp = null;
+    private Quest activeQuest = null;
 
     public bool isMinigameNPC;
+    public bool isObject;
 
     [HideInInspector] public Quest dayQuest;
 
@@ -37,15 +39,19 @@ public class NPCInteraction : MonoBehaviour
     {
 
         //Adiciona dialogos na lista de dialogos desse npc
-        foreach (Transform child in greetingOptions.transform)
-        {
-            GreetingOptionsDialogue.Add(child.GetComponent<Dialogue>());
-        }
-
         persistenData = Persistent.current;
-        if (persistenData.firstContactNPCs == null || !persistenData.firstContactNPCs.ContainsKey(npcName))
+        if (!isObject)
         {
-            persistenData.firstContactNPCs.Add(npcName, true);
+            foreach (Transform child in greetingOptions.transform)
+            {
+                GreetingOptionsDialogue.Add(child.GetComponent<Dialogue>());
+            }
+
+            
+            if (persistenData.firstContactNPCs == null || !persistenData.firstContactNPCs.ContainsKey(npcName))
+            {
+                persistenData.firstContactNPCs.Add(npcName, true);
+            }
         }
         CheckDayQuest();
         RefreshActiveQuestList();
@@ -73,6 +79,9 @@ public class NPCInteraction : MonoBehaviour
             if (quest.questDay == currentDay)
             {
                 dayQuest = quest;
+                activeQuest = quest;
+                if(questPopUp != null)
+                    questPopUp.gameObject.SetActive(true);
 
                 if (persistenData.completedQuests.Contains(quest.questName))
                 {
@@ -89,18 +98,28 @@ public class NPCInteraction : MonoBehaviour
             }
             else if (quest.questDay < currentDay && persistenData.activeQuests.Contains(quest.questName))
             {
-                quest.lost = true;
-                persistenData.lostQuests.Add(quest.questName);
-                persistenData.neglectedQuests.Add(quest.questName);
-                quest.inProgress = false;
-                persistenData.activeQuests.Remove(quest.questName);
-                persistenData.quantCharisma -= quest.charismaLost;
+                if(quest.questDay + quest.duration -1 < currentDay)
+                {
+                    quest.lost = true;
+                    persistenData.lostQuests.Add(quest.questName);
+                    persistenData.neglectedQuests.Add(quest.questName);
+                    quest.inProgress = false;
+                    persistenData.activeQuests.Remove(quest.questName);
+                    persistenData.quantCharisma -= quest.charismaLost;
+                    activeQuest = null;
+                }
+                
             } else if (quest.questDay < currentDay && !persistenData.neglectedQuests.Contains(quest.questName))
             {
-                persistenData.neglectedQuests.Add(quest.questName);
-                persistenData.quantCharisma -= quest.charismaLost;
-                quest.inProgress = false;
-                quest.lost = false;
+                if (quest.questDay + quest.duration - 1 < currentDay)
+                {
+                    persistenData.neglectedQuests.Add(quest.questName);
+                    persistenData.quantCharisma -= quest.charismaLost;
+                    quest.inProgress = false;
+                    quest.lost = false;
+                    activeQuest = null;
+                }
+                
             }
         }
     }
@@ -234,8 +253,18 @@ public class NPCInteraction : MonoBehaviour
 
     public void UpdateQuestPopUp()
     {
-        if (dayQuest == null)
-            questPopUp.GetComponent<Image>().sprite = interactionSprite;
+        if (dayQuest == null && activeQuest == null)
+        {
+            if (isObject)
+                questPopUp.SetActive(false);
+            else
+                questPopUp.GetComponent<Image>().sprite = interactionSprite;
+        }
+        else if(dayQuest == null && activeQuest != null)
+        {
+            questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(activeQuest.questType);
+            Debug.Log("MudouSprite");
+        }
         else
         {
             questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(dayQuest.questType);

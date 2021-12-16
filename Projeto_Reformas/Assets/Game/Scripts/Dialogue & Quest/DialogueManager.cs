@@ -101,6 +101,7 @@ public class DialogueManager : MonoBehaviour
         //uiMaster.interactButton.SetActive(true);
         uiMaster.dialogPanel.SetActive(false);
         Joystick.SetActive(true);
+        questManager.QuitQuestDialogue();
     }
 
     private void TurnMinigameButtonOn()

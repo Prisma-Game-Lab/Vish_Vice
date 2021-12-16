@@ -54,6 +54,7 @@ public class QuestManager : MonoBehaviour
         {
             print("Quest adicionada!");
             newQuestNPC.dayQuest.inProgress = true;
+            newQuestNPC.questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = true;
             //persistenData.activeQuests.Add(newQuestNPC.dayQuest.questName);
             persistenData.activeQuests.Insert(0, newQuestNPC.dayQuest.questName);//as ~quests novas sao sempre inseridas no comeco da lista, pois sao mais recentes
             persistenData.activeQuestsUI.Add(newQuestNPC.dayQuest);
@@ -130,6 +131,8 @@ public class QuestManager : MonoBehaviour
             {
                 quest.activateObject.SetActive(true);
                 Persistent.current.objectState[quest.activateObject.transform.GetSiblingIndex()] = true;
+                if (quest.questType == QuestType.Pondering)
+                    quest.desactivateObject.GetComponent<NPCInteraction>().questPopUp.SetActive(false);
                 quest.desactivateObject.SetActive(false);
                 Persistent.current.objectState[quest.desactivateObject.transform.GetSiblingIndex()] = false;
                 persistenData.activeQuestsUI.Remove(quest);
@@ -215,6 +218,14 @@ public class QuestManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void QuitQuestDialogue()
+    {
+        if (newQuestNPC.dayQuest != null)
+        {
+            newQuestNPC.questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = true;
+        }
     }
 
 }
