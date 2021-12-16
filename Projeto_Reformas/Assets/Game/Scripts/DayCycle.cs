@@ -106,7 +106,7 @@ public class DayCycle : MonoBehaviour
         if (time == 0f) {
             player.transform.position = new Vector3 (persistentData.playerStartX,
                 persistentData.playerStartY, persistentData.playerStartZ);
-            time = 0.334f;
+            time = 0.250f;
             SceneManager.LoadScene("Play");
         }
     }
