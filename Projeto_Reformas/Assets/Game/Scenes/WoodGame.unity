@@ -461,9 +461,9 @@ MonoBehaviour:
   finalWoodText: {fileID: 478284911}
   GameOverUI: {fileID: 41229258}
   particleTime: 2
-  tolerance: 0.7
+  tolerance: 0.4
   woodCount: 0
-  lostCount: 5
+  lostCount: 3
 --- !u!50 &269540727
 Rigidbody2D:
   serializedVersion: 4
@@ -1781,6 +1781,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   time_txt: {fileID: 1700904560}
   day_txt: {fileID: 1700904559}
+  player: {fileID: 0}
 --- !u!114 &1641314584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1841,7 +1842,6 @@ MonoBehaviour:
   allQuestsPanel: {fileID: 0}
   questUI: {fileID: 0}
   questItemUI: {fileID: 0}
-  charismaText: {fileID: 0}
   woodQuestIcon: {fileID: 21300000, guid: 268160dfa1ad1464d8903810cf9341c9, type: 3}
   metalQuestIcon: {fileID: 21300000, guid: 293b35ac82cc5bd49a5fa11b85c48e07, type: 3}
   concreteQuestIcon: {fileID: 21300000, guid: 4cf165f3adf3c334da3d20548cb02670, type: 3}
