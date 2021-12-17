@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     public float speed;
+    [HideInInspector]public Vector3 direction;
+    [HideInInspector] public bool stuck = false;
     public Animator anim;
     public VariableJoystick variableJoystick;
     private CharacterController controller;
@@ -22,7 +24,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        Vector3 direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
+        direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
 
         if (variableJoystick.Horizontal < 0 && !flipped)
         {
@@ -38,6 +40,7 @@ public class PlayerInput : MonoBehaviour
         anim.SetFloat("Vertical", variableJoystick.Vertical);
         anim.SetFloat("Moving", direction.magnitude);
         controller.SimpleMove(direction.normalized * speed);
+            
     }
 
     public void playSteps()
