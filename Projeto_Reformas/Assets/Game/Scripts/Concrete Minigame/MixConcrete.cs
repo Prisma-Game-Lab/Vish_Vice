@@ -10,6 +10,9 @@ public class MixConcrete : MonoBehaviour
     [Header("Quantidade maxima de materiais a por na betoneira")]
     public int maxMaterials;
 
+    [Header("Quantidade de concreto ganha ao completar sequencia")]
+    public int addConcrete;
+
     [Header("Aumento de velocidade")]
     public int increaseFactor;
     public int maxSpeed;
@@ -55,7 +58,7 @@ public class MixConcrete : MonoBehaviour
 
         if (ind >= maxMaterials)
         {
-            totalConcrete++;
+            totalConcrete += addConcrete;
             quantComb++;
             updateSpeed();
             ind = 0;
