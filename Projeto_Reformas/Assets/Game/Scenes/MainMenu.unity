@@ -2812,8 +2812,8 @@ MonoBehaviour:
     source: {fileID: 0}
   soundEffects:
   - name: ButtonClick
-    clip: {fileID: 8300000, guid: 1e8859b5bd32c9346aad2f2fdfac12e1, type: 3}
-    volume: 0.6
+    clip: {fileID: 8300000, guid: d4aeb77957fb45843aa13e246ac61952, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
