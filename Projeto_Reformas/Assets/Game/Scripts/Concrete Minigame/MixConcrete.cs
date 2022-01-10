@@ -62,6 +62,7 @@ public class MixConcrete : MonoBehaviour
             quantComb++;
             updateSpeed();
             ind = 0;
+            this.GetComponents<AudioSource>()[0].Play();
         }
 
         if (quantComb >= 5)
@@ -148,6 +149,7 @@ public class MixConcrete : MonoBehaviour
                 }
                 totalMaterials = 0;
                 ind = 0;
+                this.GetComponents<AudioSource>()[1].Play();
             }
 
             Destroy(collision.gameObject);

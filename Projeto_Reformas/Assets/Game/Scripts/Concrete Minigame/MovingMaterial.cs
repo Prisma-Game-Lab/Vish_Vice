@@ -13,6 +13,11 @@ public class MovingMaterial : MonoBehaviour
     [HideInInspector]public int treadmill;
     private BoxCollider2D bc;
 
+    private void OnMouseDown()
+    {
+        this.gameObject.GetComponent<AudioSource>().Play();
+    }
+
     private void OnMouseDrag()
     {
         isMovingSide = false;

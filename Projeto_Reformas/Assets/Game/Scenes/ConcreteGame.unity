@@ -299,7 +299,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 431642334b158444b888597f1f0d4c25, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -395,7 +395,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 72587d5b975844246a17a5ead1fb7240, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2020,7 +2020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4474455841545087703, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.113586
+      value: -8.113525
       objectReference: {fileID: 0}
     - target: {fileID: 5421983709281009964, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2056,11 +2056,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 23d181e977846154c810c4696473bb43, type: 3}
     - target: {fileID: 6066666712783545471, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -59.772
+      value: -59.771973
       objectReference: {fileID: 0}
     - target: {fileID: 6066666712783545471, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 18.686
+      value: 18.685974
       objectReference: {fileID: 0}
     - target: {fileID: 6066666712904508371, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2076,7 +2076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6066666713362961552, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.40637207
+      value: -0.40649414
       objectReference: {fileID: 0}
     - target: {fileID: 6066666713362961552, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2100,7 +2100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6066666713942261996, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -48.942
+      value: -48.941895
       objectReference: {fileID: 0}
     - target: {fileID: 6066666713942261996, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.y
