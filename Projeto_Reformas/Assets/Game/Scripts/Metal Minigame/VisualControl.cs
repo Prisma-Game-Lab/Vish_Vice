@@ -6,6 +6,7 @@ using TMPro;
 public class VisualControl : MonoBehaviour
 {
     public GameObject emptyCell;
+    public TMP_FontAsset font;
 
     private GameController gameController;
     private TextMeshPro[,] textArray;
@@ -35,12 +36,13 @@ public class VisualControl : MonoBehaviour
     {
         
     }
-    public static TextMeshPro CreateGridText(string text, int fontSize, Vector3 worldPosition)
+    public static TextMeshPro CreateGridText(string text, int fontSize, Vector3 worldPosition, TMP_FontAsset font)
     {
         GameObject TextObject = new GameObject("Cell Text", typeof(TextMeshPro));
         TextObject.transform.position = worldPosition;
         TextMeshPro textMeshPro = TextObject.GetComponent<TextMeshPro>();
         textMeshPro.text = text;
+        textMeshPro.font = font;
         textMeshPro.fontSize = fontSize;
         textMeshPro.alignment = TextAlignmentOptions.Midline;
 
@@ -55,7 +57,7 @@ public class VisualControl : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 GridElement cell = gameGrid.GetGridElement(x, y);
-                textArray[x, y] = CreateGridText(cell.GetElementText(), 12, gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f);
+                textArray[x, y] = CreateGridText(cell.GetElementText(), 11, gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f, font);
                 Vector3 position = gameGrid.GetWorldPosition(x, y) + new Vector3(gameGrid.GetCellSize(), gameGrid.GetCellSize()) * 0.5f;
                 cellArray[x,y] = Instantiate(emptyCell, position, Quaternion.identity);
                 if (cell.GetElementType() == GridElementType.mine)

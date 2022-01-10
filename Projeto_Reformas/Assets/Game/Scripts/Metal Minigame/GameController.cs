@@ -83,12 +83,14 @@ public class GameController: MonoBehaviour
                 else
                 {
                     visualControl.UpdateCell(x, y);
+                    grid.GetGridElement(x, y).Reveal();
                 }
                 
             }
             else if(grid.GetGridElement(x, y).GetElementType() == GridElementType.metal)
             {
                 visualControl.UpdateCell(x, y);
+                grid.GetGridElement(x, y).Reveal();
                 metalQtd++;
                 Persistent.current.earnedMetalQtd += metalMultiplier;
                 revealedCells++;
@@ -231,9 +233,10 @@ public class GameController: MonoBehaviour
     {
         float x = -(minWidth*1.2f) / 2;
         float y = -(minHeight*1.2f) / 2;
-        Vector3 originPosition = new Vector3(x, y);
+        Vector3 originPosition = new Vector3(x, y-0.3f);
         Debug.Log("x:" + x);
         Debug.Log("y:" + y);
+
         return new GameGrid(minWidth, minHeight, 1.2f, minQtdMetal + level, minQtdMetal + level, originPosition);
     }
 
