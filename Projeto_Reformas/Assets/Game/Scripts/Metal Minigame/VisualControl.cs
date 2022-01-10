@@ -7,6 +7,8 @@ public class VisualControl : MonoBehaviour
 {
     public GameObject emptyCell;
     public TMP_FontAsset font;
+    public Sprite metalSprite;
+    public Sprite mineSprite;
 
     private GameController gameController;
     private TextMeshPro[,] textArray;
@@ -73,7 +75,8 @@ public class VisualControl : MonoBehaviour
     //Atualiza valor que sera exibido pela celula quando for aberta
     public void UpdateCell(int x, int y)
     {
-        if(gameGrid.GetGridElement(x, y).GetElementType() == GridElementType.empty)
+        GridElementType type = gameGrid.GetGridElement(x, y).GetElementType();
+        if (type == GridElementType.empty)
         {
             GridElement cell = gameGrid.GetGridElement(x, y);
             int value = cell.GetElementValue();
@@ -83,6 +86,18 @@ public class VisualControl : MonoBehaviour
                 textArray[x, y].color = cell.GetTextColor();
             }
 
+        }
+        else if(type == GridElementType.metal)
+        {
+            Transform symbol = cellArray[x, y].transform.GetChild(2);
+            symbol.GetComponent<SpriteRenderer>().sprite = metalSprite;
+            symbol.gameObject.SetActive(true);
+        }
+        else if(type == GridElementType.mine)
+        {
+            Transform symbol = cellArray[x, y].transform.GetChild(2);
+            symbol.GetComponent<SpriteRenderer>().sprite = mineSprite;
+            symbol.gameObject.SetActive(true);
         }
         cellArray[x, y].transform.GetChild(0).gameObject.SetActive(false);
 

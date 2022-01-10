@@ -1185,6 +1185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyCell: {fileID: 4788399062158320804, guid: 0d8d46d5366fd8240bcdfef8e75373d6, type: 3}
   font: {fileID: 11400000, guid: 6f2b17c7f38ec4442a2c27fca13f5ebd, type: 2}
+  metalSprite: {fileID: 21300000, guid: b98e158a719286948ade3b2be4eb7b2e, type: 3}
+  mineSprite: {fileID: 21300000, guid: ff29e0e4d8ffd144288054f2db2be990, type: 3}
 --- !u!114 &880689597
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -43,9 +43,9 @@ public class GridElement
     {
         this.type = type;
         if (type == GridElementType.metal)
-            text = "M";
+            text = "";
         else
-            text = "*";
+            text = "";
     }
 
     public void SetElementText(string text)
