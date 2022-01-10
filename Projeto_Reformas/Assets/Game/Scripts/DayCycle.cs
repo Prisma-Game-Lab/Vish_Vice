@@ -34,6 +34,9 @@ public class DayCycle : MonoBehaviour
     public TextMeshProUGUI time_txt;
     public TextMeshProUGUI day_txt;
 
+    [Header("Last Day")]
+    public int lastDay;
+
     Persistent persistentData;
 
     private int ManpowerDayCount = 0;
@@ -87,6 +90,11 @@ public class DayCycle : MonoBehaviour
                 ManpowerDayCount = 0;
             }
         }
+
+        if (persistentData.currentDay > lastDay)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     void calculateTime()
@@ -107,6 +115,7 @@ public class DayCycle : MonoBehaviour
             player.transform.position = new Vector3 (persistentData.playerStartX,
                 persistentData.playerStartY, persistentData.playerStartZ);
             time = 0.250f;
+            persistentData.currentDay += 1;
             SceneManager.LoadScene("Play");
         }
     }
