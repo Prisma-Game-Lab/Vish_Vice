@@ -26,6 +26,7 @@ public enum QuestType
 public class QuestManager : MonoBehaviour
 {
     private UIMaster uiMaster;
+    private MinigameMenu minigameUI;
     private Notebook notebook;
     [HideInInspector] public NPCInteraction newQuestNPC;
 
@@ -35,6 +36,7 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         questsNpcs = GameObject.FindGameObjectsWithTag("NPC");
+        minigameUI = GetComponent<MinigameMenu>();
         uiMaster = GetComponent<UIMaster>();
         notebook = GetComponent<Notebook>();
         persistenData = Persistent.current;
@@ -97,16 +99,33 @@ public class QuestManager : MonoBehaviour
 
     public Sprite GetItemSprite(Quest.Item item)
     {
-        switch (item.type)
+        if (uiMaster != null)
         {
-            case ItemType.Wood:
-                return uiMaster.woodQuestIcon;
-            case ItemType.Concrete:
-                return uiMaster.concreteQuestIcon;
-            case ItemType.Metal:
-                return uiMaster.metalQuestIcon;
-            default:
-                return uiMaster.woodQuestIcon;
+            switch (item.type)
+            {
+                case ItemType.Wood:
+                    return uiMaster.woodQuestIcon;
+                case ItemType.Concrete:
+                    return uiMaster.concreteQuestIcon;
+                case ItemType.Metal:
+                    return uiMaster.metalQuestIcon;
+                default:
+                    return uiMaster.woodQuestIcon;
+            }
+        }
+        else
+        {
+            switch (item.type)
+            {
+                case ItemType.Wood:
+                    return minigameUI.woodQuestIcon;
+                case ItemType.Concrete:
+                    return minigameUI.concreteQuestIcon;
+                case ItemType.Metal:
+                    return minigameUI.metalQuestIcon;
+                default:
+                    return minigameUI.woodQuestIcon;
+            }
         }
     }
 
@@ -201,9 +220,12 @@ public class QuestManager : MonoBehaviour
 
     public void ClearQuestsPanel()
     {
-        foreach (Transform questUI in uiMaster.allQuestsPanel.transform)
+        if (uiMaster != null)
         {
-            Destroy(questUI.gameObject);
+            foreach (Transform questUI in uiMaster.allQuestsPanel.transform)
+            {
+                Destroy(questUI.gameObject);
+            }
         }
     }
 

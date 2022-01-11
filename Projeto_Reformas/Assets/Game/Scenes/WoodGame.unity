@@ -178,10 +178,10 @@ RectTransform:
   m_Father: {fileID: 243408749}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.86, y: 0.87200004}
-  m_AnchorMax: {x: 0.9817813, y: 0.975}
-  m_AnchoredPosition: {x: -0.20800781, y: -0.4472046}
-  m_SizeDelta: {x: 1.2281494, y: -1.1397095}
+  m_AnchorMin: {x: 0.81637496, y: 0.844111}
+  m_AnchorMax: {x: 0.9856668, y: 0.98529637}
+  m_AnchoredPosition: {x: 0.5, y: 1.5}
+  m_SizeDelta: {x: -0.8069, y: 0.31559944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205373244
 MonoBehaviour:
@@ -614,10 +614,10 @@ RectTransform:
   m_Father: {fileID: 243408749}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.83300006}
-  m_AnchorMax: {x: 0.115, y: 1}
-  m_AnchoredPosition: {x: -13.899902, y: 6.200012}
-  m_SizeDelta: {x: 25.841698, y: 12.068802}
+  m_AnchorMin: {x: 0, y: 0.81470376}
+  m_AnchorMax: {x: 0.134, y: 1}
+  m_AnchoredPosition: {x: -31.3, y: 10.1}
+  m_SizeDelta: {x: -0.8650017, y: 1.8799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &442403465
 MonoBehaviour:
@@ -759,7 +759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6382223}
   m_AnchorMax: {x: 0.115, y: 0.81962967}
-  m_AnchoredPosition: {x: -13.9001465, y: 0.5}
+  m_AnchoredPosition: {x: -10, y: 34}
   m_SizeDelta: {x: 25.841698, y: -2.9311981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &578094323
@@ -1403,7 +1403,6 @@ GameObject:
   - component: {fileID: 1641314580}
   - component: {fileID: 1641314582}
   - component: {fileID: 1641314583}
-  - component: {fileID: 1641314586}
   - component: {fileID: 1641314584}
   - component: {fileID: 1641314585}
   m_Layer: 0
@@ -1463,6 +1462,9 @@ MonoBehaviour:
   settingsMenu: {fileID: 399632432}
   slice: {fileID: 269540726}
   mix: {fileID: 0}
+  woodQuestIcon: {fileID: 21300000, guid: 20b6fa97a74608047af15ad6de51bd20, type: 3}
+  metalQuestIcon: {fileID: 21300000, guid: 293b35ac82cc5bd49a5fa11b85c48e07, type: 3}
+  concreteQuestIcon: {fileID: 21300000, guid: 4cf165f3adf3c334da3d20548cb02670, type: 3}
   paused: 0
 --- !u!114 &1641314583
 MonoBehaviour:
@@ -1781,6 +1783,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   time_txt: {fileID: 1700904560}
   day_txt: {fileID: 1700904559}
+  lastDay: 0
   player: {fileID: 0}
 --- !u!114 &1641314584
 MonoBehaviour:
@@ -1822,39 +1825,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newQuestNPC: {fileID: 0}
---- !u!114 &1641314586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641314579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66eede7003cc1fe479152fcccb9360c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
-  settingsUI: {fileID: 0}
-  interactButton: {fileID: 0}
-  player: {fileID: 0}
-  dialogPanel: {fileID: 0}
-  allQuestsPanel: {fileID: 0}
-  questUI: {fileID: 0}
-  questItemUI: {fileID: 0}
-  woodQuestIcon: {fileID: 21300000, guid: 268160dfa1ad1464d8903810cf9341c9, type: 3}
-  metalQuestIcon: {fileID: 21300000, guid: 293b35ac82cc5bd49a5fa11b85c48e07, type: 3}
-  concreteQuestIcon: {fileID: 21300000, guid: 4cf165f3adf3c334da3d20548cb02670, type: 3}
-  _displayName: {fileID: 0}
-  _displayText: {fileID: 0}
-  _touchToContinue: {fileID: 0}
-  acceptQuestButton: {fileID: 0}
-  declineQuestButton: {fileID: 0}
-  completeQuestButton: {fileID: 0}
-  outQuestButton: {fileID: 0}
-  WoodMinigameButton: {fileID: 0}
-  ConcreteMinigameButton: {fileID: 0}
-  MetalMinigameButton: {fileID: 0}
 --- !u!1001 &1700904557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2949,7 +2919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2184993615380984332, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2184993615380984332, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3001,7 +2971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6066666712904508371, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6066666712904508371, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3061,7 +3031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6066666713906060108, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6066666713942261996, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3069,11 +3039,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6066666713981538334, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6066666714075024747, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6066666714075024747, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3237,7 +3207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8096422039198196059, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8131177850882683713, guid: b48b2a2d4d12c864f870fc4fc9dddeaf, type: 3}
       propertyPath: m_RootOrder

@@ -12,6 +12,10 @@ public class MinigameMenu : MonoBehaviour
     public Slice slice;
     public MixConcrete mix;
 
+    public Sprite woodQuestIcon;
+    public Sprite metalQuestIcon;
+    public Sprite concreteQuestIcon;
+
     [HideInInspector] public bool paused = false;
 
 

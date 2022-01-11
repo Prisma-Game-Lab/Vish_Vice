@@ -111,12 +111,17 @@ public class DayCycle : MonoBehaviour
 
     void dayReset()
     {
-        if (time == 0f) {
-            player.transform.position = new Vector3 (persistentData.playerStartX,
-                persistentData.playerStartY, persistentData.playerStartZ);
+        if (time == 0f)
+        {
+            if (player != null)
+            {
+                player.transform.position = new Vector3(persistentData.playerStartX,
+                    persistentData.playerStartY, persistentData.playerStartZ);
+            }
             time = 0.250f;
             persistentData.currentDay += 1;
             SceneManager.LoadScene("Play");
+
         }
     }
 

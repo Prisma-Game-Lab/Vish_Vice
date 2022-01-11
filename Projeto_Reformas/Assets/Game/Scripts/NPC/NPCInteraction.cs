@@ -75,7 +75,7 @@ public class NPCInteraction : MonoBehaviour
 
         foreach (Quest quest in quests)
         {
-            print("procura");
+            //print("procura");
             if (quest.questDay == currentDay)
             {
                 dayQuest = quest;
