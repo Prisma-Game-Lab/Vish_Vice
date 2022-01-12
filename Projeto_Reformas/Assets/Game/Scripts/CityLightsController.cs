@@ -12,8 +12,9 @@ public class CityLightsController : MonoBehaviour
     DayCycle dayCycle;
     bool lightsTurned;
 
-    public List<Light> poles;
-    public List<MeshRenderer> polesMaterials;
+    public List<GameObject> poles;
+    private List<Light> polesLights;
+    private List<MeshRenderer> polesMaterials;
 
     public Material lightOnMaterial;
     public Material lightOffMaterial;
@@ -23,6 +24,13 @@ public class CityLightsController : MonoBehaviour
     {
         dayCycle = GetComponent<DayCycle>();
         lightsTurned = false;
+        polesMaterials = new List<MeshRenderer>();
+        polesLights = new List<Light>();
+        for (int i = 0; i < poles.Count; i++)
+        {
+            polesMaterials.Add(poles[i].gameObject.transform.GetChild(2).GetComponent<MeshRenderer>());
+            polesLights.Add(poles[i].gameObject.transform.GetChild(3).GetComponent<Light>());
+        }
         StartLightsOn();
     }
 
@@ -43,11 +51,11 @@ public class CityLightsController : MonoBehaviour
                 return;
             else if (dayCycle.hour == lightsOffHour && dayCycle.minutes >= lightsOffMinutes)
                 return;
-            for (int i = 0; i < poles.Count; i++)
+            for (int i = 0; i < polesLights.Count; i++)
             {
-                if (poles[i] != null && polesMaterials[i]!= null)
+                if (polesLights[i] != null && polesMaterials[i]!= null)
                 {
-                    poles[i].gameObject.SetActive(true);
+                    polesLights[i].gameObject.SetActive(true);
                     polesMaterials[i].material = lightOnMaterial;
                 }
             }
@@ -82,11 +90,11 @@ public class CityLightsController : MonoBehaviour
 
     IEnumerator LightsOn()
     {
-        for (int i = 0; i < poles.Count; i++)
+        for (int i = 0; i < polesLights.Count; i++)
         {
-            if (poles[i] != null && polesMaterials[i] != null)
+            if (polesLights[i] != null && polesMaterials[i] != null)
             {
-                poles[i].gameObject.SetActive(true);
+                polesLights[i].gameObject.SetActive(true);
                 polesMaterials[i].material = lightOnMaterial;
                 yield return new WaitForSeconds(0.15f);
             }
@@ -95,11 +103,11 @@ public class CityLightsController : MonoBehaviour
 
     IEnumerator LightsOff()
     {
-        for (int i = 0; i < poles.Count; i++)
+        for (int i = 0; i < polesLights.Count; i++)
         {
-            if (poles[i] != null && polesMaterials[i] != null)
+            if (polesLights[i] != null && polesMaterials[i] != null)
             {
-                poles[i].gameObject.SetActive(false);
+                polesLights[i].gameObject.SetActive(false);
                 polesMaterials[i].material = lightOffMaterial;
                 yield return new WaitForSeconds(0.15f);
             }
