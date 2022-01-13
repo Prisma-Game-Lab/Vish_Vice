@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Map : MonoBehaviour
 {
-
+    public Animator animatior;
     public GameObject mapUI;
     public GameObject playerIcon;
     public GameObject npcs;
@@ -34,14 +34,13 @@ public class Map : MonoBehaviour
 
     public void OpenMap()
     {
-        mapUI.SetActive(true);
-        Time.timeScale = 0f;
+        animatior.Play("MapUI Open");
     }
 
     public void CloseMap()
     {
-        mapUI.SetActive(false);
         Time.timeScale = 1f;
+        animatior.Play("MapUI Close");        
     }
 
     public void MovePlayerIcon()
