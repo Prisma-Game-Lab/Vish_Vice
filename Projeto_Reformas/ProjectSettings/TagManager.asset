@@ -12,6 +12,7 @@ TagManager:
   - persistentData
   - loadingScreen
   - Material
+  - Concrete
   layers:
   - Default
   - TransparentFX

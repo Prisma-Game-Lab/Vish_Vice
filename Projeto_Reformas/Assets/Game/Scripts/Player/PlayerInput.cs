@@ -45,12 +45,27 @@ public class PlayerInput : MonoBehaviour
 
     public void playSteps()
     {
-        int index = Random.Range(0, 2);
-        if (index == 0)
-            AudioManager.instance.Play("Step1");
+        string soundType1, soundType2;
+        RaycastHit hit;
+        Physics.Raycast(transform.position, -Vector3.up, out hit);
+
+        if (hit.transform.CompareTag("Concrete"))
+        {
+            soundType1 = "ConcreteStep1";
+            soundType2 = "ConcreteStep1";
+        }
         else
         {
-            AudioManager.instance.Play("Step2");
+            soundType1 = "GrassStep1";
+            soundType2 = "GrassStep2";
+        }
+
+        int index = Random.Range(0, 2);
+        if (index == 0)
+            AudioManager.instance.Play(soundType1);
+        else
+        {
+            AudioManager.instance.Play(soundType2);
         }
     }
 
