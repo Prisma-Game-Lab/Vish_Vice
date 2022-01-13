@@ -118,6 +118,11 @@ public class DayCycle : MonoBehaviour
                 player.transform.position = new Vector3(persistentData.playerStartX,
                     persistentData.playerStartY, persistentData.playerStartZ);
             }
+            else
+            {
+                Persistent.current.playerPosition= new Vector3(persistentData.playerStartX,
+                    persistentData.playerStartY, persistentData.playerStartZ);
+            }
             time = 0.250f;
             persistentData.currentDay += 1;
             SceneManager.LoadScene("Play");
