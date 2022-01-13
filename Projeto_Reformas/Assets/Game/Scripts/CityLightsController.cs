@@ -28,8 +28,11 @@ public class CityLightsController : MonoBehaviour
         polesLights = new List<Light>();
         for (int i = 0; i < poles.Count; i++)
         {
-            polesMaterials.Add(poles[i].gameObject.transform.GetChild(2).GetComponent<MeshRenderer>());
-            polesLights.Add(poles[i].gameObject.transform.GetChild(3).GetComponent<Light>());
+            if (poles[i] != null)
+            {
+                polesMaterials.Add(poles[i].gameObject.transform.GetChild(2).GetComponent<MeshRenderer>());
+                polesLights.Add(poles[i].gameObject.transform.GetChild(3).GetComponent<Light>());
+            }
         }
         StartLightsOn();
     }
@@ -90,7 +93,8 @@ public class CityLightsController : MonoBehaviour
 
     IEnumerator LightsOn()
     {
-        for (int i = 0; i < polesLights.Count; i++)
+        print(polesLights.Count);
+        for (int i = 0; i < poles.Count; i++)
         {
             if (polesLights[i] != null && polesMaterials[i] != null)
             {
@@ -103,7 +107,7 @@ public class CityLightsController : MonoBehaviour
 
     IEnumerator LightsOff()
     {
-        for (int i = 0; i < polesLights.Count; i++)
+        for (int i = 0; i < poles.Count; i++)
         {
             if (polesLights[i] != null && polesMaterials[i] != null)
             {
