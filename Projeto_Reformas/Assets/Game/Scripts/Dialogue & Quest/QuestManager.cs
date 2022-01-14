@@ -32,6 +32,7 @@ public class QuestManager : MonoBehaviour
 
     private GameObject[] questsNpcs;
     private Persistent persistenData;
+    private MakeInteraction playerMakeInteraction;
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class QuestManager : MonoBehaviour
         uiMaster = GetComponent<UIMaster>();
         notebook = GetComponent<Notebook>();
         persistenData = Persistent.current;
+        playerMakeInteraction = uiMaster.player.GetComponent<MakeInteraction>();
 
         if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
         {
@@ -249,8 +251,11 @@ public class QuestManager : MonoBehaviour
     {
         if (newQuestNPC.dayQuest != null)
         {
+            Debug.Log("Termina dialogo");
             newQuestNPC.questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = true;
+            return;
         }
+        playerMakeInteraction.ReturnNpc().GetComponent<NPCInteraction>().questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = true;
     }
 
 }

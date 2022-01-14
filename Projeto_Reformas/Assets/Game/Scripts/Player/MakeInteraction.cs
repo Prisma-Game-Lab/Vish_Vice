@@ -64,5 +64,10 @@ public class MakeInteraction : MonoBehaviour
         
     }
 
+    public GameObject ReturnNpc()
+    {
+        return _npc;
+    }
+
 
 }
