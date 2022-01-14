@@ -23,12 +23,14 @@ public class Slice : MonoBehaviour
     private float _minDiagonal = 0.02f;
     private float _maxDiagonal = 0.98f;
     private Collider2D _playerCollider;
+    [HideInInspector]public int maxErrors;
 
     void Start()
     {
         cam = Camera.main;
         _playerCollider = gameObject.GetComponent<Collider2D>();
-        lostWoodText.text = "Erros restantes: " + lostCount.ToString();
+        maxErrors = lostCount;
+        lostWoodText.text = (maxErrors - lostCount).ToString() + "/" + maxErrors.ToString();
     }
 
     void Update()

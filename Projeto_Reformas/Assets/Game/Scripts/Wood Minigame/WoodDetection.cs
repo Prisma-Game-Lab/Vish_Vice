@@ -20,7 +20,7 @@ public class WoodDetection : MonoBehaviour
         if (collision.gameObject.CompareTag("Wood"))
         {  
             slice.lostCount--;
-            slice.lostWoodText.text = "Erros restantes: " + slice.lostCount.ToString();
+            slice.lostWoodText.text = (slice.maxErrors - slice.lostCount).ToString() + "/" + slice.maxErrors.ToString();
             if (slice.lostCount == 0)
                 slice.EndWoodMinigame();
         }
