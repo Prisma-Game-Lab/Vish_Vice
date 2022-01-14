@@ -22,6 +22,8 @@ public class Notebook : MonoBehaviour
     public Scrollbar scrollbarDescription;
     public List<GameObject> resources;
     private QuestManager questManager;
+    public Animator notesAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,21 +42,25 @@ public class Notebook : MonoBehaviour
 
     public void CloseNotebook()
     {
-        notebookUI.SetActive(false);
+        //notebookUI.SetActive(false);
         //scrollBarButtons.SetActive(false);
         taskExpansionPanel.SetActive(false);
         Time.timeScale = 1f;
+        notesAnimator.Play("NotesDown");
+        
     }
 
     public void OpenNotebook()
     {
+        //notebookUI.SetActive(true);
         notebookUI.SetActive(true);
         OrderTaskList();
+        notesAnimator.Play("NotesUp");
         if (tasks.transform.childCount >= 12)
             scrollRectTasks.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.Permanent;
         else
             scrollRectTasks.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHide;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void ExpandQuestInfo(string taskName)

@@ -99,7 +99,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         //uiMaster.interactButton.SetActive(true);
-        uiMaster.dialogPanel.SetActive(false);
+        uiMaster.dialogPanel.GetComponent<Animator>().Play("DialogueDown");
         Joystick.SetActive(true);
         questManager.QuitQuestDialogue();
     }

@@ -8,6 +8,10 @@ public class UIAnimEvents : MonoBehaviour
     public Animator menuBGAnim;
 
 
+    public void DesactivateThis(){
+        gameObject.SetActive(false);
+    }
+
     public void MenuBGFadeInOut(int fadeIn)
     {
         if (fadeIn==1)

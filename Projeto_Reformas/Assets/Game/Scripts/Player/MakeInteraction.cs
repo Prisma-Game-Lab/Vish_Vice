@@ -53,6 +53,7 @@ public class MakeInteraction : MonoBehaviour
         _playerInput.variableJoystick.gameObject.SetActive(false);
 
         DialogPanel.SetActive(true);
+        DialogPanel.GetComponent<Animator>().Play("DialogueUp");
         _uiMaster.interactButton.SetActive(false);
 
         NPCInteraction npcInteraction = _npc.GetComponent<NPCInteraction>();
