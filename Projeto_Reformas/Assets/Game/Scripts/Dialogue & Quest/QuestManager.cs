@@ -252,10 +252,12 @@ public class QuestManager : MonoBehaviour
         if (newQuestNPC.dayQuest != null)
         {
             Debug.Log("Termina dialogo");
-            newQuestNPC.questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = true;
+            newQuestNPC.questPopUp.transform.GetChild(0).gameObject.SetActive(true);
+            newQuestNPC.questPopUp.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
             return;
         }
-        playerMakeInteraction.ReturnNpc().GetComponent<NPCInteraction>().questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = true;
+        playerMakeInteraction.ReturnNpc().GetComponent<NPCInteraction>().questPopUp.transform.GetChild(0).gameObject.SetActive(true);
+        playerMakeInteraction.ReturnNpc().GetComponent<NPCInteraction>().questPopUp.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
     }
 
 }

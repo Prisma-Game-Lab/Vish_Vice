@@ -238,6 +238,18 @@ public class NPCInteraction : MonoBehaviour
         questPopUp.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
+    public void EnableInteractionButton()
+    {
+        questPopUp.transform.GetChild(0).gameObject.SetActive(true);
+        questPopUp.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+    }
+
+    public void DisableInteractionButton()
+    {
+        questPopUp.transform.GetChild(0).gameObject.SetActive(false);
+        questPopUp.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
+    }
+
     public Sprite GetQuestPopUpSprite(QuestType questType)
     {
         switch (questType)
