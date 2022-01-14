@@ -224,7 +224,7 @@ public class NPCInteraction : MonoBehaviour
     private void SetQuestPopUpPosition()
     {
         questPopUp.transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z + 1f);
-        questPopUp.transform.rotation = transform.rotation;
+        questPopUp.transform.Rotate(new Vector3(1f, 0f, 0f), 45);
     }
     public void SetInteractionButtonOn()
     {
