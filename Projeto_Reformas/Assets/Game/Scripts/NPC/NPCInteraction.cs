@@ -251,6 +251,11 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
+
+    public void ChangeInteractionSprite()
+    {
+        questPopUp.GetComponent<Image>().sprite = interactionSprite;
+    }
     public void UpdateQuestPopUp()
     {
         if (dayQuest == null && activeQuest == null)

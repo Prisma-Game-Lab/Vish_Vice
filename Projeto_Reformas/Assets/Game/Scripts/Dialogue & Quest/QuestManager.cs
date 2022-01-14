@@ -149,7 +149,8 @@ public class QuestManager : MonoBehaviour
             if (quest.questName == newQuestNPC.dayQuest.questName)
             {
                 quest.activateObject.SetActive(true);
-                Persistent.current.objectState[quest.activateObject.transform.GetSiblingIndex()] = true;
+                Debug.Log(quest.activateObject.transform.GetSiblingIndex());
+                Persistent.current.objectState[quest.activateObject.transform.GetSiblingIndex() - 1] = true;
                 if (quest.questType == QuestType.Pondering)
                     quest.desactivateObject.GetComponent<NPCInteraction>().questPopUp.SetActive(false);
                 quest.desactivateObject.SetActive(false);
@@ -161,6 +162,8 @@ public class QuestManager : MonoBehaviour
         }
         newQuestNPC.dayQuest.completed = true;
         persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
+
+        newQuestNPC.ChangeInteractionSprite();
 
         if(persistenData.quantManpower < 4)
         persistenData.quantManpower += 1;
