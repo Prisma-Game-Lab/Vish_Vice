@@ -9,6 +9,7 @@ public class VisualControl : MonoBehaviour
     public TMP_FontAsset font;
     public Sprite metalSprite;
     public Sprite mineSprite;
+    public Sprite flagSprite;
 
     private GameController gameController;
     private TextMeshPro[,] textArray;
@@ -33,11 +34,6 @@ public class VisualControl : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public static TextMeshPro CreateGridText(string text, int fontSize, Vector3 worldPosition, TMP_FontAsset font)
     {
         GameObject TextObject = new GameObject("Cell Text", typeof(TextMeshPro));
@@ -115,7 +111,25 @@ public class VisualControl : MonoBehaviour
             UpdateCell(mine);
         }
     }
-    
+
+    public void SetFlag(int x, int y)
+    {
+        gameGrid.GetGridElement(x, y).SetFlag();
+        Transform symbol = cellArray[x, y].transform.GetChild(3);
+        symbol.gameObject.SetActive(true);
+    }
+
+    public void RemoveFlag(int x, int y)
+    {
+        if (gameGrid.GetGridElement(x, y).IsWithFlag())
+        {
+            Transform symbol = cellArray[x, y].transform.GetChild(3);
+            symbol.gameObject.SetActive(false);
+            gameGrid.GetGridElement(x, y).RemoveFlag();
+        }
+        
+    }
+
 }
 
     

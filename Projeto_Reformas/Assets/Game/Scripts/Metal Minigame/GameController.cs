@@ -27,6 +27,7 @@ public class GameController: MonoBehaviour
     public int metalMultiplier;
     [Header("Quantidade inicial de vidas")]
     public int lifeQtd;
+    public bool flagMode;
 
     private VisualControl visualControl;
     private MinigameMenu minigameMenu;
@@ -42,6 +43,7 @@ public class GameController: MonoBehaviour
         gameIsOn = true;
         height = minHeight;
         width = minWidth;
+        flagMode = false;
     }
     void Start()
     {
@@ -49,15 +51,13 @@ public class GameController: MonoBehaviour
         minigameMenu = GetComponent<MinigameMenu>();
         metalQtd = 0;
         revealedCells = 0;
-        Debug.Log("earnedMetalQtd"+Persistent.current.earnedMetalQtd);
-        Debug.Log("metalQtd" + metalQtd);
     }
 
     // Update is called once per frame
     void Update()
     {
-        metalCountText.text = "Metal coletado: " + metalQtd.ToString() + " / " + grid.GetMetalTotal().ToString();
-        lifeText.text = "Vidas restantes " + (lifeQtd - bombsOpened).ToString();
+        metalCountText.text = metalQtd.ToString() + "/" + grid.GetMetalTotal().ToString();
+        lifeText.text = bombsOpened.ToString() + "/" + lifeQtd;
         //Tratamento do clique
         if (Input.GetMouseButtonDown(0) && gameIsOn && !minigameMenu.paused)
         {
@@ -69,6 +69,16 @@ public class GameController: MonoBehaviour
             if (!grid.CheckCell(x, y))//se lugar do clique nao for celula, retorna
                 return;
             if (grid.GetGridElement(x, y).IsRevealed())//se for celula ja aberta, retorna
+                return;
+            if (flagMode)
+            {
+                if (!grid.GetGridElement(x, y).IsWithFlag())
+                    visualControl.SetFlag(x, y);
+                else
+                    visualControl.RemoveFlag(x, y);
+                return;
+            }
+            if (grid.GetGridElement(x, y).IsWithFlag())
                 return;
 
             if(grid.GetGridElement(x,y).GetElementType() == GridElementType.mine)
@@ -164,8 +174,9 @@ public class GameController: MonoBehaviour
     {
         if (cell == null) return GridElementType.empty;
         // Reveal this object
-        if(cell.IsRevealed())
-                return GridElementType.empty;
+        if(cell.IsRevealed()) return GridElementType.empty;
+        if(cell.GetElementType() == GridElementType.empty && cell.GetElementValue() != 0 && cell.IsWithFlag()) return GridElementType.empty;
+
         cell.Reveal();
         visualControl.UpdateCell(cell);
         revealedCells++;
@@ -198,9 +209,13 @@ public class GameController: MonoBehaviour
                     {
                         if (neighbour.IsRevealed() == false)
                         {
-                            neighbour.Reveal();
-                            visualControl.UpdateCell(neighbour);
-                            revealedCells++;
+                            if (!neighbour.IsWithFlag() || neighbour.GetElementValue() == 0)
+                            {
+                                visualControl.RemoveFlag(neighbour.GetX(), neighbour.GetY());
+                                neighbour.Reveal();
+                                visualControl.UpdateCell(neighbour);
+                                revealedCells++;  
+                            }
                         }
                         
                         if (neighbour.GetElementValue() == 0)
@@ -244,5 +259,18 @@ public class GameController: MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("MetalGame");
+    }
+
+    public void FlagOn()
+    {
+        if (flagMode)
+        {
+            flagMode = false;
+        }  
+        else
+        {
+            flagMode = true;
+        }
+            
     }
 }

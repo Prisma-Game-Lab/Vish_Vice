@@ -27,6 +27,7 @@ public class GridElement
     private int value;
     private bool isRevealed;
     private TextColor textColor;
+    private bool hasFlag;
 
 
     public GridElement(GameGrid grid, int x, int y)
@@ -38,6 +39,7 @@ public class GridElement
         text = " ";
         isRevealed = false;
         textColor = TextColor.none;
+        hasFlag = false;
     }
     public void SetElementType(GridElementType type)
     {
@@ -109,6 +111,21 @@ public class GridElement
     public bool IsRevealed()
     {
         return isRevealed;
+    }
+
+    public void SetFlag()
+    {
+        hasFlag = true;
+    }
+
+    public void RemoveFlag()
+    {
+        hasFlag = false;
+    }
+
+    public bool IsWithFlag()
+    {
+        return hasFlag;
     }
 
 
