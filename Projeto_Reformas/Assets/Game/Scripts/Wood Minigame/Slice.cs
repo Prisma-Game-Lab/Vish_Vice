@@ -100,6 +100,7 @@ public class Slice : MonoBehaviour
                 GameObject cutFX = Instantiate(particles, collision.gameObject.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
                 woodCount++;
+                Persistent.current.quantWood++;
                 AudioManager.instance.Play("Chop_Wood");
                 StartCoroutine(DestroyParticle(cutFX));
             }               

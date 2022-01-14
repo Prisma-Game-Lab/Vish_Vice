@@ -59,6 +59,7 @@ public class MixConcrete : MonoBehaviour
         if (ind >= maxMaterials)
         {
             totalConcrete += addConcrete;
+            Persistent.current.quantConcrete += addConcrete;
             quantComb++;
             updateSpeed();
             ind = 0;

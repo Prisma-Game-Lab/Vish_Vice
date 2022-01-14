@@ -55,18 +55,12 @@ public class MinigameMenu : MonoBehaviour
     {
         AudioManager.instance.Play("ButtonClick");
         Time.timeScale = 1f;
-        if (SceneManager.GetActiveScene().name == "WoodGame")
-            Persistent.current.quantWood += slice.woodCount;
-        else if (SceneManager.GetActiveScene().name == "MetalGame")
+        if (SceneManager.GetActiveScene().name == "MetalGame")
         {
             Debug.Log("Sai do game do metal");
             Debug.Log(Persistent.current.earnedMetalQtd);
-            Persistent.current.quantMetal += Persistent.current.earnedMetalQtd;
+            //Persistent.current.quantMetal += Persistent.current.earnedMetalQtd;
             Persistent.current.earnedMetalQtd = 0;
-        }
-        else if (SceneManager.GetActiveScene().name == "ConcreteGame")
-        {
-            Persistent.current.quantConcrete += mix.totalConcrete;
         }
             
         SceneManager.LoadScene("Play");

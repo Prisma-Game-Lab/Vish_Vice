@@ -103,6 +103,7 @@ public class GameController: MonoBehaviour
                 grid.GetGridElement(x, y).Reveal();
                 metalQtd++;
                 Persistent.current.earnedMetalQtd += metalMultiplier;
+                Persistent.current.quantMetal += metalMultiplier;
                 revealedCells++;
                 
             }
