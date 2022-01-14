@@ -13,6 +13,8 @@ TagManager:
   - loadingScreen
   - Material
   - Concrete
+  - fadein
+  - fadeout
   layers:
   - Default
   - TransparentFX

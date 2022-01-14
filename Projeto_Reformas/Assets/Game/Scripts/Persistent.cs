@@ -33,6 +33,9 @@ public class Persistent : MonoBehaviour
     [HideInInspector] public float playerStartX = 0.77f;
     [HideInInspector] public float playerStartY = 0.589f;
     [HideInInspector] public float playerStartZ = 11.11f;
+
+    [HideInInspector] public bool fadeOn;
+
     private void Awake()
     {
         

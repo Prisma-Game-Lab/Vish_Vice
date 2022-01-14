@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DayCycle : MonoBehaviour
 {
@@ -43,6 +44,8 @@ public class DayCycle : MonoBehaviour
 
     public GameObject player;
 
+    public Image fadeIn;
+
     private void OnEnable()
     {
         persistentData = Persistent.current;
@@ -51,7 +54,7 @@ public class DayCycle : MonoBehaviour
         timeRate = 1.0f / fullDayLenght;
         day_txt.text = "Dia " + persistentData.currentDay;
         hour = Mathf.FloorToInt(time * 24);
-        minutes = ((int)(((time * 24) % 1) * 6)) * 10;
+        minutes = ((int)(((time * 24) % 1) * 6)) * 10;            
     }
 
     private void Update()
@@ -113,21 +116,37 @@ public class DayCycle : MonoBehaviour
     {
         if (time == 0f)
         {
-            if (player != null)
-            {
-                player.transform.position = new Vector3(persistentData.playerStartX,
-                    persistentData.playerStartY, persistentData.playerStartZ);
-            }
-            else
-            {
-                Persistent.current.playerPosition= new Vector3(persistentData.playerStartX,
-                    persistentData.playerStartY, persistentData.playerStartZ);
-            }
-            time = 0.250f;
-            persistentData.currentDay += 1;
-            SceneManager.LoadScene("Play");
-
+            StartCoroutine(FadeImage(true));
         }
+    }
+
+    public IEnumerator FadeImage(bool fade)
+    {
+        fadeIn.gameObject.SetActive(true);
+        // fade from transparent to black
+        if (fade)
+        {
+            fadeIn.color = new Color(0, 0, 0, 0);
+            for (float i = 0; i <= 1; i += Time.deltaTime)
+            {
+                fadeIn.color = new Color(0, 0, 0, i);
+                yield return new WaitForSeconds(0.010f);
+            }
+            time = 0.270f;
+            Persistent.current.fadeOn = true;
+            SceneManager.LoadScene("Play");
+        }
+        else
+        {
+            Persistent.current.fadeOn = false;
+            fadeIn.color = new Color(0, 0, 0, 1);
+            for (float i = 1; i >= 0; i -= Time.deltaTime)
+            {
+                fadeIn.color = new Color(0, 0, 0, i);
+                yield return new WaitForSeconds(0.055f);
+            }
+        }
+
     }
 
     void lightController()

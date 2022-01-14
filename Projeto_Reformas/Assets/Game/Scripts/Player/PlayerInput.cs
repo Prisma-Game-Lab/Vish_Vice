@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     public float speed;
-    [HideInInspector]public Vector3 direction;
+    [HideInInspector] public Vector3 direction;
     [HideInInspector] public bool stuck = false;
+    public DayCycle dayCycle;
     public Animator anim;
     public VariableJoystick variableJoystick;
     private CharacterController controller;
@@ -14,10 +15,19 @@ public class PlayerInput : MonoBehaviour
 
     private void Start()
     {
+        Persistent persistentData = Persistent.current;
         controller = GetComponent<CharacterController>();
+
         controller.enabled = false;
-        if (Persistent.current.playerPosition != Vector3.zero)
-            transform.position = Persistent.current.playerPosition;
+
+        if (persistentData.fadeOn)
+        {
+            StartCoroutine(dayCycle.FadeImage(false));
+            transform.position = new Vector3(persistentData.playerStartX, persistentData.playerStartY, persistentData.playerStartZ);
+            persistentData.fadeOn = false;
+        }
+        else if (persistentData.playerPosition != Vector3.zero)
+            transform.position = persistentData.playerPosition;
 
         controller.enabled = true;
     }
