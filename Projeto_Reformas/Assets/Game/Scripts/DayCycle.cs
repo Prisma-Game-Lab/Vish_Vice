@@ -45,9 +45,11 @@ public class DayCycle : MonoBehaviour
     public GameObject player;
 
     public Image fadeIn;
+    private UIMaster uiMaster;
 
     private void OnEnable()
     {
+        uiMaster = GetComponent<UIMaster>();
         persistentData = Persistent.current;
         time = (persistentData.currentTime != 2) ? persistentData.currentTime : time;
         fullDayLenght = (persistentData.fullDayLength != 2) ? persistentData.fullDayLength : fullDayLenght;
@@ -59,6 +61,8 @@ public class DayCycle : MonoBehaviour
 
     private void Update()
     {
+        if (uiMaster != null && uiMaster._paused)
+            return;
         checkDay();
         calculateTime();
         dayReset();

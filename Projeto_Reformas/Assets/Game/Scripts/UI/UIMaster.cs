@@ -20,7 +20,7 @@ public class UIMaster : MonoBehaviour
     public Sprite metalQuestIcon;
     public Sprite concreteQuestIcon;
     private bool intActive = false;
-    private bool _paused = false;
+    [HideInInspector] public bool _paused = false;
     private Persistent persistenData;
 
     [HideInInspector] public Text _displayName;
@@ -57,39 +57,43 @@ public class UIMaster : MonoBehaviour
         AudioManager.instance.Play("ButtonClick");
         if (_paused)
         {
-            pauseMenuUI.SetActive(false);
             _paused = false;
             Time.timeScale = 1f;
+            pauseMenuUI.GetComponent<Animator>().Play("PausePopOut");
             return;
         }
         else
         {
             pauseMenuUI.SetActive(true);
+            pauseMenuUI.GetComponent<Animator>().Play("PausePopUp");
             _paused = true;
-            Time.timeScale = 0f;
         }
     }
 
     public void BackToGame()
     {
         AudioManager.instance.Play("ButtonClick");
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
         _paused = false;
+        Time.timeScale = 1f;
+        pauseMenuUI.GetComponent<Animator>().Play("PausePopOut");
     }
 
     public void GoToSettings()
     {
         AudioManager.instance.Play("ButtonClick");
-        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        pauseMenuUI.GetComponent<Animator>().Play("PauseLeft");
         settingsUI.SetActive(true);
+        settingsUI.GetComponent<Animator>().Play("SettingsLeft");
     }
 
     public void BackToPauseMenu()
     {
         AudioManager.instance.Play("ButtonClick");
+        Time.timeScale = 1f;
         pauseMenuUI.SetActive(true);
-        settingsUI.SetActive(false);
+        pauseMenuUI.GetComponent<Animator>().Play("PauseRight");
+        settingsUI.GetComponent<Animator>().Play("SettingsRight");
     }
     public void GoToMainMenu()
     {
