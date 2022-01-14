@@ -175,7 +175,7 @@ MonoBehaviour:
   lifeText: {fileID: 499940512}
   draftedMaterials: []
   quantDrafted: 
-  gameOverUI: {fileID: 0}
+  gameOverUI: {fileID: 1143513905}
 --- !u!61 &94469516
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1822,6 +1822,11 @@ PrefabInstance:
 --- !u!224 &1143513904 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3697835407079066188, guid: 970e6f1c1d0ad6342a1ba0aaad99606a, type: 3}
+  m_PrefabInstance: {fileID: 1143513903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1143513905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3697835407079066189, guid: 970e6f1c1d0ad6342a1ba0aaad99606a, type: 3}
   m_PrefabInstance: {fileID: 1143513903}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1301490033

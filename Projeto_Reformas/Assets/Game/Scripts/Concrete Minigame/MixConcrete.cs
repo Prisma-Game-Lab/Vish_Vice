@@ -140,6 +140,7 @@ public class MixConcrete : MonoBehaviour
                 maxVida--;
                 if (maxVida == 0)
                 {
+                    Debug.Log("fim");
                     EndConcrete();
                 }
                 ResetQuantDrafted();
