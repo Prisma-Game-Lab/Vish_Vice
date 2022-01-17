@@ -2792,11 +2792,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Hulu
-    clip: {fileID: 8300000, guid: c0d952e28160e4344aa2d4936d8d9178, type: 3}
-    volume: 0.461
+  - name: menu
+    clip: {fileID: 8300000, guid: 030944b58cbcadb479c0ed862b6e198a, type: 3}
+    volume: 0.319
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: ingame
     clip: {fileID: 8300000, guid: 92e74e7e46810f84b815df44c0536f4d, type: 3}
@@ -2887,6 +2887,7 @@ MonoBehaviour:
   playerStartX: 0.77
   playerStartY: 0.589
   playerStartZ: 11.11
+  fadeOn: 0
 --- !u!4 &1959994500
 Transform:
   m_ObjectHideFlags: 0
