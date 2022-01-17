@@ -278,14 +278,8 @@ public class NPCInteraction : MonoBehaviour
                 questPopUp.GetComponent<Image>().sprite = interactionSprite;
         }
         else if(dayQuest == null && activeQuest != null)
-        {
             questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(activeQuest.questType);
-            Debug.Log("MudouSprite");
-        }
         else
-        {
             questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(dayQuest.questType);
-            Debug.Log("MudouSprite");
-        }
     }
 }
