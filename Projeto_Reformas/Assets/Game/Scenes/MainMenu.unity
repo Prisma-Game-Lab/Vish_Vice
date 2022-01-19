@@ -3656,6 +3656,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Metal_encontrado
+    clip: {fileID: 8300000, guid: 7186c91db01fdba4c82479a5d97502ff, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Mina_encontrada
+    clip: {fileID: 8300000, guid: d53db7f764bc14c4fa3d439025e76473, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Picareta
+    clip: {fileID: 8300000, guid: bb4ecf0867a577746bfd90fe2159f5f3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &1959994499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3678,7 +3696,7 @@ MonoBehaviour:
   activeQuestsUI: []
   activeQuests: []
   completedQuests: []
-  allQuests: []
+  allQuestsActivated: []
   lostQuests: []
   neglectedQuests: []
   allQuestNames: []

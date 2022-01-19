@@ -83,6 +83,7 @@ public class GameController: MonoBehaviour
 
             if(grid.GetGridElement(x,y).GetElementType() == GridElementType.mine)
             {
+                AudioManager.instance.Play("Mina_encontrada");
                 bombsOpened += 1;               
                 if(lifeQtd == bombsOpened)
                 {
@@ -99,6 +100,7 @@ public class GameController: MonoBehaviour
             }
             else if(grid.GetGridElement(x, y).GetElementType() == GridElementType.metal)
             {
+                AudioManager.instance.Play("Metal_encontrado");
                 visualControl.UpdateCell(x, y);
                 grid.GetGridElement(x, y).Reveal();
                 metalQtd++;
@@ -109,7 +111,9 @@ public class GameController: MonoBehaviour
             }
             else
             {
+                AudioManager.instance.Play("Picareta");
                 RevealGridPosition(x, y);
+                
                 
             }
 
