@@ -134,7 +134,7 @@ public class DayCycle : MonoBehaviour
             for (float i = 0; i <= 1; i += Time.deltaTime)
             {
                 fadeIn.color = new Color(0, 0, 0, i);
-                yield return new WaitForSeconds(0.010f);
+                yield return new WaitForSeconds(0.005f);
             }
             time = 0.270f;
             Persistent.current.fadeOn = true;
@@ -147,7 +147,7 @@ public class DayCycle : MonoBehaviour
             for (float i = 1; i >= 0; i -= Time.deltaTime)
             {
                 fadeIn.color = new Color(0, 0, 0, i);
-                yield return new WaitForSeconds(0.055f);
+                yield return new WaitForSeconds(0.013f);
             }
         }
 
