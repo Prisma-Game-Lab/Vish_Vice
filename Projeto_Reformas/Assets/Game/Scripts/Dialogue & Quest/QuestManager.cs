@@ -54,15 +54,15 @@ public class QuestManager : MonoBehaviour
 
     public void addQuest()
     {
-        if (newQuestNPC.dayQuest != null)
+        if (newQuestNPC.choosenQuest != null)
         {
             print("Quest adicionada!");
-            newQuestNPC.dayQuest.inProgress = true;
+            newQuestNPC.choosenQuest.inProgress = true;
             newQuestNPC.questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = true;
             //persistenData.activeQuests.Add(newQuestNPC.dayQuest.questName);
-            persistenData.activeQuests.Insert(0, newQuestNPC.dayQuest.questName);//as ~quests novas sao sempre inseridas no comeco da lista, pois sao mais recentes
-            persistenData.activeQuestsUI.Add(newQuestNPC.dayQuest.questName);
-            persistenData.allQuestsActivated.Add(newQuestNPC.dayQuest);
+            persistenData.activeQuests.Insert(0, newQuestNPC.choosenQuest.questName);//as ~quests novas sao sempre inseridas no comeco da lista, pois sao mais recentes
+            persistenData.activeQuestsUI.Add(newQuestNPC.choosenQuest.questName);
+            persistenData.allQuestsActivated.Add(newQuestNPC.choosenQuest);
             CreateQuestUI();
 
         }
@@ -133,22 +133,22 @@ public class QuestManager : MonoBehaviour
 
     public bool CompleteQuest()
     {
-        if (newQuestNPC.dayQuest == null)
+        if (newQuestNPC.choosenQuest == null)
             return false;
 
         bool hasResources;
-        foreach (Quest.Item item in newQuestNPC.dayQuest.wantedItens)
+        foreach (Quest.Item item in newQuestNPC.choosenQuest.wantedItens)
         {
             hasResources = CheckItemQuantity(item);
             if (!hasResources)
                 return false;
         }
-        ConsumeItems(newQuestNPC.dayQuest);
+        ConsumeItems(newQuestNPC.choosenQuest);
         //UpdateUI();
-        persistenData.activeQuests.Remove(newQuestNPC.dayQuest.questName);
+        persistenData.activeQuests.Remove(newQuestNPC.choosenQuest.questName);
         foreach (string questName in persistenData.activeQuestsUI)
         {
-            if (questName == newQuestNPC.dayQuest.questName)
+            if (questName == newQuestNPC.choosenQuest.questName)
             {
                 Quest quest = FindQuestInfo(questName);
                 quest.activateObject.SetActive(true);
@@ -163,8 +163,8 @@ public class QuestManager : MonoBehaviour
                 break;
             }
         }
-        newQuestNPC.dayQuest.completed = true;
-        persistenData.completedQuests.Add(newQuestNPC.dayQuest.questName);
+        newQuestNPC.choosenQuest.completed = true;
+        persistenData.completedQuests.Add(newQuestNPC.choosenQuest.questName);
 
         newQuestNPC.ChangeInteractionSprite();
 
@@ -213,17 +213,6 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    private void UpdateUI()
-    {
-        foreach (Transform questUI in uiMaster.allQuestsPanel.transform)
-        {
-            if (questUI.GetComponentInChildren<TextMeshProUGUI>().text == newQuestNPC.dayQuest.questName)
-            {
-                Destroy(questUI.gameObject);
-            }
-        }
-    }
-
     public void ClearQuestsPanel()
     {
         if (uiMaster != null)
@@ -250,7 +239,7 @@ public class QuestManager : MonoBehaviour
 
     public void QuitQuestDialogue()
     {
-        if (newQuestNPC.dayQuest != null)
+        if (newQuestNPC.choosenQuest != null)
         {
             Debug.Log("Termina dialogo");
             newQuestNPC.questPopUp.transform.GetChild(0).gameObject.SetActive(true);

@@ -34,6 +34,8 @@ public class NPCInteraction : MonoBehaviour
     public Sprite asteriskSprite;
     public Sprite interactionSprite;
 
+    [HideInInspector] public Quest choosenQuest;
+
     private void Awake()
     {
         persistenData = Persistent.current;
@@ -59,29 +61,25 @@ public class NPCInteraction : MonoBehaviour
         }
         if (!persistenData.allNpcs.Contains(npcName))
             persistenData.allNpcs.Add(npcName);
-        CheckDayQuest();
-        RefreshActiveQuestList();
-        if(questPopUp == null)
-            questPopUp = Instantiate(questPopUpPrefab, WorldCanvas.transform);
-        questPopUp.gameObject.SetActive(true);
-        UpdateQuestPopUp();
-        SetQuestPopUpPosition();
         
-        foreach(Quest quest in quests)
+        foreach (Quest quest in quests)
         {
             if (!persistenData.allQuestNames.Contains(quest.questName))
                 persistenData.allQuestNames.Add(quest.questName);
-            /*if (PlayerPrefs.HasKey("ALLQ_" + quest.questName) && !persistenData.allQuestsActivated.Contains(quest))
-            {
-                persistenData.allQuestsActivated.Add(quest);
-                Debug.Log("allquests");
-                PlayerPrefs.DeleteKey("ALLQ_" + quest.questName);
-            }*/
             CorrectQuestStatus(quest);//atualiza o status das quests de acordo com o save
             RestoreAllQuestsActivated(quest);
 
 
         }
+        CheckDayQuest();
+        RefreshActiveQuestList();
+        if (questPopUp == null)
+            questPopUp = Instantiate(questPopUpPrefab, WorldCanvas.transform);
+        questPopUp.gameObject.SetActive(true);
+        UpdateQuestPopUp();
+        SetQuestPopUpPosition();
+        
+        
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
     }
 
@@ -91,6 +89,7 @@ public class NPCInteraction : MonoBehaviour
     {
         int currentDay = persistenData.currentDay;
         dayQuest = null;
+        choosenQuest = null;
 
         if (quests.Count <= 0)
             return;
@@ -100,8 +99,9 @@ public class NPCInteraction : MonoBehaviour
             //print("procura");
             if (quest.questDay == currentDay)
             {
-                dayQuest = quest;
-                activeQuest = quest; 
+                dayQuest = quest;//essa eh a quest do dia
+                choosenQuest = quest;
+
                 if(questPopUp != null)
                     questPopUp.gameObject.SetActive(true);
 
@@ -114,13 +114,21 @@ public class NPCInteraction : MonoBehaviour
                 {
                     print("progresso");
                     dayQuest.inProgress = true;
+                    activeQuest = quest;
                 }
-                FillQuestDialogues(dayQuest);
+                FillQuestDialogues();
                 break;
+            }
+            else if (quest.questDay < currentDay && (quest.questDay + quest.duration - 1 > currentDay) && isObject)
+            {
+                choosenQuest = quest;
+                FillQuestDialogues();
             }
             else if (quest.questDay < currentDay && persistenData.activeQuests.Contains(quest.questName))
             {
-                if(quest.questDay + quest.duration -1 < currentDay)
+                activeQuest = quest;
+                choosenQuest = quest;
+                if (quest.questDay + quest.duration -1 < currentDay)
                 {
                     quest.lost = true;
                     persistenData.lostQuests.Add(quest.questName);
@@ -130,7 +138,8 @@ public class NPCInteraction : MonoBehaviour
                     persistenData.quantCharisma -= quest.charismaLost;
                     activeQuest = null;
                 }
-                
+                FillQuestDialogues();
+
             } else if (quest.questDay < currentDay && !persistenData.neglectedQuests.Contains(quest.questName))
             {
                 if (quest.questDay + quest.duration - 1 < currentDay)
@@ -143,6 +152,7 @@ public class NPCInteraction : MonoBehaviour
                 }
                 
             }
+            
         }
     }
     public void RefreshActiveQuestList()
@@ -168,17 +178,17 @@ public class NPCInteraction : MonoBehaviour
             print("completa");
             dayQuest = quest;
             dayQuest.completed = true;
-            FillQuestDialogues(dayQuest);
+            FillQuestDialogues();
             return true;
         }
         return false;
     }
 
-    private void FillQuestDialogues(Quest quest)
+    private void FillQuestDialogues()
     {
-        dayQuest.startDialogue = dayQuest.questDialogues.transform.GetChild(0).GetComponent<Dialogue>();
-        dayQuest.inProgressDialogue = dayQuest.questDialogues.transform.GetChild(1).GetComponent<Dialogue>();
-        dayQuest.completedDialogue = dayQuest.questDialogues.transform.GetChild(2).GetComponent<Dialogue>();
+        choosenQuest.startDialogue = choosenQuest.questDialogues.transform.GetChild(0).GetComponent<Dialogue>();
+        choosenQuest.inProgressDialogue = choosenQuest.questDialogues.transform.GetChild(1).GetComponent<Dialogue>();
+        choosenQuest.completedDialogue = choosenQuest.questDialogues.transform.GetChild(2).GetComponent<Dialogue>();
     }
 
     //Define qual diálogo o npc usará
@@ -191,21 +201,16 @@ public class NPCInteraction : MonoBehaviour
             Debug.LogWarning("Quest sem nome definido!");
         }
         if (isMinigameNPC)
-        {
-            //print("MinigameDialogue");
             return minigameDialogue();
-        }
-
         else if (dayQuest != null)
-        {
             return questDialogue();
-        }
-
+        else if(activeQuest != null)
+            return questDialogue();
+        else if(isObject)
+            return questDialogue();
         else
-        {
             //print("normal");
             return moodDialogue();
-        }
     }
     private Dialogue minigameDialogue()
     {
@@ -223,12 +228,19 @@ public class NPCInteraction : MonoBehaviour
 
     private Dialogue questDialogue()
     {
-        if (dayQuest.completed)
-            return dayQuest.completedDialogue;
-        else if (dayQuest.inProgress)
-            return dayQuest.inProgressDialogue;
+        if (choosenQuest.completed)
+        {
+            return choosenQuest.completedDialogue;
+        }     
+        else if (choosenQuest.inProgress)
+        {
+            return choosenQuest.inProgressDialogue;
+        }   
         else
-            return dayQuest.startDialogue;
+        {
+            return choosenQuest.startDialogue;
+        }
+            
     }
 
     private Dialogue moodDialogue()
@@ -295,7 +307,12 @@ public class NPCInteraction : MonoBehaviour
         if (dayQuest == null && activeQuest == null)
         {
             if (isObject)
-                questPopUp.SetActive(false);
+            {
+                if(choosenQuest == null || choosenQuest.completed || choosenQuest.lost)
+                    questPopUp.SetActive(false);
+                else
+                    questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(choosenQuest.questType);
+            }   
             else
                 questPopUp.GetComponent<Image>().sprite = interactionSprite;
         }
