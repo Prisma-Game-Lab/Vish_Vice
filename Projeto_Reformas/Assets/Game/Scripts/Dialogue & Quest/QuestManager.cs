@@ -153,11 +153,11 @@ public class QuestManager : MonoBehaviour
                 Quest quest = FindQuestInfo(questName);
                 quest.activateObject.SetActive(true);
                 Debug.Log(quest.activateObject.transform.GetSiblingIndex());
-                Persistent.current.objectState[quest.activateObject.transform.GetSiblingIndex() - 1] = true;
+                //Persistent.current.objectState[quest.activateObject.transform.GetSiblingIndex() - 1] = true;
                 if (quest.questType == QuestType.Pondering)
                     quest.desactivateObject.GetComponent<NPCInteraction>().questPopUp.SetActive(false);
                 quest.desactivateObject.SetActive(false);
-                Persistent.current.objectState[quest.desactivateObject.transform.GetSiblingIndex()] = false;
+                //Persistent.current.objectState[quest.desactivateObject.transform.GetSiblingIndex()] = false;
                 persistenData.activeQuestsUI.Remove(questName);
                 persistenData.quantCharisma += quest.charismaGain;
                 break;

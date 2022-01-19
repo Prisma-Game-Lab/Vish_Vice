@@ -38,8 +38,6 @@ public class Persistent : MonoBehaviour
 
     [HideInInspector] public bool fadeOn;
 
-    [HideInInspector] public bool savedGame;
-
     private void Awake()
     {
         
@@ -50,9 +48,13 @@ public class Persistent : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
         if (current == null)
+        {
             current = this;
-        firstContactNPCs = new Dictionary<string, bool>();
-        //LoadGame();
+            firstContactNPCs = new Dictionary<string, bool>();
+            LoadGame();
+        }
+            
+        //firstContactNPCs = new Dictionary<string, bool>();
     }
 
     public void SaveGame()
@@ -114,7 +116,9 @@ public class Persistent : MonoBehaviour
                 PlayerPrefs.SetInt("FCN_" + item.Key, 1);
             else
                 PlayerPrefs.SetInt("FCN_" + item.Key, 0);
-        }   
+        }
+
+        PlayerPrefs.SetInt("SavedGame", 1);
     }
 
     public void LoadGame()
@@ -160,7 +164,7 @@ public class Persistent : MonoBehaviour
             i++;
         }
 
-        foreach (string name in allQuestNames)
+        foreach (string name in allQuestNames)//falta alterar os campos de cada quest
         {
             if(PlayerPrefs.HasKey("ACUI_" + name))
             {
@@ -206,6 +210,58 @@ public class Persistent : MonoBehaviour
             }
         }
 
+        playerStartX = PlayerPrefs.GetInt("PlayerPositionX");
+        playerStartY = PlayerPrefs.GetInt("PlayerPositionY");
+        playerStartZ = PlayerPrefs.GetInt("PlayerPositionZ");
+
+    }
+
+    public void DeleteSave()
+    {
+        int i = 0;
+
+        //Deleting data lists
+        while (PlayerPrefs.HasKey("quest" + i.ToString()))
+        {
+            PlayerPrefs.DeleteKey("quest" + i.ToString());
+            i++;
+        }
+
+        i = 0;
+        while (PlayerPrefs.HasKey("npc" + i.ToString()))
+        {
+            PlayerPrefs.DeleteKey("npc" + i.ToString());
+            i++;
+        }
+
+        i = 0;
+        while (PlayerPrefs.HasKey("objectState" + i.ToString()))
+        {
+            PlayerPrefs.DeleteKey("objectState" + i.ToString());
+            i++;
+        }
+
+        foreach (string name in allQuestNames)
+        {
+            PlayerPrefs.DeleteKey("ACUI_" + name);
+            PlayerPrefs.DeleteKey("ACTI_" + name);
+            PlayerPrefs.DeleteKey("COMP_" + name);
+            PlayerPrefs.DeleteKey("LOST_" + name);
+            PlayerPrefs.DeleteKey("NEGL_" + name);
+            PlayerPrefs.DeleteKey("ALLQ_" + name);
+        }
+
+        foreach (string name in allNpcs)
+        {
+            PlayerPrefs.DeleteKey("FCN_" + name);
+        }
+
+        //Delete player position
+        PlayerPrefs.DeleteKey("PlayerPositionX");
+        PlayerPrefs.DeleteKey("PlayerPositionY");
+        PlayerPrefs.DeleteKey("PlayerPositionZ");
+
+        PlayerPrefs.SetInt("SavedGame", 0);
     }
 
 }

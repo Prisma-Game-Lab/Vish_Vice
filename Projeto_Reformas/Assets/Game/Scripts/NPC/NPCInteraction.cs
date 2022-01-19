@@ -53,6 +53,8 @@ public class NPCInteraction : MonoBehaviour
                 persistenData.firstContactNPCs.Add(npcName, true);
             }
         }
+        if (!persistenData.allNpcs.Contains(npcName))
+            persistenData.allNpcs.Add(npcName);
         CheckDayQuest();
         RefreshActiveQuestList();
         if(questPopUp == null)
@@ -69,7 +71,9 @@ public class NPCInteraction : MonoBehaviour
                 persistenData.allQuests.Add(quest);
                 PlayerPrefs.DeleteKey("ALLQ" + quest.questName);
             }
-                
+            CorrectQuestStatus(quest);//atualiza o status das quests de acordo com o save
+
+
         }
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
     }
@@ -292,5 +296,20 @@ public class NPCInteraction : MonoBehaviour
             questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(activeQuest.questType);
         else
             questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(dayQuest.questType);
+    }
+
+    public void CorrectQuestStatus(Quest quest)
+    {
+        if (persistenData.activeQuests.Contains(quest.questName))
+            quest.inProgress = true;
+        else if (persistenData.lostQuests.Contains(quest.questName))
+            quest.lost = true;
+        else if (persistenData.completedQuests.Contains(quest.questName))
+        {
+            quest.completed = true;
+            quest.activateObject.SetActive(true);
+            quest.desactivateObject.SetActive(false);
+        }
+            
     }
 }

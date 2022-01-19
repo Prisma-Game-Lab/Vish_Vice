@@ -7,7 +7,7 @@ public class StatesManager : MonoBehaviour
     private Persistent persistentData;
     private void Start()
     {
-        persistentData = Persistent.current;
+        /*persistentData = Persistent.current;
         if (persistentData.objectState.Count <= gameObject.transform.childCount)
         {
             foreach (Transform child in gameObject.transform)
@@ -23,6 +23,6 @@ public class StatesManager : MonoBehaviour
                 child.gameObject.SetActive(persistentData.objectState[count]);
                 count++;
             }
-        }
+        }*/
     }
 }

@@ -99,6 +99,7 @@ public class UIMaster : MonoBehaviour
     {
         AudioManager.instance.Play("ButtonClick");
         SceneManager.LoadScene("MainMenu");
+        Persistent.current.SaveGame();
         Time.timeScale = 1f;
     }
     

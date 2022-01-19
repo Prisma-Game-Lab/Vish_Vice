@@ -6,11 +6,11 @@ public class SaveMyState : MonoBehaviour
 {
     private void OnEnable()
     {
-        UpdateState(true);
+        //UpdateState(true);
     }
     private void OnDisable()
     {
-        UpdateState(false);
+        //UpdateState(false);
     }
 
     private void UpdateState(bool state)
