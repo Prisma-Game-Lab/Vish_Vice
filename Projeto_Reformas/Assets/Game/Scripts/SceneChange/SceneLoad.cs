@@ -40,7 +40,5 @@ public class SceneLoad : MonoBehaviour
         CreditsUI.SetActive(false);
         MainMenuUI.SetActive(true);
     }
-
-
     
 }
