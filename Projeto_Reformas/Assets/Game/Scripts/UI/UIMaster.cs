@@ -115,4 +115,11 @@ public class UIMaster : MonoBehaviour
         AudioManager.instance.Play("ButtonClick");
         player.GetComponent<MakeInteraction>().GreetNpc();
     }
+
+    public void DeleteSave()
+    {
+        Persistent.current.DeleteSave();
+    }
+
+    
 }
