@@ -45,9 +45,9 @@ public class QuestManager : MonoBehaviour
 
         if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
         {
-            foreach (Quest quest in persistenData.activeQuestsUI)
+            foreach (string questName in persistenData.activeQuestsUI)
             {
-                CreateQuestUI(quest);
+                CreateQuestUI();
             }
         }
     }
@@ -61,9 +61,9 @@ public class QuestManager : MonoBehaviour
             newQuestNPC.questPopUp.transform.GetChild(0).GetComponent<Button>().interactable = true;
             //persistenData.activeQuests.Add(newQuestNPC.dayQuest.questName);
             persistenData.activeQuests.Insert(0, newQuestNPC.dayQuest.questName);//as ~quests novas sao sempre inseridas no comeco da lista, pois sao mais recentes
-            persistenData.activeQuestsUI.Add(newQuestNPC.dayQuest);
+            persistenData.activeQuestsUI.Add(newQuestNPC.dayQuest.questName);
             persistenData.allQuests.Add(newQuestNPC.dayQuest);
-            CreateQuestUI(newQuestNPC.dayQuest);
+            CreateQuestUI();
 
         }
     }
@@ -77,7 +77,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    private void CreateQuestUI(Quest quest)
+    private void CreateQuestUI()
     {
         /*GameObject questUI = Instantiate(uiMaster.questUI, uiMaster.allQuestsPanel.transform);
         questUI.GetComponentInChildren<TextMeshProUGUI>().text = quest.questName;
@@ -146,10 +146,11 @@ public class QuestManager : MonoBehaviour
         ConsumeItems(newQuestNPC.dayQuest);
         //UpdateUI();
         persistenData.activeQuests.Remove(newQuestNPC.dayQuest.questName);
-        foreach (Quest quest in persistenData.activeQuestsUI)
+        foreach (string questName in persistenData.activeQuestsUI)
         {
-            if (quest.questName == newQuestNPC.dayQuest.questName)
+            if (questName == newQuestNPC.dayQuest.questName)
             {
+                Quest quest = FindQuestInfo(questName);
                 quest.activateObject.SetActive(true);
                 Debug.Log(quest.activateObject.transform.GetSiblingIndex());
                 Persistent.current.objectState[quest.activateObject.transform.GetSiblingIndex() - 1] = true;
@@ -157,7 +158,7 @@ public class QuestManager : MonoBehaviour
                     quest.desactivateObject.GetComponent<NPCInteraction>().questPopUp.SetActive(false);
                 quest.desactivateObject.SetActive(false);
                 Persistent.current.objectState[quest.desactivateObject.transform.GetSiblingIndex()] = false;
-                persistenData.activeQuestsUI.Remove(quest);
+                persistenData.activeQuestsUI.Remove(questName);
                 persistenData.quantCharisma += quest.charismaGain;
                 break;
             }

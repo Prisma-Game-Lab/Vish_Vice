@@ -60,6 +60,17 @@ public class NPCInteraction : MonoBehaviour
         questPopUp.gameObject.SetActive(true);
         UpdateQuestPopUp();
         SetQuestPopUpPosition();
+        foreach(Quest quest in quests)
+        {
+            if (!persistenData.allQuestNames.Contains(quest.questName))
+                persistenData.allQuestNames.Add(quest.questName);
+            if (PlayerPrefs.HasKey("ALLQ" + quest.questName) && !persistenData.allQuests.Contains(quest))
+            {
+                persistenData.allQuests.Add(quest);
+                PlayerPrefs.DeleteKey("ALLQ" + quest.questName);
+            }
+                
+        }
         //npcStatus = quando o sistema de relacionamentos for implementado, pegar o valor dessa variavel que esta guardado na memoria.
     }
 
@@ -79,7 +90,7 @@ public class NPCInteraction : MonoBehaviour
             if (quest.questDay == currentDay)
             {
                 dayQuest = quest;
-                activeQuest = quest;
+                activeQuest = quest; 
                 if(questPopUp != null)
                     questPopUp.gameObject.SetActive(true);
 
@@ -129,11 +140,11 @@ public class NPCInteraction : MonoBehaviour
         {
             for (int i = 0; i < persistenData.activeQuestsUI.Count; i++)
             {
-                Quest quest = persistenData.activeQuestsUI[i];
-                if (quest.questName == dayQuest.questName)
+                string questName = persistenData.activeQuestsUI[i];
+                if (questName == dayQuest.questName)
                 {
-                    int index = persistenData.activeQuestsUI.IndexOf(quest);
-                    persistenData.activeQuestsUI[index] = dayQuest;
+                    int index = persistenData.activeQuestsUI.IndexOf(questName);
+                    persistenData.activeQuestsUI[index] = dayQuest.questName;
                 }
             }
         }
