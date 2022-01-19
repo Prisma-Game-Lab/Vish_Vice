@@ -54,6 +54,7 @@ public class Notebook : MonoBehaviour
     {
         //notebookUI.SetActive(true);
         notebookUI.SetActive(true);
+        RegenerateButtons();
         OrderTaskList();
         notesAnimator.Play("NotesUp");
         if (tasks.transform.childCount >= 12)
@@ -137,8 +138,11 @@ public class Notebook : MonoBehaviour
 
     public void RegenerateButtons()
     {
-        while(tasks.transform.childCount < Persistent.current.allQuestsActivated.Count*2 + 2)
+        Debug.Log("allQuestsActivated count: " + (Persistent.current.allQuestsActivated.Count).ToString());
+        Debug.Log("allQuestsActivated*2 count: "+ (Persistent.current.allQuestsActivated.Count * 2).ToString());
+        while(tasks.transform.childCount < (Persistent.current.allQuestsActivated.Count*2 + 2))
         {
+            Debug.Log("tasks.transform.childCount: " + tasks.transform.childCount.ToString());
             GameObject button = Instantiate(questButton, tasks.transform);
             GameObject text = Instantiate(questLimit, tasks.transform);
             button.SetActive(true);

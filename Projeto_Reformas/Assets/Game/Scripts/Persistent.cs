@@ -166,7 +166,7 @@ public class Persistent : MonoBehaviour
             i++;
         }
 
-        foreach (string name in allQuestNames)//falta alterar os campos de cada quest
+        foreach (string name in allQuestNames)
         {
             if(PlayerPrefs.HasKey("ACUI_" + name))
             {
