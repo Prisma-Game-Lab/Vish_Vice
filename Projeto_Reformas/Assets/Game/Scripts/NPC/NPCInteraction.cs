@@ -34,12 +34,16 @@ public class NPCInteraction : MonoBehaviour
     public Sprite asteriskSprite;
     public Sprite interactionSprite;
 
-
+    private void Awake()
+    {
+        persistenData = Persistent.current;
+        persistenData.allQuestsActivated.Clear();
+    }
     private void Start()
     {
 
         //Adiciona dialogos na lista de dialogos desse npc
-        persistenData = Persistent.current;
+        
         if (!isObject)
         {
             foreach (Transform child in greetingOptions.transform)
@@ -62,16 +66,19 @@ public class NPCInteraction : MonoBehaviour
         questPopUp.gameObject.SetActive(true);
         UpdateQuestPopUp();
         SetQuestPopUpPosition();
+        
         foreach(Quest quest in quests)
         {
             if (!persistenData.allQuestNames.Contains(quest.questName))
                 persistenData.allQuestNames.Add(quest.questName);
-            if (PlayerPrefs.HasKey("ALLQ" + quest.questName) && !persistenData.allQuests.Contains(quest))
+            /*if (PlayerPrefs.HasKey("ALLQ_" + quest.questName) && !persistenData.allQuestsActivated.Contains(quest))
             {
-                persistenData.allQuests.Add(quest);
-                PlayerPrefs.DeleteKey("ALLQ" + quest.questName);
-            }
+                persistenData.allQuestsActivated.Add(quest);
+                Debug.Log("allquests");
+                PlayerPrefs.DeleteKey("ALLQ_" + quest.questName);
+            }*/
             CorrectQuestStatus(quest);//atualiza o status das quests de acordo com o save
+            RestoreAllQuestsActivated(quest);
 
 
         }
@@ -293,9 +300,19 @@ public class NPCInteraction : MonoBehaviour
                 questPopUp.GetComponent<Image>().sprite = interactionSprite;
         }
         else if(dayQuest == null && activeQuest != null)
+        {
             questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(activeQuest.questType);
+        }
         else
+        {
             questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(dayQuest.questType);
+            if (dayQuest.completed || dayQuest.lost)
+            {
+                if (dayQuest.questType == QuestType.Exclamatory) questPopUp.GetComponent<Image>().sprite = interactionSprite;
+                else questPopUp.SetActive(false);
+            }
+        }
+            
     }
 
     public void CorrectQuestStatus(Quest quest)
@@ -311,5 +328,20 @@ public class NPCInteraction : MonoBehaviour
             quest.desactivateObject.SetActive(false);
         }
             
+    }
+
+    public void RestoreAllQuestsActivated(Quest quest)
+    {
+        
+        if (persistenData.activeQuests.Contains(quest.questName))
+        {
+            Debug.Log(quest.questName);
+            persistenData.allQuestsActivated.Add(quest);
+        }     
+        else if (persistenData.lostQuests.Contains(quest.questName))
+            persistenData.allQuestsActivated.Add(quest);
+        else if (persistenData.completedQuests.Contains(quest.questName))
+            persistenData.allQuestsActivated.Add(quest);
+
     }
 }

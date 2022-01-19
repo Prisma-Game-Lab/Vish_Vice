@@ -14,7 +14,7 @@ public class Persistent : MonoBehaviour
     public List<string> activeQuestsUI;
     public List<string> activeQuests;
     public List<string> completedQuests;
-    public List<Quest> allQuests;//lista de todas as quests que foram aceitas em algum momento
+    public List<Quest> allQuestsActivated;//lista de todas as quests que foram aceitas em algum momento
     public List<string> lostQuests;
     public List<string> neglectedQuests;
     public List<string> allQuestNames;//lista de todas as quests que apareceram no jogo ate o momento
@@ -53,8 +53,9 @@ public class Persistent : MonoBehaviour
             firstContactNPCs = new Dictionary<string, bool>();
             LoadGame();
         }
-            
+
         //firstContactNPCs = new Dictionary<string, bool>();
+        allQuestsActivated = new List<Quest>();
     }
 
     public void SaveGame()
@@ -79,9 +80,10 @@ public class Persistent : MonoBehaviour
             PlayerPrefs.SetString("LOST_" + name, "lostQuests");
         foreach (string name in neglectedQuests)//neglectedQuests
             PlayerPrefs.SetString("NEGL_" + name, "neglectedQuests");
-        foreach (Quest quest in allQuests)//allQuests
-            PlayerPrefs.SetString("ALLQ_" + quest.questName, "allQuests");
-
+        foreach (Quest quest in allQuestsActivated)
+        {
+            PlayerPrefs.SetString("ALLQ_" + quest.questName, "allQuestsActivated");
+        }
         foreach (string name in allQuestNames) {
             PlayerPrefs.SetString("quest" + i.ToString(), name);
             i++;
@@ -168,31 +170,31 @@ public class Persistent : MonoBehaviour
         {
             if(PlayerPrefs.HasKey("ACUI_" + name))
             {
-                activeQuestsUI.Add(PlayerPrefs.GetString("ACUI_" + name));
+                activeQuestsUI.Add(name);
                 PlayerPrefs.DeleteKey("ACUI_" + name);
             }
 
             if (PlayerPrefs.HasKey("ACTI_" + name))
             {
-                activeQuests.Add(PlayerPrefs.GetString("ACTI_" + name));
+                activeQuests.Add(name);
                 PlayerPrefs.DeleteKey("ACTI_" + name);
             }
 
             if (PlayerPrefs.HasKey("COMP_" + name))
             {
-                completedQuests.Add(PlayerPrefs.GetString("COMP_" + name));
+                completedQuests.Add(name);
                 PlayerPrefs.DeleteKey("COMP_" + name);
             }
 
             if (PlayerPrefs.HasKey("LOST_" + name))
             {
-                lostQuests.Add(PlayerPrefs.GetString("LOST_" + name));
+                lostQuests.Add(name);
                 PlayerPrefs.DeleteKey("LOST_" + name);
             }
 
             if (PlayerPrefs.HasKey("NEGL_" + name))
             {
-                neglectedQuests.Add(PlayerPrefs.GetString("NEGL_" + name));
+                neglectedQuests.Add(name);
                 PlayerPrefs.DeleteKey("NEGL_" + name);
             }
 

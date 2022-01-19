@@ -110,6 +110,7 @@ public class Notebook : MonoBehaviour
             {
                 tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
                 i++;
+                Debug.Log(name + i.ToString());
                 tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Até 00h do dia "+ (questManager.FindQuestInfo(name).questDay + 1).ToString();
                 Debug.Log(name + i.ToString());
                 i++;
@@ -136,7 +137,7 @@ public class Notebook : MonoBehaviour
 
     public void RegenerateButtons()
     {
-        while(tasks.transform.childCount < Persistent.current.allQuests.Count*2 + 2)
+        while(tasks.transform.childCount < Persistent.current.allQuestsActivated.Count*2 + 2)
         {
             GameObject button = Instantiate(questButton, tasks.transform);
             GameObject text = Instantiate(questLimit, tasks.transform);

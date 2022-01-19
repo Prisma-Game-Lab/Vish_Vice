@@ -62,7 +62,7 @@ public class QuestManager : MonoBehaviour
             //persistenData.activeQuests.Add(newQuestNPC.dayQuest.questName);
             persistenData.activeQuests.Insert(0, newQuestNPC.dayQuest.questName);//as ~quests novas sao sempre inseridas no comeco da lista, pois sao mais recentes
             persistenData.activeQuestsUI.Add(newQuestNPC.dayQuest.questName);
-            persistenData.allQuests.Add(newQuestNPC.dayQuest);
+            persistenData.allQuestsActivated.Add(newQuestNPC.dayQuest);
             CreateQuestUI();
 
         }
@@ -237,7 +237,7 @@ public class QuestManager : MonoBehaviour
 
     public Quest FindQuestInfo(string questName)
     {
-        foreach (Quest quest in persistenData.allQuests)
+        foreach (Quest quest in persistenData.allQuestsActivated)
         {
             if (quest.questName == questName)
             {
