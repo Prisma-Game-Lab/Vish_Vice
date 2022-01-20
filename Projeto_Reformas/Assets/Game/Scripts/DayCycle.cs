@@ -54,7 +54,11 @@ public class DayCycle : MonoBehaviour
         time = (persistentData.currentTime != 2) ? persistentData.currentTime : time;
         fullDayLenght = (persistentData.fullDayLength != 2) ? persistentData.fullDayLength : fullDayLenght;
         timeRate = 1.0f / fullDayLenght;
-        day_txt.text = "Dia " + persistentData.currentDay;
+        if(LanguageManager.instance.activeLanguage == Language.Portuguese)
+            day_txt.text = "Dia " + persistentData.currentDay;
+        else
+            day_txt.text = "Day " + persistentData.currentDay;
+
         hour = Mathf.FloorToInt(time * 24);
         minutes = ((int)(((time * 24) % 1) * 6)) * 10;            
     }
