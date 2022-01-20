@@ -158,9 +158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMaterials: 3
-  addConcrete: 1
+  addConcrete: 2
   increaseFactor: 1
-  maxSpeed: 5
+  maxSpeed: 10
   materials:
   - {fileID: 6428693935355086967, guid: 8d4755d8796e8c44886063ce2ed3ea4c, type: 3}
   - {fileID: 1709938868317119177, guid: 87f7fd1154255404bbe028b1a1290cf3, type: 3}
@@ -170,7 +170,7 @@ MonoBehaviour:
   spawnLeft: {fileID: 789713035}
   spawnRight: {fileID: 762627365}
   totalConcrete: 0
-  maxVida: 2
+  maxVida: 3
   concText: {fileID: 398879540}
   lifeText: {fileID: 499940512}
   draftedMaterials: []
@@ -803,7 +803,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -264.19995, y: -350.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &239396931
@@ -920,7 +920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15731251, y: 0.83300006}
   m_AnchorMax: {x: 0.3934375, y: 0.95425934}
-  m_AnchoredPosition: {x: 1.6799927, y: 1.3999939}
+  m_AnchoredPosition: {x: 1.6799927, y: 1.4000244}
   m_SizeDelta: {x: 1.4429932, y: 1.1900024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &499940510
@@ -957,7 +957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.61375, y: 0.83300006}
   m_AnchorMax: {x: 0.8502086, y: 0.95425934}
-  m_AnchoredPosition: {x: -0.5, y: 1.3999939}
+  m_AnchoredPosition: {x: -0.5, y: 1.4000244}
   m_SizeDelta: {x: 0.44299316, y: 1.1900024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499940512
@@ -1264,7 +1264,7 @@ MonoBehaviour:
   - {fileID: 3171411115553461349, guid: 3336fb536f837574e95cc1e666b5db8d, type: 3}
   - {fileID: 8903272557248073061, guid: 4408baaed27c00d459e8d474dd7cfcef, type: 3}
   direction: -1
-  movingSpeed: 2
+  movingSpeed: 3
   totalMaterials: -2
   repetitions: 
   timeToSpawn: 0
@@ -1371,7 +1371,7 @@ MonoBehaviour:
   - {fileID: 3171411115553461349, guid: 3336fb536f837574e95cc1e666b5db8d, type: 3}
   - {fileID: 8903272557248073061, guid: 4408baaed27c00d459e8d474dd7cfcef, type: 3}
   direction: 1
-  movingSpeed: 2
+  movingSpeed: 5
   totalMaterials: -2
   repetitions: 
   timeToSpawn: 0
