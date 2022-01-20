@@ -11,6 +11,17 @@ public class DropdownButton : MonoBehaviour
     void Start()
     {
         dropdown = GetComponent<Dropdown>();
+        switch (LanguageManager.instance.activeLanguage)
+        {
+            case Language.English:
+                dropdown.captionText.text = "ENGLISH";
+                dropdown.value = 1;
+                break;
+            default:
+                dropdown.captionText.text = "PORTUGUÊS";
+                dropdown.value = 0;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -24,11 +35,11 @@ public class DropdownButton : MonoBehaviour
         switch (dropdown.value)
         {
             case 1:
-                LanguageManager.instance.activeLanguage = Language.English;
+                LanguageManager.instance.SetLanguage(Language.English);
                 dropdown.captionText.text = "ENGLISH";
                 break;
             default:
-                LanguageManager.instance.activeLanguage = Language.Portuguese;
+                LanguageManager.instance.SetLanguage(Language.Portuguese);
                 dropdown.captionText.text = "PORTUGUÊS";
                 break;
         }

@@ -29,6 +29,7 @@ public class LanguageManager : MonoBehaviour
         if (PlayerPrefs.GetInt("FirstGame") != 0)
         {
             activeLanguage = GetLanguage();
+
         }
         else
         {

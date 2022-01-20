@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 5255761781815342471}
   - component: {fileID: 5255761781815342521}
   - component: {fileID: 5255761781815342520}
+  - component: {fileID: 6837757062187826763}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -154,6 +155,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Sair
+--- !u!114 &6837757062187826763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5255761781815342470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Sair
+  textEN: Quit
 --- !u!1 &5255761781977245230
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +313,7 @@ GameObject:
   - component: {fileID: 5255761782188638509}
   - component: {fileID: 5255761782188638511}
   - component: {fileID: 5255761782188638510}
+  - component: {fileID: 4426274129258292588}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -366,6 +382,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Continuar
+--- !u!114 &4426274129258292588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5255761782188638508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Continuar
+  textEN: Resume Game
 --- !u!1 &5255761782365027343
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +788,7 @@ GameObject:
   - component: {fileID: 5255761783267231850}
   - component: {fileID: 5255761783267231852}
   - component: {fileID: 5255761783267231851}
+  - component: {fileID: 8597942736902234524}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -826,3 +857,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Configura\xE7\xE3o"
+--- !u!114 &8597942736902234524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5255761783267231849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: "Configura\xE7\xF5es"
+  textEN: Settings
