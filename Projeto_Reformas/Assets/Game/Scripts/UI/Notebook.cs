@@ -83,7 +83,7 @@ public class Notebook : MonoBehaviour
             resources.Add(questResourceItem);
         }
         Transform description = taskExpansionPanel.transform.GetChild(2).GetChild(0);
-        description.GetComponent<TextMeshProUGUI>().text = quest.questDescription;
+        description.GetComponent<TextMeshProUGUI>().text = quest.Description;
         /*if (description.GetComponent<RectTransform>().rect.height >= 190f)
             scrollRectDescription.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.Permanent;
         else
