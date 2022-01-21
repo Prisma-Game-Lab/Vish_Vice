@@ -33,6 +33,8 @@ public class CheckEnding : MonoBehaviour
 
     public void ReturnTitleScreen()
     {
+        Persistent.current.DeleteSave();
+        Persistent.current.ResetPersistent();
         SceneManager.LoadScene("MainMenu");
     }
 }
