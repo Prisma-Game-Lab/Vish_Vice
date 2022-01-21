@@ -100,9 +100,9 @@ public class GridElement
         switch (textColor)
         {
             case TextColor.red:
-                return Color.red;
+                return new Color(193/255f, 0/255f, 16/255f);
             case TextColor.blue:
-                return Color.blue;
+                return new Color(0/255f, 108/255f, 255/255f);
             default:
                 return Color.yellow;
         }
