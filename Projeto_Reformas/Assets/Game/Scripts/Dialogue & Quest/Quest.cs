@@ -14,6 +14,7 @@ public class Quest
     }
     [HideInInspector] public string npcName;
     public string questName;
+    public string questNameEnglish;
     public int questDay;
     public int charismaGain;
     public int charismaLost;

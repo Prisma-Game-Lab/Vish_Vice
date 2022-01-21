@@ -8,6 +8,7 @@ public class TaskButton : MonoBehaviour
     // Start is called before the first frame update
     private TextMeshProUGUI taskName;
     public Notebook notebook;
+    [HideInInspector]public string task;
     void Start()
     {
         taskName = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -22,6 +23,6 @@ public class TaskButton : MonoBehaviour
 
     public void CallNotebook()
     {
-        notebook.ExpandQuestInfo(taskName.text);
+        notebook.ExpandQuestInfo(task);
     }
 }

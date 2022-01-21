@@ -66,15 +66,17 @@ public class Notebook : MonoBehaviour
 
     public void ExpandQuestInfo(string taskName)
     {
+        Language language = LanguageManager.instance.activeLanguage;
         taskExpansionPanel.SetActive(true);
         Quest quest = questManager.FindQuestInfo(taskName);
         TextMeshProUGUI taskStatus = taskExpansionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        
         if (quest.completed)
-            taskStatus.text = "Completa";
+            taskStatus.text = GetQuestDeadline(quest.questDay, quest.duration, 1);
         else if (quest.lost)
-            taskStatus.text = "Perdeu o prazo";
+            taskStatus.text = GetQuestDeadline(quest.questDay, quest.duration, 2);
         else if (quest.inProgress)
-            taskStatus.text = "Prazo: Até 00:00 do dia "+ (quest.questDay+1).ToString();
+            taskStatus.text = GetQuestDeadline(quest.questDay, quest.duration, 0);
         foreach (Quest.Item item in quest.wantedItens)
         {
             GameObject questResourceItem = Instantiate(questResource, taskExpansionPanel.transform.GetChild(1));
@@ -83,7 +85,10 @@ public class Notebook : MonoBehaviour
             resources.Add(questResourceItem);
         }
         Transform description = taskExpansionPanel.transform.GetChild(2).GetChild(0);
-        description.GetComponent<TextMeshProUGUI>().text = quest.Description;
+        if(language == Language.Portuguese)
+            description.GetComponent<TextMeshProUGUI>().text = quest.Description;
+        else
+            description.GetComponent<TextMeshProUGUI>().text = quest.DescriptionEnglish;
         /*if (description.GetComponent<RectTransform>().rect.height >= 190f)
             scrollRectDescription.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.Permanent;
         else
@@ -104,32 +109,48 @@ public class Notebook : MonoBehaviour
     {
         int i = 2;
         int limit = tasks.transform.childCount;
+        Language language = LanguageManager.instance.activeLanguage;
 
         while (i < limit)
         {
             foreach(string name in Persistent.current.activeQuests)
             {
-                tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+                Quest quest = questManager.FindQuestInfo(name);
+                tasks.transform.GetChild(i).GetComponent<TaskButton>().task = name;
+                if (language == Language.Portuguese)
+                    tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+                else
+                    tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = quest.questNameEnglish;
                 i++;
-                Debug.Log(name + i.ToString());
-                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Até 00h do dia "+ (questManager.FindQuestInfo(name).questDay + 1).ToString();
-                Debug.Log(name + i.ToString());
+                //Debug.Log(name + i.ToString());
+                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = GetQuestDeadline(quest.questDay, quest.duration, 0);
+                //Debug.Log(name + i.ToString());
                 i++;
             }
             foreach (string name in Persistent.current.completedQuests)
             {
-                tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+                Quest quest = questManager.FindQuestInfo(name);
+                tasks.transform.GetChild(i).GetComponent<TaskButton>().task = name;
+                if (language == Language.Portuguese)
+                    tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+                else
+                    tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = quest.questNameEnglish;
                 i++;
-                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Completa";
-                Debug.Log(name + i.ToString());
+                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = GetQuestDeadline(quest.questDay, quest.duration, 1);
+                //Debug.Log(name + i.ToString());
                 i++;
             }
             foreach (string name in Persistent.current.lostQuests)
             {
-                tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+                Quest quest = questManager.FindQuestInfo(name);
+                tasks.transform.GetChild(i).GetComponent<TaskButton>().task = name;
+                if (language == Language.Portuguese)
+                    tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+                else
+                    tasks.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = quest.questNameEnglish;
                 i++;
-                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "Perdeu o prazo";
-                Debug.Log(name + i.ToString());
+                tasks.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = GetQuestDeadline(quest.questDay, quest.duration, 2);
+                //Debug.Log(name + i.ToString());
                 i++;
             }
         }
@@ -150,5 +171,37 @@ public class Notebook : MonoBehaviour
         }
     }
 
+    public string GetQuestDeadline(int questDay, int questDuration, int questStatus)
+    {
+        Language language = LanguageManager.instance.activeLanguage;
+        switch (questStatus)
+        {
+            case 0://active
+                if (questDuration < 7)
+                {
+                    if(language == Language.Portuguese)
+                        return "Vence 23:59 do dia " + (questDay + questDuration - 1).ToString();
+                    else
+                        return "Ends at 23:59 of day " + (questDay + questDuration - 1).ToString();
+                }
+                else
+                {
+                    if (language == Language.Portuguese)
+                        return "Prazo indeterminado";
+                    else
+                        return "Deadline not established";
+                }
+            case 1://completed
+                if (language == Language.Portuguese)
+                    return "Tarefa concluída!";
+                else
+                    return "Accomplished task!";
+            default://lost
+                if (language == Language.Portuguese)
+                    return "Perdeu o prazo!";
+                else
+                    return "Failed task!";
+        }
+    }
     
 }
