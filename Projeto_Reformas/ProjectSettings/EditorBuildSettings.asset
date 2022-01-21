@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/ConcreteGame.unity
     guid: fc8e58bc173f6654c8bba64834f4fc46
+  - enabled: 1
+    path: Assets/Game/Scenes/GameOver.unity
+    guid: 5b1980f23d4ac9b418b6064d8b440abf
   m_configObjects: {}
