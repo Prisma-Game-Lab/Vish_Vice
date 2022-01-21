@@ -9,18 +9,21 @@ public class SceneChanger : MonoBehaviour
     public void WoodMinigame()
     {
         AudioManager.instance.Play("ButtonClick");
+        Persistent.current.SaveGame();
         SceneManager.LoadScene("WoodGame");
     }
 
     public void MetalMinigame()
     {
         AudioManager.instance.Play("ButtonClick");
+        Persistent.current.SaveGame();
         SceneManager.LoadScene("MetalGame");
     }
 
     public void ConcreteMinigame()
     {
         AudioManager.instance.Play("ButtonClick");
+        Persistent.current.SaveGame();
         SceneManager.LoadScene("ConcreteGame");
     }
 }

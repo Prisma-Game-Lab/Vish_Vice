@@ -15,6 +15,7 @@ TagManager:
   - Concrete
   - fadein
   - fadeout
+  - gamemanager
   layers:
   - Default
   - TransparentFX

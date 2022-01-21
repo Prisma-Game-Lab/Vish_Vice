@@ -9,6 +9,8 @@ public class SceneLoad : MonoBehaviour
     public GameObject SettingsUI;
     public GameObject CreditsUI;
     public GameObject LoadingUI;
+    public GameObject SaveUI;
+
     public void LoadPlay()
     {
         AudioManager.instance.Play("ButtonClick");
@@ -18,27 +20,48 @@ public class SceneLoad : MonoBehaviour
 
     public void LoadSettings() {
         AudioManager.instance.Play("ButtonClick");
-        MainMenuUI.SetActive(false);
         SettingsUI.SetActive(true);
+        SettingsUI.GetComponent<Animator>().Play("MainMenu Settings Open");
     }
     public void QuitSettings()
     {
         AudioManager.instance.Play("ButtonClick");
-        SettingsUI.SetActive(false);
-        MainMenuUI.SetActive(true);   
+        SettingsUI.GetComponent<Animator>().Play("MainMenu Settings Close");
     }
 
     public void LoadCredits() {
         AudioManager.instance.Play("ButtonClick");
         MainMenuUI.SetActive(false);
         CreditsUI.SetActive(true);
+        CreditsUI.GetComponent<Animator>().Play("MainMenu Settings Open");
     }
 
     public void QuitCredits()
     {
         AudioManager.instance.Play("ButtonClick");
-        CreditsUI.SetActive(false);
+        CreditsUI.GetComponent<Animator>().Play("MainMenu Settings Close");
         MainMenuUI.SetActive(true);
     }
-    
+
+    public void YesSave()
+    {
+        AudioManager.instance.Play("ButtonClick");
+        Persistent.current.DeleteSave();
+        Persistent.current.ResetPersistent();
+        SaveUI.GetComponent<Animator>().Play("MainMenu Settings Close");
+    }
+
+    public void NoSave()
+    {
+        AudioManager.instance.Play("ButtonClick");
+        SaveUI.GetComponent<Animator>().Play("MainMenu Settings Close");
+    }
+
+    public void OpenSave()
+    {
+        AudioManager.instance.Play("ButtonClick");
+        SaveUI.SetActive(true);
+        SaveUI.GetComponent<Animator>().Play("MainMenu Settings Open");
+    }
+
 }
