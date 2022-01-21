@@ -37,6 +37,7 @@ public class MixConcrete : MonoBehaviour
     private GameObject mat;
     private int ind = 0;
     private int quantComb;
+    private int initialLife;
 
     public GameObject gameOverUI;
     // Start is called before the first frame update
@@ -50,6 +51,8 @@ public class MixConcrete : MonoBehaviour
         }
 
         DraftMaterials();
+
+        initialLife = maxVida;
     }
 
     // Update is called once per frame
@@ -81,8 +84,8 @@ public class MixConcrete : MonoBehaviour
         }
 
 
-        concText.text = "Concreto: " + totalConcrete.ToString();
-        lifeText.text = "Vida: " + maxVida.ToString();
+        concText.text = totalConcrete.ToString();
+        lifeText.text = (initialLife - maxVida).ToString() + "/" + initialLife;
     }
 
     private void DraftMaterials()
