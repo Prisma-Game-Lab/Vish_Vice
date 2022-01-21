@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.689, y: 0.8677778}
   m_AnchorMax: {x: 0.74531263, y: 0.9617038}
-  m_AnchoredPosition: {x: 10, y: 0.21200562}
+  m_AnchoredPosition: {x: 10, y: 0.21203613}
   m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &103216472
@@ -961,7 +961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8477918, y: 0.8677778}
   m_AnchorMax: {x: 0.9077918, y: 0.94600004}
-  m_AnchoredPosition: {x: -0.9302368, y: 17.171997}
+  m_AnchoredPosition: {x: -0.9301758, y: 17.171997}
   m_SizeDelta: {x: 0, y: 16}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &801505657
@@ -1117,10 +1117,9 @@ MonoBehaviour:
   maxLevels: 5
   metalQtd: 0
   gameIsOn: 0
-  metalMultiplier: 1
+  metalMultiplier: 2
   lifeQtd: 3
   flagMode: 0
-  flagToogle: {fileID: 0}
 --- !u!114 &880689600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1819,7 +1818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -264.19995, y: -350.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1419012332
@@ -2269,7 +2268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6126668, y: 0.8418519}
   m_AnchorMax: {x: 0.689, y: 0.97370374}
-  m_AnchoredPosition: {x: -2.5, y: 8.451996}
+  m_AnchoredPosition: {x: -2.5, y: 8.452026}
   m_SizeDelta: {x: 3.6503906, y: 4.5639954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1626211058
@@ -2317,6 +2316,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 672464774}
     m_Modifications:
+    - target: {fileID: 1658090043295214913, guid: b43c9a2f38112e343b2e8b02383b4487, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.0148926
+      objectReference: {fileID: 0}
     - target: {fileID: 2585154469506378366, guid: b43c9a2f38112e343b2e8b02383b4487, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
