@@ -41,7 +41,9 @@ public class QuestManager : MonoBehaviour
         uiMaster = GetComponent<UIMaster>();
         notebook = GetComponent<Notebook>();
         persistenData = Persistent.current;
-        playerMakeInteraction = uiMaster.player.GetComponent<MakeInteraction>();
+
+        if(uiMaster!=null)
+            playerMakeInteraction = uiMaster.player.GetComponent<MakeInteraction>();
 
         if (persistenData.activeQuests != null && persistenData.activeQuests.Count > 0)
         {

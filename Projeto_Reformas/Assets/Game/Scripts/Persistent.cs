@@ -9,7 +9,7 @@ public class Persistent : MonoBehaviour
     public int quantConcrete;
     public int quantManpower;
     public int quantCharisma;
-    [HideInInspector]public int usedManpower;
+    [HideInInspector] public int usedManpower;
     public int currentDay;
     public List<string> activeQuestsUI;
     public List<string> activeQuests;
@@ -40,7 +40,7 @@ public class Persistent : MonoBehaviour
 
     private void Awake()
     {
-        
+
         GameObject[] objs = GameObject.FindGameObjectsWithTag("persistentData");
         if (objs.Length > 1)
         {
@@ -58,9 +58,45 @@ public class Persistent : MonoBehaviour
         allQuestsActivated = new List<Quest>();
     }
 
+    public void ResetPersistent()
+    {
+        quantWood = 0;
+        quantMetal = 0;
+        quantConcrete = 0;
+        quantManpower = 0;
+        quantCharisma = 0;
+        usedManpower = 0;
+        currentDay = 0;
+        activeQuestsUI.Clear();
+        activeQuests.Clear();
+        completedQuests.Clear();
+        allQuestsActivated.Clear();//lista de todas as quests que foram aceitas em algum momento
+        lostQuests.Clear();
+        neglectedQuests.Clear();
+        allQuestNames.Clear();//lista de todas as quests que apareceram no jogo ate o momento
+        allNpcs.Clear();//lista de todos os npcs
+
+        objectState.Clear();
+
+        firstContactNPCs.Clear();
+
+        currentTime = 2;
+        fullDayLength = 2;
+        playerPosition = Vector3.zero;
+
+        currentMetalGameLevel = 0;
+        earnedMetalQtd = 0;
+
+        playerStartX = 0.77f;
+        playerStartY = 0.589f;
+        playerStartZ = 11.11f;
+
+        fadeOn = false;
+    }
     public void SaveGame()
     {
         int i = 0;
+
         PlayerPrefs.SetInt("quantWood", current.quantWood);
         PlayerPrefs.SetInt("quantMetal", current.quantMetal);
         PlayerPrefs.SetInt("quantConcrete", current.quantConcrete);
@@ -84,7 +120,8 @@ public class Persistent : MonoBehaviour
         {
             PlayerPrefs.SetString("ALLQ_" + quest.questName, "allQuestsActivated");
         }
-        foreach (string name in allQuestNames) {
+        foreach (string name in allQuestNames)
+        {
             PlayerPrefs.SetString("quest" + i.ToString(), name);
             i++;
         }
@@ -99,7 +136,7 @@ public class Persistent : MonoBehaviour
         i = 0;
         foreach (bool state in objectState)
         {
-            if(state)
+            if (state)
                 PlayerPrefs.SetInt("objectState" + i.ToString(), 1);
             else
                 PlayerPrefs.SetInt("objectState" + i.ToString(), 0);
@@ -112,7 +149,7 @@ public class Persistent : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerPositionZ", playerPosition.z);
 
         //Saving FirstContactNpcs Dictionary
-        foreach(KeyValuePair<string, bool> item in firstContactNPCs)
+        foreach (KeyValuePair<string, bool> item in firstContactNPCs)
         {
             if (item.Value)
                 PlayerPrefs.SetInt("FCN_" + item.Key, 1);
@@ -120,6 +157,7 @@ public class Persistent : MonoBehaviour
                 PlayerPrefs.SetInt("FCN_" + item.Key, 0);
         }
 
+        PlayerPrefs.SetFloat("time", GameObject.FindGameObjectWithTag("gamemanager").GetComponent<DayCycle>().time);
         PlayerPrefs.SetInt("SavedGame", 1);
     }
 
@@ -128,7 +166,7 @@ public class Persistent : MonoBehaviour
         if (PlayerPrefs.GetInt("SavedGame") != 1)
         {
             return;
-        } 
+        }
 
         int i = 0;
         quantWood = PlayerPrefs.GetInt("quantWood");
@@ -138,9 +176,10 @@ public class Persistent : MonoBehaviour
         quantCharisma = PlayerPrefs.GetInt("quantCharisma");
         usedManpower = PlayerPrefs.GetInt("usedManPower");
         currentDay = PlayerPrefs.GetInt("currentDay");
+        currentTime = PlayerPrefs.GetFloat("time");
 
         //Restoring data lists
-        while(PlayerPrefs.HasKey("quest" + i.ToString()))
+        while (PlayerPrefs.HasKey("quest" + i.ToString()))
         {
             allQuestNames.Add(PlayerPrefs.GetString("quest" + i.ToString()));
             PlayerPrefs.DeleteKey("quest" + i.ToString());
@@ -168,7 +207,7 @@ public class Persistent : MonoBehaviour
 
         foreach (string name in allQuestNames)
         {
-            if(PlayerPrefs.HasKey("ACUI_" + name))
+            if (PlayerPrefs.HasKey("ACUI_" + name))
             {
                 activeQuestsUI.Add(name);
                 PlayerPrefs.DeleteKey("ACUI_" + name);
@@ -204,7 +243,7 @@ public class Persistent : MonoBehaviour
         {
             if (PlayerPrefs.HasKey("FCN_" + name))
             {
-                if(PlayerPrefs.GetInt("FCN_" + name) == 1)
+                if (PlayerPrefs.GetInt("FCN_" + name) == 1)
                     firstContactNPCs.Add(name, true);
                 else
                     firstContactNPCs.Add(name, false);
@@ -212,9 +251,11 @@ public class Persistent : MonoBehaviour
             }
         }
 
-        playerStartX = PlayerPrefs.GetInt("PlayerPositionX");
-        playerStartY = PlayerPrefs.GetInt("PlayerPositionY");
-        playerStartZ = PlayerPrefs.GetInt("PlayerPositionZ");
+        playerStartX = PlayerPrefs.GetFloat("PlayerPositionX");
+        playerStartY = PlayerPrefs.GetFloat("PlayerPositionY");
+        playerStartZ = PlayerPrefs.GetFloat("PlayerPositionZ");
+
+        playerPosition = new Vector3(playerStartX, playerStartY, playerStartZ);
 
     }
 
@@ -263,7 +304,8 @@ public class Persistent : MonoBehaviour
         PlayerPrefs.DeleteKey("PlayerPositionY");
         PlayerPrefs.DeleteKey("PlayerPositionZ");
 
+        PlayerPrefs.DeleteKey("time");
+
         PlayerPrefs.SetInt("SavedGame", 0);
     }
-
 }
