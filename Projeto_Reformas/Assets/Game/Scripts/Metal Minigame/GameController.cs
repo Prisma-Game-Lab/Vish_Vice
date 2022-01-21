@@ -36,6 +36,7 @@ public class GameController: MonoBehaviour
     private int revealedCells;
     private int level;
     private int bombsOpened = 0;
+    private Notebook notebook;
     private void Awake()
     {
         level = Persistent.current.currentMetalGameLevel;
@@ -49,6 +50,7 @@ public class GameController: MonoBehaviour
     {
         visualControl = GetComponent<VisualControl>();
         minigameMenu = GetComponent<MinigameMenu>();
+        notebook = GetComponent<Notebook>();
         metalQtd = 0;
         revealedCells = 0;
     }
@@ -59,7 +61,7 @@ public class GameController: MonoBehaviour
         metalCountText.text = metalQtd.ToString() + "/" + grid.GetMetalTotal().ToString();
         lifeText.text = bombsOpened.ToString() + "/" + lifeQtd;
         //Tratamento do clique
-        if (Input.GetMouseButtonDown(0) && gameIsOn && !minigameMenu.paused)
+        if (Input.GetMouseButtonDown(0) && gameIsOn && !minigameMenu.paused && !notebook.notebookOpen)
         {
             transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                 Input.mousePosition.y, 10f));

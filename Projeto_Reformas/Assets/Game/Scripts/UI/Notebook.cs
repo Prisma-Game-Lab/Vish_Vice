@@ -9,7 +9,7 @@ public class Notebook : MonoBehaviour
     public TextMeshProUGUI woodText;
     public TextMeshProUGUI metalText;
     public TextMeshProUGUI concreteText;
-    public TextMeshProUGUI mdoText;
+    //public TextMeshProUGUI mdoText;
     public GameObject notebookUI;
     public GameObject questButton;
     public GameObject questLimit;
@@ -23,11 +23,13 @@ public class Notebook : MonoBehaviour
     public List<GameObject> resources;
     private QuestManager questManager;
     public Animator notesAnimator;
+    [HideInInspector]public bool notebookOpen;
 
     // Start is called before the first frame update
     void Start()
     {
         questManager = GetComponent<QuestManager>();
+        notebookOpen = false;
         //RegenerateButtons();
     }   
 
@@ -45,6 +47,7 @@ public class Notebook : MonoBehaviour
         //notebookUI.SetActive(false);
         //scrollBarButtons.SetActive(false);
         taskExpansionPanel.SetActive(false);
+        notebookOpen = false;
         Time.timeScale = 1f;
         notesAnimator.Play("NotesDown");
         
@@ -56,6 +59,7 @@ public class Notebook : MonoBehaviour
         notebookUI.SetActive(true);
         RegenerateButtons();
         OrderTaskList();
+        notebookOpen = true;
         notesAnimator.Play("NotesUp");
         if (tasks.transform.childCount >= 12)
             scrollRectTasks.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.Permanent;
