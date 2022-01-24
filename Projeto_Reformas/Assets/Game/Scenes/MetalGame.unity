@@ -1454,7 +1454,6 @@ MonoBehaviour:
   woodText: {fileID: 1971043572}
   metalText: {fileID: 1971043571}
   concreteText: {fileID: 1971043570}
-  mdoText: {fileID: 0}
   notebookUI: {fileID: 1971043569}
   questButton: {fileID: 1971043568}
   questLimit: {fileID: 1971043567}
@@ -1467,6 +1466,7 @@ MonoBehaviour:
   scrollbarDescription: {fileID: 1971043561}
   resources: []
   notesAnimator: {fileID: 1971043560}
+  notebookOpen: 0
 --- !u!114 &880689602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3164,6 +3164,7 @@ GameObject:
   - component: {fileID: 3697835405766075270}
   - component: {fileID: 3697835405766075272}
   - component: {fileID: 3697835405766075273}
+  - component: {fileID: 3697835405766075274}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3213,6 +3214,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Jogar Novamente
+--- !u!114 &3697835405766075274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3697835405766075271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Jogar Novamente
+  textEN: Play Again
 --- !u!1 &3697835406112548210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3586,6 +3601,7 @@ GameObject:
   - component: {fileID: 3697835406838147715}
   - component: {fileID: 3697835406838147717}
   - component: {fileID: 3697835406838147714}
+  - component: {fileID: 3697835406838147713}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3593,6 +3609,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3697835406838147713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3697835406838147712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dc2009d99be544e80efb65f081cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPT: Sair
+  textEN: Quit
 --- !u!114 &3697835406838147714
 MonoBehaviour:
   m_ObjectHideFlags: 0
