@@ -60,9 +60,12 @@ public class MakeInteraction : MonoBehaviour
         questManager.newQuestNPC = npcInteraction;
         npcInteraction.DisableInteractionButton();
         _dialogueManager.StartDialog(npcInteraction.Greet());
-        _uiMaster._displayName.text = npcInteraction.npcName != "" ? npcInteraction.npcName : "sem nome";
+        if(LanguageManager.instance.activeLanguage == Language.Portuguese)
+            _uiMaster._displayName.text = npcInteraction.npcName != "" ? npcInteraction.npcName : "sem nome";
+        else
+            _uiMaster._displayName.text = npcInteraction.npcNameEnglish != "" ? npcInteraction.npcName : "no name";
 
-        
+
     }
 
     public GameObject ReturnNpc()

@@ -11,6 +11,7 @@ public enum RelationshipStatus{
 public class NPCInteraction : MonoBehaviour
 {
     public string npcName;
+    public string npcNameEnglish;
     public RelationshipStatus npcStatus;
     public GameObject questPopUpPrefab;
     public Canvas WorldCanvas;
