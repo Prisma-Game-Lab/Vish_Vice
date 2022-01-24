@@ -215,17 +215,6 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void ClearQuestsPanel()
-    {
-        if (uiMaster != null)
-        {
-            foreach (Transform questUI in uiMaster.allQuestsPanel.transform)
-            {
-                Destroy(questUI.gameObject);
-            }
-        }
-    }
-
     public Quest FindQuestInfo(string questName)
     {
         foreach (Quest quest in persistenData.allQuestsActivated)

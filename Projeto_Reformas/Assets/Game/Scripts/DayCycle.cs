@@ -84,7 +84,6 @@ public class DayCycle : MonoBehaviour
             if (TryGetComponent(out QuestManager questManager))
             {
                 questManager.CheckDayQuests();
-                questManager.ClearQuestsPanel();
             }
 
             if (ManpowerDayCount == 1)

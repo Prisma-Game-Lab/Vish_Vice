@@ -13,7 +13,6 @@ public class UIMaster : MonoBehaviour
     public GameObject interactButton;
     public GameObject player;
     public GameObject dialogPanel;
-    public GameObject allQuestsPanel;
     public GameObject questUI;
     public GameObject questItemUI;
     public Sprite woodQuestIcon;
