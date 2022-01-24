@@ -160,7 +160,7 @@ MonoBehaviour:
   maxMaterials: 3
   addConcrete: 3
   increaseFactor: 2
-  maxSpeed: 26
+  maxSpeed: 12
   materials:
   - {fileID: 6428693935355086967, guid: 8d4755d8796e8c44886063ce2ed3ea4c, type: 3}
   - {fileID: 1709938868317119177, guid: 87f7fd1154255404bbe028b1a1290cf3, type: 3}
@@ -1203,7 +1203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.68820834, y: 0.81962967}
   m_AnchorMax: {x: 0.73187506, y: 0.95425934}
-  m_AnchoredPosition: {x: 1.7309875, y: 2.9901123}
+  m_AnchoredPosition: {x: 1.7310181, y: 2.9901123}
   m_SizeDelta: {x: 3.4627, y: -5.9803}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &499940510
@@ -1654,7 +1654,7 @@ MonoBehaviour:
   - {fileID: 3171411115553461349, guid: 3336fb536f837574e95cc1e666b5db8d, type: 3}
   - {fileID: 8903272557248073061, guid: 4408baaed27c00d459e8d474dd7cfcef, type: 3}
   direction: 1
-  movingSpeed: 6
+  movingSpeed: 4
   totalMaterials: -2
   repetitions: 
   timeToSpawn: 0
@@ -1936,7 +1936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21877086, y: 0.77800006}
   m_AnchorMax: {x: 0.33400002, y: 0.9838889}
-  m_AnchoredPosition: {x: -0.5, y: -2.6794128}
+  m_AnchoredPosition: {x: -0.5, y: -2.6794434}
   m_SizeDelta: {x: 5.3567047, y: 5.3587}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &935503341
@@ -2199,7 +2199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.78637046}
   m_AnchorMax: {x: 0.12789588, y: 1}
-  m_AnchoredPosition: {x: -13.78479, y: 3.5541077}
+  m_AnchoredPosition: {x: -13.784912, y: 3.5541382}
   m_SizeDelta: {x: 26.0722, y: 4.960499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1143513903
@@ -3260,6 +3260,10 @@ PrefabInstance:
     - target: {fileID: 5255761781977245231, guid: 9956490404a92d342a84563540d0b788, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.48266602
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255761782188638509, guid: 9956490404a92d342a84563540d0b788, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5255761782365027329, guid: 9956490404a92d342a84563540d0b788, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
