@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPT: BOAS NOVAS
-  textEN: 
+  textEN: GOOD NEWS
 --- !u!114 &122107629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPT: "Vish, Vice! N\xE3o foi dessa vez..."
-  textEN: 
+  textEN: Vish, Vice! It wasn't this time...
 --- !u!114 &1082903432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,7 +1165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPT: "Agora \xE9 pra valer: Prefeito!"
-  textEN: 
+  textEN: 'Now it''s for real: Mayor!'
 --- !u!114 &1640683904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPT: BOAS NOVAS
-  textEN: 
+  textEN: GOOD NEWS
 --- !u!114 &1770947158
 MonoBehaviour:
   m_ObjectHideFlags: 0
