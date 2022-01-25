@@ -22,33 +22,48 @@ public class MinigameMenu : MonoBehaviour
     public void MinigamePause()
     {
         AudioManager.instance.Play("ButtonClick");
-        pauseButton.SetActive(false);
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        paused = true;
+        if (paused)
+        {
+            paused = false;
+            Time.timeScale = 1f;
+            pauseButton.SetActive(true);
+            pauseMenu.GetComponent<Animator>().Play("PausePopOut");
+            return;
+        }
+        else
+        {
+            pauseMenu.SetActive(true);
+            pauseButton.SetActive(false);
+            pauseMenu.GetComponent<Animator>().Play("PausePopUp");
+            paused = true;
+        }
     }
 
     public void MinigameUnpause()
     {
         AudioManager.instance.Play("ButtonClick");
         pauseButton.SetActive(true);
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
         paused = false;
+        Time.timeScale = 1f;
+        pauseMenu.GetComponent<Animator>().Play("PausePopOut");
     }
 
     public void MinigameSettings()
     {
         AudioManager.instance.Play("ButtonClick");
+        Time.timeScale = 1f;
+        pauseMenu.GetComponent<Animator>().Play("PauseLeft");
         settingsMenu.SetActive(true);
-        pauseMenu.SetActive(false);
+        settingsMenu.GetComponent<Animator>().Play("SettingsLeft");
     }
 
     public void MinigameCloseSettings()
     {
         AudioManager.instance.Play("ButtonClick");
-        settingsMenu.SetActive(false);
+        Time.timeScale = 1f;
         pauseMenu.SetActive(true);
+        pauseMenu.GetComponent<Animator>().Play("PauseRight");
+        settingsMenu.GetComponent<Animator>().Play("SettingsRight");
     }
 
     public void MinigameEnd()
