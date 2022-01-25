@@ -1551,6 +1551,7 @@ MonoBehaviour:
   totalMaterials: -2
   repetitions: 
   timeToSpawn: 0
+  fell: 0
   mats: []
 --- !u!212 &762627366
 SpriteRenderer:
@@ -1658,6 +1659,7 @@ MonoBehaviour:
   totalMaterials: -2
   repetitions: 
   timeToSpawn: 0
+  fell: 0
   mats: []
 --- !u!212 &789713036
 SpriteRenderer:
@@ -2881,7 +2883,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   time_txt: {fileID: 1477748201}
   day_txt: {fileID: 1477748200}
-  lastDay: 0
+  lastDay: 5
   player: {fileID: 0}
   fadeIn: {fileID: 239396931}
 --- !u!114 &1391248060
