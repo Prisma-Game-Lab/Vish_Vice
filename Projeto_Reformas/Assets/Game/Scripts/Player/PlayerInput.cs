@@ -24,12 +24,14 @@ public class PlayerInput : MonoBehaviour
         {
             StartCoroutine(dayCycle.FadeImage(false));
             transform.position = new Vector3(persistentData.playerStartX, persistentData.playerStartY, persistentData.playerStartZ);
-            Debug.Log(persistentData.playerStartX);
+            Debug.Log("111");
             persistentData.fadeOn = false;
         }
         else if (persistentData.fadeOn && persistentData.currentTime < 6)
         {
-            transform.position = new Vector3(0.77f, 0.589f, 11.11f);
+            Debug.Log("poss");
+            StartCoroutine(dayCycle.FadeImage(false));
+            transform.position = new Vector3(0.77f, 0.663f, 11.11f);
         }
         else if (persistentData.playerPosition != Vector3.zero)
             transform.position = persistentData.playerPosition;
