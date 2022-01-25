@@ -16,13 +16,15 @@ public class SpawnConcrete : MonoBehaviour
     [HideInInspector]public float timeToSpawn;
     private GameObject mat;
 
+    [HideInInspector] public bool fell;
+
     public GameObject[] mats;
     private int originalDir;
     // Start is called before the first frame update
     void Start()
     {
         totalMaterials = 0;
-        timeToSpawn = 3;
+        timeToSpawn = 1.5f;
         originalDir = direction;
         repetitions = new int[5];
         for (int i = 0; i < 5; i++)
@@ -41,12 +43,20 @@ public class SpawnConcrete : MonoBehaviour
         {
             if (mats[i])
             {
-                if (mats[i].transform.position.x > 11 || mats[i].transform.position.x < -11 ||
-                    mats[i].transform.position.y < -15)
+                if (mats[i].transform.position.x > 11 || mats[i].transform.position.x < -11)
                 {
                     repetitions[mats[i].gameObject.GetComponent<MovingMaterial>().type] -= 1;
                     Destroy(mats[i].gameObject);
                     totalMaterials -= 1;
+                }
+
+                if (mats[i].transform.position.y < -15)
+                {
+                    repetitions[mats[i].gameObject.GetComponent<MovingMaterial>().type] -= 1;
+                    Destroy(mats[i].gameObject);
+                    totalMaterials -= 1;
+                    fell = true;
+
                 }
             }
         }

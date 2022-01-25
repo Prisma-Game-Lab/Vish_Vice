@@ -83,6 +83,23 @@ public class MixConcrete : MonoBehaviour
             DraftMaterials();
         }
 
+        if (spawnLeft.fell)
+        {
+            maxVida--;
+            spawnLeft.fell = false;
+        }
+
+        if (spawnRight.fell)
+        {
+            maxVida--;
+            spawnRight.fell = false;
+        }
+
+        if (maxVida == 0)
+        {
+            Debug.Log("fim");
+            EndConcrete();
+        }
 
         concText.text = totalConcrete.ToString();
         lifeText.text = (initialLife - maxVida).ToString() + "/" + initialLife;
@@ -142,11 +159,6 @@ public class MixConcrete : MonoBehaviour
             //Reseta ao errar e diminui a vida em 1
             } else {
                 maxVida--;
-                if (maxVida == 0)
-                {
-                    Debug.Log("fim");
-                    EndConcrete();
-                }
                 ResetQuantDrafted();
                 for (int i = 0; i < maxMaterials; i++)
                 {
@@ -207,13 +219,13 @@ public class MixConcrete : MonoBehaviour
     {
         spawnLeft.movingSpeed += increaseFactor;
         spawnRight.movingSpeed += increaseFactor;
-        spawnLeft.timeToSpawn -= 0.75f;
-        spawnRight.timeToSpawn -= 0.75f;
+        spawnLeft.timeToSpawn -= 0.25f;
+        spawnRight.timeToSpawn -= 0.25f;
 
         spawnLeft.movingSpeed = Mathf.Min(spawnLeft.movingSpeed, maxSpeed);
         spawnRight.movingSpeed = Mathf.Min(spawnRight.movingSpeed, maxSpeed);
-        spawnLeft.timeToSpawn = Mathf.Max(spawnLeft.timeToSpawn, 1.5f);
-        spawnRight.timeToSpawn = Mathf.Max(spawnRight.timeToSpawn, 1.5f);
+        spawnLeft.timeToSpawn = Mathf.Max(spawnLeft.timeToSpawn, 0.5f);
+        spawnRight.timeToSpawn = Mathf.Max(spawnRight.timeToSpawn, 0.5f);
 
         for (int i = 0; i < spawnLeft.mats.Length; i++)
         {
