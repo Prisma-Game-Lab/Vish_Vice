@@ -1003,7 +1003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.81470376}
   m_AnchorMax: {x: 0.134, y: 1}
-  m_AnchoredPosition: {x: -31.300049, y: 10.099976}
+  m_AnchoredPosition: {x: -31.299988, y: 10.099976}
   m_SizeDelta: {x: -0.8650017, y: 1.8799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &442403465
@@ -3321,7 +3321,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   time_txt: {fileID: 1700904560}
   day_txt: {fileID: 1700904559}
-  lastDay: 5
+  lastDay: 7
   player: {fileID: 0}
   fadeIn: {fileID: 366047229}
 --- !u!114 &1641314584

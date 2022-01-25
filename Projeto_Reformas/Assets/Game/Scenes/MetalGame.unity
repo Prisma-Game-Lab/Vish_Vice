@@ -2642,7 +2642,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   time_txt: {fileID: 572431410}
   day_txt: {fileID: 572431408}
-  lastDay: 5
+  lastDay: 7
   player: {fileID: 0}
   fadeIn: {fileID: 1419012332}
 --- !u!114 &880689601
