@@ -61,9 +61,11 @@ public class MakeInteraction : MonoBehaviour
         npcInteraction.DisableInteractionButton();
         _dialogueManager.StartDialog(npcInteraction.Greet());
         if(LanguageManager.instance.activeLanguage == Language.Portuguese)
+        {
             _uiMaster._displayName.text = npcInteraction.npcName != "" ? npcInteraction.npcName : "sem nome";
+        }
         else
-            _uiMaster._displayName.text = npcInteraction.npcNameEnglish != "" ? npcInteraction.npcName : "no name";
+            _uiMaster._displayName.text = npcInteraction.npcNameEnglish != "" ? npcInteraction.npcNameEnglish : "no name";
 
 
     }
