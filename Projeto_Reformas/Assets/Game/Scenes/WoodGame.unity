@@ -1951,7 +1951,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   time_txt: {fileID: 1700904560}
   day_txt: {fileID: 1700904559}
-  lastDay: 0
+  lastDay: 5
   player: {fileID: 0}
   fadeIn: {fileID: 366047229}
 --- !u!114 &1641314584
@@ -1969,7 +1969,6 @@ MonoBehaviour:
   woodText: {fileID: 1980173532}
   metalText: {fileID: 1980173531}
   concreteText: {fileID: 1980173530}
-  mdoText: {fileID: 0}
   notebookUI: {fileID: 1980173534}
   questButton: {fileID: 1980173526}
   questLimit: {fileID: 1980173525}
@@ -1982,6 +1981,7 @@ MonoBehaviour:
   scrollbarDescription: {fileID: 1980173522}
   resources: []
   notesAnimator: {fileID: 1980173527}
+  notebookOpen: 0
 --- !u!114 &1641314585
 MonoBehaviour:
   m_ObjectHideFlags: 0
