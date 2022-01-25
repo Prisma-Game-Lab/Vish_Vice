@@ -66,7 +66,7 @@ public class Persistent : MonoBehaviour
         quantManpower = 0;
         quantCharisma = 0;
         usedManpower = 0;
-        currentDay = 0;
+        currentDay = 1;
         activeQuestsUI.Clear();
         activeQuests.Clear();
         completedQuests.Clear();
