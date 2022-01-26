@@ -302,6 +302,7 @@ public class NPCInteraction : MonoBehaviour
     public void ChangeInteractionSprite()
     {
         questPopUp.GetComponent<Image>().sprite = interactionSprite;
+        questPopUp.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
     public void UpdateQuestPopUp()
     {
@@ -309,25 +310,43 @@ public class NPCInteraction : MonoBehaviour
         {
             if (isObject)
             {
-                if(choosenQuest == null || choosenQuest.completed || choosenQuest.lost)
+                if (choosenQuest == null || choosenQuest.completed || choosenQuest.lost)
                     questPopUp.SetActive(false);
                 else
+                {
                     questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(choosenQuest.questType);
-            }   
+                    questPopUp.transform.localScale = new Vector3(1.0f, 1.3f, 1.0f);
+                }
+            }
             else
+            {
                 questPopUp.GetComponent<Image>().sprite = interactionSprite;
+                if(isMinigameNPC)
+                    questPopUp.transform.localScale = new Vector3(1.0f, 1.3f, 1.0f);
+                else
+                    questPopUp.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
         }
         else if(dayQuest == null && activeQuest != null)
         {
             questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(activeQuest.questType);
+            questPopUp.transform.localScale = new Vector3(1.0f, 1.3f, 1.0f);
         }
         else
         {
             questPopUp.GetComponent<Image>().sprite = GetQuestPopUpSprite(dayQuest.questType);
+            questPopUp.transform.localScale = new Vector3(1.0f, 1.3f, 1.0f);
             if (dayQuest.completed || dayQuest.lost)
             {
-                if (dayQuest.questType == QuestType.Exclamatory) questPopUp.GetComponent<Image>().sprite = interactionSprite;
-                else questPopUp.SetActive(false);
+                if (dayQuest.questType == QuestType.Exclamatory)
+                {
+                    questPopUp.GetComponent<Image>().sprite = interactionSprite;
+                    questPopUp.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                }
+                else
+                {
+                    questPopUp.SetActive(false);
+                }
             }
         }
             
