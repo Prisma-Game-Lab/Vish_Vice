@@ -33,10 +33,12 @@ public class Persistent : MonoBehaviour
     public int earnedMetalQtd = 0;
 
     [HideInInspector] public float playerStartX = 0.77f;
-    [HideInInspector] public float playerStartY = 0.589f;
+    [HideInInspector] public float playerStartY = 0.663f;
     [HideInInspector] public float playerStartZ = 11.11f;
 
     [HideInInspector] public bool fadeOn;
+
+    Transform playerTransform;
 
     private void Awake()
     {
@@ -143,10 +145,14 @@ public class Persistent : MonoBehaviour
             i++;
         }
 
-        //Saving player position
-        PlayerPrefs.SetFloat("PlayerPositionX", playerPosition.x);
-        PlayerPrefs.SetFloat("PlayerPositionY", playerPosition.y);
-        PlayerPrefs.SetFloat("PlayerPositionZ", playerPosition.z);
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        if (playerTransform != null)
+        {
+            //Saving player position
+            PlayerPrefs.SetFloat("PlayerPositionX", playerTransform.position.x);
+            PlayerPrefs.SetFloat("PlayerPositionY", playerTransform.position.y);
+            PlayerPrefs.SetFloat("PlayerPositionZ", playerTransform.position.z);
+        }
 
         //Saving FirstContactNpcs Dictionary
         foreach (KeyValuePair<string, bool> item in firstContactNPCs)
@@ -254,9 +260,9 @@ public class Persistent : MonoBehaviour
         playerStartX = PlayerPrefs.GetFloat("PlayerPositionX");
         playerStartY = PlayerPrefs.GetFloat("PlayerPositionY");
         playerStartZ = PlayerPrefs.GetFloat("PlayerPositionZ");
-
+        print(playerPosition);
         playerPosition = new Vector3(playerStartX, playerStartY, playerStartZ);
-
+        print(playerPosition);
     }
 
     public void DeleteSave()

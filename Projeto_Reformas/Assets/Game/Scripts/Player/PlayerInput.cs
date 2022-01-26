@@ -34,7 +34,10 @@ public class PlayerInput : MonoBehaviour
             transform.position = new Vector3(0.77f, 0.663f, 11.11f);
         }
         else if (persistentData.playerPosition != Vector3.zero)
+        {
             transform.position = persistentData.playerPosition;
+            print("olaa");
+        }
 
         controller.enabled = true;
     }
