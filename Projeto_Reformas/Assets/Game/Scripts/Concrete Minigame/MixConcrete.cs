@@ -43,6 +43,7 @@ public class MixConcrete : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         quantComb = 0;
         quantDrafted = new int[5];
         for (int i = 0; i < 5; i++)
@@ -87,12 +88,24 @@ public class MixConcrete : MonoBehaviour
         {
             maxVida--;
             spawnLeft.fell = false;
+            for (int i = 0; i < maxMaterials; i++)
+            {
+                Destroy(draftedMaterials[i].gameObject);
+            }
+            totalMaterials = 0;
+            ind = 0;
         }
 
         if (spawnRight.fell)
         {
             maxVida--;
             spawnRight.fell = false;
+            for (int i = 0; i < maxMaterials; i++)
+            {
+                Destroy(draftedMaterials[i].gameObject);
+            }
+            totalMaterials = 0;
+            ind = 0;
         }
 
         if (maxVida == 0)
