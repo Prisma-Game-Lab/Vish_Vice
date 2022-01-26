@@ -1750,6 +1750,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &572431411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4965618099830845058, guid: 14f9e949f3d8d8d409e37b7552ce8d2f, type: 3}
+  m_PrefabInstance: {fileID: 572431407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &672464770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2645,6 +2650,7 @@ MonoBehaviour:
   lastDay: 7
   player: {fileID: 0}
   fadeIn: {fileID: 1419012332}
+  clock: {fileID: 572431411}
 --- !u!114 &880689601
 MonoBehaviour:
   m_ObjectHideFlags: 0

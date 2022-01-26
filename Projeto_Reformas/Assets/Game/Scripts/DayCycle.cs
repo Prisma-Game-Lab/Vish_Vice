@@ -46,6 +46,7 @@ public class DayCycle : MonoBehaviour
 
     public Image fadeIn;
     private UIMaster uiMaster;
+    public GameObject clock;
 
     private void OnEnable()
     {
@@ -68,6 +69,13 @@ public class DayCycle : MonoBehaviour
     {
         if (uiMaster != null && uiMaster._paused)
             return;
+        if (hour == 23 && !clock.GetComponent<Animator>().enabled)
+        {
+            Debug.Log("liga relogio");
+            clock.GetComponent<Animator>().enabled = true;
+        }
+            
+
         checkDay();
         calculateTime();
         dayReset();
@@ -142,6 +150,7 @@ public class DayCycle : MonoBehaviour
             }
             //time = 0.270f;
             time = 0.334f;
+            clock.GetComponent<Animator>().enabled = false;
             Persistent.current.fadeOn = true;
             SceneManager.LoadScene("Play");
         }
