@@ -9,6 +9,7 @@ public class SceneChanger : MonoBehaviour
     public void WoodMinigame()
     {
         AudioManager.instance.Play("ButtonClick");
+        Persistent.current.DeleteSave();
         Persistent.current.SaveGame();
         SceneManager.LoadScene("WoodGame");
     }
@@ -16,6 +17,7 @@ public class SceneChanger : MonoBehaviour
     public void MetalMinigame()
     {
         AudioManager.instance.Play("ButtonClick");
+        Persistent.current.DeleteSave();
         Persistent.current.SaveGame();
         SceneManager.LoadScene("MetalGame");
     }
@@ -23,6 +25,7 @@ public class SceneChanger : MonoBehaviour
     public void ConcreteMinigame()
     {
         AudioManager.instance.Play("ButtonClick");
+        Persistent.current.DeleteSave();
         Persistent.current.SaveGame();
         SceneManager.LoadScene("ConcreteGame");
     }

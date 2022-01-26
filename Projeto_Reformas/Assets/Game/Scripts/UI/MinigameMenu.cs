@@ -77,7 +77,9 @@ public class MinigameMenu : MonoBehaviour
             //Persistent.current.quantMetal += Persistent.current.earnedMetalQtd;
             Persistent.current.earnedMetalQtd = 0;
         }
-            
+
+        Persistent.current.DeleteSave();
+        Persistent.current.SaveGame();
         SceneManager.LoadScene("Play");
     }
     public void MinigameRestart()

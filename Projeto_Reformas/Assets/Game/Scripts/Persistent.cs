@@ -182,7 +182,7 @@ public class Persistent : MonoBehaviour
         while (PlayerPrefs.HasKey("quest" + i.ToString()))
         {
             allQuestNames.Add(PlayerPrefs.GetString("quest" + i.ToString()));
-            PlayerPrefs.DeleteKey("quest" + i.ToString());
+            //PlayerPrefs.DeleteKey("quest" + i.ToString());
             i++;
         }
 
@@ -190,7 +190,7 @@ public class Persistent : MonoBehaviour
         while (PlayerPrefs.HasKey("npc" + i.ToString()))
         {
             allNpcs.Add(PlayerPrefs.GetString("npc" + i.ToString()));
-            PlayerPrefs.DeleteKey("npc" + i.ToString());
+            //PlayerPrefs.DeleteKey("npc" + i.ToString());
             i++;
         }
 
@@ -201,7 +201,7 @@ public class Persistent : MonoBehaviour
                 objectState.Add(true);
             else
                 objectState.Add(false);
-            PlayerPrefs.DeleteKey("objectState" + i.ToString());
+            //PlayerPrefs.DeleteKey("objectState" + i.ToString());
             i++;
         }
 
@@ -210,31 +210,31 @@ public class Persistent : MonoBehaviour
             if (PlayerPrefs.HasKey("ACUI_" + name))
             {
                 activeQuestsUI.Add(name);
-                PlayerPrefs.DeleteKey("ACUI_" + name);
+                //PlayerPrefs.DeleteKey("ACUI_" + name);
             }
 
             if (PlayerPrefs.HasKey("ACTI_" + name))
             {
                 activeQuests.Add(name);
-                PlayerPrefs.DeleteKey("ACTI_" + name);
+                //PlayerPrefs.DeleteKey("ACTI_" + name);
             }
 
             if (PlayerPrefs.HasKey("COMP_" + name))
             {
                 completedQuests.Add(name);
-                PlayerPrefs.DeleteKey("COMP_" + name);
+                //PlayerPrefs.DeleteKey("COMP_" + name);
             }
 
             if (PlayerPrefs.HasKey("LOST_" + name))
             {
                 lostQuests.Add(name);
-                PlayerPrefs.DeleteKey("LOST_" + name);
+                //PlayerPrefs.DeleteKey("LOST_" + name);
             }
 
             if (PlayerPrefs.HasKey("NEGL_" + name))
             {
                 neglectedQuests.Add(name);
-                PlayerPrefs.DeleteKey("NEGL_" + name);
+                //PlayerPrefs.DeleteKey("NEGL_" + name);
             }
 
         }
@@ -247,7 +247,7 @@ public class Persistent : MonoBehaviour
                     firstContactNPCs.Add(name, true);
                 else
                     firstContactNPCs.Add(name, false);
-                PlayerPrefs.DeleteKey("FCN_" + name);
+                //PlayerPrefs.DeleteKey("FCN_" + name);
             }
         }
 
