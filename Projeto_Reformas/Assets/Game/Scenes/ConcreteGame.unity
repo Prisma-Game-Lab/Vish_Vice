@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMaterials: 3
-  addConcrete: 3
+  addConcrete: 2
   increaseFactor: 2
   maxSpeed: 12
   materials:
@@ -2189,7 +2189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.615}
   m_AnchorMax: {x: 0.12789588, y: 0.81962967}
-  m_AnchoredPosition: {x: -12.074646, y: 0.7330017}
+  m_AnchoredPosition: {x: -12.074707, y: 0.7330017}
   m_SizeDelta: {x: 22.172, y: -1.4659996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595436824
@@ -3744,7 +3744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.78637046}
   m_AnchorMax: {x: 0.12789588, y: 1}
-  m_AnchoredPosition: {x: -13.784851, y: 3.5541382}
+  m_AnchoredPosition: {x: -13.784912, y: 3.5541382}
   m_SizeDelta: {x: 26.0722, y: 4.960499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1143513903
