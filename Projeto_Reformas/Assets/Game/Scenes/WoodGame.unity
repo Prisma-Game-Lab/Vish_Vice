@@ -2962,7 +2962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f895e72bc8c29c545babf848d53364f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWoodSpawnTime: 2
+  minWoodSpawnTime: 1.6
   maxWoodSpawnTime: 4
   decreaseTimeInterval: 8
   decreaseRate: 0.3
