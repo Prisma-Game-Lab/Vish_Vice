@@ -36,6 +36,7 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         questsNpcs = GameObject.FindGameObjectsWithTag("NPC");
         minigameUI = GetComponent<MinigameMenu>();
         uiMaster = GetComponent<UIMaster>();
