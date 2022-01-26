@@ -60,7 +60,8 @@ public class DayCycle : MonoBehaviour
             day_txt.text = "Day " + persistentData.currentDay;
 
         hour = Mathf.FloorToInt(time * 24);
-        minutes = ((int)(((time * 24) % 1) * 6)) * 10;            
+        minutes = ((int)(((time * 24) % 1) * 6)) * 10;
+        Debug.Log(minutes);
     }
 
     private void Update()
@@ -139,7 +140,8 @@ public class DayCycle : MonoBehaviour
                 fadeIn.color = new Color(0, 0, 0, i);
                 yield return new WaitForSeconds(0.005f);
             }
-            time = 0.270f;
+            //time = 0.270f;
+            time = 0.334f;
             Persistent.current.fadeOn = true;
             SceneManager.LoadScene("Play");
         }
