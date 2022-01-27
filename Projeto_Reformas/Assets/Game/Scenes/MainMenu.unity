@@ -609,7 +609,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 22.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4334,7 +4334,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.611, y: 0.23665908}
   m_AnchorMax: {x: 0.88500005, y: 0.409}
-  m_AnchoredPosition: {x: -16, y: -7.9999695}
+  m_AnchoredPosition: {x: -16, y: -7.999954}
   m_SizeDelta: {x: 1.7045994, y: 0.54920006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194136797
@@ -5359,7 +5359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.16420996, y: 0.23665908}
   m_AnchorMax: {x: 0.44700003, y: 0.409}
-  m_AnchoredPosition: {x: -13.500122, y: -7.9999695}
+  m_AnchoredPosition: {x: -13.500122, y: -7.999954}
   m_SizeDelta: {x: -2.2954001, y: 0.54920006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1529250684
@@ -5951,7 +5951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.5769911, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7120,7 +7120,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956969640}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

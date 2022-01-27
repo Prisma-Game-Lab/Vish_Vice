@@ -38,7 +38,7 @@ public class Persistent : MonoBehaviour
 
     [HideInInspector] public bool fadeOn;
 
-    Transform playerTransform;
+    GameObject player;
 
     private void Awake()
     {
@@ -145,15 +145,18 @@ public class Persistent : MonoBehaviour
             i++;
         }
 
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        if (playerTransform != null)
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null && !(player.transform.position.x == 0 && player.transform.position.y == 0 && player.transform.position.z == 0))
         {
+            print("savepos");
             //Saving player position
-            PlayerPrefs.SetFloat("PlayerPositionX", playerTransform.position.x);
-            PlayerPrefs.SetFloat("PlayerPositionY", playerTransform.position.y);
-            PlayerPrefs.SetFloat("PlayerPositionZ", playerTransform.position.z);
+            PlayerPrefs.SetFloat("PlayerPositionX", player.transform.position.x);
+            PlayerPrefs.SetFloat("PlayerPositionY", player.transform.position.y);
+            PlayerPrefs.SetFloat("PlayerPositionZ", player.transform.position.z);
         }
-
+        print(PlayerPrefs.GetFloat("PlayerPositionX"));
+        print(PlayerPrefs.GetFloat("PlayerPositionY"));
+        print(PlayerPrefs.GetFloat("PlayerPositionZ"));
         //Saving FirstContactNpcs Dictionary
         foreach (KeyValuePair<string, bool> item in firstContactNPCs)
         {
@@ -268,7 +271,7 @@ public class Persistent : MonoBehaviour
     public void DeleteSave()
     {
         int i = 0;
-
+        print("deleta");
         //Deleting data lists
         while (PlayerPrefs.HasKey("quest" + i.ToString()))
         {

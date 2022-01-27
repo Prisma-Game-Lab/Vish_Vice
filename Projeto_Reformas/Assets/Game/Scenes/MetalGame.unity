@@ -5613,6 +5613,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3503818401965290044, guid: 15161db3c46e89f468244fb85b92f970, type: 3}
+      propertyPath: m_Elasticity
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503818401965290044, guid: 15161db3c46e89f468244fb85b92f970, type: 3}
+      propertyPath: m_Horizontal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3503818402171496361, guid: 15161db3c46e89f468244fb85b92f970, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
