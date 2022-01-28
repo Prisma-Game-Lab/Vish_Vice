@@ -4334,7 +4334,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.611, y: 0.23665908}
   m_AnchorMax: {x: 0.88500005, y: 0.409}
-  m_AnchoredPosition: {x: -16, y: -7.999954}
+  m_AnchoredPosition: {x: -16, y: -7.9999695}
   m_SizeDelta: {x: 1.7045994, y: 0.54920006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194136797
@@ -4480,7 +4480,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14125, y: 0.11777778}
   m_AnchorMax: {x: 0.8562499, y: 0.8933312}
-  m_AnchoredPosition: {x: 1.000061, y: 1.5}
+  m_AnchoredPosition: {x: 1, y: 1.5}
   m_SizeDelta: {x: 2.642212, y: -0.69281006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1201652816
@@ -5359,7 +5359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.16420996, y: 0.23665908}
   m_AnchorMax: {x: 0.44700003, y: 0.409}
-  m_AnchoredPosition: {x: -13.500122, y: -7.999954}
+  m_AnchoredPosition: {x: -13.500122, y: -7.9999695}
   m_SizeDelta: {x: -2.2954001, y: 0.54920006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1529250684
@@ -7158,7 +7158,7 @@ MonoBehaviour:
   sounds:
   - name: menu
     clip: {fileID: 8300000, guid: 030944b58cbcadb479c0ed862b6e198a, type: 3}
-    volume: 0.319
+    volume: 0.449
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -7188,13 +7188,13 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Voz1
-    clip: {fileID: 8300000, guid: 2efaea86a5fec564aa0b0271564df118, type: 3}
+    clip: {fileID: 8300000, guid: f0d2cd746cd82b3459b45fad0ab3ec33, type: 3}
     volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Voz2
-    clip: {fileID: 8300000, guid: 85f2a67d56e29a5459a6d63fe450afad, type: 3}
+    clip: {fileID: 8300000, guid: a6f96b5ec6be2694284fca8664d72eaf, type: 3}
     volume: 0.6
     pitch: 1
     loop: 0
@@ -8931,7 +8931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.11100001, y: 0.08469707}
   m_AnchorMax: {x: 0.20300001, y: 0.20030294}
-  m_AnchoredPosition: {x: -0.39996338, y: -1.7000122}
+  m_AnchoredPosition: {x: -0.4000244, y: -1.7000122}
   m_SizeDelta: {x: 2.758606, y: -2.9346924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7277099434081765075
